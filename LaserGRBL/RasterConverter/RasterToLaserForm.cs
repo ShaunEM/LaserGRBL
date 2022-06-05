@@ -728,7 +728,7 @@ namespace LaserGRBL.RasterConverter
 				if (IP != null)
 					IP.FormResize(GetImageSize());
 			}
-			catch (System.ArgumentException ex)
+			catch (System.ArgumentException)
 			{
 				//Catching this exception https://github.com/arkypita/LaserGRBL/issues/1288
 			}

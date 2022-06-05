@@ -15,7 +15,13 @@ namespace LaserGRBL
 	class ColorScheme
 	{
 		public enum Scheme
-		{ BlueLaser, RedLaser, Dark, Hacker, Nighty }
+		{ 
+			BlueLaser, 
+			RedLaser, 
+			Dark, 
+			Hacker, 
+			Nighty 
+		}
 
 		public static Dictionary<Scheme, Color[]> mData;
 
@@ -297,32 +303,3 @@ namespace LaserGRBL
 
 	}
 }
-
-
-		//public Color LeftColor
-		//{ get { return Color.Black; } }
-
-		//public Color RightColor
-		//{ get { return Status == CommandStatus.ResponseGood ? Color.DarkBlue : Status == CommandStatus.ResponseBad ? Color.Red : Color.Black; } }
-
-
-		//public Color LeftColor
-		//{
-		//	get 
-		//	{
-		//		if (mType == MessageType.Startup)
-		//			return Color.DarkGreen;
-		//		else if (mType == MessageType.Alarm)
-		//			return Color.Crimson;
-		//		else if (mType == MessageType.Config)
-		//			return Color.DimGray;
-		//		else if (mType == MessageType.Feedback)
-		//			return Color.DodgerBlue;
-		//		else if (mType == MessageType.Position)
-		//			return Color.OrangeRed;
-		//		else if (mType == MessageType.Others)
-		//			return Color.Purple;
-		//		else
-		//			return Color.Purple;
-		//	}
-		//}

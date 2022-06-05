@@ -120,15 +120,19 @@ namespace LaserGRBL
 			long start = Tools.HiResTimer.TotalMilliseconds;
 
 			if (!append)
+            {
 				list.Clear();
+            }
 
 			mRange.ResetRange();
 
-			SvgConverter.GCodeFromSVG converter = new SvgConverter.GCodeFromSVG();
-			converter.GCodeXYFeed = Settings.GetObject("GrayScaleConversion.VectorizeOptions.BorderSpeed", 1000);
-			converter.UseLegacyBezier = !Settings.GetObject($"Vector.UseSmartBezier", true);
+            SvgConverter.GCodeFromSVG converter = new SvgConverter.GCodeFromSVG
+            {
+                GCodeXYFeed = Settings.GetObject("GrayScaleConversion.VectorizeOptions.BorderSpeed", 1000),
+                UseLegacyBezier = !Settings.GetObject($"Vector.UseSmartBezier", true)
+            };
 
-			string gcode = converter.convertFromFile(filename, core);
+            string gcode = converter.convertFromFile(filename, core);
 			string[] lines = gcode.Split(Environment.NewLine.ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
 			foreach (string l in lines)
 			{
@@ -137,7 +141,9 @@ namespace LaserGRBL
 				{
 					GrblCommand cmd = new GrblCommand(line);
 					if (!cmd.IsEmpty)
+                    {
 						list.Add(cmd);
+					}
 				}
 			}
 
@@ -927,6 +933,11 @@ namespace LaserGRBL
 		public int Count
 		{ get { return list.Count; } }
 
+		public List<string> GetCommands()
+        {
+			return list.Select(n => n.Command).ToList();
+        }
+
 		public TimeSpan EstimatedTime { get { return mEstimatedTotalTime; } }
 
 
@@ -1076,6 +1087,8 @@ namespace LaserGRBL
 
 			foreach (GrblCommand cmd in list)
 			{
+				Console.WriteLine(cmd.Command);
+
 				try
 				{
 					GrblConf conf = Settings.GetObject("Grbl Configuration", new GrblConf());
@@ -1084,15 +1097,25 @@ namespace LaserGRBL
 					mRange.UpdateSRange(spb.S);
 
 					if (spb.LastArcHelperResult != null)
+                    {
 						mRange.UpdateXYRange(spb.LastArcHelperResult.BBox.X, spb.LastArcHelperResult.BBox.Y, spb.LastArcHelperResult.BBox.Width, spb.LastArcHelperResult.BBox.Height, spb.LaserBurning);
+                    }
 					else
+                    {
 						mRange.UpdateXYRange(spb.X, spb.Y, spb.LaserBurning);
+                    }
 
 					mEstimatedTotalTime += delay;
 					cmd.SetOffset(mEstimatedTotalTime);
 				}
-				catch (Exception ex) { throw ex; }
-				finally { cmd.DeleteHelper(); }
+				catch (Exception ex) 
+				{ 
+					throw ex; 
+				}
+				finally 
+				{ 
+					cmd.DeleteHelper(); 
+				}
 			}
 		}
 

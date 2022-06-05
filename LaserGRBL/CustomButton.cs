@@ -94,7 +94,9 @@ namespace LaserGRBL
 				}
 
 				if (dialogResult == System.Windows.Forms.DialogResult.OK && sfd.FileName != null)
+                {
 					Tools.Serializer.ObjToFile(buttons, sfd.FileName, Tools.Serializer.SerializationMode.Binary, null, true);
+                }
 			}
 		}
 
@@ -120,7 +122,9 @@ namespace LaserGRBL
 					}
 
 					if (dialogResult == System.Windows.Forms.DialogResult.OK && ofd.FileName != null)
+                    {
 						filename = ofd.FileName;
+                    }
 				}
 			}
 
@@ -136,19 +140,26 @@ namespace LaserGRBL
 						if (rv == System.Windows.Forms.DialogResult.Yes || rv == System.Windows.Forms.DialogResult.No)
 						{
 							if (rv == System.Windows.Forms.DialogResult.Yes)
+                            {
 								buttons.Clear();
+                            }
 
 							foreach (CustomButton cb in list)
 							{
 								if (System.Windows.Forms.MessageBox.Show(string.Format("Import \"{0}\"?", cb.ToolTip.Trim().Length > 0 ? cb.ToolTip : "[no name]"), Strings.BoxImportCustomButtonCaption, System.Windows.Forms.MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
+                                {
 									buttons.Add(cb);
+                                }
 							}
 
 							return true;
 						}
 					}
 				}
-				catch { System.Windows.Forms.MessageBox.Show($"Error importing custom buttons from {filename}"); }
+				catch 
+				{ 
+					System.Windows.Forms.MessageBox.Show($"Error importing custom buttons from {filename}"); 
+				}
 			}
 
 			return false;
@@ -161,8 +172,20 @@ namespace LaserGRBL
 	[Serializable]
 	public class CustomButton
 	{
-		public enum EnableStyles { Always = 0, Connected = 1, Idle = 3, Run = 4, IdleProgram = 10}
-		public enum ButtonTypes { Button = 0, TwoStateButton = 1, PushButton =2 }
+		public enum EnableStyles 
+		{ 
+			Always = 0, 
+			Connected = 1, 
+			Idle = 3, 
+			Run = 4, 
+			IdleProgram = 10
+		}
+		public enum ButtonTypes 
+		{ 
+			Button = 0, 
+			TwoStateButton = 1, 
+			PushButton = 2 
+		}
 
 		public System.Guid guid = Guid.NewGuid();
 		public System.Drawing.Image Image;

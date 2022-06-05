@@ -17,7 +17,12 @@ using Tools;
 namespace LaserGRBL
 {
 	public enum Firmware
-	{ Grbl, Smoothie, Marlin, VigoWork }
+	{ 
+		Grbl, 
+		Smoothie, 
+		Marlin, 
+		VigoWork 
+	}
 
 	/// <summary>
 	/// Description of CommandThread.
@@ -42,7 +47,14 @@ namespace LaserGRBL
 			private readonly string Name;
 
 			public ThreadingMode(int query, int txlong, int txshort, int rxlong, int rxshort, string name)
-			{ StatusQuery = query; TxLong = txlong; TxShort = txshort; RxLong = rxlong; RxShort = rxshort; Name = name; }
+			{ 
+				StatusQuery = query; 
+				TxLong = txlong; 
+				TxShort = txshort; 
+				RxLong = rxlong; 
+				RxShort = rxshort; 
+				Name = name; 
+			}
 
 			public static ThreadingMode Slow
 			{ get { return new ThreadingMode(2000, 15, 4, 2, 1, "Slow"); } }
@@ -566,7 +578,11 @@ namespace LaserGRBL
 		public static readonly List<string> ProjectFileExtensions = new List<string>(new string[] { ".lps" });
 		public void OpenFile(System.Windows.Forms.Form parent, string filename = null, bool append = false)
 		{
-			if (!CanLoadNewFile) return;
+			if (!CanLoadNewFile)
+			{
+				return;
+			}
+
 
 			try
 			{
@@ -577,7 +593,10 @@ namespace LaserGRBL
 						//pre-select last file if exist
 						string lastFN = Settings.GetObject<string>("Core.LastOpenFile", null);
 						if (lastFN != null && System.IO.File.Exists(lastFN))
+                        {
 							ofd.FileName = lastFN;
+						}
+							
 
 						ofd.Filter = "Any supported file|*.nc;*.cnc;*.tap;*.gcode;*.ngc;*.bmp;*.png;*.jpg;*.gif;*.svg;*.lps|GCODE Files|*.nc;*.cnc;*.tap;*.gcode;*.ngc|Raster Image|*.bmp;*.png;*.jpg;*.gif|Vector Image (experimental)|*.svg|LaserGRBL Project|*.lps";
 						ofd.CheckFileExists = true;
@@ -596,7 +615,9 @@ namespace LaserGRBL
 						}
 
 						if (dialogResult == System.Windows.Forms.DialogResult.OK)
+                        {
 							filename = ofd.FileName;
+                        }
 					}
 				}
 
@@ -605,7 +626,9 @@ namespace LaserGRBL
                 Logger.LogMessage("OpenFile", "Open {0}", filename);
                 Settings.SetObject("Core.LastOpenFile", filename);
 
-                if (ImageExtensions.Contains(System.IO.Path.GetExtension(filename).ToLowerInvariant())) //import raster image
+				string fileExtension = System.IO.Path.GetExtension(filename).ToLowerInvariant();
+
+				if (ImageExtensions.Contains(fileExtension)) //import raster image
                 {
                     try
                     {
@@ -613,9 +636,11 @@ namespace LaserGRBL
                         UsageCounters.RasterFile++;
                     }
                     catch (Exception ex)
-                    { Logger.LogException("RasterImport", ex); }
+                    { 
+						Logger.LogException("RasterImport", ex); 
+					}
                 }
-                else if (System.IO.Path.GetExtension(filename).ToLowerInvariant() == ".svg")
+                else if (fileExtension == ".svg")
                 {
                     SvgConverter.SvgModeForm.Mode mode = SvgConverter.SvgModeForm.Mode.Vector;// SvgConverter.SvgModeForm.CreateAndShow(filename);
                     if (mode == SvgConverter.SvgModeForm.Mode.Vector)
@@ -626,7 +651,9 @@ namespace LaserGRBL
                             UsageCounters.SvgFile++;
                         }
                         catch (Exception ex)
-                        { Logger.LogException("SvgImport", ex); }
+                        { 
+							Logger.LogException("SvgImport", ex); 
+						}
                     }
                     else if (mode == SvgConverter.SvgModeForm.Mode.Raster)
                     {
@@ -648,7 +675,9 @@ namespace LaserGRBL
 
 
                             if (System.IO.File.Exists(bmpname))
+                            {
                                 System.IO.File.Delete(bmpname);
+                            }
 
                             bmp.Save(bmpname/*, codecinfo, paramlist*/);
                         }
@@ -658,13 +687,17 @@ namespace LaserGRBL
                             RasterConverter.RasterToLaserForm.CreateAndShowDialog(this, bmpname, parent, append);
                             UsageCounters.RasterFile++;
                             if (System.IO.File.Exists(bmpname))
+                            {
                                 System.IO.File.Delete(bmpname);
+                            }
                         }
                         catch (Exception ex)
-                        { Logger.LogException("SvgBmpImport", ex); }
+                        { 
+							Logger.LogException("SvgBmpImport", ex); 
+						}
                     }
                 }
-                else if (GCodeExtensions.Contains(System.IO.Path.GetExtension(filename).ToLowerInvariant()))  //load GCODE file
+                else if (GCodeExtensions.Contains(fileExtension))  //load GCODE file
                 {
                     Cursor.Current = Cursors.WaitCursor;
 
@@ -674,11 +707,13 @@ namespace LaserGRBL
                         UsageCounters.GCodeFile++;
                     }
                     catch (Exception ex)
-                    { Logger.LogException("GCodeImport", ex); }
+                    { 
+						Logger.LogException("GCodeImport", ex); 
+					}
 
                     Cursor.Current = Cursors.Default;
                 }
-                else if (ProjectFileExtensions.Contains(System.IO.Path.GetExtension(filename).ToLowerInvariant()))  //load LaserGRBL project
+                else if (ProjectFileExtensions.Contains(fileExtension))  //load LaserGRBL project
                 {
                     var project = Project.LoadProject(filename);
 
@@ -710,7 +745,7 @@ namespace LaserGRBL
                 {
                     System.Windows.Forms.MessageBox.Show(Strings.UnsupportedFiletype, "Error", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
                 }
-            }
+			}
 			catch (Exception ex)
 			{
 				Logger.LogException("OpenFile", ex);
@@ -964,9 +999,13 @@ namespace LaserGRBL
 			if (CanSendFile)
 			{
 				if (mTP.Executed == 0 || mTP.Executed == mTP.Target) //mai iniziato oppure correttamente finito
+                {
 					RunProgramFromStart(false, true);
+                }
 				else
+                {
 					UserWantToContinue(parent);
+                }
 			}
 		}
 

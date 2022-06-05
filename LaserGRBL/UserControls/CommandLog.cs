@@ -30,7 +30,9 @@ namespace LaserGRBL.UserControls
 		}
 
 		public void SetCom(GrblCore core)
-		{ mCom = core; }
+		{ 
+			mCom = core; 
+		}
 
 		protected override void OnPaintBackground(PaintEventArgs e)
 		{
@@ -129,9 +131,14 @@ namespace LaserGRBL.UserControls
 		{
 			int idx = e.Y / RowHeight;
 			if (mDraw != null && idx < mDraw.Count)
+            {
 				SetPosition(idx);
+			}
 			else
+            {
 				SetPosition(-1);
+			}
+				
 		}
 		
 		void SetPosition(int position)

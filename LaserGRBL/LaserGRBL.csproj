@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>LaserGRBL</RootNamespace>
     <AssemblyName>LaserGRBL</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
     <NoStdLib>False</NoStdLib>
@@ -54,6 +54,7 @@
     <UseVSHostingProcess>false</UseVSHostingProcess>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <CodeAnalysisIgnoreGeneratedCode>false</CodeAnalysisIgnoreGeneratedCode>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -66,6 +67,7 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <UseVSHostingProcess>false</UseVSHostingProcess>
     <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <CheckForOverflowUnderflow>False</CheckForOverflowUnderflow>
@@ -139,10 +141,10 @@
     <Compile Include="Tools\DataProtector.cs" />
     <Compile Include="Tools\Json.cs" />
     <Compile Include="Logger\ComLogger.cs" />
-    <Compile Include="ExceptionManager.cs">
+    <Compile Include="Forms\ExceptionManager.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ExceptionManager.Designer.cs">
+    <Compile Include="Forms\ExceptionManager.Designer.cs">
       <DependentUpon>ExceptionManager.cs</DependentUpon>
     </Compile>
     <Compile Include="Firmware\FlashGrbl.cs">
@@ -151,10 +153,10 @@
     <Compile Include="Firmware\FlashGrbl.Designer.cs">
       <DependentUpon>FlashGrbl.cs</DependentUpon>
     </Compile>
-    <Compile Include="LicenseForm.cs">
+    <Compile Include="Forms\LicenseForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="LicenseForm.Designer.cs">
+    <Compile Include="Forms\LicenseForm.Designer.cs">
       <DependentUpon>LicenseForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Core\MarlinCore.cs" />
@@ -178,10 +180,10 @@
     <Compile Include="PSHelper\PSHelperForm.Designer.cs">
       <DependentUpon>PSHelperForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="SaveOptionForm.cs">
+    <Compile Include="Forms\SaveOptionForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SaveOptionForm.Designer.cs">
+    <Compile Include="Forms\SaveOptionForm.Designer.cs">
       <DependentUpon>SaveOptionForm.cs</DependentUpon>
     </Compile>
     <Compile Include="SincroStart.cs" />
@@ -437,16 +439,16 @@
     <Compile Include="UrlManager.cs" />
     <Compile Include="ColorScheme.cs" />
     <Compile Include="ComWrapper\Emulator.cs" />
-    <Compile Include="RunFromPositionForm.cs">
+    <Compile Include="Forms\RunFromPositionForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="RunFromPositionForm.Designer.cs">
+    <Compile Include="Forms\RunFromPositionForm.Designer.cs">
       <DependentUpon>RunFromPositionForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="GrblConfig.cs">
+    <Compile Include="Forms\GrblConfig.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GrblConfig.Designer.cs">
+    <Compile Include="Forms\GrblConfig.Designer.cs">
       <DependentUpon>GrblConfig.cs</DependentUpon>
     </Compile>
     <Compile Include="GrblEmulator\EmulatorUI.cs">
@@ -538,10 +540,10 @@
     <Compile Include="ComWrapper\WebSocket\WebSocketException.cs" />
     <Compile Include="ComWrapper\WebSocket\WebSocketFrame.cs" />
     <Compile Include="ComWrapper\WebSocket\WebSocketState.cs" />
-    <Compile Include="ConnectLogForm.cs">
+    <Compile Include="Forms\ConnectLogForm.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ConnectLogForm.Designer.cs">
+    <Compile Include="Forms\ConnectLogForm.Designer.cs">
       <DependentUpon>ConnectLogForm.cs</DependentUpon>
     </Compile>
     <Compile Include="CsPotrace\BezierToBiarc\Algorithm.cs" />
@@ -556,10 +558,10 @@
     <Compile Include="CsPotrace\CsPotraceExportGCODE.cs" />
     <Compile Include="CsPotrace\CsPotraceExport.cs" />
     <Compile Include="CustomButton.cs" />
-    <Compile Include="CustomButtonForm.cs">
+    <Compile Include="Forms\CustomButtonForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CustomButtonForm.Designer.cs">
+    <Compile Include="Forms\CustomButtonForm.Designer.cs">
       <DependentUpon>CustomButtonForm.cs</DependentUpon>
     </Compile>
     <Compile Include="AutoUpdate\GitHub.cs" />
@@ -568,30 +570,30 @@
     <Compile Include="CSV\FormattedMessage.cs" />
     <Compile Include="GrblCommand.cs" />
     <Compile Include="GrblFile.cs" />
-    <Compile Include="HotkeyManagerForm.cs">
+    <Compile Include="Forms\HotkeyManagerForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="HotkeyManagerForm.Designer.cs">
+    <Compile Include="Forms\HotkeyManagerForm.Designer.cs">
       <DependentUpon>HotkeyManagerForm.cs</DependentUpon>
     </Compile>
     <Compile Include="HotKeysManager.cs" />
-    <Compile Include="IssueDetectorForm.cs">
+    <Compile Include="Forms\IssueDetectorForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="IssueDetectorForm.Designer.cs">
+    <Compile Include="Forms\IssueDetectorForm.Designer.cs">
       <DependentUpon>IssueDetectorForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="JogForm.cs">
+    <Compile Include="Forms\JogForm.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="JogForm.Designer.cs">
+    <Compile Include="Forms\JogForm.Designer.cs">
       <DependentUpon>JogForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Logger\Logger.cs" />
-    <Compile Include="MainForm.cs">
+    <Compile Include="Forms\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainForm.Designer.cs">
+    <Compile Include="Forms\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="AutoUpdate\NewVersionForm.cs">
@@ -603,18 +605,18 @@
     <Compile Include="MyDatagridView.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="PreviewForm.cs">
+    <Compile Include="Forms\PreviewForm.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="PreviewForm.Designer.cs">
+    <Compile Include="Forms\PreviewForm.Designer.cs">
       <DependentUpon>PreviewForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="AssemblyInfo.cs" />
-    <Compile Include="ResumeJobForm.cs">
+    <Compile Include="Forms\ResumeJobForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ResumeJobForm.Designer.cs">
+    <Compile Include="Forms\ResumeJobForm.Designer.cs">
       <DependentUpon>ResumeJobForm.cs</DependentUpon>
     </Compile>
     <Compile Include="StateBuilder.cs" />
@@ -657,16 +659,16 @@
       <DependentUpon>ResolutionHelperForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Settings.cs" />
-    <Compile Include="SettingsForm.cs">
+    <Compile Include="Forms\SettingsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SettingsForm.Designer.cs">
+    <Compile Include="Forms\SettingsForm.Designer.cs">
       <DependentUpon>SettingsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="SplashScreenForm.cs">
+    <Compile Include="Forms\SplashScreenForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SplashScreenForm.Designer.cs">
+    <Compile Include="Forms\SplashScreenForm.Designer.cs">
       <DependentUpon>SplashScreenForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Tools\Cronometro.cs" />
@@ -781,55 +783,55 @@
     <EmbeddedResource Include="AutoUpdate\NewVersionForm.ro-RO.resx">
       <DependentUpon>NewVersionForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ConnectLogForm.nl-NL.resx">
+    <EmbeddedResource Include="Forms\ConnectLogForm.nl-NL.resx">
       <DependentUpon>ConnectLogForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ConnectLogForm.ro-RO.resx">
+    <EmbeddedResource Include="Forms\ConnectLogForm.ro-RO.resx">
       <DependentUpon>ConnectLogForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CustomButtonForm.nl-NL.resx">
+    <EmbeddedResource Include="Forms\CustomButtonForm.nl-NL.resx">
       <DependentUpon>CustomButtonForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CustomButtonForm.ro-RO.resx">
+    <EmbeddedResource Include="Forms\CustomButtonForm.ro-RO.resx">
       <DependentUpon>CustomButtonForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ExceptionManager.nl-NL.resx">
+    <EmbeddedResource Include="Forms\ExceptionManager.nl-NL.resx">
       <DependentUpon>ExceptionManager.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ExceptionManager.ro-RO.resx">
+    <EmbeddedResource Include="Forms\ExceptionManager.ro-RO.resx">
       <DependentUpon>ExceptionManager.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GrblConfig.nl-NL.resx">
+    <EmbeddedResource Include="Forms\GrblConfig.nl-NL.resx">
       <DependentUpon>GrblConfig.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GrblConfig.ro-RO.resx">
+    <EmbeddedResource Include="Forms\GrblConfig.ro-RO.resx">
       <DependentUpon>GrblConfig.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="HotkeyManagerForm.nl-NL.resx">
+    <EmbeddedResource Include="Forms\HotkeyManagerForm.nl-NL.resx">
       <DependentUpon>HotkeyManagerForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="HotkeyManagerForm.ro-RO.resx">
+    <EmbeddedResource Include="Forms\HotkeyManagerForm.ro-RO.resx">
       <DependentUpon>HotkeyManagerForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="IssueDetectorForm.nl-NL.resx">
+    <EmbeddedResource Include="Forms\IssueDetectorForm.nl-NL.resx">
       <DependentUpon>IssueDetectorForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="IssueDetectorForm.ro-RO.resx">
+    <EmbeddedResource Include="Forms\IssueDetectorForm.ro-RO.resx">
       <DependentUpon>IssueDetectorForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LicenseForm.ro-RO.resx">
+    <EmbeddedResource Include="Forms\LicenseForm.ro-RO.resx">
       <DependentUpon>LicenseForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainForm.nl-NL.resx">
+    <EmbeddedResource Include="Forms\MainForm.nl-NL.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainForm.ro-RO.resx">
+    <EmbeddedResource Include="Forms\MainForm.ro-RO.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PreviewForm.nl-NL.resx">
+    <EmbeddedResource Include="Forms\PreviewForm.nl-NL.resx">
       <DependentUpon>PreviewForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PreviewForm.ro-RO.resx">
+    <EmbeddedResource Include="Forms\PreviewForm.ro-RO.resx">
       <DependentUpon>PreviewForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PSHelper\PSEditorForm.nl-NL.resx">
@@ -864,28 +866,28 @@
     <EmbeddedResource Include="RasterConverter\ResolutionHelperForm.ro-RO.resx">
       <DependentUpon>ResolutionHelperForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ResumeJobForm.nl-NL.resx">
+    <EmbeddedResource Include="Forms\ResumeJobForm.nl-NL.resx">
       <DependentUpon>ResumeJobForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ResumeJobForm.ro-RO.resx">
+    <EmbeddedResource Include="Forms\ResumeJobForm.ro-RO.resx">
       <DependentUpon>ResumeJobForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="RunFromPositionForm.nl-NL.resx">
+    <EmbeddedResource Include="Forms\RunFromPositionForm.nl-NL.resx">
       <DependentUpon>RunFromPositionForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="RunFromPositionForm.ro-RO.resx">
+    <EmbeddedResource Include="Forms\RunFromPositionForm.ro-RO.resx">
       <DependentUpon>RunFromPositionForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SaveOptionForm.nl-NL.resx">
+    <EmbeddedResource Include="Forms\SaveOptionForm.nl-NL.resx">
       <DependentUpon>SaveOptionForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SaveOptionForm.ro-RO.resx">
+    <EmbeddedResource Include="Forms\SaveOptionForm.ro-RO.resx">
       <DependentUpon>SaveOptionForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SettingsForm.nl-NL.resx">
+    <EmbeddedResource Include="Forms\SettingsForm.nl-NL.resx">
       <DependentUpon>SettingsForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SettingsForm.ro-RO.resx">
+    <EmbeddedResource Include="Forms\SettingsForm.ro-RO.resx">
       <DependentUpon>SettingsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SvgConverter\ConvertSizeAndOptionForm.nl-NL.resx">
@@ -924,12 +926,12 @@
     <EmbeddedResource Include="AutoUpdate\NewVersionForm.tr-TR.resx">
       <DependentUpon>NewVersionForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ConnectLogForm.el-GR.resx">
+    <EmbeddedResource Include="Forms\ConnectLogForm.el-GR.resx">
       <DependentUpon>ConnectLogForm.cs</DependentUpon>
       <Generator>ResXFileCodeGeneratorEx</Generator>
       <LastGenOutput>ConnectLogForm.el-GR.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="ConnectLogForm.tr-TR.resx">
+    <EmbeddedResource Include="Forms\ConnectLogForm.tr-TR.resx">
       <DependentUpon>ConnectLogForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CSV\setting_codes.ortur.v1.4.x.csv" />
@@ -974,276 +976,277 @@
     <EmbeddedResource Include="AutoUpdate\NewVersionForm.zh-TW.resx">
       <DependentUpon>NewVersionForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ConnectLogForm.cs-CZ.resx">
+    <EmbeddedResource Include="Forms\ConnectLogForm.cs-CZ.resx">
       <DependentUpon>ConnectLogForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ConnectLogForm.da.resx">
+    <EmbeddedResource Include="Forms\ConnectLogForm.da.resx">
       <DependentUpon>ConnectLogForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ConnectLogForm.de.resx">
+    <EmbeddedResource Include="Forms\ConnectLogForm.de.resx">
       <DependentUpon>ConnectLogForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ConnectLogForm.es.resx">
-      <DependentUpon>ConnectLogForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ConnectLogForm.fr.resx">
-      <DependentUpon>ConnectLogForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ConnectLogForm.hu-HU.resx">
-      <DependentUpon>ConnectLogForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ConnectLogForm.it.resx">
-      <DependentUpon>ConnectLogForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ConnectLogForm.pl-PL.resx">
-      <DependentUpon>ConnectLogForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ConnectLogForm.pt-BR.resx">
-      <DependentUpon>ConnectLogForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ConnectLogForm.resx">
+    <EmbeddedResource Include="Forms\ConnectLogForm.es.resx">
       <DependentUpon>ConnectLogForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="ConnectLogForm.ru.resx">
+    <EmbeddedResource Include="Forms\ConnectLogForm.fr.resx">
       <DependentUpon>ConnectLogForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ConnectLogForm.sk-SK.resx">
+    <EmbeddedResource Include="Forms\ConnectLogForm.hu-HU.resx">
       <DependentUpon>ConnectLogForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ConnectLogForm.zh-CN.resx">
+    <EmbeddedResource Include="Forms\ConnectLogForm.it.resx">
+      <DependentUpon>ConnectLogForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ConnectLogForm.pl-PL.resx">
+      <DependentUpon>ConnectLogForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ConnectLogForm.pt-BR.resx">
+      <DependentUpon>ConnectLogForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ConnectLogForm.resx">
       <DependentUpon>ConnectLogForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="ConnectLogForm.zh-TW.resx">
+    <EmbeddedResource Include="Forms\ConnectLogForm.ru.resx">
       <DependentUpon>ConnectLogForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CustomButtonForm.cs-CZ.resx">
+    <EmbeddedResource Include="Forms\ConnectLogForm.sk-SK.resx">
+      <DependentUpon>ConnectLogForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ConnectLogForm.zh-CN.resx">
+      <DependentUpon>ConnectLogForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ConnectLogForm.zh-TW.resx">
+      <DependentUpon>ConnectLogForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CustomButtonForm.cs-CZ.resx">
       <DependentUpon>CustomButtonForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="CustomButtonForm.el-GR.resx">
+    <EmbeddedResource Include="Forms\CustomButtonForm.el-GR.resx">
       <DependentUpon>CustomButtonForm.cs</DependentUpon>
       <Generator>ResXFileCodeGeneratorEx</Generator>
       <LastGenOutput>CustomButtonForm.el-GR.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="CustomButtonForm.es.resx">
+    <EmbeddedResource Include="Forms\CustomButtonForm.es.resx">
       <DependentUpon>CustomButtonForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CustomButtonForm.fr.resx">
+    <EmbeddedResource Include="Forms\CustomButtonForm.fr.resx">
       <DependentUpon>CustomButtonForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CustomButtonForm.hu-HU.resx">
+    <EmbeddedResource Include="Forms\CustomButtonForm.hu-HU.resx">
       <DependentUpon>CustomButtonForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CustomButtonForm.pl-PL.resx">
+    <EmbeddedResource Include="Forms\CustomButtonForm.pl-PL.resx">
       <DependentUpon>CustomButtonForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CustomButtonForm.ru.resx">
+    <EmbeddedResource Include="Forms\CustomButtonForm.ru.resx">
       <DependentUpon>CustomButtonForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CustomButtonForm.sk-SK.resx">
+    <EmbeddedResource Include="Forms\CustomButtonForm.sk-SK.resx">
       <DependentUpon>CustomButtonForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CustomButtonForm.tr-TR.resx">
+    <EmbeddedResource Include="Forms\CustomButtonForm.tr-TR.resx">
       <DependentUpon>CustomButtonForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CustomButtonForm.zh-TW.resx">
+    <EmbeddedResource Include="Forms\CustomButtonForm.zh-TW.resx">
       <DependentUpon>CustomButtonForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ExceptionManager.cs-CZ.resx">
+    <EmbeddedResource Include="Forms\ExceptionManager.cs-CZ.resx">
       <DependentUpon>ExceptionManager.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ExceptionManager.de.resx">
+    <EmbeddedResource Include="Forms\ExceptionManager.de.resx">
       <DependentUpon>ExceptionManager.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ExceptionManager.el-GR.resx">
+    <EmbeddedResource Include="Forms\ExceptionManager.el-GR.resx">
       <DependentUpon>ExceptionManager.cs</DependentUpon>
       <Generator>ResXFileCodeGeneratorEx</Generator>
       <LastGenOutput>ExceptionManager.el-GR.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="ExceptionManager.es.resx">
+    <EmbeddedResource Include="Forms\ExceptionManager.es.resx">
       <DependentUpon>ExceptionManager.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ExceptionManager.resx">
+    <EmbeddedResource Include="Forms\ExceptionManager.resx">
       <DependentUpon>ExceptionManager.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ExceptionManager.tr-TR.resx">
+    <EmbeddedResource Include="Forms\ExceptionManager.tr-TR.resx">
       <DependentUpon>ExceptionManager.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ExceptionManager.zh-TW.resx">
+    <EmbeddedResource Include="Forms\ExceptionManager.zh-TW.resx">
       <DependentUpon>ExceptionManager.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Firmware\FlashGrbl.resx">
       <DependentUpon>FlashGrbl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CustomButtonForm.zh-CN.resx">
+    <EmbeddedResource Include="Forms\CustomButtonForm.zh-CN.resx">
       <DependentUpon>CustomButtonForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GrblConfig.cs-CZ.resx">
+    <EmbeddedResource Include="Forms\GrblConfig.cs-CZ.resx">
       <DependentUpon>GrblConfig.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GrblConfig.de.resx">
+    <EmbeddedResource Include="Forms\GrblConfig.de.resx">
       <DependentUpon>GrblConfig.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GrblConfig.el-GR.resx">
+    <EmbeddedResource Include="Forms\GrblConfig.el-GR.resx">
       <DependentUpon>GrblConfig.cs</DependentUpon>
       <Generator>ResXFileCodeGeneratorEx</Generator>
       <LastGenOutput>GrblConfig.el-GR.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="GrblConfig.es.resx">
+    <EmbeddedResource Include="Forms\GrblConfig.es.resx">
       <DependentUpon>GrblConfig.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GrblConfig.fr.resx">
+    <EmbeddedResource Include="Forms\GrblConfig.fr.resx">
       <DependentUpon>GrblConfig.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GrblConfig.hu-HU.resx">
+    <EmbeddedResource Include="Forms\GrblConfig.hu-HU.resx">
       <DependentUpon>GrblConfig.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GrblConfig.it.resx">
+    <EmbeddedResource Include="Forms\GrblConfig.it.resx">
       <DependentUpon>GrblConfig.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GrblConfig.pl-PL.resx">
+    <EmbeddedResource Include="Forms\GrblConfig.pl-PL.resx">
       <DependentUpon>GrblConfig.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GrblConfig.ru.resx">
+    <EmbeddedResource Include="Forms\GrblConfig.ru.resx">
       <DependentUpon>GrblConfig.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GrblConfig.sk-SK.resx">
+    <EmbeddedResource Include="Forms\GrblConfig.sk-SK.resx">
       <DependentUpon>GrblConfig.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GrblConfig.tr-TR.resx">
+    <EmbeddedResource Include="Forms\GrblConfig.tr-TR.resx">
       <DependentUpon>GrblConfig.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GrblConfig.zh-CN.resx">
+    <EmbeddedResource Include="Forms\GrblConfig.zh-CN.resx">
       <DependentUpon>GrblConfig.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GrblConfig.zh-TW.resx">
+    <EmbeddedResource Include="Forms\GrblConfig.zh-TW.resx">
       <DependentUpon>GrblConfig.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="HotkeyManagerForm.cs-CZ.resx">
+    <EmbeddedResource Include="Forms\HotkeyManagerForm.cs-CZ.resx">
       <DependentUpon>HotkeyManagerForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="HotkeyManagerForm.de.resx">
+    <EmbeddedResource Include="Forms\HotkeyManagerForm.de.resx">
       <DependentUpon>HotkeyManagerForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="HotkeyManagerForm.el-GR.resx">
+    <EmbeddedResource Include="Forms\HotkeyManagerForm.el-GR.resx">
       <DependentUpon>HotkeyManagerForm.cs</DependentUpon>
       <Generator>ResXFileCodeGeneratorEx</Generator>
       <LastGenOutput>HotkeyManagerForm.el-GR.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="HotkeyManagerForm.es.resx">
+    <EmbeddedResource Include="Forms\HotkeyManagerForm.es.resx">
       <DependentUpon>HotkeyManagerForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="HotkeyManagerForm.fr.resx">
+    <EmbeddedResource Include="Forms\HotkeyManagerForm.fr.resx">
       <DependentUpon>HotkeyManagerForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="HotkeyManagerForm.hu-HU.resx">
+    <EmbeddedResource Include="Forms\HotkeyManagerForm.hu-HU.resx">
       <DependentUpon>HotkeyManagerForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="HotkeyManagerForm.it.resx">
+    <EmbeddedResource Include="Forms\HotkeyManagerForm.it.resx">
       <DependentUpon>HotkeyManagerForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="HotkeyManagerForm.pl-PL.resx">
+    <EmbeddedResource Include="Forms\HotkeyManagerForm.pl-PL.resx">
       <DependentUpon>HotkeyManagerForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="HotkeyManagerForm.ru.resx">
+    <EmbeddedResource Include="Forms\HotkeyManagerForm.ru.resx">
       <DependentUpon>HotkeyManagerForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="HotkeyManagerForm.sk-SK.resx">
+    <EmbeddedResource Include="Forms\HotkeyManagerForm.sk-SK.resx">
       <DependentUpon>HotkeyManagerForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="HotkeyManagerForm.tr-TR.resx">
+    <EmbeddedResource Include="Forms\HotkeyManagerForm.tr-TR.resx">
       <DependentUpon>HotkeyManagerForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="HotkeyManagerForm.zh-TW.resx">
+    <EmbeddedResource Include="Forms\HotkeyManagerForm.zh-TW.resx">
       <DependentUpon>HotkeyManagerForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="IssueDetectorForm.cs-CZ.resx">
+    <EmbeddedResource Include="Forms\IssueDetectorForm.cs-CZ.resx">
       <DependentUpon>IssueDetectorForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="IssueDetectorForm.de.resx">
+    <EmbeddedResource Include="Forms\IssueDetectorForm.de.resx">
       <DependentUpon>IssueDetectorForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="IssueDetectorForm.el-GR.resx">
+    <EmbeddedResource Include="Forms\IssueDetectorForm.el-GR.resx">
       <DependentUpon>IssueDetectorForm.cs</DependentUpon>
       <Generator>ResXFileCodeGeneratorEx</Generator>
       <LastGenOutput>IssueDetectorForm.el-GR.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="IssueDetectorForm.es.resx">
+    <EmbeddedResource Include="Forms\IssueDetectorForm.es.resx">
       <DependentUpon>IssueDetectorForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="IssueDetectorForm.fr.resx">
+    <EmbeddedResource Include="Forms\IssueDetectorForm.fr.resx">
       <DependentUpon>IssueDetectorForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="IssueDetectorForm.hu-HU.resx">
+    <EmbeddedResource Include="Forms\IssueDetectorForm.hu-HU.resx">
       <DependentUpon>IssueDetectorForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="IssueDetectorForm.it.resx">
+    <EmbeddedResource Include="Forms\IssueDetectorForm.it.resx">
       <DependentUpon>IssueDetectorForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="IssueDetectorForm.pl-PL.resx">
+    <EmbeddedResource Include="Forms\IssueDetectorForm.pl-PL.resx">
       <DependentUpon>IssueDetectorForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="IssueDetectorForm.ru.resx">
+    <EmbeddedResource Include="Forms\IssueDetectorForm.ru.resx">
       <DependentUpon>IssueDetectorForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="IssueDetectorForm.sk-SK.resx">
+    <EmbeddedResource Include="Forms\IssueDetectorForm.sk-SK.resx">
       <DependentUpon>IssueDetectorForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="IssueDetectorForm.tr-TR.resx">
+    <EmbeddedResource Include="Forms\IssueDetectorForm.tr-TR.resx">
       <DependentUpon>IssueDetectorForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="IssueDetectorForm.zh-TW.resx">
+    <EmbeddedResource Include="Forms\IssueDetectorForm.zh-TW.resx">
       <DependentUpon>IssueDetectorForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LicenseForm.resx">
+    <EmbeddedResource Include="Forms\LicenseForm.resx">
       <DependentUpon>LicenseForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainForm.cs-CZ.resx">
+    <EmbeddedResource Include="Forms\MainForm.cs-CZ.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainForm.el-GR.resx">
+    <EmbeddedResource Include="Forms\MainForm.el-GR.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
       <Generator>ResXFileCodeGeneratorEx</Generator>
       <LastGenOutput>MainForm.el-GR.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainForm.hu-HU.resx">
+    <EmbeddedResource Include="Forms\MainForm.hu-HU.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainForm.pl-PL.resx">
+    <EmbeddedResource Include="Forms\MainForm.pl-PL.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainForm.sk-SK.resx">
+    <EmbeddedResource Include="Forms\MainForm.sk-SK.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainForm.tr-TR.resx">
+    <EmbeddedResource Include="Forms\MainForm.tr-TR.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainForm.zh-TW.resx">
+    <EmbeddedResource Include="Forms\MainForm.zh-TW.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PreviewForm.cs-CZ.resx">
+    <EmbeddedResource Include="Forms\PreviewForm.cs-CZ.resx">
       <DependentUpon>PreviewForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PreviewForm.el-GR.resx">
+    <EmbeddedResource Include="Forms\PreviewForm.el-GR.resx">
       <DependentUpon>PreviewForm.cs</DependentUpon>
       <Generator>ResXFileCodeGeneratorEx</Generator>
       <LastGenOutput>PreviewForm.el-GR.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="PreviewForm.hu-HU.resx">
+    <EmbeddedResource Include="Forms\PreviewForm.hu-HU.resx">
       <DependentUpon>PreviewForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PreviewForm.pl-PL.resx">
+    <EmbeddedResource Include="Forms\PreviewForm.pl-PL.resx">
       <DependentUpon>PreviewForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PreviewForm.sk-SK.resx">
+    <EmbeddedResource Include="Forms\PreviewForm.sk-SK.resx">
       <DependentUpon>PreviewForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PreviewForm.tr-TR.resx">
+    <EmbeddedResource Include="Forms\PreviewForm.tr-TR.resx">
       <DependentUpon>PreviewForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PreviewForm.zh-TW.resx">
+    <EmbeddedResource Include="Forms\PreviewForm.zh-TW.resx">
       <DependentUpon>PreviewForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PSHelper\PSEditorForm.cs-CZ.resx">
@@ -1352,233 +1355,234 @@
     <EmbeddedResource Include="RasterConverter\ResolutionHelperForm.zh-TW.resx">
       <DependentUpon>ResolutionHelperForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ResumeJobForm.cs-CZ.resx">
+    <EmbeddedResource Include="Forms\ResumeJobForm.cs-CZ.resx">
       <DependentUpon>ResumeJobForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ResumeJobForm.de.resx">
+    <EmbeddedResource Include="Forms\ResumeJobForm.de.resx">
       <DependentUpon>ResumeJobForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ResumeJobForm.el-GR.resx">
+    <EmbeddedResource Include="Forms\ResumeJobForm.el-GR.resx">
       <DependentUpon>ResumeJobForm.cs</DependentUpon>
       <Generator>ResXFileCodeGeneratorEx</Generator>
       <LastGenOutput>ResumeJobForm.el-GR.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="ResumeJobForm.es.resx">
+    <EmbeddedResource Include="Forms\ResumeJobForm.es.resx">
       <DependentUpon>ResumeJobForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ResumeJobForm.fr.resx">
+    <EmbeddedResource Include="Forms\ResumeJobForm.fr.resx">
       <DependentUpon>ResumeJobForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ResumeJobForm.hu-HU.resx">
+    <EmbeddedResource Include="Forms\ResumeJobForm.hu-HU.resx">
       <DependentUpon>ResumeJobForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ResumeJobForm.it.resx">
+    <EmbeddedResource Include="Forms\ResumeJobForm.it.resx">
       <DependentUpon>ResumeJobForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ResumeJobForm.pl-PL.resx">
+    <EmbeddedResource Include="Forms\ResumeJobForm.pl-PL.resx">
       <DependentUpon>ResumeJobForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ResumeJobForm.ru.resx">
+    <EmbeddedResource Include="Forms\ResumeJobForm.ru.resx">
       <DependentUpon>ResumeJobForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ResumeJobForm.sk-SK.resx">
+    <EmbeddedResource Include="Forms\ResumeJobForm.sk-SK.resx">
       <DependentUpon>ResumeJobForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ResumeJobForm.tr-TR.resx">
+    <EmbeddedResource Include="Forms\ResumeJobForm.tr-TR.resx">
       <DependentUpon>ResumeJobForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ResumeJobForm.zh-CN.resx">
+    <EmbeddedResource Include="Forms\ResumeJobForm.zh-CN.resx">
       <DependentUpon>ResumeJobForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ResumeJobForm.zh-TW.resx">
+    <EmbeddedResource Include="Forms\ResumeJobForm.zh-TW.resx">
       <DependentUpon>ResumeJobForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="RunFromPositionForm.cs-CZ.resx">
+    <EmbeddedResource Include="Forms\RunFromPositionForm.cs-CZ.resx">
       <DependentUpon>RunFromPositionForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="RunFromPositionForm.de.resx">
+    <EmbeddedResource Include="Forms\RunFromPositionForm.de.resx">
       <DependentUpon>RunFromPositionForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="RunFromPositionForm.el-GR.resx">
+    <EmbeddedResource Include="Forms\RunFromPositionForm.el-GR.resx">
       <DependentUpon>RunFromPositionForm.cs</DependentUpon>
       <Generator>ResXFileCodeGeneratorEx</Generator>
       <LastGenOutput>RunFromPositionForm.el-GR.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="RunFromPositionForm.es.resx">
+    <EmbeddedResource Include="Forms\RunFromPositionForm.es.resx">
       <DependentUpon>RunFromPositionForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="RunFromPositionForm.fr.resx">
+    <EmbeddedResource Include="Forms\RunFromPositionForm.fr.resx">
       <DependentUpon>RunFromPositionForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="RunFromPositionForm.hu-HU.resx">
+    <EmbeddedResource Include="Forms\RunFromPositionForm.hu-HU.resx">
       <DependentUpon>RunFromPositionForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="RunFromPositionForm.it.resx">
+    <EmbeddedResource Include="Forms\RunFromPositionForm.it.resx">
       <DependentUpon>RunFromPositionForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="RunFromPositionForm.pl-PL.resx">
+    <EmbeddedResource Include="Forms\RunFromPositionForm.pl-PL.resx">
       <DependentUpon>RunFromPositionForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="RunFromPositionForm.resx">
+    <EmbeddedResource Include="Forms\RunFromPositionForm.resx">
       <DependentUpon>RunFromPositionForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GrblConfig.resx">
+    <EmbeddedResource Include="Forms\GrblConfig.resx">
       <DependentUpon>GrblConfig.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="CustomButtonForm.de.resx">
+    <EmbeddedResource Include="Forms\CustomButtonForm.de.resx">
       <DependentUpon>CustomButtonForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CustomButtonForm.it.resx">
+    <EmbeddedResource Include="Forms\CustomButtonForm.it.resx">
       <DependentUpon>CustomButtonForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CustomButtonForm.resx">
+    <EmbeddedResource Include="Forms\CustomButtonForm.resx">
       <DependentUpon>CustomButtonForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GrblEmulator\EmulatorUI.resx">
       <DependentUpon>EmulatorUI.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="HotkeyManagerForm.resx">
+    <EmbeddedResource Include="Forms\HotkeyManagerForm.resx">
       <DependentUpon>HotkeyManagerForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="IssueDetectorForm.resx">
+    <EmbeddedResource Include="Forms\IssueDetectorForm.resx">
       <DependentUpon>IssueDetectorForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="JogForm.resx">
+    <EmbeddedResource Include="Forms\JogForm.resx">
       <DependentUpon>JogForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainForm.da.resx">
+    <EmbeddedResource Include="Forms\MainForm.da.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainForm.de.resx">
+    <EmbeddedResource Include="Forms\MainForm.de.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainForm.es.resx">
+    <EmbeddedResource Include="Forms\MainForm.es.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MainForm.fr.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainForm.fr.resx">
+    <EmbeddedResource Include="Forms\MainForm.it.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainForm.it.resx">
+    <EmbeddedResource Include="Forms\MainForm.pt-BR.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainForm.pt-BR.resx">
-      <DependentUpon>MainForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MainForm.resx">
+    <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="AutoUpdate\NewVersionForm.resx">
       <DependentUpon>NewVersionForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainForm.ru.resx">
+    <EmbeddedResource Include="Forms\MainForm.ru.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainForm.zh-CN.resx">
+    <EmbeddedResource Include="Forms\MainForm.zh-CN.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="PreviewForm.de.resx">
+    <EmbeddedResource Include="Forms\PreviewForm.de.resx">
       <DependentUpon>PreviewForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PreviewForm.es.resx">
+    <EmbeddedResource Include="Forms\PreviewForm.es.resx">
       <DependentUpon>PreviewForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PreviewForm.fr.resx">
+    <EmbeddedResource Include="Forms\PreviewForm.fr.resx">
       <DependentUpon>PreviewForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PreviewForm.it.resx">
+    <EmbeddedResource Include="Forms\PreviewForm.it.resx">
       <DependentUpon>PreviewForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PreviewForm.resx">
+    <EmbeddedResource Include="Forms\PreviewForm.resx">
       <DependentUpon>PreviewForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PreviewForm.ru.resx">
+    <EmbeddedResource Include="Forms\PreviewForm.ru.resx">
       <DependentUpon>PreviewForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PreviewForm.zh-CN.resx">
+    <EmbeddedResource Include="Forms\PreviewForm.zh-CN.resx">
       <DependentUpon>PreviewForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="ResumeJobForm.resx">
+    <EmbeddedResource Include="Forms\ResumeJobForm.resx">
       <DependentUpon>ResumeJobForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="RunFromPositionForm.ru.resx">
+    <EmbeddedResource Include="Forms\RunFromPositionForm.ru.resx">
       <DependentUpon>RunFromPositionForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="RunFromPositionForm.sk-SK.resx">
+    <EmbeddedResource Include="Forms\RunFromPositionForm.sk-SK.resx">
       <DependentUpon>RunFromPositionForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="RunFromPositionForm.tr-TR.resx">
+    <EmbeddedResource Include="Forms\RunFromPositionForm.tr-TR.resx">
       <DependentUpon>RunFromPositionForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="RunFromPositionForm.zh-CN.resx">
+    <EmbeddedResource Include="Forms\RunFromPositionForm.zh-CN.resx">
       <DependentUpon>RunFromPositionForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="RunFromPositionForm.zh-TW.resx">
+    <EmbeddedResource Include="Forms\RunFromPositionForm.zh-TW.resx">
       <DependentUpon>RunFromPositionForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SaveOptionForm.cs-CZ.resx">
+    <EmbeddedResource Include="Forms\SaveOptionForm.cs-CZ.resx">
       <DependentUpon>SaveOptionForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SaveOptionForm.de.resx">
+    <EmbeddedResource Include="Forms\SaveOptionForm.de.resx">
       <DependentUpon>SaveOptionForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SaveOptionForm.el-GR.resx">
+    <EmbeddedResource Include="Forms\SaveOptionForm.el-GR.resx">
       <DependentUpon>SaveOptionForm.cs</DependentUpon>
       <Generator>ResXFileCodeGeneratorEx</Generator>
       <LastGenOutput>SaveOptionForm.el-GR.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="SaveOptionForm.es.resx">
+    <EmbeddedResource Include="Forms\SaveOptionForm.es.resx">
       <DependentUpon>SaveOptionForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SaveOptionForm.it.resx">
+    <EmbeddedResource Include="Forms\SaveOptionForm.it.resx">
       <DependentUpon>SaveOptionForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SaveOptionForm.pl-PL.resx">
+    <EmbeddedResource Include="Forms\SaveOptionForm.pl-PL.resx">
       <DependentUpon>SaveOptionForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SaveOptionForm.resx">
+    <EmbeddedResource Include="Forms\SaveOptionForm.resx">
       <DependentUpon>SaveOptionForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SaveOptionForm.tr-TR.resx">
+    <EmbeddedResource Include="Forms\SaveOptionForm.tr-TR.resx">
       <DependentUpon>SaveOptionForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SaveOptionForm.zh-TW.resx">
+    <EmbeddedResource Include="Forms\SaveOptionForm.zh-TW.resx">
       <DependentUpon>SaveOptionForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SettingsForm.cs-CZ.resx">
+    <EmbeddedResource Include="Forms\SettingsForm.cs-CZ.resx">
       <DependentUpon>SettingsForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="SettingsForm.el-GR.resx">
+    <EmbeddedResource Include="Forms\SettingsForm.el-GR.resx">
       <DependentUpon>SettingsForm.cs</DependentUpon>
       <Generator>ResXFileCodeGeneratorEx</Generator>
       <LastGenOutput>SettingsForm.el-GR.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="SettingsForm.es.resx">
+    <EmbeddedResource Include="Forms\SettingsForm.es.resx">
       <DependentUpon>SettingsForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="SettingsForm.hu-HU.resx">
+    <EmbeddedResource Include="Forms\SettingsForm.hu-HU.resx">
       <DependentUpon>SettingsForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="SettingsForm.pl-PL.resx">
+    <EmbeddedResource Include="Forms\SettingsForm.pl-PL.resx">
       <DependentUpon>SettingsForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="SettingsForm.sk-SK.resx">
+    <EmbeddedResource Include="Forms\SettingsForm.sk-SK.resx">
       <DependentUpon>SettingsForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="SettingsForm.tr-TR.resx">
+    <EmbeddedResource Include="Forms\SettingsForm.tr-TR.resx">
       <DependentUpon>SettingsForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="SettingsForm.zh-TW.resx">
+    <EmbeddedResource Include="Forms\SettingsForm.zh-TW.resx">
       <DependentUpon>SettingsForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
@@ -1723,37 +1727,37 @@
     <EmbeddedResource Include="RasterConverter\ResolutionHelperForm.zh-CN.resx">
       <DependentUpon>ResolutionHelperForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SettingsForm.da.resx">
+    <EmbeddedResource Include="Forms\SettingsForm.da.resx">
       <DependentUpon>SettingsForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SettingsForm.de.resx">
-      <DependentUpon>SettingsForm.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="SettingsForm.fr.resx">
+    <EmbeddedResource Include="Forms\SettingsForm.de.resx">
       <DependentUpon>SettingsForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="SettingsForm.it.resx">
+    <EmbeddedResource Include="Forms\SettingsForm.fr.resx">
       <DependentUpon>SettingsForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="SettingsForm.pt-BR.resx">
-      <DependentUpon>SettingsForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="SettingsForm.resx">
+    <EmbeddedResource Include="Forms\SettingsForm.it.resx">
       <DependentUpon>SettingsForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="SettingsForm.ru.resx">
+    <EmbeddedResource Include="Forms\SettingsForm.pt-BR.resx">
+      <DependentUpon>SettingsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SettingsForm.resx">
       <DependentUpon>SettingsForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="SettingsForm.zh-CN.resx">
+    <EmbeddedResource Include="Forms\SettingsForm.ru.resx">
       <DependentUpon>SettingsForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="SplashScreenForm.resx">
+    <EmbeddedResource Include="Forms\SettingsForm.zh-CN.resx">
+      <DependentUpon>SettingsForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SplashScreenForm.resx">
       <DependentUpon>SplashScreenForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SvgConverter\ConvertSizeAndOptionForm.cs-CZ.resx">
