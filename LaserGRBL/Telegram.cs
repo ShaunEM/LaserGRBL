@@ -12,8 +12,8 @@ namespace LaserGRBL
 
 		public static void NotifyEvent(string message)
 		{
-			if (Settings.GetObject("TelegramNotification.Enabled", false))
-				NotifyEvent(Tools.Protector.Decrypt(Settings.GetObject("TelegramNotification.Code", "")), message);
+			if (GlobalSettings.GetObject("TelegramNotification.Enabled", false))
+				NotifyEvent(Tools.Protector.Decrypt(GlobalSettings.GetObject("TelegramNotification.Code", "")), message);
 		}
 		public static void NotifyEvent(string usercode, string message)
 		{

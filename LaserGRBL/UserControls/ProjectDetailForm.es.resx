@@ -59,46 +59,46 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+  <xsd:schema xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" id="root">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace"/>
     <xsd:element name="root" msdata:IsDataSet="true">
       <xsd:complexType>
         <xsd:choice maxOccurs="unbounded">
           <xsd:element name="metadata">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+                <xsd:element name="value" type="xsd:string" minOccurs="0"/>
               </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string" />
-              <xsd:attribute name="type" type="xsd:string" />
-              <xsd:attribute name="mimetype" type="xsd:string" />
-              <xsd:attribute ref="xml:space" />
+              <xsd:attribute name="name" use="required" type="xsd:string"/>
+              <xsd:attribute name="type" type="xsd:string"/>
+              <xsd:attribute name="mimetype" type="xsd:string"/>
+              <xsd:attribute ref="xml:space"/>
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="assembly">
             <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string" />
-              <xsd:attribute name="name" type="xsd:string" />
+              <xsd:attribute name="alias" type="xsd:string"/>
+              <xsd:attribute name="name" type="xsd:string"/>
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="data">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2"/>
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-              <xsd:attribute ref="xml:space" />
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1"/>
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3"/>
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4"/>
+              <xsd:attribute ref="xml:space"/>
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="resheader">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" />
+              <xsd:attribute name="name" type="xsd:string" use="required"/>
             </xsd:complexType>
           </xsd:element>
         </xsd:choice>
@@ -117,18 +117,18 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"/>
   <data name="tableLayoutPanel1.ColumnCount" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
   <data name="tableLayoutPanel6.ColumnCount" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"/>
   <data name="TxtManualCommand.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"/>
   <data name="TxtManualCommand.Font" type="System.Drawing.Font, System.Drawing">
     <value>Consolas, 9pt</value>
   </data>
@@ -145,7 +145,7 @@
     <value>9</value>
   </data>
   <data name="TxtManualCommand.WaterMark" xml:space="preserve">
-    <value>type gcode here</value>
+    <value>escribe GCode aquí</value>
   </data>
   <data name="&gt;&gt;TxtManualCommand.Name" xml:space="preserve">
     <value>TxtManualCommand</value>
@@ -280,7 +280,7 @@
     <value>8</value>
   </data>
   <data name="LblProgress.Text" xml:space="preserve">
-    <value>Progress</value>
+    <value>Progreso</value>
   </data>
   <data name="&gt;&gt;LblProgress.Name" xml:space="preserve">
     <value>LblProgress</value>
@@ -316,7 +316,7 @@
     <value>0</value>
   </data>
   <data name="LblFilename.Text" xml:space="preserve">
-    <value>Filename</value>
+    <value>Archivo</value>
   </data>
   <data name="&gt;&gt;LblFilename.Name" xml:space="preserve">
     <value>LblFilename</value>
@@ -424,7 +424,7 @@
     <value>17, 17</value>
   </metadata>
   <data name="BtnOpen.ToolTip" xml:space="preserve">
-    <value>Open File</value>
+    <value>Abrir Archivo</value>
   </data>
   <data name="&gt;&gt;BtnOpen.Name" xml:space="preserve">
     <value>BtnOpen</value>
@@ -473,7 +473,7 @@
     <value>8</value>
   </data>
   <data name="BtnRunProgram.ToolTip" xml:space="preserve">
-    <value>Run Program</value>
+    <value>Ejecutar Programa</value>
   </data>
   <data name="&gt;&gt;BtnRunProgram.Name" xml:space="preserve">
     <value>BtnRunProgram</value>
@@ -497,7 +497,7 @@
     <value>9</value>
   </data>
   <data name="UDLoopCounter.ToolTip" xml:space="preserve">
-    <value>Perform multiple passes</value>
+    <value>Realizar múltiples pasadas</value>
   </data>
   <data name="&gt;&gt;UDLoopCounter.Name" xml:space="preserve">
     <value>UDLoopCounter</value>
@@ -538,7 +538,7 @@
     <value>10</value>
   </data>
   <data name="BtnAbortProgram.ToolTip" xml:space="preserve">
-    <value>Abort Program</value>
+    <value>Abortar Programa</value>
   </data>
   <data name="BtnAbortProgram.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -649,7 +649,7 @@
     <value>6</value>
   </data>
   <data name="LblEmulator.Text" xml:space="preserve">
-    <value>Emulator</value>
+    <value>Emulador</value>
   </data>
   <data name="LblEmulator.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -751,7 +751,7 @@
     <value>1</value>
   </data>
   <data name="LblBaudRate.Text" xml:space="preserve">
-    <value>Baud</value>
+    <value>Baudios</value>
   </data>
   <data name="&gt;&gt;LblBaudRate.Name" xml:space="preserve">
     <value>LblBaudRate</value>
@@ -880,7 +880,7 @@
     <value>7</value>
   </data>
   <data name="TxtEmulator.Text" xml:space="preserve">
-    <value>Emulated Grbl v1.1#</value>
+    <value>Grbl v1.1# Emulado</value>
   </data>
   <data name="TxtEmulator.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -1070,7 +1070,7 @@
     <value>5</value>
   </data>
   <data name="BtnConnectDisconnect.ToolTip" xml:space="preserve">
-    <value>Connect</value>
+    <value>Conectar</value>
   </data>
   <data name="&gt;&gt;BtnConnectDisconnect.Name" xml:space="preserve">
     <value>BtnConnectDisconnect</value>

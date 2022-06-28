@@ -132,6 +132,30 @@
     <Compile Include="ComWrapper\MySerial\StopBits.cs" />
     <Compile Include="ComWrapper\MySerial\WinSerialStream.cs" />
     <Compile Include="ComWrapper\UsbSerial2.cs" />
+    <Compile Include="Core\GrblConf.cs" />
+    <Compile Include="Core\TimeProjection.cs" />
+    <Compile Include="Extentions\ColorExtentions.cs" />
+    <Compile Include="Extentions\ListExtentions.cs" />
+    <Compile Include="Forms\FormManager.cs" />
+    <Compile Include="Forms\LayerConfigForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\LayerConfigForm.Designer.cs">
+      <DependentUpon>LayerConfigForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GRBL\CSVD.cs" />
+    <Compile Include="GRBL\GrblElement.cs" />
+    <Compile Include="GRBL\GrblMessage.cs" />
+    <Compile Include="GRBL\IGrblRow.cs" />
+    <Compile Include="ProgramRange.cs" />
+    <Compile Include="Project\LayerSettings.cs" />
+    <Compile Include="Project\ProjectCore.cs" />
+    <Compile Include="Resource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="SvgConverter\SVGColor.cs" />
     <Compile Include="Tools\Project.cs" />
     <Compile Include="Core\VigoCore.cs" />
     <Compile Include="CsPotrace\PotraceClipper.cs" />
@@ -189,11 +213,11 @@
     <Compile Include="SincroStart.cs" />
     <Compile Include="Core\SmoothieCore.cs" />
     <Compile Include="Sound\SoundEvent.cs" />
-    <Compile Include="SvgConverter\ConvertSizeAndOptionForm.cs">
+    <Compile Include="SvgConverter\SvgToGCodeForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SvgConverter\ConvertSizeAndOptionForm.Designer.cs">
-      <DependentUpon>ConvertSizeAndOptionForm.cs</DependentUpon>
+    <Compile Include="SvgConverter\SvgToGCodeForm.Designer.cs">
+      <DependentUpon>SvgToGCodeForm.cs</DependentUpon>
     </Compile>
     <Compile Include="SvgConverter\GCodeFromSVG.cs" />
     <Compile Include="SvgConverter\gcodeRelated.cs" />
@@ -540,10 +564,22 @@
     <Compile Include="ComWrapper\WebSocket\WebSocketException.cs" />
     <Compile Include="ComWrapper\WebSocket\WebSocketFrame.cs" />
     <Compile Include="ComWrapper\WebSocket\WebSocketState.cs" />
-    <Compile Include="Forms\ConnectLogForm.cs">
+    <Compile Include="UserControls\ComboBoxRowColor.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UserControls\ListViewRowColor.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UserControls\ProjectDetailForm.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Forms\ConnectLogForm.Designer.cs">
+    <Compile Include="UserControls\ProjectDetailForm.Designer.cs">
+      <DependentUpon>ProjectDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ConnectLogForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ConnectLogForm.Designer.cs">
       <DependentUpon>ConnectLogForm.cs</DependentUpon>
     </Compile>
     <Compile Include="CsPotrace\BezierToBiarc\Algorithm.cs" />
@@ -568,8 +604,8 @@
     <Compile Include="Core\GrblCore.cs" />
     <Compile Include="CSV\CsvDictionary.cs" />
     <Compile Include="CSV\FormattedMessage.cs" />
-    <Compile Include="GrblCommand.cs" />
-    <Compile Include="GrblFile.cs" />
+    <Compile Include="GRBL\GrblCommand.cs" />
+    <Compile Include="GRBL\GrblFile.cs" />
     <Compile Include="Forms\HotkeyManagerForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -583,10 +619,10 @@
     <Compile Include="Forms\IssueDetectorForm.Designer.cs">
       <DependentUpon>IssueDetectorForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\JogForm.cs">
+    <Compile Include="UserControls\JogForm.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Forms\JogForm.Designer.cs">
+    <Compile Include="UserControls\JogForm.Designer.cs">
       <DependentUpon>JogForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Logger\Logger.cs" />
@@ -605,10 +641,10 @@
     <Compile Include="MyDatagridView.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Forms\PreviewForm.cs">
+    <Compile Include="UserControls\PreviewForm.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Forms\PreviewForm.Designer.cs">
+    <Compile Include="UserControls\PreviewForm.Designer.cs">
       <DependentUpon>PreviewForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -658,7 +694,7 @@
     <Compile Include="RasterConverter\ResolutionHelperForm.Designer.cs">
       <DependentUpon>ResolutionHelperForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Settings.cs" />
+    <Compile Include="GlobalSettings.cs" />
     <Compile Include="Forms\SettingsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -777,16 +813,83 @@
       <DependentUpon>DiscoveryForm.cs</DependentUpon>
     </Compile>
     <Compile Include="WiFiDiscovery\IPAddressHelper.cs" />
+    <Content Include="TODO.txt" />
     <EmbeddedResource Include="AutoUpdate\NewVersionForm.nl-NL.resx">
       <DependentUpon>NewVersionForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AutoUpdate\NewVersionForm.ro-RO.resx">
       <DependentUpon>NewVersionForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\ConnectLogForm.nl-NL.resx">
+    <EmbeddedResource Include="Forms\LayerConfigForm.resx">
+      <DependentUpon>LayerConfigForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <SplashScreen Include="Resource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource.Designer.cs</LastGenOutput>
+    </SplashScreen>
+    <EmbeddedResource Include="UserControls\ProjectDetailForm.cs-CZ.resx">
+      <DependentUpon>ProjectDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ProjectDetailForm.da.resx">
+      <DependentUpon>ProjectDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ProjectDetailForm.de.resx">
+      <DependentUpon>ProjectDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ProjectDetailForm.el-GR.resx">
+      <DependentUpon>ProjectDetailForm.cs</DependentUpon>
+      <Generator>ResXFileCodeGeneratorEx</Generator>
+      <LastGenOutput>ConnectLogForm.el-GR.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ProjectDetailForm.es.resx">
+      <DependentUpon>ProjectDetailForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ProjectDetailForm.fr.resx">
+      <DependentUpon>ProjectDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ProjectDetailForm.hu-HU.resx">
+      <DependentUpon>ProjectDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ProjectDetailForm.it.resx">
+      <DependentUpon>ProjectDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ProjectDetailForm.nl-NL.resx">
+      <DependentUpon>ProjectDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ProjectDetailForm.pl-PL.resx">
+      <DependentUpon>ProjectDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ProjectDetailForm.pt-BR.resx">
+      <DependentUpon>ProjectDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ProjectDetailForm.resx">
+      <DependentUpon>ProjectDetailForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ProjectDetailForm.ro-RO.resx">
+      <DependentUpon>ProjectDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ProjectDetailForm.ru.resx">
+      <DependentUpon>ProjectDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ProjectDetailForm.sk-SK.resx">
+      <DependentUpon>ProjectDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ProjectDetailForm.tr-TR.resx">
+      <DependentUpon>ProjectDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ProjectDetailForm.zh-CN.resx">
+      <DependentUpon>ProjectDetailForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ProjectDetailForm.zh-TW.resx">
+      <DependentUpon>ProjectDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ConnectLogForm.nl-NL.resx">
       <DependentUpon>ConnectLogForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\ConnectLogForm.ro-RO.resx">
+    <EmbeddedResource Include="UserControls\ConnectLogForm.ro-RO.resx">
       <DependentUpon>ConnectLogForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\CustomButtonForm.nl-NL.resx">
@@ -828,10 +931,10 @@
     <EmbeddedResource Include="Forms\MainForm.ro-RO.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\PreviewForm.nl-NL.resx">
+    <EmbeddedResource Include="UserControls\PreviewForm.nl-NL.resx">
       <DependentUpon>PreviewForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\PreviewForm.ro-RO.resx">
+    <EmbeddedResource Include="UserControls\PreviewForm.ro-RO.resx">
       <DependentUpon>PreviewForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PSHelper\PSEditorForm.nl-NL.resx">
@@ -890,11 +993,11 @@
     <EmbeddedResource Include="Forms\SettingsForm.ro-RO.resx">
       <DependentUpon>SettingsForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SvgConverter\ConvertSizeAndOptionForm.nl-NL.resx">
-      <DependentUpon>ConvertSizeAndOptionForm.cs</DependentUpon>
+    <EmbeddedResource Include="SvgConverter\SvgToGCodeForm.nl-NL.resx">
+      <DependentUpon>SvgToGCodeForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SvgConverter\ConvertSizeAndOptionForm.ro-RO.resx">
-      <DependentUpon>ConvertSizeAndOptionForm.cs</DependentUpon>
+    <EmbeddedResource Include="SvgConverter\SvgToGCodeForm.ro-RO.resx">
+      <DependentUpon>SvgToGCodeForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WiFiDiscovery\DiscoveryForm.nl-NL.resx">
       <DependentUpon>DiscoveryForm.cs</DependentUpon>
@@ -926,12 +1029,12 @@
     <EmbeddedResource Include="AutoUpdate\NewVersionForm.tr-TR.resx">
       <DependentUpon>NewVersionForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\ConnectLogForm.el-GR.resx">
+    <EmbeddedResource Include="UserControls\ConnectLogForm.el-GR.resx">
       <DependentUpon>ConnectLogForm.cs</DependentUpon>
       <Generator>ResXFileCodeGeneratorEx</Generator>
       <LastGenOutput>ConnectLogForm.el-GR.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\ConnectLogForm.tr-TR.resx">
+    <EmbeddedResource Include="UserControls\ConnectLogForm.tr-TR.resx">
       <DependentUpon>ConnectLogForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CSV\setting_codes.ortur.v1.4.x.csv" />
@@ -976,49 +1079,49 @@
     <EmbeddedResource Include="AutoUpdate\NewVersionForm.zh-TW.resx">
       <DependentUpon>NewVersionForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\ConnectLogForm.cs-CZ.resx">
+    <EmbeddedResource Include="UserControls\ConnectLogForm.cs-CZ.resx">
       <DependentUpon>ConnectLogForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\ConnectLogForm.da.resx">
+    <EmbeddedResource Include="UserControls\ConnectLogForm.da.resx">
       <DependentUpon>ConnectLogForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\ConnectLogForm.de.resx">
+    <EmbeddedResource Include="UserControls\ConnectLogForm.de.resx">
       <DependentUpon>ConnectLogForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\ConnectLogForm.es.resx">
-      <DependentUpon>ConnectLogForm.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\ConnectLogForm.fr.resx">
-      <DependentUpon>ConnectLogForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\ConnectLogForm.hu-HU.resx">
-      <DependentUpon>ConnectLogForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\ConnectLogForm.it.resx">
-      <DependentUpon>ConnectLogForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\ConnectLogForm.pl-PL.resx">
-      <DependentUpon>ConnectLogForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\ConnectLogForm.pt-BR.resx">
-      <DependentUpon>ConnectLogForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\ConnectLogForm.resx">
+    <EmbeddedResource Include="UserControls\ConnectLogForm.es.resx">
       <DependentUpon>ConnectLogForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\ConnectLogForm.ru.resx">
+    <EmbeddedResource Include="UserControls\ConnectLogForm.fr.resx">
       <DependentUpon>ConnectLogForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\ConnectLogForm.sk-SK.resx">
+    <EmbeddedResource Include="UserControls\ConnectLogForm.hu-HU.resx">
       <DependentUpon>ConnectLogForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\ConnectLogForm.zh-CN.resx">
+    <EmbeddedResource Include="UserControls\ConnectLogForm.it.resx">
+      <DependentUpon>ConnectLogForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ConnectLogForm.pl-PL.resx">
+      <DependentUpon>ConnectLogForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ConnectLogForm.pt-BR.resx">
+      <DependentUpon>ConnectLogForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ConnectLogForm.resx">
       <DependentUpon>ConnectLogForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\ConnectLogForm.zh-TW.resx">
+    <EmbeddedResource Include="UserControls\ConnectLogForm.ru.resx">
+      <DependentUpon>ConnectLogForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ConnectLogForm.sk-SK.resx">
+      <DependentUpon>ConnectLogForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ConnectLogForm.zh-CN.resx">
+      <DependentUpon>ConnectLogForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ConnectLogForm.zh-TW.resx">
       <DependentUpon>ConnectLogForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\CustomButtonForm.cs-CZ.resx">
@@ -1226,27 +1329,27 @@
     <EmbeddedResource Include="Forms\MainForm.zh-TW.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\PreviewForm.cs-CZ.resx">
+    <EmbeddedResource Include="UserControls\PreviewForm.cs-CZ.resx">
       <DependentUpon>PreviewForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\PreviewForm.el-GR.resx">
+    <EmbeddedResource Include="UserControls\PreviewForm.el-GR.resx">
       <DependentUpon>PreviewForm.cs</DependentUpon>
       <Generator>ResXFileCodeGeneratorEx</Generator>
       <LastGenOutput>PreviewForm.el-GR.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\PreviewForm.hu-HU.resx">
+    <EmbeddedResource Include="UserControls\PreviewForm.hu-HU.resx">
       <DependentUpon>PreviewForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\PreviewForm.pl-PL.resx">
+    <EmbeddedResource Include="UserControls\PreviewForm.pl-PL.resx">
       <DependentUpon>PreviewForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\PreviewForm.sk-SK.resx">
+    <EmbeddedResource Include="UserControls\PreviewForm.sk-SK.resx">
       <DependentUpon>PreviewForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\PreviewForm.tr-TR.resx">
+    <EmbeddedResource Include="UserControls\PreviewForm.tr-TR.resx">
       <DependentUpon>PreviewForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\PreviewForm.zh-TW.resx">
+    <EmbeddedResource Include="UserControls\PreviewForm.zh-TW.resx">
       <DependentUpon>PreviewForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PSHelper\PSEditorForm.cs-CZ.resx">
@@ -1447,7 +1550,7 @@
     <EmbeddedResource Include="Forms\IssueDetectorForm.resx">
       <DependentUpon>IssueDetectorForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\JogForm.resx">
+    <EmbeddedResource Include="UserControls\JogForm.resx">
       <DependentUpon>JogForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MainForm.da.resx">
@@ -1483,25 +1586,25 @@
       <DependentUpon>MainForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\PreviewForm.de.resx">
+    <EmbeddedResource Include="UserControls\PreviewForm.de.resx">
       <DependentUpon>PreviewForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\PreviewForm.es.resx">
+    <EmbeddedResource Include="UserControls\PreviewForm.es.resx">
       <DependentUpon>PreviewForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\PreviewForm.fr.resx">
+    <EmbeddedResource Include="UserControls\PreviewForm.fr.resx">
       <DependentUpon>PreviewForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\PreviewForm.it.resx">
+    <EmbeddedResource Include="UserControls\PreviewForm.it.resx">
       <DependentUpon>PreviewForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\PreviewForm.resx">
+    <EmbeddedResource Include="UserControls\PreviewForm.resx">
       <DependentUpon>PreviewForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\PreviewForm.ru.resx">
+    <EmbeddedResource Include="UserControls\PreviewForm.ru.resx">
       <DependentUpon>PreviewForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\PreviewForm.zh-CN.resx">
+    <EmbeddedResource Include="UserControls\PreviewForm.zh-CN.resx">
       <DependentUpon>PreviewForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
@@ -1760,56 +1863,56 @@
     <EmbeddedResource Include="Forms\SplashScreenForm.resx">
       <DependentUpon>SplashScreenForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SvgConverter\ConvertSizeAndOptionForm.cs-CZ.resx">
-      <DependentUpon>ConvertSizeAndOptionForm.cs</DependentUpon>
+    <EmbeddedResource Include="SvgConverter\SvgToGCodeForm.cs-CZ.resx">
+      <DependentUpon>SvgToGCodeForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SvgConverter\ConvertSizeAndOptionForm.da.resx">
-      <DependentUpon>ConvertSizeAndOptionForm.cs</DependentUpon>
+    <EmbeddedResource Include="SvgConverter\SvgToGCodeForm.da.resx">
+      <DependentUpon>SvgToGCodeForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SvgConverter\ConvertSizeAndOptionForm.de.resx">
-      <DependentUpon>ConvertSizeAndOptionForm.cs</DependentUpon>
+    <EmbeddedResource Include="SvgConverter\SvgToGCodeForm.de.resx">
+      <DependentUpon>SvgToGCodeForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="SvgConverter\ConvertSizeAndOptionForm.es.resx">
-      <DependentUpon>ConvertSizeAndOptionForm.cs</DependentUpon>
+    <EmbeddedResource Include="SvgConverter\SvgToGCodeForm.es.resx">
+      <DependentUpon>SvgToGCodeForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="SvgConverter\ConvertSizeAndOptionForm.fr.resx">
-      <DependentUpon>ConvertSizeAndOptionForm.cs</DependentUpon>
+    <EmbeddedResource Include="SvgConverter\SvgToGCodeForm.fr.resx">
+      <DependentUpon>SvgToGCodeForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="SvgConverter\ConvertSizeAndOptionForm.hu-HU.resx">
-      <DependentUpon>ConvertSizeAndOptionForm.cs</DependentUpon>
+    <EmbeddedResource Include="SvgConverter\SvgToGCodeForm.hu-HU.resx">
+      <DependentUpon>SvgToGCodeForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SvgConverter\ConvertSizeAndOptionForm.it.resx">
-      <DependentUpon>ConvertSizeAndOptionForm.cs</DependentUpon>
+    <EmbeddedResource Include="SvgConverter\SvgToGCodeForm.it.resx">
+      <DependentUpon>SvgToGCodeForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="SvgConverter\ConvertSizeAndOptionForm.pl-PL.resx">
-      <DependentUpon>ConvertSizeAndOptionForm.cs</DependentUpon>
+    <EmbeddedResource Include="SvgConverter\SvgToGCodeForm.pl-PL.resx">
+      <DependentUpon>SvgToGCodeForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SvgConverter\ConvertSizeAndOptionForm.pt-BR.resx">
-      <DependentUpon>ConvertSizeAndOptionForm.cs</DependentUpon>
+    <EmbeddedResource Include="SvgConverter\SvgToGCodeForm.pt-BR.resx">
+      <DependentUpon>SvgToGCodeForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SvgConverter\ConvertSizeAndOptionForm.resx">
-      <DependentUpon>ConvertSizeAndOptionForm.cs</DependentUpon>
+    <EmbeddedResource Include="SvgConverter\SvgToGCodeForm.resx">
+      <DependentUpon>SvgToGCodeForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="SvgConverter\ConvertSizeAndOptionForm.ru.resx">
-      <DependentUpon>ConvertSizeAndOptionForm.cs</DependentUpon>
+    <EmbeddedResource Include="SvgConverter\SvgToGCodeForm.ru.resx">
+      <DependentUpon>SvgToGCodeForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SvgConverter\ConvertSizeAndOptionForm.sk-SK.resx">
-      <DependentUpon>ConvertSizeAndOptionForm.cs</DependentUpon>
+    <EmbeddedResource Include="SvgConverter\SvgToGCodeForm.sk-SK.resx">
+      <DependentUpon>SvgToGCodeForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SvgConverter\ConvertSizeAndOptionForm.tr-TR.resx">
-      <DependentUpon>ConvertSizeAndOptionForm.cs</DependentUpon>
+    <EmbeddedResource Include="SvgConverter\SvgToGCodeForm.tr-TR.resx">
+      <DependentUpon>SvgToGCodeForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SvgConverter\ConvertSizeAndOptionForm.zh-CN.resx">
-      <DependentUpon>ConvertSizeAndOptionForm.cs</DependentUpon>
+    <EmbeddedResource Include="SvgConverter\SvgToGCodeForm.zh-CN.resx">
+      <DependentUpon>SvgToGCodeForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="SvgConverter\ConvertSizeAndOptionForm.zh-TW.resx">
-      <DependentUpon>ConvertSizeAndOptionForm.cs</DependentUpon>
+    <EmbeddedResource Include="SvgConverter\SvgToGCodeForm.zh-TW.resx">
+      <DependentUpon>SvgToGCodeForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SvgConverter\SvgModeForm.resx">
       <DependentUpon>SvgModeForm.cs</DependentUpon>

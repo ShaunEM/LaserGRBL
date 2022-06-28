@@ -117,276 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="splitContainer1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="splitContainer1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 30</value>
-  </data>
-  <data name="splitContainer1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
-  </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="ConnectionForm.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="ConnectionForm.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="ConnectionForm.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 8.25pt</value>
-  </data>
-  <data name="ConnectionForm.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 3</value>
-  </data>
-  <data name="ConnectionForm.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 5, 5, 5</value>
-  </data>
-  <data name="ConnectionForm.Size" type="System.Drawing.Size, System.Drawing">
-    <value>324, 459</value>
-  </data>
-  <data name="ConnectionForm.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;ConnectionForm.Name" xml:space="preserve">
-    <value>ConnectionForm</value>
-  </data>
-  <data name="&gt;&gt;ConnectionForm.Type" xml:space="preserve">
-    <value>LaserGRBL.ConnectLogForm, LaserGRBL, Version=4.8.1.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;ConnectionForm.Parent" xml:space="preserve">
-    <value>mainTab</value>
-  </data>
-  <data name="&gt;&gt;ConnectionForm.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="mainTab.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 25</value>
-  </data>
-  <data name="mainTab.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 3, 3, 3</value>
-  </data>
-  <data name="mainTab.Size" type="System.Drawing.Size, System.Drawing">
-    <value>330, 465</value>
-  </data>
-  <data name="mainTab.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="mainTab.Text" xml:space="preserve">
-    <value>Main</value>
-  </data>
-  <data name="&gt;&gt;mainTab.Name" xml:space="preserve">
-    <value>mainTab</value>
-  </data>
-  <data name="&gt;&gt;mainTab.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;mainTab.Parent" xml:space="preserve">
-    <value>tabControl1</value>
-  </data>
-  <data name="&gt;&gt;mainTab.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="gcodeText.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="gcodeText.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="gcodeText.Size" type="System.Drawing.Size, System.Drawing">
-    <value>303, 467</value>
-  </data>
-  <data name="gcodeText.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="gcodeText.Text" xml:space="preserve">
-    <value />
-  </data>
-  <data name="&gt;&gt;gcodeText.Name" xml:space="preserve">
-    <value>gcodeText</value>
-  </data>
-  <data name="&gt;&gt;gcodeText.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RichTextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;gcodeText.Parent" xml:space="preserve">
-    <value>gcodeTab</value>
-  </data>
-  <data name="&gt;&gt;gcodeText.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="gcodeTab.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 25</value>
-  </data>
-  <data name="gcodeTab.Size" type="System.Drawing.Size, System.Drawing">
-    <value>303, 467</value>
-  </data>
-  <data name="gcodeTab.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="gcodeTab.Text" xml:space="preserve">
-    <value>G-Code</value>
-  </data>
-  <data name="&gt;&gt;gcodeTab.Name" xml:space="preserve">
-    <value>gcodeTab</value>
-  </data>
-  <data name="&gt;&gt;gcodeTab.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;gcodeTab.Parent" xml:space="preserve">
-    <value>tabControl1</value>
-  </data>
-  <data name="&gt;&gt;gcodeTab.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="tabControl1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="tabControl1.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 8pt</value>
-  </data>
-  <data name="tabControl1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="tabControl1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 0, 0, 0</value>
-  </data>
-  <data name="tabControl1.Padding" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="tabControl1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>338, 494</value>
-  </data>
-  <data name="tabControl1.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;tabControl1.Name" xml:space="preserve">
-    <value>tabControl1</value>
-  </data>
-  <data name="&gt;&gt;tabControl1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabControl, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tabControl1.Parent" xml:space="preserve">
-    <value>splitContainer1.Panel1</value>
-  </data>
-  <data name="&gt;&gt;tabControl1.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="JogForm.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Bottom</value>
-  </data>
-  <data name="JogForm.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 8.25pt</value>
-  </data>
-  <data name="JogForm.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 494</value>
-  </data>
-  <data name="JogForm.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
-  </data>
-  <data name="JogForm.Size" type="System.Drawing.Size, System.Drawing">
-    <value>338, 158</value>
-  </data>
-  <data name="JogForm.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;JogForm.Name" xml:space="preserve">
-    <value>JogForm</value>
-  </data>
-  <data name="&gt;&gt;JogForm.Type" xml:space="preserve">
-    <value>LaserGRBL.JogForm, LaserGRBL, Version=4.8.1.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;JogForm.Parent" xml:space="preserve">
-    <value>splitContainer1.Panel1</value>
-  </data>
-  <data name="&gt;&gt;JogForm.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;splitContainer1.Panel1.Name" xml:space="preserve">
-    <value>splitContainer1.Panel1</value>
-  </data>
-  <data name="&gt;&gt;splitContainer1.Panel1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;splitContainer1.Panel1.Parent" xml:space="preserve">
-    <value>splitContainer1</value>
-  </data>
-  <data name="&gt;&gt;splitContainer1.Panel1.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="splitContainer1.Panel1MinSize" type="System.Int32, mscorlib">
-    <value>260</value>
-  </data>
-  <data name="PreviewForm.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="PreviewForm.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 8.25pt</value>
-  </data>
-  <data name="PreviewForm.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="PreviewForm.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 0, 0, 0</value>
-  </data>
-  <data name="PreviewForm.Size" type="System.Drawing.Size, System.Drawing">
-    <value>830, 652</value>
-  </data>
-  <data name="PreviewForm.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;PreviewForm.Name" xml:space="preserve">
-    <value>PreviewForm</value>
-  </data>
-  <data name="&gt;&gt;PreviewForm.Type" xml:space="preserve">
-    <value>LaserGRBL.PreviewForm, LaserGRBL, Version=4.8.1.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;PreviewForm.Parent" xml:space="preserve">
-    <value>splitContainer1.Panel2</value>
-  </data>
-  <data name="&gt;&gt;PreviewForm.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;splitContainer1.Panel2.Name" xml:space="preserve">
-    <value>splitContainer1.Panel2</value>
-  </data>
-  <data name="&gt;&gt;splitContainer1.Panel2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;splitContainer1.Panel2.Parent" xml:space="preserve">
-    <value>splitContainer1</value>
-  </data>
-  <data name="&gt;&gt;splitContainer1.Panel2.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="splitContainer1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1177, 654</value>
-  </data>
-  <data name="splitContainer1.SplitterDistance" type="System.Int32, mscorlib">
-    <value>340</value>
-  </data>
-  <data name="splitContainer1.SplitterWidth" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="splitContainer1.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;splitContainer1.Name" xml:space="preserve">
-    <value>splitContainer1</value>
-  </data>
-  <data name="&gt;&gt;splitContainer1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.SplitContainer, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;splitContainer1.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;splitContainer1.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
   <metadata name="StatusBar.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>194, 17</value>
   </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="TTLLines.Size" type="System.Drawing.Size, System.Drawing">
     <value>45, 24</value>
   </data>
@@ -408,6 +142,7 @@
   <data name="PbBuffer.Size" type="System.Drawing.Size, System.Drawing">
     <value>93, 24</value>
   </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="BtnUnlockFromStuck.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
@@ -444,7 +179,7 @@
     <value>False</value>
   </data>
   <data name="TTLinkToNews.Size" type="System.Drawing.Size, System.Drawing">
-    <value>574, 24</value>
+    <value>513, 24</value>
   </data>
   <data name="TTOvS.AutoSize" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -504,13 +239,14 @@
     <value>Disconnected</value>
   </data>
   <data name="StatusBar.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 684</value>
+    <value>0, 612</value>
   </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="StatusBar.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>1, 0, 25, 0</value>
   </data>
   <data name="StatusBar.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1177, 30</value>
+    <value>1116, 30</value>
   </data>
   <data name="StatusBar.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -822,108 +558,31 @@
     <value>&amp;Exit</value>
   </data>
   <data name="MnGrbl.Size" type="System.Drawing.Size, System.Drawing">
-    <value>51, 26</value>
+    <value>51, 24</value>
   </data>
   <data name="MnGrbl.Text" xml:space="preserve">
     <value>&amp;Grbl</value>
   </data>
-  <data name="MnFileOpen.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="MnAddLayer.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAAJxAIA3kywAAACBjSFJNAABu
-        lQAAdA4AAPGBAACFRgAAZO0AAPeGAABJ4gAAHljF0QxvAAAACXBIWXMAAAsMAAALDAE/QCLIAAADQElE
-        QVQ4T3WTW0hTcRzHf12o16KnLrq5s013ph4921ymS/M6yyyzmuKclaJGN1pE2kP1UBRdhS4kUVBgF4LC
-        ktIkIy1tF1dTj7u5uemmWallZhbhr7NZRkkPXw7n4fPhx//3/YFMIgOlMgMyM9fBlsKtUFpSCkmrkkAR
-        p4AYaQzIZXKIjqIhRiafX1RUrBSLyNn8EB4ICX4g/xXExcYBzYJSWgpUBDX3/PmLJ0dGPn3PydmUGLR4
-        CRDckED+K8hQroYN2TmwXB4Lu3ftWfvly/i3sbHxidt37t4XEII5BIcLAh4xU1DyS6BS5UHZ9h1QfqAi
-        +/LlqqvDwyOjXl//YI+n73Nubt6aoCVLZ06gVmtAoykERbwi8H/2XOXu9x+G0Olyo9vTN+7odg31en1j
-        d+7X1pHiyPk8TvAfQVpaBuzbq828ce3qrUK1Ju1AecW2gbeDP3rcvejt70eX241Wm32ys9vz1VhzfaI4
-        W5krkcqnBImJyVC0rTihrfXFkM9pQ8sb42Rrc/Mkw1iwt8/Lwh602R3Y6fSirvY2tpWGYXWx4jUlWb7A
-        /8Kgzi+Q6pqfD/RYO1m4DdsNOjSbTOhyOtFusyPDdGGHw4P6hhrU76LQrKXxSFn+PYGQXAjK1HTqta71
-        Q1+3NQB3GPVoMhrQ5eoJwF0Mg+YuB+oaH6Fpvxwt+yk8qd3aQMXEEwSHAxAfu0JcdenirZfPng5bzSY0
-        vWpBBzuuP79hQ3Mjth9OQNfBCKzUqnXR8pVkiH+NbKHAvw7VZpWopeWVz6DXY2NDPRp0erRZrdjO2NHQ
-        +hKZE+noOxyOV8rVjCwueQXvVwcCAh67S02BZhP74qOjn8fQ3N6B9U8a0NxpRSMrtFSux3fHSLx5KM8Z
-        m5CeEioMnYKnBayNsywIUpJT6erqm/feDr5Di8OFL5qa0FGVjx9Pi/HB0VyvInn12jBhGISLyOk7EPqb
-        6G8Tnw13WTCwRzKLLdLmh0+a3nTUXcHvF0h8dkY1kJSetVEsCgeaigYJex/+7+9MC4SEIDCWfxoqkl5U
-        rt15/PGpfEtWVnYBKYoAOnIK/jd/CUL5UyG4XCBC+ECGS4JJkXheVGQUSKiZsCSKhp+/5brOKZOAhwAA
-        AABJRU5ErkJggg==
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        DAAACwwBP0AiyAAAAAd0SU1FB9MJHhYJNuN7d+4AAAIPSURBVDhPtZLLaxNRGMWnnWQmM5M20SRF3FWt
+        u2pJRanio9BWrCBIpaiVWCVSXfhETRzTFmOcNIkZjYISq7iyWkL/iaJYKF4Xjg/6sK2MUkrVgK/l8d4h
+        EHCh04XfZhbD+Z0Hl/svV3NfJo0jaxEs1KFheDXWDdXCmxOfl37/+wL3FFL4lcPDb/3IFy+if2Y/PDeW
+        APDnZfLkZxa5L8eRXgjh3Ls2VOuCfYDvrkSGfmSgfw5jYP4gzr5tRVXmLwD/A4n4B2Xiy0uEiQN3lK+P
+        vqeQWehG4lMnTdAKT1ZcrEoJxK0JREk4iRR3kJKc44IjdWCdWWzmzMSDRRXa/AFcMTugzrRDM7tw/WMP
+        tLkQYpMdWJn1oCTnuIbCGjpYn9WZxWbOTBw396F3bg8i0204P9FCqzTjlLENJ15uRk3KXQasH15lrc0G
+        Y51ZbObMxNH3O3FhsoXWaMbp19tx8tVW9LxoQiCplAH1j2uRNLtxaXo3olPtiEztgjpLv9SZic+82UFF
+        W3BsvAlHxzYi9LQRvoRcBnhvu4xlt1yG96ZoeHTR8OquYvxDpxWbOYepUIrzi2IfT4QYT5xqJXFEK8oj
+        /nluunbaDFudWewjY5sg9Fbafwdy0kkSs4eswVjnw882wBlbAkDSHOTyxF5rbTZY12gQDrXCPkC8ypMV
+        ejUCaQX+ARnLr0ngI5x9gP3juN8RSCip10hYVwAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="MnFileOpen.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="MnAddLayer.Size" type="System.Drawing.Size, System.Drawing">
     <value>268, 26</value>
   </data>
-  <data name="MnFileOpen.Text" xml:space="preserve">
-    <value>&amp;Open File</value>
-  </data>
-  <data name="MnFileAppend.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        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
-        6fLqfFcAAAAASUVORK5CYII=
-</value>
-  </data>
-  <data name="MnFileAppend.Size" type="System.Drawing.Size, System.Drawing">
-    <value>268, 26</value>
-  </data>
-  <data name="MnFileAppend.Text" xml:space="preserve">
-    <value>&amp;Append File</value>
+  <data name="MnAddLayer.Text" xml:space="preserve">
+    <value>&amp;Add Layer</value>
   </data>
   <data name="MnReOpenFile.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -1161,7 +820,7 @@
     <value>False</value>
   </data>
   <data name="fileToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>46, 26</value>
+    <value>46, 24</value>
   </data>
   <data name="fileToolStripMenuItem.Text" xml:space="preserve">
     <value>&amp;File</value>
@@ -1173,7 +832,7 @@
     <value>&amp;Grbl Emulator</value>
   </data>
   <data name="MNEsp8266.Size" type="System.Drawing.Size, System.Drawing">
-    <value>79, 26</value>
+    <value>79, 24</value>
   </data>
   <data name="MNEsp8266.Text" xml:space="preserve">
     <value>&amp;ESP8266</value>
@@ -1209,7 +868,7 @@
     <value>Nighty</value>
   </data>
   <data name="schemaToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>65, 26</value>
+    <value>65, 24</value>
   </data>
   <data name="schemaToolStripMenuItem.Text" xml:space="preserve">
     <value>&amp;Colors</value>
@@ -1540,7 +1199,7 @@
     <value>Dutch</value>
   </data>
   <data name="linguaToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>88, 26</value>
+    <value>88, 24</value>
   </data>
   <data name="linguaToolStripMenuItem.Text" xml:space="preserve">
     <value>&amp;Language</value>
@@ -1624,7 +1283,7 @@
     <value>False</value>
   </data>
   <data name="toolsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>58, 26</value>
+    <value>58, 24</value>
   </data>
   <data name="toolsToolStripMenuItem.Text" xml:space="preserve">
     <value>&amp;Tools</value>
@@ -1894,7 +1553,7 @@
     <value>Ortur Firmware</value>
   </data>
   <data name="MnOrtur.Size" type="System.Drawing.Size, System.Drawing">
-    <value>57, 26</value>
+    <value>57, 24</value>
   </data>
   <data name="MnOrtur.Text" xml:space="preserve">
     <value>Ortur</value>
@@ -2124,7 +1783,7 @@
     <value>License</value>
   </data>
   <data name="questionMarkToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>30, 26</value>
+    <value>30, 24</value>
   </data>
   <data name="questionMarkToolStripMenuItem.Text" xml:space="preserve">
     <value>?</value>
@@ -2133,7 +1792,7 @@
     <value>0, 0</value>
   </data>
   <data name="MMn.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1177, 30</value>
+    <value>1116, 28</value>
   </data>
   <data name="MMn.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -2156,10 +1815,325 @@
   <metadata name="MultipleInstanceTimer.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>533, 18</value>
   </metadata>
-  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <data name="splitContainer1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="splitContainer1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 28</value>
+  </data>
+  <data name="splitContainer1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
+  </data>
+  <data name="ProjectDetailForm.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="ProjectDetailForm.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 8.25pt</value>
+  </data>
+  <data name="ProjectDetailForm.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="ProjectDetailForm.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="ProjectDetailForm.Size" type="System.Drawing.Size, System.Drawing">
+    <value>394, 465</value>
+  </data>
+  <data name="ProjectDetailForm.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;ProjectDetailForm.Name" xml:space="preserve">
+    <value>ProjectDetailForm</value>
+  </data>
+  <data name="&gt;&gt;ProjectDetailForm.Type" xml:space="preserve">
+    <value>LaserGRBL.ProjectDetailForm, LaserGRBL, Version=4.8.1.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;ProjectDetailForm.Parent" xml:space="preserve">
+    <value>projectTab</value>
+  </data>
+  <data name="&gt;&gt;ProjectDetailForm.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="projectTab.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 25</value>
+  </data>
+  <data name="projectTab.Size" type="System.Drawing.Size, System.Drawing">
+    <value>394, 465</value>
+  </data>
+  <data name="projectTab.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="projectTab.Text" xml:space="preserve">
+    <value>Project</value>
+  </data>
+  <data name="&gt;&gt;projectTab.Name" xml:space="preserve">
+    <value>projectTab</value>
+  </data>
+  <data name="&gt;&gt;projectTab.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;projectTab.Parent" xml:space="preserve">
+    <value>tabControl1</value>
+  </data>
+  <data name="&gt;&gt;projectTab.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="ConnectionForm.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
-  </metadata>
-  <metadata name="$this.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  </data>
+  <data name="ConnectionForm.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="ConnectionForm.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 8.25pt</value>
+  </data>
+  <data name="ConnectionForm.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
+  </data>
+  <data name="ConnectionForm.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 5, 5, 5</value>
+  </data>
+  <data name="ConnectionForm.Size" type="System.Drawing.Size, System.Drawing">
+    <value>388, 459</value>
+  </data>
+  <data name="ConnectionForm.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;ConnectionForm.Name" xml:space="preserve">
+    <value>ConnectionForm</value>
+  </data>
+  <data name="&gt;&gt;ConnectionForm.Type" xml:space="preserve">
+    <value>LaserGRBL.ConnectLogForm, LaserGRBL, Version=4.8.1.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;ConnectionForm.Parent" xml:space="preserve">
+    <value>machineTab</value>
+  </data>
+  <data name="&gt;&gt;ConnectionForm.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="machineTab.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 25</value>
+  </data>
+  <data name="machineTab.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="machineTab.Size" type="System.Drawing.Size, System.Drawing">
+    <value>394, 465</value>
+  </data>
+  <data name="machineTab.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="machineTab.Text" xml:space="preserve">
+    <value>Machine</value>
+  </data>
+  <data name="&gt;&gt;machineTab.Name" xml:space="preserve">
+    <value>machineTab</value>
+  </data>
+  <data name="&gt;&gt;machineTab.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;machineTab.Parent" xml:space="preserve">
+    <value>tabControl1</value>
+  </data>
+  <data name="&gt;&gt;machineTab.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="TTTGCodeDebugLines.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="TTTGCodeDebugLines.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="TTTGCodeDebugLines.Size" type="System.Drawing.Size, System.Drawing">
+    <value>373, 395</value>
+  </data>
+  <data name="TTTGCodeDebugLines.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="TTTGCodeDebugLines.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;TTTGCodeDebugLines.Name" xml:space="preserve">
+    <value>TTTGCodeDebugLines</value>
+  </data>
+  <data name="&gt;&gt;TTTGCodeDebugLines.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RichTextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;TTTGCodeDebugLines.Parent" xml:space="preserve">
+    <value>gcodeTab</value>
+  </data>
+  <data name="&gt;&gt;TTTGCodeDebugLines.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="gcodeTab.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 25</value>
+  </data>
+  <data name="gcodeTab.Size" type="System.Drawing.Size, System.Drawing">
+    <value>373, 395</value>
+  </data>
+  <data name="gcodeTab.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="gcodeTab.Text" xml:space="preserve">
+    <value>G-Code</value>
+  </data>
+  <data name="&gt;&gt;gcodeTab.Name" xml:space="preserve">
+    <value>gcodeTab</value>
+  </data>
+  <data name="&gt;&gt;gcodeTab.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;gcodeTab.Parent" xml:space="preserve">
+    <value>tabControl1</value>
+  </data>
+  <data name="&gt;&gt;gcodeTab.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="tabControl1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="tabControl1.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 8pt</value>
+  </data>
+  <data name="tabControl1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="tabControl1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="tabControl1.Padding" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="tabControl1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>381, 424</value>
+  </data>
+  <data name="tabControl1.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;tabControl1.Name" xml:space="preserve">
+    <value>tabControl1</value>
+  </data>
+  <data name="&gt;&gt;tabControl1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabControl, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tabControl1.Parent" xml:space="preserve">
+    <value>splitContainer1.Panel1</value>
+  </data>
+  <data name="&gt;&gt;tabControl1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="JogForm.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Bottom</value>
+  </data>
+  <data name="JogForm.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 8.25pt</value>
+  </data>
+  <data name="JogForm.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 424</value>
+  </data>
+  <data name="JogForm.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
+  </data>
+  <data name="JogForm.Size" type="System.Drawing.Size, System.Drawing">
+    <value>381, 158</value>
+  </data>
+  <data name="JogForm.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;JogForm.Name" xml:space="preserve">
+    <value>JogForm</value>
+  </data>
+  <data name="&gt;&gt;JogForm.Type" xml:space="preserve">
+    <value>LaserGRBL.JogForm, LaserGRBL, Version=4.8.1.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;JogForm.Parent" xml:space="preserve">
+    <value>splitContainer1.Panel1</value>
+  </data>
+  <data name="&gt;&gt;JogForm.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;splitContainer1.Panel1.Name" xml:space="preserve">
+    <value>splitContainer1.Panel1</value>
+  </data>
+  <data name="&gt;&gt;splitContainer1.Panel1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;splitContainer1.Panel1.Parent" xml:space="preserve">
+    <value>splitContainer1</value>
+  </data>
+  <data name="&gt;&gt;splitContainer1.Panel1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="splitContainer1.Panel1MinSize" type="System.Int32, mscorlib">
+    <value>260</value>
+  </data>
+  <data name="PreviewForm.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="PreviewForm.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 8.25pt</value>
+  </data>
+  <data name="PreviewForm.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="PreviewForm.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="PreviewForm.Size" type="System.Drawing.Size, System.Drawing">
+    <value>726, 582</value>
+  </data>
+  <data name="PreviewForm.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;PreviewForm.Name" xml:space="preserve">
+    <value>PreviewForm</value>
+  </data>
+  <data name="&gt;&gt;PreviewForm.Type" xml:space="preserve">
+    <value>LaserGRBL.PreviewForm, LaserGRBL, Version=4.8.1.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;PreviewForm.Parent" xml:space="preserve">
+    <value>splitContainer1.Panel2</value>
+  </data>
+  <data name="&gt;&gt;PreviewForm.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;splitContainer1.Panel2.Name" xml:space="preserve">
+    <value>splitContainer1.Panel2</value>
+  </data>
+  <data name="&gt;&gt;splitContainer1.Panel2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;splitContainer1.Panel2.Parent" xml:space="preserve">
+    <value>splitContainer1</value>
+  </data>
+  <data name="&gt;&gt;splitContainer1.Panel2.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="splitContainer1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1116, 584</value>
+  </data>
+  <data name="splitContainer1.SplitterDistance" type="System.Int32, mscorlib">
+    <value>383</value>
+  </data>
+  <data name="splitContainer1.SplitterWidth" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="splitContainer1.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;splitContainer1.Name" xml:space="preserve">
+    <value>splitContainer1</value>
+  </data>
+  <data name="&gt;&gt;splitContainer1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.SplitContainer, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;splitContainer1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;splitContainer1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
@@ -2168,8 +2142,11 @@
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
     <value>8, 16</value>
   </data>
+  <data name="$this.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>1177, 714</value>
+    <value>1116, 642</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -2249,6 +2226,9 @@
   </data>
   <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>5, 5, 5, 5</value>
+  </data>
+  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+    <value>CenterParent</value>
   </data>
   <data name="&gt;&gt;TTLLines.Name" xml:space="preserve">
     <value>TTLLines</value>
@@ -2442,16 +2422,10 @@
   <data name="&gt;&gt;fileToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;MnFileOpen.Name" xml:space="preserve">
-    <value>MnFileOpen</value>
+  <data name="&gt;&gt;MnAddLayer.Name" xml:space="preserve">
+    <value>MnAddLayer</value>
   </data>
-  <data name="&gt;&gt;MnFileOpen.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;MnFileAppend.Name" xml:space="preserve">
-    <value>MnFileAppend</value>
-  </data>
-  <data name="&gt;&gt;MnFileAppend.Type" xml:space="preserve">
+  <data name="&gt;&gt;MnAddLayer.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;MnReOpenFile.Name" xml:space="preserve">

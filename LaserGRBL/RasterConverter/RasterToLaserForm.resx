@@ -127,10 +127,13 @@
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="WB.Location" type="System.Drawing.Point, System.Drawing">
-    <value>447, 468</value>
+    <value>614, 574</value>
+  </data>
+  <data name="WB.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
   </data>
   <data name="WB.Size" type="System.Drawing.Size, System.Drawing">
-    <value>65, 16</value>
+    <value>81, 20</value>
   </data>
   <data name="WB.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -139,7 +142,7 @@
     <value>WB</value>
   </data>
   <data name="&gt;&gt;WB.Type" xml:space="preserve">
-    <value>LaserGRBL.UserControls.WaitingProgressBar, LaserGRBL, Version=4.0.6.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>LaserGRBL.UserControls.WaitingProgressBar, LaserGRBL, Version=4.8.1.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;WB.Parent" xml:space="preserve">
     <value>TpPreview</value>
@@ -150,7 +153,7 @@
   <data name="PbConverted.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        TQAADk0BRtVoCQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAA1SURBVChThcqx
+        SwAADksBxtYskgAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAA1SURBVChThcqx
         CQAwDMCwnJ7Tu2iooVCt9uzDvGghlRZSaSGVFtKfP6TSQiotpNJCKu2yewAaSmQBLfM2nAAAAABJRU5E
         rkJggg==
 </value>
@@ -162,10 +165,13 @@
     <value>NoControl</value>
   </data>
   <data name="PbConverted.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 3</value>
+    <value>4, 4</value>
+  </data>
+  <data name="PbConverted.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
   </data>
   <data name="PbConverted.Size" type="System.Drawing.Size, System.Drawing">
-    <value>512, 484</value>
+    <value>685, 596</value>
   </data>
   <data name="PbConverted.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
     <value>CenterImage</value>
@@ -186,13 +192,16 @@
     <value>1</value>
   </data>
   <data name="TpPreview.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 22</value>
+    <value>4, 25</value>
+  </data>
+  <data name="TpPreview.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
   </data>
   <data name="TpPreview.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 3, 3, 3</value>
+    <value>4, 4, 4, 4</value>
   </data>
   <data name="TpPreview.Size" type="System.Drawing.Size, System.Drawing">
-    <value>518, 490</value>
+    <value>693, 604</value>
   </data>
   <data name="TpPreview.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -215,7 +224,7 @@
   <data name="PbOriginal.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        TQAADk0BRtVoCQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAA1SURBVChThcqx
+        SwAADksBxtYskgAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAA1SURBVChThcqx
         CQAwDMCwnJ7Tu2iooVCt9uzDvGghlRZSaSGVFtKfP6TSQiotpNJCKu2yewAaSmQBLfM2nAAAAABJRU5E
         rkJggg==
 </value>
@@ -227,10 +236,13 @@
     <value>NoControl</value>
   </data>
   <data name="PbOriginal.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 3</value>
+    <value>4, 4</value>
+  </data>
+  <data name="PbOriginal.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
   </data>
   <data name="PbOriginal.Size" type="System.Drawing.Size, System.Drawing">
-    <value>512, 484</value>
+    <value>685, 596</value>
   </data>
   <data name="PbOriginal.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
     <value>CenterImage</value>
@@ -251,13 +263,16 @@
     <value>0</value>
   </data>
   <data name="TpOriginal.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 22</value>
+    <value>4, 25</value>
+  </data>
+  <data name="TpOriginal.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
   </data>
   <data name="TpOriginal.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 3, 3, 3</value>
+    <value>4, 4, 4, 4</value>
   </data>
   <data name="TpOriginal.Size" type="System.Drawing.Size, System.Drawing">
-    <value>518, 490</value>
+    <value>693, 604</value>
   </data>
   <data name="TpOriginal.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -281,10 +296,13 @@
     <value>Fill</value>
   </data>
   <data name="TCOriginalPreview.Location" type="System.Drawing.Point, System.Drawing">
-    <value>255, 3</value>
+    <value>340, 4</value>
+  </data>
+  <data name="TCOriginalPreview.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
   </data>
   <data name="TCOriginalPreview.Size" type="System.Drawing.Size, System.Drawing">
-    <value>526, 516</value>
+    <value>701, 633</value>
   </data>
   <data name="TCOriginalPreview.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -313,7 +331,7 @@
   <data name="BtFlipV.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1
-        MAAA6mAAADqYAAAXb5JfxUYAAAAJcEhZcwAACxMAAAsTAQCanBgAAAbfSURBVEhLfdULUJNXFgDgs+uO
+        MAAA6mAAADqYAAAXb5JfxUYAAAAJcEhZcwAACxEAAAsRAX9kX5EAAAbfSURBVEhLfdULUJNXFgDgs+uO
         49rZXXfp+qjazi52tTtdSy11p62yWrqjq+VRRN5MSIBAgPIKBJZnFAIrCBteEggYUSIgiCCglDrUBQwS
         AREVBCmPEB55EhJDeEjO3lCHmQ7oP/PN/Scz95xzb869P2Rm8t8oI6MQeDkFWwTFlzZvC5vaDW4vqvZG
         TwP7SpfZ6avXNzlUVoBjRdVrQWlp2RuVlVVA3oXi801luQKb1G4AZ6P9kZg+YOffrfHNancPymiHwDcA
@@ -347,7 +365,10 @@
 </value>
   </data>
   <data name="BtFlipV.Location" type="System.Drawing.Point, System.Drawing">
-    <value>142, 3</value>
+    <value>156, 4</value>
+  </data>
+  <data name="BtFlipV.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
   </data>
   <data name="BtFlipV.Size" type="System.Drawing.Size, System.Drawing">
     <value>25, 25</value>
@@ -365,7 +386,7 @@
     <value>BtFlipV</value>
   </data>
   <data name="&gt;&gt;BtFlipV.Type" xml:space="preserve">
-    <value>LaserGRBL.UserControls.ImageButton, LaserGRBL, Version=4.0.6.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>LaserGRBL.UserControls.ImageButton, LaserGRBL, Version=4.8.1.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;BtFlipV.Parent" xml:space="preserve">
     <value>FlipControl</value>
@@ -376,7 +397,7 @@
   <data name="BtFlipH.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1
-        MAAA6mAAADqYAAAXb5JfxUYAAAAJcEhZcwAACxMAAAsTAQCanBgAAAa5SURBVEhLpZR7UJNXFsDP7Ky7
+        MAAA6mAAADqYAAAXb5JfxUYAAAAJcEhZcwAACxEAAAsRAX9kX5EAAAa5SURBVEhLpZR7UJNXFsDP7Ky7
         2+5acIfZrg67W3GHah8ottMqrWPZKtpRgYABeZNACK8ASYCEvMRIgaoEebjYVnmJaAMUa0VQYUcFdRW2
         O+oWwVLEJITEQB5fXkQCZ2+y3dmdnX203T9+c8+93/fd3z3n3PkgNzePkO8ZV+TkFAzQ6fGC5GTmMwKB
         mKzxgMXKguLiEigqkkB2NhfIO8DnC6GgoAiysvLJupg8F3kRCCTkGy5wucUglR4k81IgL+V5SUhg+B46
@@ -409,7 +430,10 @@
 </value>
   </data>
   <data name="BtFlipH.Location" type="System.Drawing.Point, System.Drawing">
-    <value>111, 3</value>
+    <value>123, 4</value>
+  </data>
+  <data name="BtFlipH.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
   </data>
   <data name="BtFlipH.Size" type="System.Drawing.Size, System.Drawing">
     <value>25, 25</value>
@@ -424,7 +448,7 @@
     <value>BtFlipH</value>
   </data>
   <data name="&gt;&gt;BtFlipH.Type" xml:space="preserve">
-    <value>LaserGRBL.UserControls.ImageButton, LaserGRBL, Version=4.0.6.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>LaserGRBL.UserControls.ImageButton, LaserGRBL, Version=4.8.1.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;BtFlipH.Parent" xml:space="preserve">
     <value>FlipControl</value>
@@ -435,7 +459,7 @@
   <data name="BtRotateCW.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1
-        MAAA6mAAADqYAAAXb5JfxUYAAAAJcEhZcwAADiYAAA4mAaLvJfwAAAXQSURBVEhLddMJTJN3GMfxJ17T
+        MAAA6mAAADqYAAAXb5JfxUYAAAAJcEhZcwAADiQAAA4kAd0R5nUAAAXQSURBVEhLddMJTJN3GMfxJ17T
         zDgzt8kIGsdURHQ6dOocDhTE+8JjLprpzLJlHotZYubinNlcFuOReYsyEGqh4gUIRVEQpvO+HQqI0tK3
         b/tebYEKiBN+e94iWpSRfNIG6PN9n//7lsTdgc8544NISehNWmIfciUFkzu536La5N6mp8kBp2oNwZdr
         jAOKH6UOuPUoNfRsbVpodp1p4B4WxajF4/RB1HBo8HNtBtTE4DWupPetSOhw6d/EbuvchrDopv3dwpBE
@@ -464,7 +488,10 @@
 </value>
   </data>
   <data name="BtRotateCW.Location" type="System.Drawing.Point, System.Drawing">
-    <value>49, 3</value>
+    <value>57, 4</value>
+  </data>
+  <data name="BtRotateCW.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
   </data>
   <data name="BtRotateCW.Size" type="System.Drawing.Size, System.Drawing">
     <value>25, 25</value>
@@ -479,7 +506,7 @@
     <value>BtRotateCW</value>
   </data>
   <data name="&gt;&gt;BtRotateCW.Type" xml:space="preserve">
-    <value>LaserGRBL.UserControls.ImageButton, LaserGRBL, Version=4.0.6.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>LaserGRBL.UserControls.ImageButton, LaserGRBL, Version=4.8.1.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;BtRotateCW.Parent" xml:space="preserve">
     <value>FlipControl</value>
@@ -490,7 +517,7 @@
   <data name="BtRotateCCW.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1
-        MAAA6mAAADqYAAAXb5JfxUYAAAAJcEhZcwAADiYAAA4mAaLvJfwAAAXjSURBVEhLfZJ5TBR3GIa/WLWa
+        MAAA6mAAADqYAAAXb5JfxUYAAAAJcEhZcwAADiQAAA4kAd0R5nUAAAXjSURBVEhLfZJ5TBR3GIa/WLWa
         GmpqW61RY6mKiFarVq3FQgXxvhCtjaZa07SpR2OamNpYa1qbxnik3qIrCOvCihcgh6KsUK33iUUBOXbZ
         2dmda4djBcQKb7/BLhGP/vFkZ3dmn/f9vvlR4+EhrTxMGUz11kFPE87sqUsOzniQFHzuQdLA27WWgYV1
         5sArjxN6nK5L6GPVE/ov8sYHkhbXlxRTH/LE9iJxd89Wng6YxAFD/hMvYwrrkgfdZGmiLyn4uzpLUCgS
@@ -520,7 +547,10 @@
 </value>
   </data>
   <data name="BtRotateCCW.Location" type="System.Drawing.Point, System.Drawing">
-    <value>80, 3</value>
+    <value>90, 4</value>
+  </data>
+  <data name="BtRotateCCW.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
   </data>
   <data name="BtRotateCCW.Size" type="System.Drawing.Size, System.Drawing">
     <value>25, 25</value>
@@ -535,7 +565,7 @@
     <value>BtRotateCCW</value>
   </data>
   <data name="&gt;&gt;BtRotateCCW.Type" xml:space="preserve">
-    <value>LaserGRBL.UserControls.ImageButton, LaserGRBL, Version=4.0.6.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>LaserGRBL.UserControls.ImageButton, LaserGRBL, Version=4.8.1.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;BtRotateCCW.Parent" xml:space="preserve">
     <value>FlipControl</value>
@@ -571,7 +601,10 @@
 </value>
   </data>
   <data name="BtnRevert.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 3</value>
+    <value>4, 4</value>
+  </data>
+  <data name="BtnRevert.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
   </data>
   <data name="BtnRevert.Size" type="System.Drawing.Size, System.Drawing">
     <value>25, 25</value>
@@ -586,7 +619,7 @@
     <value>BtnRevert</value>
   </data>
   <data name="&gt;&gt;BtnRevert.Type" xml:space="preserve">
-    <value>LaserGRBL.UserControls.ImageButton, LaserGRBL, Version=4.0.6.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>LaserGRBL.UserControls.ImageButton, LaserGRBL, Version=4.8.1.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;BtnRevert.Parent" xml:space="preserve">
     <value>FlipControl</value>
@@ -619,7 +652,10 @@
 </value>
   </data>
   <data name="BtnCrop.Location" type="System.Drawing.Point, System.Drawing">
-    <value>173, 3</value>
+    <value>189, 4</value>
+  </data>
+  <data name="BtnCrop.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
   </data>
   <data name="BtnCrop.Size" type="System.Drawing.Size, System.Drawing">
     <value>25, 25</value>
@@ -634,7 +670,7 @@
     <value>BtnCrop</value>
   </data>
   <data name="&gt;&gt;BtnCrop.Type" xml:space="preserve">
-    <value>LaserGRBL.UserControls.ImageButton, LaserGRBL, Version=4.0.6.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>LaserGRBL.UserControls.ImageButton, LaserGRBL, Version=4.8.1.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;BtnCrop.Parent" xml:space="preserve">
     <value>FlipControl</value>
@@ -689,7 +725,7 @@
         XTesb3QPLh88M+QwdP6m681Lt7xuXbu94vbgcOjwnZHokdE77DtTd1PuvriXeW/h/sYH6AdFD6UeVjxS
         fNTws+7PbaOWo6fHXMf6Hwc/vj/OGn/2S8Yv7ycKnpCfVEyqTDZPmU2dmnafvvF05dOJZ+nPFmYKf5X+
         tfa5zvMffnP8rX82YnbiBf/Fp99LXsq/PPRq2aueuYC5R69TXy/MF72Rf3P4LeNt37vwd5MLWe+x7ys/
-        6H7o/ujz8cGn1E+f/gUDmPP8usTo0wAAAAlwSFlzAAALEwAACxMBAJqcGAAAAkFJREFUSEtj+P//P00x
+        6H7o/ujz8cGn1E+f/gUDmPP8usTo0wAAAAlwSFlzAAALEQAACxEBf2RfkQAAAkFJREFUSEtj+P//P00x
         VkFqYhRORmpyfVtzw2xKsJeHmzWymSgWzJg6cd/7Ny/+k4tXLl/yPyjALxXZTKpZcOjA3v+WFub4LZg1
         bTJZFjx7fP8/Dw/PfwuQBYH+eCyYPoVkC969fv5fRVkZaBID2IJgvBbMIN0CD3c3sOFwC4ICcFswm0QL
         Ottb4IYTacFUDAuuXr7wv6un579vYMh/FU19MA3ib92y6T8TExOGBSHBgfgsmIZiAcjwjOzc/3IqWihY
@@ -703,7 +739,10 @@
 </value>
   </data>
   <data name="BtnReverse.Location" type="System.Drawing.Point, System.Drawing">
-    <value>235, 3</value>
+    <value>255, 4</value>
+  </data>
+  <data name="BtnReverse.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
   </data>
   <data name="BtnReverse.Size" type="System.Drawing.Size, System.Drawing">
     <value>25, 25</value>
@@ -718,7 +757,7 @@
     <value>BtnReverse</value>
   </data>
   <data name="&gt;&gt;BtnReverse.Type" xml:space="preserve">
-    <value>LaserGRBL.UserControls.ImageButton, LaserGRBL, Version=4.0.6.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>LaserGRBL.UserControls.ImageButton, LaserGRBL, Version=4.8.1.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;BtnReverse.Parent" xml:space="preserve">
     <value>FlipControl</value>
@@ -729,7 +768,7 @@
   <data name="BtnAutoTrim.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
-        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAAsSAAALEgHS3X78AAAFeUlE
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAAsQAAALEAGtI711AAAFeUlE
         QVRIS62Ve0yTZxTGP0DHRee8zBk3tkWzuS1O3HSomCjbvCTocE4Myi6ik4sO5x9DpE5RNzMgoIgCApvg
         FMQBIhRKL/RKoaVIb5RSilAtg1IuijoVytTv2VusRqJ1MduTPDnnzfvl97RfTk+p/1MN9Q1LLF2WkK7O
         zo0apTJQyOO97rj676pX1G/pMHeYu7u7zU1arVlcVVVLAgId14/k8hT/qxRyxXJTm2m4x9pDG/R6WiIQ
@@ -757,7 +796,10 @@
 </value>
   </data>
   <data name="BtnAutoTrim.Location" type="System.Drawing.Point, System.Drawing">
-    <value>204, 3</value>
+    <value>222, 4</value>
+  </data>
+  <data name="BtnAutoTrim.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
   </data>
   <data name="BtnAutoTrim.Size" type="System.Drawing.Size, System.Drawing">
     <value>25, 25</value>
@@ -772,7 +814,7 @@
     <value>BtnAutoTrim</value>
   </data>
   <data name="&gt;&gt;BtnAutoTrim.Type" xml:space="preserve">
-    <value>LaserGRBL.UserControls.ImageButton, LaserGRBL, Version=4.0.6.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>LaserGRBL.UserControls.ImageButton, LaserGRBL, Version=4.8.1.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;BtnAutoTrim.Parent" xml:space="preserve">
     <value>FlipControl</value>
@@ -781,13 +823,16 @@
     <value>7</value>
   </data>
   <data name="FlipControl.Location" type="System.Drawing.Point, System.Drawing">
-    <value>255, 525</value>
+    <value>340, 645</value>
+  </data>
+  <data name="FlipControl.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
   </data>
   <data name="FlipControl.RowCount" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
   <data name="FlipControl.Size" type="System.Drawing.Size, System.Drawing">
-    <value>263, 31</value>
+    <value>284, 33</value>
   </data>
   <data name="FlipControl.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
@@ -805,7 +850,7 @@
     <value>1</value>
   </data>
   <data name="FlipControl.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="BtFlipV" Row="0" RowSpan="1" Column="5" ColumnSpan="1" /&gt;&lt;Control Name="BtFlipH" Row="0" RowSpan="1" Column="4" ColumnSpan="1" /&gt;&lt;Control Name="BtRotateCW" Row="0" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="BtRotateCCW" Row="0" RowSpan="1" Column="3" ColumnSpan="1" /&gt;&lt;Control Name="BtnRevert" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="BtnCrop" Row="0" RowSpan="1" Column="6" ColumnSpan="1" /&gt;&lt;Control Name="BtnReverse" Row="0" RowSpan="1" Column="8" ColumnSpan="1" /&gt;&lt;Control Name="BtnAutoTrim" Row="0" RowSpan="1" Column="7" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="AutoSize,0,Absolute,15,AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0" /&gt;&lt;Rows Styles="AutoSize,0" /&gt;&lt;/TableLayoutSettings&gt;</value>
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="BtFlipV" Row="0" RowSpan="1" Column="5" ColumnSpan="1" /&gt;&lt;Control Name="BtFlipH" Row="0" RowSpan="1" Column="4" ColumnSpan="1" /&gt;&lt;Control Name="BtRotateCW" Row="0" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="BtRotateCCW" Row="0" RowSpan="1" Column="3" ColumnSpan="1" /&gt;&lt;Control Name="BtnRevert" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="BtnCrop" Row="0" RowSpan="1" Column="6" ColumnSpan="1" /&gt;&lt;Control Name="BtnReverse" Row="0" RowSpan="1" Column="8" ColumnSpan="1" /&gt;&lt;Control Name="BtnAutoTrim" Row="0" RowSpan="1" Column="7" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="AutoSize,0,Absolute,20,AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0" /&gt;&lt;Rows Styles="AutoSize,0" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
   <data name="TlpLeft.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -826,13 +871,16 @@
     <value>Fill</value>
   </data>
   <data name="TbPassthroughInfo.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 16</value>
+    <value>4, 19</value>
+  </data>
+  <data name="TbPassthroughInfo.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
   </data>
   <data name="TbPassthroughInfo.Multiline" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="TbPassthroughInfo.Size" type="System.Drawing.Size, System.Drawing">
-    <value>234, 81</value>
+    <value>312, 100</value>
   </data>
   <data name="TbPassthroughInfo.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -856,13 +904,19 @@
     <value>Fill</value>
   </data>
   <data name="GbPassthrough.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 375</value>
+    <value>4, 446</value>
+  </data>
+  <data name="GbPassthrough.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
   </data>
   <data name="GbPassthrough.MinimumSize" type="System.Drawing.Size, System.Drawing">
-    <value>0, 100</value>
+    <value>0, 123</value>
+  </data>
+  <data name="GbPassthrough.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
   </data>
   <data name="GbPassthrough.Size" type="System.Drawing.Size, System.Drawing">
-    <value>240, 100</value>
+    <value>320, 123</value>
   </data>
   <data name="GbPassthrough.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
@@ -904,13 +958,13 @@
     <value>Left, Right</value>
   </data>
   <data name="CbResize.Location" type="System.Drawing.Point, System.Drawing">
-    <value>64, 2</value>
+    <value>81, 2</value>
   </data>
   <data name="CbResize.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
+    <value>3, 2, 3, 2</value>
   </data>
   <data name="CbResize.Size" type="System.Drawing.Size, System.Drawing">
-    <value>168, 21</value>
+    <value>228, 24</value>
   </data>
   <data name="CbResize.TabIndex" type="System.Int32, mscorlib">
     <value>17</value>
@@ -922,7 +976,7 @@
     <value>CbResize</value>
   </data>
   <data name="&gt;&gt;CbResize.Type" xml:space="preserve">
-    <value>LaserGRBL.UserControls.EnumComboBox, LaserGRBL, Version=4.0.6.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>LaserGRBL.UserControls.EnumComboBox, LaserGRBL, Version=4.8.1.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;CbResize.Parent" xml:space="preserve">
     <value>tableLayoutPanel2</value>
@@ -940,10 +994,13 @@
     <value>NoControl</value>
   </data>
   <data name="LblGrayscale.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 31</value>
+    <value>4, 34</value>
+  </data>
+  <data name="LblGrayscale.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
   </data>
   <data name="LblGrayscale.Size" type="System.Drawing.Size, System.Drawing">
-    <value>54, 13</value>
+    <value>69, 16</value>
   </data>
   <data name="LblGrayscale.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -967,13 +1024,13 @@
     <value>Left, Right</value>
   </data>
   <data name="CbMode.Location" type="System.Drawing.Point, System.Drawing">
-    <value>64, 27</value>
+    <value>81, 30</value>
   </data>
   <data name="CbMode.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
+    <value>3, 2, 3, 2</value>
   </data>
   <data name="CbMode.Size" type="System.Drawing.Size, System.Drawing">
-    <value>168, 21</value>
+    <value>228, 24</value>
   </data>
   <data name="CbMode.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -985,7 +1042,7 @@
     <value>CbMode</value>
   </data>
   <data name="&gt;&gt;CbMode.Type" xml:space="preserve">
-    <value>LaserGRBL.UserControls.EnumComboBox, LaserGRBL, Version=4.0.6.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>LaserGRBL.UserControls.EnumComboBox, LaserGRBL, Version=4.8.1.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;CbMode.Parent" xml:space="preserve">
     <value>tableLayoutPanel2</value>
@@ -997,13 +1054,13 @@
     <value>Left, Right</value>
   </data>
   <data name="TBRed.Location" type="System.Drawing.Point, System.Drawing">
-    <value>63, 51</value>
+    <value>79, 57</value>
   </data>
   <data name="TBRed.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>1, 1, 1, 1</value>
   </data>
   <data name="TBRed.Size" type="System.Drawing.Size, System.Drawing">
-    <value>170, 22</value>
+    <value>232, 27</value>
   </data>
   <data name="TBRed.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
@@ -1015,7 +1072,7 @@
     <value>TBRed</value>
   </data>
   <data name="&gt;&gt;TBRed.Type" xml:space="preserve">
-    <value>LaserGRBL.UserControls.ColorSlider, LaserGRBL, Version=4.0.6.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>LaserGRBL.UserControls.ColorSlider, LaserGRBL, Version=4.8.1.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;TBRed.Parent" xml:space="preserve">
     <value>tableLayoutPanel2</value>
@@ -1033,10 +1090,13 @@
     <value>NoControl</value>
   </data>
   <data name="LblRed.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 55</value>
+    <value>4, 62</value>
+  </data>
+  <data name="LblRed.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
   </data>
   <data name="LblRed.Size" type="System.Drawing.Size, System.Drawing">
-    <value>27, 13</value>
+    <value>33, 16</value>
   </data>
   <data name="LblRed.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
@@ -1069,10 +1129,13 @@
     <value>NoControl</value>
   </data>
   <data name="LblBlue.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 103</value>
+    <value>4, 120</value>
+  </data>
+  <data name="LblBlue.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
   </data>
   <data name="LblBlue.Size" type="System.Drawing.Size, System.Drawing">
-    <value>28, 13</value>
+    <value>34, 16</value>
   </data>
   <data name="LblBlue.TabIndex" type="System.Int32, mscorlib">
     <value>11</value>
@@ -1105,10 +1168,13 @@
     <value>NoControl</value>
   </data>
   <data name="LblGreen.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 79</value>
+    <value>4, 91</value>
+  </data>
+  <data name="LblGreen.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
   </data>
   <data name="LblGreen.Size" type="System.Drawing.Size, System.Drawing">
-    <value>36, 13</value>
+    <value>44, 16</value>
   </data>
   <data name="LblGreen.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
@@ -1141,10 +1207,13 @@
     <value>NoControl</value>
   </data>
   <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 127</value>
+    <value>4, 149</value>
+  </data>
+  <data name="label2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
   </data>
   <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>56, 13</value>
+    <value>70, 16</value>
   </data>
   <data name="label2.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -1168,13 +1237,13 @@
     <value>Left, Right</value>
   </data>
   <data name="TBGreen.Location" type="System.Drawing.Point, System.Drawing">
-    <value>63, 75</value>
+    <value>79, 86</value>
   </data>
   <data name="TBGreen.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>1, 1, 1, 1</value>
   </data>
   <data name="TBGreen.Size" type="System.Drawing.Size, System.Drawing">
-    <value>170, 22</value>
+    <value>232, 27</value>
   </data>
   <data name="TBGreen.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
@@ -1186,7 +1255,7 @@
     <value>TBGreen</value>
   </data>
   <data name="&gt;&gt;TBGreen.Type" xml:space="preserve">
-    <value>LaserGRBL.UserControls.ColorSlider, LaserGRBL, Version=4.0.6.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>LaserGRBL.UserControls.ColorSlider, LaserGRBL, Version=4.8.1.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;TBGreen.Parent" xml:space="preserve">
     <value>tableLayoutPanel2</value>
@@ -1198,13 +1267,13 @@
     <value>Left, Right</value>
   </data>
   <data name="TbBright.Location" type="System.Drawing.Point, System.Drawing">
-    <value>63, 123</value>
+    <value>79, 144</value>
   </data>
   <data name="TbBright.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>1, 1, 1, 1</value>
   </data>
   <data name="TbBright.Size" type="System.Drawing.Size, System.Drawing">
-    <value>170, 22</value>
+    <value>232, 27</value>
   </data>
   <data name="TbBright.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -1213,7 +1282,7 @@
     <value>TbBright</value>
   </data>
   <data name="&gt;&gt;TbBright.Type" xml:space="preserve">
-    <value>LaserGRBL.UserControls.ColorSlider, LaserGRBL, Version=4.0.6.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>LaserGRBL.UserControls.ColorSlider, LaserGRBL, Version=4.8.1.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;TbBright.Parent" xml:space="preserve">
     <value>tableLayoutPanel2</value>
@@ -1225,13 +1294,13 @@
     <value>Left, Right</value>
   </data>
   <data name="TBBlue.Location" type="System.Drawing.Point, System.Drawing">
-    <value>63, 99</value>
+    <value>79, 115</value>
   </data>
   <data name="TBBlue.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>1, 1, 1, 1</value>
   </data>
   <data name="TBBlue.Size" type="System.Drawing.Size, System.Drawing">
-    <value>170, 22</value>
+    <value>232, 27</value>
   </data>
   <data name="TBBlue.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>
@@ -1243,7 +1312,7 @@
     <value>TBBlue</value>
   </data>
   <data name="&gt;&gt;TBBlue.Type" xml:space="preserve">
-    <value>LaserGRBL.UserControls.ColorSlider, LaserGRBL, Version=4.0.6.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>LaserGRBL.UserControls.ColorSlider, LaserGRBL, Version=4.8.1.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;TBBlue.Parent" xml:space="preserve">
     <value>tableLayoutPanel2</value>
@@ -1255,13 +1324,13 @@
     <value>Left, Right</value>
   </data>
   <data name="TbContrast.Location" type="System.Drawing.Point, System.Drawing">
-    <value>63, 147</value>
+    <value>79, 173</value>
   </data>
   <data name="TbContrast.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>1, 1, 1, 1</value>
   </data>
   <data name="TbContrast.Size" type="System.Drawing.Size, System.Drawing">
-    <value>170, 22</value>
+    <value>232, 27</value>
   </data>
   <data name="TbContrast.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -1270,7 +1339,7 @@
     <value>TbContrast</value>
   </data>
   <data name="&gt;&gt;TbContrast.Type" xml:space="preserve">
-    <value>LaserGRBL.UserControls.ColorSlider, LaserGRBL, Version=4.0.6.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>LaserGRBL.UserControls.ColorSlider, LaserGRBL, Version=4.8.1.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;TbContrast.Parent" xml:space="preserve">
     <value>tableLayoutPanel2</value>
@@ -1288,10 +1357,13 @@
     <value>NoControl</value>
   </data>
   <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 151</value>
+    <value>4, 178</value>
+  </data>
+  <data name="label3.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
   </data>
   <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>46, 13</value>
+    <value>56, 16</value>
   </data>
   <data name="label3.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -1321,13 +1393,13 @@
     <value>NoControl</value>
   </data>
   <data name="CbThreshold.Location" type="System.Drawing.Point, System.Drawing">
-    <value>2, 197</value>
+    <value>3, 234</value>
   </data>
   <data name="CbThreshold.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
+    <value>3, 2, 3, 2</value>
   </data>
   <data name="CbThreshold.Size" type="System.Drawing.Size, System.Drawing">
-    <value>50, 17</value>
+    <value>60, 20</value>
   </data>
   <data name="CbThreshold.TabIndex" type="System.Int32, mscorlib">
     <value>15</value>
@@ -1360,10 +1432,13 @@
     <value>NoControl</value>
   </data>
   <data name="label28.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 6</value>
+    <value>4, 6</value>
+  </data>
+  <data name="label28.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
   </data>
   <data name="label28.Size" type="System.Drawing.Size, System.Drawing">
-    <value>39, 13</value>
+    <value>49, 16</value>
   </data>
   <data name="label28.TabIndex" type="System.Int32, mscorlib">
     <value>16</value>
@@ -1387,13 +1462,13 @@
     <value>Left, Right</value>
   </data>
   <data name="TbThreshold.Location" type="System.Drawing.Point, System.Drawing">
-    <value>63, 195</value>
+    <value>79, 231</value>
   </data>
   <data name="TbThreshold.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>1, 1, 1, 1</value>
   </data>
   <data name="TbThreshold.Size" type="System.Drawing.Size, System.Drawing">
-    <value>170, 22</value>
+    <value>232, 27</value>
   </data>
   <data name="TbThreshold.TabIndex" type="System.Int32, mscorlib">
     <value>14</value>
@@ -1405,7 +1480,7 @@
     <value>TbThreshold</value>
   </data>
   <data name="&gt;&gt;TbThreshold.Type" xml:space="preserve">
-    <value>LaserGRBL.UserControls.ColorSlider, LaserGRBL, Version=4.0.6.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>LaserGRBL.UserControls.ColorSlider, LaserGRBL, Version=4.8.1.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;TbThreshold.Parent" xml:space="preserve">
     <value>tableLayoutPanel2</value>
@@ -1417,13 +1492,13 @@
     <value>Left, Right</value>
   </data>
   <data name="TBWhiteClip.Location" type="System.Drawing.Point, System.Drawing">
-    <value>63, 171</value>
+    <value>79, 202</value>
   </data>
   <data name="TBWhiteClip.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>1, 1, 1, 1</value>
   </data>
   <data name="TBWhiteClip.Size" type="System.Drawing.Size, System.Drawing">
-    <value>170, 22</value>
+    <value>232, 27</value>
   </data>
   <data name="TBWhiteClip.TabIndex" type="System.Int32, mscorlib">
     <value>18</value>
@@ -1432,7 +1507,7 @@
     <value>TBWhiteClip</value>
   </data>
   <data name="&gt;&gt;TBWhiteClip.Type" xml:space="preserve">
-    <value>LaserGRBL.UserControls.ColorSlider, LaserGRBL, Version=4.0.6.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>LaserGRBL.UserControls.ColorSlider, LaserGRBL, Version=4.8.1.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;TBWhiteClip.Parent" xml:space="preserve">
     <value>tableLayoutPanel2</value>
@@ -1450,10 +1525,13 @@
     <value>NoControl</value>
   </data>
   <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 175</value>
+    <value>4, 207</value>
+  </data>
+  <data name="label4.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
   </data>
   <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>55, 13</value>
+    <value>67, 16</value>
   </data>
   <data name="label4.TabIndex" type="System.Int32, mscorlib">
     <value>19</value>
@@ -1477,13 +1555,16 @@
     <value>Fill</value>
   </data>
   <data name="tableLayoutPanel2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 16</value>
+    <value>4, 19</value>
+  </data>
+  <data name="tableLayoutPanel2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
   </data>
   <data name="tableLayoutPanel2.RowCount" type="System.Int32, mscorlib">
     <value>9</value>
   </data>
   <data name="tableLayoutPanel2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>234, 218</value>
+    <value>312, 259</value>
   </data>
   <data name="tableLayoutPanel2.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -1507,10 +1588,16 @@
     <value>Fill</value>
   </data>
   <data name="GbParameters.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 3</value>
+    <value>4, 4</value>
+  </data>
+  <data name="GbParameters.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
+  </data>
+  <data name="GbParameters.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
   </data>
   <data name="GbParameters.Size" type="System.Drawing.Size, System.Drawing">
-    <value>240, 237</value>
+    <value>320, 282</value>
   </data>
   <data name="GbParameters.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -1555,10 +1642,13 @@
     <value>NoControl</value>
   </data>
   <data name="label6.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 29</value>
+    <value>4, 35</value>
+  </data>
+  <data name="label6.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
   </data>
   <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>77, 13</value>
+    <value>96, 16</value>
   </data>
   <data name="label6.TabIndex" type="System.Int32, mscorlib">
     <value>23</value>
@@ -1588,10 +1678,13 @@
     <value>NoControl</value>
   </data>
   <data name="label7.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 5</value>
+    <value>4, 6</value>
+  </data>
+  <data name="label7.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
   </data>
   <data name="label7.Size" type="System.Drawing.Size, System.Drawing">
-    <value>88, 13</value>
+    <value>111, 16</value>
   </data>
   <data name="label7.TabIndex" type="System.Int32, mscorlib">
     <value>27</value>
@@ -1618,13 +1711,13 @@
     <value>False</value>
   </data>
   <data name="TBLineThreshold.Location" type="System.Drawing.Point, System.Drawing">
-    <value>95, 25</value>
+    <value>120, 30</value>
   </data>
   <data name="TBLineThreshold.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>1, 1, 1, 1</value>
   </data>
   <data name="TBLineThreshold.Size" type="System.Drawing.Size, System.Drawing">
-    <value>119, 22</value>
+    <value>167, 27</value>
   </data>
   <data name="TBLineThreshold.TabIndex" type="System.Int32, mscorlib">
     <value>30</value>
@@ -1636,7 +1729,7 @@
     <value>TBLineThreshold</value>
   </data>
   <data name="&gt;&gt;TBLineThreshold.Type" xml:space="preserve">
-    <value>LaserGRBL.UserControls.ColorSlider, LaserGRBL, Version=4.0.6.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>LaserGRBL.UserControls.ColorSlider, LaserGRBL, Version=4.8.1.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;TBLineThreshold.Parent" xml:space="preserve">
     <value>tableLayoutPanel3</value>
@@ -1651,13 +1744,13 @@
     <value>False</value>
   </data>
   <data name="TBCornerThreshold.Location" type="System.Drawing.Point, System.Drawing">
-    <value>95, 1</value>
+    <value>120, 1</value>
   </data>
   <data name="TBCornerThreshold.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>1, 1, 1, 1</value>
   </data>
   <data name="TBCornerThreshold.Size" type="System.Drawing.Size, System.Drawing">
-    <value>119, 22</value>
+    <value>167, 27</value>
   </data>
   <data name="TBCornerThreshold.TabIndex" type="System.Int32, mscorlib">
     <value>31</value>
@@ -1669,7 +1762,7 @@
     <value>TBCornerThreshold</value>
   </data>
   <data name="&gt;&gt;TBCornerThreshold.Type" xml:space="preserve">
-    <value>LaserGRBL.UserControls.ColorSlider, LaserGRBL, Version=4.0.6.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>LaserGRBL.UserControls.ColorSlider, LaserGRBL, Version=4.8.1.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;TBCornerThreshold.Parent" xml:space="preserve">
     <value>tableLayoutPanel3</value>
@@ -1687,13 +1780,13 @@
     <value>NoControl</value>
   </data>
   <data name="CbLineThreshold.Location" type="System.Drawing.Point, System.Drawing">
-    <value>217, 29</value>
+    <value>291, 35</value>
   </data>
   <data name="CbLineThreshold.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
+    <value>3, 2, 3, 2</value>
   </data>
   <data name="CbLineThreshold.Size" type="System.Drawing.Size, System.Drawing">
-    <value>15, 14</value>
+    <value>18, 17</value>
   </data>
   <data name="CbLineThreshold.TabIndex" type="System.Int32, mscorlib">
     <value>26</value>
@@ -1720,13 +1813,13 @@
     <value>NoControl</value>
   </data>
   <data name="CbCornerThreshold.Location" type="System.Drawing.Point, System.Drawing">
-    <value>217, 5</value>
+    <value>291, 6</value>
   </data>
   <data name="CbCornerThreshold.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
+    <value>3, 2, 3, 2</value>
   </data>
   <data name="CbCornerThreshold.Size" type="System.Drawing.Size, System.Drawing">
-    <value>15, 14</value>
+    <value>18, 17</value>
   </data>
   <data name="CbCornerThreshold.TabIndex" type="System.Int32, mscorlib">
     <value>29</value>
@@ -1747,13 +1840,16 @@
     <value>Top</value>
   </data>
   <data name="tableLayoutPanel3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 16</value>
+    <value>4, 19</value>
+  </data>
+  <data name="tableLayoutPanel3.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
   </data>
   <data name="tableLayoutPanel3.RowCount" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
   <data name="tableLayoutPanel3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>234, 48</value>
+    <value>312, 58</value>
   </data>
   <data name="tableLayoutPanel3.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -1777,10 +1873,16 @@
     <value>Fill</value>
   </data>
   <data name="GbCenterlineOptions.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 481</value>
+    <value>4, 577</value>
+  </data>
+  <data name="GbCenterlineOptions.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
+  </data>
+  <data name="GbCenterlineOptions.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
   </data>
   <data name="GbCenterlineOptions.Size" type="System.Drawing.Size, System.Drawing">
-    <value>240, 67</value>
+    <value>320, 81</value>
   </data>
   <data name="GbCenterlineOptions.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -1834,7 +1936,10 @@
 </value>
   </data>
   <data name="BtnAdaptiveQualityInfo.Location" type="System.Drawing.Point, System.Drawing">
-    <value>214, 99</value>
+    <value>291, 108</value>
+  </data>
+  <data name="BtnAdaptiveQualityInfo.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
   </data>
   <data name="BtnAdaptiveQualityInfo.Size" type="System.Drawing.Size, System.Drawing">
     <value>17, 17</value>
@@ -1849,7 +1954,7 @@
     <value>BtnAdaptiveQualityInfo</value>
   </data>
   <data name="&gt;&gt;BtnAdaptiveQualityInfo.Type" xml:space="preserve">
-    <value>LaserGRBL.UserControls.ImageButton, LaserGRBL, Version=4.0.6.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>LaserGRBL.UserControls.ImageButton, LaserGRBL, Version=4.8.1.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;BtnAdaptiveQualityInfo.Parent" xml:space="preserve">
     <value>tableLayoutPanel5</value>
@@ -1867,10 +1972,13 @@
     <value>NoControl</value>
   </data>
   <data name="CbAdaptiveQuality.Location" type="System.Drawing.Point, System.Drawing">
-    <value>91, 100</value>
+    <value>115, 108</value>
+  </data>
+  <data name="CbAdaptiveQuality.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
   </data>
   <data name="CbAdaptiveQuality.Size" type="System.Drawing.Size, System.Drawing">
-    <value>15, 14</value>
+    <value>18, 17</value>
   </data>
   <data name="CbAdaptiveQuality.TabIndex" type="System.Int32, mscorlib">
     <value>42</value>
@@ -1897,10 +2005,13 @@
     <value>NoControl</value>
   </data>
   <data name="LAdaptiveQuality.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 101</value>
+    <value>4, 108</value>
+  </data>
+  <data name="LAdaptiveQuality.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
   </data>
   <data name="LAdaptiveQuality.Size" type="System.Drawing.Size, System.Drawing">
-    <value>82, 13</value>
+    <value>103, 16</value>
   </data>
   <data name="LAdaptiveQuality.TabIndex" type="System.Int32, mscorlib">
     <value>41</value>
@@ -1933,10 +2044,13 @@
     <value>NoControl</value>
   </data>
   <data name="label22.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 5</value>
+    <value>4, 5</value>
+  </data>
+  <data name="label22.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
   </data>
   <data name="label22.Size" type="System.Drawing.Size, System.Drawing">
-    <value>74, 13</value>
+    <value>93, 16</value>
   </data>
   <data name="label22.TabIndex" type="System.Int32, mscorlib">
     <value>22</value>
@@ -1963,13 +2077,13 @@
     <value>False</value>
   </data>
   <data name="UDSpotRemoval.Location" type="System.Drawing.Point, System.Drawing">
-    <value>90, 2</value>
+    <value>114, 2</value>
   </data>
   <data name="UDSpotRemoval.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
+    <value>3, 2, 3, 2</value>
   </data>
   <data name="UDSpotRemoval.Size" type="System.Drawing.Size, System.Drawing">
-    <value>54, 20</value>
+    <value>72, 22</value>
   </data>
   <data name="UDSpotRemoval.TabIndex" type="System.Int32, mscorlib">
     <value>19</value>
@@ -1999,13 +2113,13 @@
     <value>NoControl</value>
   </data>
   <data name="CbSpotRemoval.Location" type="System.Drawing.Point, System.Drawing">
-    <value>149, 5</value>
+    <value>193, 4</value>
   </data>
   <data name="CbSpotRemoval.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
+    <value>3, 2, 3, 2</value>
   </data>
   <data name="CbSpotRemoval.Size" type="System.Drawing.Size, System.Drawing">
-    <value>15, 14</value>
+    <value>18, 17</value>
   </data>
   <data name="CbSpotRemoval.TabIndex" type="System.Int32, mscorlib">
     <value>25</value>
@@ -2032,10 +2146,13 @@
     <value>NoControl</value>
   </data>
   <data name="label24.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 53</value>
+    <value>4, 57</value>
+  </data>
+  <data name="label24.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
   </data>
   <data name="label24.Size" type="System.Drawing.Size, System.Drawing">
-    <value>47, 13</value>
+    <value>59, 16</value>
   </data>
   <data name="label24.TabIndex" type="System.Int32, mscorlib">
     <value>24</value>
@@ -2065,10 +2182,13 @@
     <value>NoControl</value>
   </data>
   <data name="label23.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 29</value>
+    <value>4, 31</value>
+  </data>
+  <data name="label23.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
   </data>
   <data name="label23.Size" type="System.Drawing.Size, System.Drawing">
-    <value>57, 13</value>
+    <value>71, 16</value>
   </data>
   <data name="label23.TabIndex" type="System.Int32, mscorlib">
     <value>23</value>
@@ -2095,13 +2215,13 @@
     <value>False</value>
   </data>
   <data name="UDOptimize.Location" type="System.Drawing.Point, System.Drawing">
-    <value>90, 50</value>
+    <value>114, 54</value>
   </data>
   <data name="UDOptimize.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
+    <value>3, 2, 3, 2</value>
   </data>
   <data name="UDOptimize.Size" type="System.Drawing.Size, System.Drawing">
-    <value>54, 20</value>
+    <value>72, 22</value>
   </data>
   <data name="UDOptimize.TabIndex" type="System.Int32, mscorlib">
     <value>21</value>
@@ -2128,13 +2248,13 @@
     <value>False</value>
   </data>
   <data name="UDSmoothing.Location" type="System.Drawing.Point, System.Drawing">
-    <value>90, 26</value>
+    <value>114, 28</value>
   </data>
   <data name="UDSmoothing.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
+    <value>3, 2, 3, 2</value>
   </data>
   <data name="UDSmoothing.Size" type="System.Drawing.Size, System.Drawing">
-    <value>54, 20</value>
+    <value>72, 22</value>
   </data>
   <data name="UDSmoothing.TabIndex" type="System.Int32, mscorlib">
     <value>20</value>
@@ -2164,13 +2284,13 @@
     <value>NoControl</value>
   </data>
   <data name="CbOptimize.Location" type="System.Drawing.Point, System.Drawing">
-    <value>149, 53</value>
+    <value>193, 56</value>
   </data>
   <data name="CbOptimize.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
+    <value>3, 2, 3, 2</value>
   </data>
   <data name="CbOptimize.Size" type="System.Drawing.Size, System.Drawing">
-    <value>15, 14</value>
+    <value>18, 17</value>
   </data>
   <data name="CbOptimize.TabIndex" type="System.Int32, mscorlib">
     <value>27</value>
@@ -2197,13 +2317,13 @@
     <value>NoControl</value>
   </data>
   <data name="CbSmoothing.Location" type="System.Drawing.Point, System.Drawing">
-    <value>149, 29</value>
+    <value>193, 30</value>
   </data>
   <data name="CbSmoothing.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
+    <value>3, 2, 3, 2</value>
   </data>
   <data name="CbSmoothing.Size" type="System.Drawing.Size, System.Drawing">
-    <value>15, 14</value>
+    <value>18, 17</value>
   </data>
   <data name="CbSmoothing.TabIndex" type="System.Int32, mscorlib">
     <value>26</value>
@@ -2230,10 +2350,13 @@
     <value>NoControl</value>
   </data>
   <data name="label14.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 145</value>
+    <value>4, 160</value>
+  </data>
+  <data name="label14.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
   </data>
   <data name="label14.Size" type="System.Drawing.Size, System.Drawing">
-    <value>33, 13</value>
+    <value>42, 16</value>
   </data>
   <data name="label14.TabIndex" type="System.Int32, mscorlib">
     <value>33</value>
@@ -2257,13 +2380,13 @@
     <value>Left</value>
   </data>
   <data name="CbFillingDirection.Location" type="System.Drawing.Point, System.Drawing">
-    <value>90, 141</value>
+    <value>114, 156</value>
   </data>
   <data name="CbFillingDirection.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
+    <value>3, 2, 3, 2</value>
   </data>
   <data name="CbFillingDirection.Size" type="System.Drawing.Size, System.Drawing">
-    <value>113, 21</value>
+    <value>149, 24</value>
   </data>
   <data name="CbFillingDirection.TabIndex" type="System.Int32, mscorlib">
     <value>31</value>
@@ -2275,7 +2398,7 @@
     <value>CbFillingDirection</value>
   </data>
   <data name="&gt;&gt;CbFillingDirection.Type" xml:space="preserve">
-    <value>LaserGRBL.UserControls.EnumComboBox, LaserGRBL, Version=4.0.6.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>LaserGRBL.UserControls.EnumComboBox, LaserGRBL, Version=4.8.1.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;CbFillingDirection.Parent" xml:space="preserve">
     <value>tableLayoutPanel5</value>
@@ -2293,10 +2416,13 @@
     <value>NoControl</value>
   </data>
   <data name="LblFillingQuality.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 169</value>
+    <value>4, 187</value>
+  </data>
+  <data name="LblFillingQuality.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
   </data>
   <data name="LblFillingQuality.Size" type="System.Drawing.Size, System.Drawing">
-    <value>68, 13</value>
+    <value>86, 16</value>
   </data>
   <data name="LblFillingQuality.TabIndex" type="System.Int32, mscorlib">
     <value>34</value>
@@ -2320,13 +2446,13 @@
     <value>Left</value>
   </data>
   <data name="UDFillingQuality.Location" type="System.Drawing.Point, System.Drawing">
-    <value>90, 166</value>
+    <value>114, 184</value>
   </data>
   <data name="UDFillingQuality.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
+    <value>3, 2, 3, 2</value>
   </data>
   <data name="UDFillingQuality.Size" type="System.Drawing.Size, System.Drawing">
-    <value>55, 20</value>
+    <value>73, 22</value>
   </data>
   <data name="UDFillingQuality.TabIndex" type="System.Int32, mscorlib">
     <value>32</value>
@@ -2356,10 +2482,13 @@
     <value>NoControl</value>
   </data>
   <data name="LblFillingLineLbl.Location" type="System.Drawing.Point, System.Drawing">
-    <value>150, 169</value>
+    <value>194, 187</value>
+  </data>
+  <data name="LblFillingLineLbl.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
   </data>
   <data name="LblFillingLineLbl.Size" type="System.Drawing.Size, System.Drawing">
-    <value>53, 13</value>
+    <value>65, 16</value>
   </data>
   <data name="LblFillingLineLbl.TabIndex" type="System.Int32, mscorlib">
     <value>35</value>
@@ -2386,13 +2515,13 @@
     <value>False</value>
   </data>
   <data name="UDDownSample.Location" type="System.Drawing.Point, System.Drawing">
-    <value>90, 74</value>
+    <value>114, 80</value>
   </data>
   <data name="UDDownSample.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
+    <value>3, 2, 3, 2</value>
   </data>
   <data name="UDDownSample.Size" type="System.Drawing.Size, System.Drawing">
-    <value>54, 20</value>
+    <value>72, 22</value>
   </data>
   <data name="UDDownSample.TabIndex" type="System.Int32, mscorlib">
     <value>37</value>
@@ -2422,10 +2551,13 @@
     <value>NoControl</value>
   </data>
   <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 77</value>
+    <value>4, 83</value>
+  </data>
+  <data name="label1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
   </data>
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>76, 13</value>
+    <value>96, 16</value>
   </data>
   <data name="label1.TabIndex" type="System.Int32, mscorlib">
     <value>36</value>
@@ -2455,13 +2587,13 @@
     <value>NoControl</value>
   </data>
   <data name="CbDownSample.Location" type="System.Drawing.Point, System.Drawing">
-    <value>149, 77</value>
+    <value>193, 82</value>
   </data>
   <data name="CbDownSample.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
+    <value>3, 2, 3, 2</value>
   </data>
   <data name="CbDownSample.Size" type="System.Drawing.Size, System.Drawing">
-    <value>15, 14</value>
+    <value>18, 17</value>
   </data>
   <data name="CbDownSample.TabIndex" type="System.Int32, mscorlib">
     <value>38</value>
@@ -2488,10 +2620,13 @@
     <value>NoControl</value>
   </data>
   <data name="lOptimizeFast.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 122</value>
+    <value>4, 133</value>
+  </data>
+  <data name="lOptimizeFast.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
   </data>
   <data name="lOptimizeFast.Size" type="System.Drawing.Size, System.Drawing">
-    <value>80, 13</value>
+    <value>101, 16</value>
   </data>
   <data name="lOptimizeFast.TabIndex" type="System.Int32, mscorlib">
     <value>39</value>
@@ -2533,7 +2668,10 @@
 </value>
   </data>
   <data name="BtnFillingQualityInfo.Location" type="System.Drawing.Point, System.Drawing">
-    <value>214, 167</value>
+    <value>291, 186</value>
+  </data>
+  <data name="BtnFillingQualityInfo.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
   </data>
   <data name="BtnFillingQualityInfo.Size" type="System.Drawing.Size, System.Drawing">
     <value>17, 17</value>
@@ -2548,7 +2686,7 @@
     <value>BtnFillingQualityInfo</value>
   </data>
   <data name="&gt;&gt;BtnFillingQualityInfo.Type" xml:space="preserve">
-    <value>LaserGRBL.UserControls.ImageButton, LaserGRBL, Version=4.0.6.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>LaserGRBL.UserControls.ImageButton, LaserGRBL, Version=4.8.1.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;BtnFillingQualityInfo.Parent" xml:space="preserve">
     <value>tableLayoutPanel5</value>
@@ -2566,10 +2704,13 @@
     <value>NoControl</value>
   </data>
   <data name="CbOptimizeFast.Location" type="System.Drawing.Point, System.Drawing">
-    <value>91, 122</value>
+    <value>115, 133</value>
+  </data>
+  <data name="CbOptimizeFast.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
   </data>
   <data name="CbOptimizeFast.Size" type="System.Drawing.Size, System.Drawing">
-    <value>15, 14</value>
+    <value>18, 17</value>
   </data>
   <data name="CbOptimizeFast.TabIndex" type="System.Int32, mscorlib">
     <value>40</value>
@@ -2590,13 +2731,16 @@
     <value>Top</value>
   </data>
   <data name="tableLayoutPanel5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 16</value>
+    <value>4, 19</value>
+  </data>
+  <data name="tableLayoutPanel5.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
   </data>
   <data name="tableLayoutPanel5.RowCount" type="System.Int32, mscorlib">
     <value>8</value>
   </data>
   <data name="tableLayoutPanel5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>234, 188</value>
+    <value>312, 208</value>
   </data>
   <data name="tableLayoutPanel5.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -2614,16 +2758,22 @@
     <value>0</value>
   </data>
   <data name="tableLayoutPanel5.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="BtnAdaptiveQualityInfo" Row="4" RowSpan="1" Column="3" ColumnSpan="1" /&gt;&lt;Control Name="CbAdaptiveQuality" Row="4" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="LAdaptiveQuality" Row="4" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="label22" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="UDSpotRemoval" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="CbSpotRemoval" Row="0" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="label24" Row="2" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="label23" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="UDOptimize" Row="2" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="UDSmoothing" Row="1" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="CbOptimize" Row="2" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="CbSmoothing" Row="1" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="label14" Row="6" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="CbFillingDirection" Row="6" RowSpan="1" Column="1" ColumnSpan="3" /&gt;&lt;Control Name="LblFillingQuality" Row="7" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="UDFillingQuality" Row="7" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="LblFillingLineLbl" Row="7" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="UDDownSample" Row="3" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="label1" Row="3" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="CbDownSample" Row="3" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="lOptimizeFast" Row="5" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="BtnFillingQualityInfo" Row="7" RowSpan="1" Column="3" ColumnSpan="1" /&gt;&lt;Control Name="CbOptimizeFast" Row="5" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="AutoSize,0,AutoSize,0,Percent,50,AutoSize,0,Absolute,15,Absolute,15" /&gt;&lt;Rows Styles="AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,Absolute,20" /&gt;&lt;/TableLayoutSettings&gt;</value>
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="BtnAdaptiveQualityInfo" Row="4" RowSpan="1" Column="3" ColumnSpan="1" /&gt;&lt;Control Name="CbAdaptiveQuality" Row="4" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="LAdaptiveQuality" Row="4" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="label22" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="UDSpotRemoval" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="CbSpotRemoval" Row="0" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="label24" Row="2" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="label23" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="UDOptimize" Row="2" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="UDSmoothing" Row="1" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="CbOptimize" Row="2" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="CbSmoothing" Row="1" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="label14" Row="6" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="CbFillingDirection" Row="6" RowSpan="1" Column="1" ColumnSpan="3" /&gt;&lt;Control Name="LblFillingQuality" Row="7" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="UDFillingQuality" Row="7" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="LblFillingLineLbl" Row="7" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="UDDownSample" Row="3" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="label1" Row="3" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="CbDownSample" Row="3" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="lOptimizeFast" Row="5" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="BtnFillingQualityInfo" Row="7" RowSpan="1" Column="3" ColumnSpan="1" /&gt;&lt;Control Name="CbOptimizeFast" Row="5" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="AutoSize,0,AutoSize,0,Percent,50,AutoSize,0,Absolute,20,Absolute,20" /&gt;&lt;Rows Styles="AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,Absolute,25" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
   <data name="GbVectorizeOptions.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
   <data name="GbVectorizeOptions.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 676</value>
+    <value>4, 807</value>
+  </data>
+  <data name="GbVectorizeOptions.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
+  </data>
+  <data name="GbVectorizeOptions.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
   </data>
   <data name="GbVectorizeOptions.Size" type="System.Drawing.Size, System.Drawing">
-    <value>240, 207</value>
+    <value>320, 231</value>
   </data>
   <data name="GbVectorizeOptions.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -2665,13 +2815,13 @@
     <value>Left, Right</value>
   </data>
   <data name="CbDirections.Location" type="System.Drawing.Point, System.Drawing">
-    <value>57, 29</value>
+    <value>71, 34</value>
   </data>
   <data name="CbDirections.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
+    <value>3, 2, 3, 2</value>
   </data>
   <data name="CbDirections.Size" type="System.Drawing.Size, System.Drawing">
-    <value>175, 21</value>
+    <value>238, 24</value>
   </data>
   <data name="CbDirections.TabIndex" type="System.Int32, mscorlib">
     <value>14</value>
@@ -2683,7 +2833,7 @@
     <value>CbDirections</value>
   </data>
   <data name="&gt;&gt;CbDirections.Type" xml:space="preserve">
-    <value>LaserGRBL.UserControls.EnumComboBox, LaserGRBL, Version=4.0.6.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>LaserGRBL.UserControls.EnumComboBox, LaserGRBL, Version=4.8.1.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;CbDirections.Parent" xml:space="preserve">
     <value>TLP</value>
@@ -2692,13 +2842,13 @@
     <value>0</value>
   </data>
   <data name="UDQuality.Location" type="System.Drawing.Point, System.Drawing">
-    <value>57, 54</value>
+    <value>71, 62</value>
   </data>
   <data name="UDQuality.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
+    <value>3, 2, 3, 2</value>
   </data>
   <data name="UDQuality.Size" type="System.Drawing.Size, System.Drawing">
-    <value>55, 20</value>
+    <value>73, 22</value>
   </data>
   <data name="UDQuality.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
@@ -2725,13 +2875,13 @@
     <value>NoControl</value>
   </data>
   <data name="CbLinePreview.Location" type="System.Drawing.Point, System.Drawing">
-    <value>2, 78</value>
+    <value>3, 88</value>
   </data>
   <data name="CbLinePreview.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
+    <value>3, 2, 3, 2</value>
   </data>
   <data name="CbLinePreview.Size" type="System.Drawing.Size, System.Drawing">
-    <value>87, 17</value>
+    <value>105, 20</value>
   </data>
   <data name="CbLinePreview.TabIndex" type="System.Int32, mscorlib">
     <value>12</value>
@@ -2764,10 +2914,13 @@
     <value>NoControl</value>
   </data>
   <data name="label5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 57</value>
+    <value>4, 65</value>
+  </data>
+  <data name="label5.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
   </data>
   <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>39, 13</value>
+    <value>48, 16</value>
   </data>
   <data name="label5.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -2797,10 +2950,13 @@
     <value>NoControl</value>
   </data>
   <data name="label27.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 33</value>
+    <value>4, 38</value>
+  </data>
+  <data name="label27.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
   </data>
   <data name="label27.Size" type="System.Drawing.Size, System.Drawing">
-    <value>49, 13</value>
+    <value>60, 16</value>
   </data>
   <data name="label27.TabIndex" type="System.Int32, mscorlib">
     <value>13</value>
@@ -2830,10 +2986,13 @@
     <value>NoControl</value>
   </data>
   <data name="label8.Location" type="System.Drawing.Point, System.Drawing">
-    <value>117, 57</value>
+    <value>151, 65</value>
+  </data>
+  <data name="label8.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
   </data>
   <data name="label8.Size" type="System.Drawing.Size, System.Drawing">
-    <value>53, 13</value>
+    <value>65, 16</value>
   </data>
   <data name="label8.TabIndex" type="System.Int32, mscorlib">
     <value>15</value>
@@ -2863,10 +3022,13 @@
     <value>NoControl</value>
   </data>
   <data name="LblDitherMode.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 7</value>
+    <value>4, 8</value>
+  </data>
+  <data name="LblDitherMode.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
   </data>
   <data name="LblDitherMode.Size" type="System.Drawing.Size, System.Drawing">
-    <value>49, 13</value>
+    <value>60, 16</value>
   </data>
   <data name="LblDitherMode.TabIndex" type="System.Int32, mscorlib">
     <value>16</value>
@@ -2890,10 +3052,13 @@
     <value>Left, Right</value>
   </data>
   <data name="CbDither.Location" type="System.Drawing.Point, System.Drawing">
-    <value>58, 3</value>
+    <value>72, 4</value>
+  </data>
+  <data name="CbDither.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
   </data>
   <data name="CbDither.Size" type="System.Drawing.Size, System.Drawing">
-    <value>173, 21</value>
+    <value>236, 24</value>
   </data>
   <data name="CbDither.TabIndex" type="System.Int32, mscorlib">
     <value>17</value>
@@ -2929,7 +3094,10 @@
 </value>
   </data>
   <data name="BtnQualityInfo.Location" type="System.Drawing.Point, System.Drawing">
-    <value>214, 55</value>
+    <value>291, 64</value>
+  </data>
+  <data name="BtnQualityInfo.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
   </data>
   <data name="BtnQualityInfo.Size" type="System.Drawing.Size, System.Drawing">
     <value>17, 17</value>
@@ -2944,7 +3112,7 @@
     <value>BtnQualityInfo</value>
   </data>
   <data name="&gt;&gt;BtnQualityInfo.Type" xml:space="preserve">
-    <value>LaserGRBL.UserControls.ImageButton, LaserGRBL, Version=4.0.6.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>LaserGRBL.UserControls.ImageButton, LaserGRBL, Version=4.8.1.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;BtnQualityInfo.Parent" xml:space="preserve">
     <value>TLP</value>
@@ -2956,13 +3124,16 @@
     <value>Top</value>
   </data>
   <data name="TLP.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 16</value>
+    <value>4, 19</value>
+  </data>
+  <data name="TLP.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
   </data>
   <data name="TLP.RowCount" type="System.Int32, mscorlib">
     <value>4</value>
   </data>
   <data name="TLP.Size" type="System.Drawing.Size, System.Drawing">
-    <value>234, 97</value>
+    <value>312, 110</value>
   </data>
   <data name="TLP.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -2980,16 +3151,22 @@
     <value>0</value>
   </data>
   <data name="TLP.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="CbDirections" Row="1" RowSpan="1" Column="1" ColumnSpan="3" /&gt;&lt;Control Name="UDQuality" Row="2" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="CbLinePreview" Row="3" RowSpan="1" Column="0" ColumnSpan="3" /&gt;&lt;Control Name="label5" Row="2" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="label27" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="label8" Row="2" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="LblDitherMode" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="CbDither" Row="0" RowSpan="1" Column="1" ColumnSpan="3" /&gt;&lt;Control Name="BtnQualityInfo" Row="2" RowSpan="1" Column="3" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="AutoSize,0,AutoSize,0,Percent,50,AutoSize,0" /&gt;&lt;Rows Styles="AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,Absolute,16" /&gt;&lt;/TableLayoutSettings&gt;</value>
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="CbDirections" Row="1" RowSpan="1" Column="1" ColumnSpan="3" /&gt;&lt;Control Name="UDQuality" Row="2" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="CbLinePreview" Row="3" RowSpan="1" Column="0" ColumnSpan="3" /&gt;&lt;Control Name="label5" Row="2" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="label27" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="label8" Row="2" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="LblDitherMode" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="CbDither" Row="0" RowSpan="1" Column="1" ColumnSpan="3" /&gt;&lt;Control Name="BtnQualityInfo" Row="2" RowSpan="1" Column="3" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="AutoSize,0,AutoSize,0,Percent,50,AutoSize,0" /&gt;&lt;Rows Styles="AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,Absolute,20" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
   <data name="GbLineToLineOptions.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
   <data name="GbLineToLineOptions.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 554</value>
+    <value>4, 666</value>
+  </data>
+  <data name="GbLineToLineOptions.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
+  </data>
+  <data name="GbLineToLineOptions.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
   </data>
   <data name="GbLineToLineOptions.Size" type="System.Drawing.Size, System.Drawing">
-    <value>240, 116</value>
+    <value>320, 133</value>
   </data>
   <data name="GbLineToLineOptions.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -3031,13 +3208,13 @@
     <value>NoControl</value>
   </data>
   <data name="RbNoProcessing.Location" type="System.Drawing.Point, System.Drawing">
-    <value>2, 85</value>
+    <value>3, 99</value>
   </data>
   <data name="RbNoProcessing.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
+    <value>3, 2, 3, 2</value>
   </data>
   <data name="RbNoProcessing.Size" type="System.Drawing.Size, System.Drawing">
-    <value>84, 17</value>
+    <value>103, 20</value>
   </data>
   <data name="RbNoProcessing.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -3067,13 +3244,13 @@
     <value>NoControl</value>
   </data>
   <data name="RbCenterline.Location" type="System.Drawing.Point, System.Drawing">
-    <value>2, 65</value>
+    <value>3, 74</value>
   </data>
   <data name="RbCenterline.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
+    <value>3, 2, 3, 2</value>
   </data>
   <data name="RbCenterline.Size" type="System.Drawing.Size, System.Drawing">
-    <value>72, 16</value>
+    <value>88, 20</value>
   </data>
   <data name="RbCenterline.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -3103,13 +3280,13 @@
     <value>NoControl</value>
   </data>
   <data name="RbDithering.Location" type="System.Drawing.Point, System.Drawing">
-    <value>2, 23</value>
+    <value>3, 26</value>
   </data>
   <data name="RbDithering.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
+    <value>3, 2, 3, 2</value>
   </data>
   <data name="RbDithering.Size" type="System.Drawing.Size, System.Drawing">
-    <value>108, 17</value>
+    <value>130, 20</value>
   </data>
   <data name="RbDithering.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -3139,13 +3316,13 @@
     <value>NoControl</value>
   </data>
   <data name="RbVectorize.Location" type="System.Drawing.Point, System.Drawing">
-    <value>2, 44</value>
+    <value>3, 50</value>
   </data>
   <data name="RbVectorize.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
+    <value>3, 2, 3, 2</value>
   </data>
   <data name="RbVectorize.Size" type="System.Drawing.Size, System.Drawing">
-    <value>72, 17</value>
+    <value>87, 20</value>
   </data>
   <data name="RbVectorize.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -3175,13 +3352,13 @@
     <value>NoControl</value>
   </data>
   <data name="RbLineToLineTracing.Location" type="System.Drawing.Point, System.Drawing">
-    <value>2, 2</value>
+    <value>3, 2</value>
   </data>
   <data name="RbLineToLineTracing.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
+    <value>3, 2, 3, 2</value>
   </data>
   <data name="RbLineToLineTracing.Size" type="System.Drawing.Size, System.Drawing">
-    <value>123, 17</value>
+    <value>150, 20</value>
   </data>
   <data name="RbLineToLineTracing.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -3208,13 +3385,16 @@
     <value>Fill</value>
   </data>
   <data name="tableLayoutPanel4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 16</value>
+    <value>4, 19</value>
+  </data>
+  <data name="tableLayoutPanel4.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
   </data>
   <data name="tableLayoutPanel4.RowCount" type="System.Int32, mscorlib">
     <value>5</value>
   </data>
   <data name="tableLayoutPanel4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>234, 104</value>
+    <value>312, 121</value>
   </data>
   <data name="tableLayoutPanel4.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -3232,16 +3412,22 @@
     <value>0</value>
   </data>
   <data name="tableLayoutPanel4.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="RbNoProcessing" Row="4" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="RbCenterline" Row="3" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="RbDithering" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="RbVectorize" Row="2" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="RbLineToLineTracing" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="AutoSize,0,Absolute,20,Absolute,20" /&gt;&lt;Rows Styles="AutoSize,0,AutoSize,0,AutoSize,0,Absolute,20,AutoSize,0" /&gt;&lt;/TableLayoutSettings&gt;</value>
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="RbNoProcessing" Row="4" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="RbCenterline" Row="3" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="RbDithering" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="RbVectorize" Row="2" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="RbLineToLineTracing" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="AutoSize,0,Absolute,27,Absolute,27" /&gt;&lt;Rows Styles="AutoSize,0,AutoSize,0,AutoSize,0,Absolute,25,AutoSize,0" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
   <data name="GbConversionTool.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
   <data name="GbConversionTool.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 246</value>
+    <value>4, 294</value>
+  </data>
+  <data name="GbConversionTool.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
+  </data>
+  <data name="GbConversionTool.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
   </data>
   <data name="GbConversionTool.Size" type="System.Drawing.Size, System.Drawing">
-    <value>240, 123</value>
+    <value>320, 144</value>
   </data>
   <data name="GbConversionTool.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -3265,16 +3451,19 @@
     <value>Fill</value>
   </data>
   <data name="TlpLeft.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 3</value>
+    <value>4, 4</value>
+  </data>
+  <data name="TlpLeft.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
   </data>
   <data name="TlpLeft.MinimumSize" type="System.Drawing.Size, System.Drawing">
-    <value>246, 0</value>
+    <value>328, 0</value>
   </data>
   <data name="TlpLeft.RowCount" type="System.Int32, mscorlib">
     <value>7</value>
   </data>
   <data name="TlpLeft.Size" type="System.Drawing.Size, System.Drawing">
-    <value>246, 555</value>
+    <value>328, 682</value>
   </data>
   <data name="TlpLeft.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -3310,10 +3499,13 @@
     <value>NoControl</value>
   </data>
   <data name="BtnCancel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 3</value>
+    <value>4, 4</value>
+  </data>
+  <data name="BtnCancel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
   </data>
   <data name="BtnCancel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>74, 27</value>
+    <value>99, 33</value>
   </data>
   <data name="BtnCancel.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -3340,10 +3532,13 @@
     <value>NoControl</value>
   </data>
   <data name="BtnCreate.Location" type="System.Drawing.Point, System.Drawing">
-    <value>83, 3</value>
+    <value>111, 4</value>
+  </data>
+  <data name="BtnCreate.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
   </data>
   <data name="BtnCreate.Size" type="System.Drawing.Size, System.Drawing">
-    <value>74, 27</value>
+    <value>99, 33</value>
   </data>
   <data name="BtnCreate.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -3367,13 +3562,16 @@
     <value>Fill</value>
   </data>
   <data name="tableLayoutPanel1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>621, 525</value>
+    <value>827, 645</value>
+  </data>
+  <data name="tableLayoutPanel1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
   </data>
   <data name="tableLayoutPanel1.RowCount" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
   <data name="tableLayoutPanel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 33</value>
+    <value>214, 41</value>
   </data>
   <data name="tableLayoutPanel1.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
@@ -3399,11 +3597,14 @@
   <data name="TlpMain.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
+  <data name="TlpMain.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
+  </data>
   <data name="TlpMain.RowCount" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
   <data name="TlpMain.Size" type="System.Drawing.Size, System.Drawing">
-    <value>784, 561</value>
+    <value>1045, 690</value>
   </data>
   <data name="TlpMain.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -3433,10 +3634,10 @@
     <value>33</value>
   </metadata>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>6, 13</value>
+    <value>8, 16</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>784, 561</value>
+    <value>1045, 690</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -3514,14 +3715,11 @@
         AD//4AD//+AB///gAf//4AH///AD///wA/8=
 </value>
   </data>
-  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
   <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>5, 5, 5, 5</value>
   </data>
   <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
-    <value>400, 300</value>
+    <value>527, 358</value>
   </data>
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
     <value>CenterScreen</value>

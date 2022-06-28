@@ -38,7 +38,7 @@ namespace LaserGRBL
 		private void BtnOK_Click(object sender, EventArgs e)
 		{
 			if (CbDoNotShow.Checked)
-				Settings.SetObject("Do not show Issue Detector", true);
+				GlobalSettings.SetObject("Do not show Issue Detector", true);
 		}
 	}
 }

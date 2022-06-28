@@ -52,7 +52,7 @@ namespace LaserGRBL.ComWrapper
 		{
 			//bool rts = Settings.GetObject("HardReset Grbl On Connect", false);
 			//bool dtr = Settings.GetObject("HardReset Grbl On Connect", false);
-			bool soft = Settings.GetObject("Reset Grbl On Connect", false);
+			bool soft = GlobalSettings.GetObject("Reset Grbl On Connect", false);
 
 			string rv = "";
 

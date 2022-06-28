@@ -9,6 +9,7 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 using LaserGRBL;
+using LaserGRBL.GRBL;
 
 namespace LaserGRBL.UserControls
 {

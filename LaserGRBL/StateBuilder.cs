@@ -4,34 +4,38 @@
 // This program is distributed in the hope that it will be useful, but  WITHOUT ANY WARRANTY; without even the implied warranty of  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GPLv3  General Public License for more details.
 // You should have received a copy of the GPLv3 General Public License  along with this program; if not, write to the Free Software  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307,  USA. using System;
 
+using LaserGRBL.Core;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Windows;
 
-namespace LaserGRBL
+namespace LaserGRBL.GRBL
 {
-	public class JogCommand : GrblCommand
-	{
-		public JogCommand(string line) : base(line.Substring(3))
-		{
-		}
-	}
+    public class JogCommand : GrblCommand
+    {
+        public JogCommand(string line) : base(line.Substring(3))
+        {
+        }
+    }
 
-	public partial class GrblCommand
+
+
+
+    public partial class GrblCommand
 	{
 		public class StatePositionBuilder : StateBuilder
 		{
-			bool supportPWM = Settings.GetObject("Support Hardware PWM", true);
+			bool supportPWM = GlobalSettings.GetObject("Support Hardware PWM", true);
 
-			public class CumulativeElement : Element
+			public class CumulativeElement : GrblElement
 			{
-				Element mDefault = null;
+				GrblElement mDefault = null;
 				bool mSettled = false;
 				decimal mPrevious = 0;
 
-				public CumulativeElement(Element defval) : base(defval.Command, defval.Number)
+				public CumulativeElement(GrblElement defval) : base(defval.Command, defval.Number)
 				{mDefault = defval;}
 
 				public bool IsDefault
@@ -40,7 +44,7 @@ namespace LaserGRBL
 				public bool IsSettled
 				{ get { return mSettled; } }
 
-				public void Update(Element e, bool Absolute, decimal offset)
+				public void Update(GrblElement e, bool Absolute, decimal offset)
 				{
 					mPrevious = mNumber;
 
@@ -55,12 +59,12 @@ namespace LaserGRBL
 				{ get { return mPrevious; } }
 			}
 
-			public class LastValueElement : Element
+			public class LastValueElement : GrblElement
 			{
-				Element mDefault = null;
+				GrblElement mDefault = null;
 				bool mSettled = false;
 
-				public LastValueElement(Element defval) : base(defval.Command, defval.Number)
+				public LastValueElement(GrblElement defval) : base(defval.Command, defval.Number)
 				{ mDefault = defval; }
 
 				public bool IsDefault
@@ -69,7 +73,7 @@ namespace LaserGRBL
 				public bool IsSettled
 				{ get { return mSettled; } }
 
-				public void Update(Element e)
+				public void Update(GrblElement e)
 				{
 					if (e != null)
 					{
@@ -144,6 +148,18 @@ namespace LaserGRBL
 
 			}
 
+
+
+
+
+
+
+
+
+
+
+
+
 			public bool HasWCO
 			{ get { return mWcoX != 0 || mWcoY != 0 || mWcoZ != 0; } }
 
@@ -204,11 +220,14 @@ namespace LaserGRBL
 			internal int GetCurrentAlpha(ProgramRange.SRange range)
 			{
 				if (!LaserBurning)
+                {
 					return 150; //supportPWM ? 150 : 50
+				}
 				else if (supportPWM && range.ValidRange && S.IsSettled)
-					return (int)((S.Number - range.S.Min) * 255 / (range.S.Max - range.S.Min));
-				else
-					return 255;
+                {
+					return Math.Min((int)((S.Number - range.S.Min) * 255 / (range.S.Max - range.S.Min)), 255);
+				}
+				return 255;
 			}
 
 			public bool G2
@@ -249,6 +268,18 @@ namespace LaserGRBL
 			}
 		}
 
+
+
+
+
+
+
+
+
+
+
+
+
 		public class StateBuilder
 		{
 			//This class is able to parse a series of gcode lines and build the parser state
@@ -269,18 +300,18 @@ namespace LaserGRBL
 			Coolant State				M7, M8, [M9]
 			*/
 
-			public class ModalElement : Element
+			public class ModalElement : GrblElement
 			{
-				List<Element> mOptions = new List<Element>();
-				Element mDefault = null;
+				List<GrblElement> mOptions = new List<GrblElement>();
+				GrblElement mDefault = null;
 				bool mSettled = false;
 				
 
-				public ModalElement(Element defval, params Element[] options) : base(defval.Command, defval.Number)
+				public ModalElement(GrblElement defval, params GrblElement[] options) : base(defval.Command, defval.Number)
 				{
 					mDefault = defval;
 					mOptions.Add(defval);
-					foreach (Element e in options)
+					foreach (GrblElement e in options)
 						mOptions.Add(e);
 				}
 
@@ -290,7 +321,7 @@ namespace LaserGRBL
 				public bool IsSettled
 				{ get { return mSettled; } }
 
-				public void Update(Element e)
+				public void Update(GrblElement e)
 				{
 					if (e != null && mOptions.Contains(e))
 					{ 
@@ -343,9 +374,9 @@ namespace LaserGRBL
 				SpindleState.Update(cmd.M);
 			}
 
-			public IEnumerable<Element> GetSettledModals()
+			public IEnumerable<GrblElement> GetSettledModals()
 			{
-				List<Element> rv = new List<Element>();
+				List<GrblElement> rv = new List<GrblElement>();
 
 				AddSettled(rv, CoordinateSelect);
 				AddSettled(rv, PlaneSelect);
@@ -361,13 +392,19 @@ namespace LaserGRBL
 				return rv;
 			}
 
-			private void AddSettled(List<Element> list, ModalElement element)
+			private void AddSettled(List<GrblElement> list, ModalElement element)
 			{if (element.IsSettled) list.Add(element);}
 
 		}
 
 		public bool IsSetWCO
 		{ get { return G != null && G.Number == 92; } }
+
+
+
+
+
+
 
 
 
@@ -392,7 +429,7 @@ namespace LaserGRBL
 			public double EndAngle;
 			public double AngularWidth;
 
-			public G2G3Helper(LaserGRBL.GrblCommand.StatePositionBuilder spb, LaserGRBL.GrblCommand cmd)
+			public G2G3Helper(GrblCommand.StatePositionBuilder spb, GrblCommand cmd)
 			{
 				bool jb = cmd.JustBuilt;
 				if (!jb) cmd.BuildHelper();

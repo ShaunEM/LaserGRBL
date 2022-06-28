@@ -4,6 +4,7 @@
 // This program is distributed in the hope that it will be useful, but  WITHOUT ANY WARRANTY; without even the implied warranty of  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GPLv3  General Public License for more details.
 // You should have received a copy of the GPLv3 General Public License  along with this program; if not, write to the Free Software  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307,  USA. using System;
 
+using LaserGRBL.GRBL;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
@@ -19,11 +20,11 @@ namespace LaserGRBL
 		public ComWrapper.WrapperType currentWrapper;
 
 		GrblCore Core;
-		private string mLoadedFileName;
+		//private string mLoadedFileName;
 
 		public ConnectLogForm()
 		{
-			currentWrapper = Settings.GetObject("ComWrapper Protocol", ComWrapper.WrapperType.UsbSerial);
+			currentWrapper = GlobalSettings.GetObject("ComWrapper Protocol", ComWrapper.WrapperType.UsbSerial);
 			InitializeComponent();
 		}
 
@@ -61,24 +62,24 @@ namespace LaserGRBL
 
 		private void RestoreConf()
 		{
-			CBSpeed.SelectedItem = Settings.GetObject("Serial Speed", 115200);
+			CBSpeed.SelectedItem = GlobalSettings.GetObject("Serial Speed", 115200);
 
 			if (currentWrapper == ComWrapper.WrapperType.Telnet)
-				TxtAddress.Text = Settings.GetObject("Telnet Address", "127.0.0.1:23");	
+				TxtAddress.Text = GlobalSettings.GetObject("Telnet Address", "127.0.0.1:23");	
 			else if (currentWrapper == ComWrapper.WrapperType.LaserWebESP8266)
-				TxtAddress.Text = Settings.GetObject("Websocket URL", "ws://127.0.0.1:81/"); 
+				TxtAddress.Text = GlobalSettings.GetObject("Websocket URL", "ws://127.0.0.1:81/"); 
 		}
 
-		void OnFileLoaded(long elapsed, string filename)
+		void OnFileLoaded(long elapsed)
 		{
 			if (InvokeRequired)
 			{
-				Invoke(new GrblFile.OnFileLoadedDlg(OnFileLoaded), elapsed, filename);
+				Invoke(new GrblFile.OnFileLoadedDlg(OnFileLoaded), elapsed);
 			}
 			else
 			{
-				mLoadedFileName = filename;
-				TbFileName.Text = System.IO.Path.GetFileName(filename);
+				//mLoadedFileName = filename;
+				//TbFileName.Text = "TODO";
 			}
 		}
 
@@ -194,7 +195,7 @@ namespace LaserGRBL
 
 		void BtnOpenClick(object sender, EventArgs e)
 		{
-			Core.OpenFile(ParentForm);
+			Core.AddLayer(ParentForm);
 		}
 
 		void BtnRunProgramClick(object sender, EventArgs e)
@@ -246,7 +247,7 @@ namespace LaserGRBL
 			BtnRunProgram.Enabled = Core.CanSendFile;
             BtnRunProgram.Visible = !Core.CanAbortProgram;
             BtnAbortProgram.Visible = Core.CanAbortProgram;
-            BtnOpen.Enabled = Core.CanLoadNewFile;
+            //BtnOpen.Enabled = Core.CanLoadNewFile;
 
 			bool old = TxtManualCommand.Enabled;
 			TxtManualCommand.Enabled = Core.CanSendManualCommand;
@@ -262,7 +263,7 @@ namespace LaserGRBL
 
 			if (!Core.IsConnected)
 			{
-				ComWrapper.WrapperType actualWrapper = Settings.GetObject("ComWrapper Protocol", ComWrapper.WrapperType.UsbSerial);
+				ComWrapper.WrapperType actualWrapper = GlobalSettings.GetObject("ComWrapper Protocol", ComWrapper.WrapperType.UsbSerial);
 				if (actualWrapper != currentWrapper)
 				{
 					currentWrapper = actualWrapper;
@@ -299,14 +300,14 @@ namespace LaserGRBL
 			tableLayoutPanel4.ResumeLayout();
 
 			if (CBSpeed.SelectedItem != null)
-				Settings.SetObject("Serial Speed", CBSpeed.SelectedItem);
+				GlobalSettings.SetObject("Serial Speed", CBSpeed.SelectedItem);
 
 			if (TxtAddress.Text != "")
 			{
 				if (currentWrapper == ComWrapper.WrapperType.Telnet)
-					Settings.SetObject("Telnet Address", TxtAddress.Text);
+					GlobalSettings.SetObject("Telnet Address", TxtAddress.Text);
 				else if (currentWrapper == ComWrapper.WrapperType.LaserWebESP8266)
-					Settings.SetObject("Websocket URL", TxtAddress.Text);
+					GlobalSettings.SetObject("Websocket URL", TxtAddress.Text);
 			}
 
 			ApplyConfig();
@@ -349,13 +350,15 @@ namespace LaserGRBL
 
 		private void TbFileName_MouseEnter(object sender, EventArgs e)
 		{
-			if (mLoadedFileName != null)
-				TT.Show(mLoadedFileName, TbFileName, 5000);
+			//if (mLoadedFileName != null)
+   //         {
+			//	TT.Show(mLoadedFileName, TbFileName, 5000);
+   //         }
 		}
 
 		private void TbFileName_MouseLeave(object sender, EventArgs e)
 		{
-			TT.Hide(TbFileName);
+			//TT.Hide(TbFileName);
 		}
 
         private void BtnAbortProgram_Click(object sender, EventArgs e)

@@ -5,10 +5,9 @@
 // You should have received a copy of the GPLv3 General Public License  along with this program; if not, write to the Free Software  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307,  USA. using System;
 
 using System;
-using System.Collections.Generic;
 using System.Drawing;
-using System.IO;
 using System.Linq;
+using System.Text;
 using System.Windows.Forms;
 using System.Windows.Threading;
 using Tools;
@@ -16,7 +15,7 @@ using static Tools.ModifyProgressBarColor;
 
 namespace LaserGRBL
 {
-	public partial class MainForm : Form
+    public partial class MainForm : Form
 	{
 		private GrblCore Core;
 		private UsageStats.MessageData ToolBarMessage;
@@ -31,11 +30,11 @@ namespace LaserGRBL
 
             
 			splitContainer1.FixedPanel = FixedPanel.Panel1;
-            splitContainer1.SplitterDistance = Settings.GetObject("MainForm Splitter Position", 260);
+            splitContainer1.SplitterDistance = GlobalSettings.GetObject("MainForm Splitter Position", 260);
             
-			MnNotifyNewVersion.Checked = Settings.GetObject("Auto Update", true);
-			MnNotifyMinorVersion.Checked = Settings.GetObject("Auto Update Build", false);
-			MnNotifyPreRelease.Checked = Settings.GetObject("Auto Update Pre", false);
+			MnNotifyNewVersion.Checked = GlobalSettings.GetObject("Auto Update", true);
+			MnNotifyMinorVersion.Checked = GlobalSettings.GetObject("Auto Update Build", false);
+			MnNotifyPreRelease.Checked = GlobalSettings.GetObject("Auto Update Pre", false);
 
 			MnAutoUpdate.DropDown.Closing += MnAutoUpdateDropDown_Closing;
 
@@ -49,17 +48,25 @@ namespace LaserGRBL
 				f.ShowDialog(this);
             }
 
-			//build main communication object
-			Firmware ftype = Settings.GetObject("Firmware Type", Firmware.Grbl);
 
+			//build main communication object
+			Firmware ftype = GlobalSettings.GetObject("Firmware Type", Firmware.Grbl);
 			if (ftype == Firmware.Smoothie)
+            {
 				Core = new SmoothieCore(this, PreviewForm, JogForm);
+            }
 			else if (ftype == Firmware.Marlin)
+            {
 				Core = new MarlinCore(this, PreviewForm, JogForm);
+            }
 			else if (ftype == Firmware.VigoWork)
+            {
 				Core = new VigoCore(this, PreviewForm, JogForm);
+            }
 			else
+            {
 				Core = new GrblCore(this, PreviewForm, JogForm);
+            }
 
 
 			ExceptionManager.Core = Core;
@@ -79,14 +86,19 @@ namespace LaserGRBL
 			Core.OnFileLoaded += OnFileLoaded;
 			Core.OnOverrideChange += RefreshOverride;
 			Core.IssueDetected += OnIssueDetected;
+			Core.ProjectUpdated += OnProjectUpdated;
+
+
+
 
 			PreviewForm.SetCore(Core);
 			ConnectionForm.SetCore(Core);
 			JogForm.SetCore(Core);
+			ProjectDetailForm.SetCore(Core);
 
 			GitHub.NewVersion += GitHub_NewVersion;
 
-			ColorScheme.CurrentScheme = Settings.GetObject("Color Schema", ColorScheme.Scheme.BlueLaser); ;
+			ColorScheme.CurrentScheme = GlobalSettings.GetObject("Color Schema", ColorScheme.Scheme.BlueLaser); ;
 			RefreshColorSchema(); //include RefreshOverride();
 			RefreshFormTitle();
 		}
@@ -106,8 +118,37 @@ namespace LaserGRBL
 
 		void OnIssueDetected(GrblCore.DetectedIssue issue)
 		{
-			if (!Settings.GetObject("Do not show Issue Detector", false))
+			if (!GlobalSettings.GetObject("Do not show Issue Detector", false))
 				IssueDetectorForm.CreateAndShowDialog(this, issue);
+		}
+
+		void OnProjectUpdated()
+        {
+			SuspendLayout();
+
+
+			TimeSpan totalEstimatedTime = new TimeSpan();
+			StringBuilder gCodeDebugLines = new StringBuilder();
+			int gCodeLines = 0;
+			foreach (Layer layer in Core.ProjectCore.layers)
+			{
+				gCodeLines += layer.GRBLFile.GCodeLineCount;          // line count.		TODO: Update with 'enabled' feature
+				gCodeDebugLines.AppendLine($"-- Layer: {layer.LayerDescription} --");
+				gCodeDebugLines.Append(string.Join("\r\n", layer.GRBLFile.GetCommands()));
+				gCodeDebugLines.AppendLine($"");
+				totalEstimatedTime += layer.GRBLFile.EstimatedTime;   //					TODO: Update with 'enabled' feature
+			}
+			ProjectDetailForm.UpdateGUI();
+
+			// Update GUI
+			TTTLines.Text = gCodeLines.ToString();                      // line count
+			TTTGCodeDebugLines.Text = gCodeDebugLines.ToString();       // gcode debug lines
+
+			ResumeLayout();
+			UpdateGUITimers(totalEstimatedTime);
+
+
+			PreviewForm.RefreshPreview();
 		}
 
 		private void RefreshColorSchema()
@@ -121,9 +162,20 @@ namespace LaserGRBL
 			nightyToolStripMenuItem.Checked = ColorScheme.CurrentScheme == ColorScheme.Scheme.Nighty;
 			TTLinkToNews.LinkColor = ColorScheme.LinkColor;
 			TTLinkToNews.VisitedLinkColor = ColorScheme.VisitedLinkColor;
+
+			//foreach (Control c in this.Controls)
+			//{
+			//	if (c is ComboBox)
+   //             {
+			//	}
+			//}
+
 			ConnectionForm.OnColorChange();
 			PreviewForm.OnColorChange();
 			RefreshOverride();
+
+
+			
 		}
 
 		void GitHub_NewVersion(Version current, GitHub.OnlineVersion available, Exception error)
@@ -149,12 +201,15 @@ namespace LaserGRBL
 			UpdateTimer.Enabled = true;
 
 
-			if (Settings.GetObject("Auto Update", true))
+			if (GlobalSettings.GetObject("Auto Update", true))
+            {
 				GitHub.CheckVersion(false);
+			}
+				
 
 			SuspendLayout();
 			//restore last size and position
-			Object[] msp = Settings.GetObject<Object[]>("Mainform Size and Position", null);
+			Object[] msp = GlobalSettings.GetObject<Object[]>("Mainform Size and Position", null);
 			FormWindowState state = msp == null ? FormWindowState.Maximized : (FormWindowState)msp[2] != FormWindowState.Minimized ? (FormWindowState)msp[2] : FormWindowState.Maximized;
 			if (state == FormWindowState.Normal)
 			{ WindowState = state; Size = (Size)msp[0]; Location = (Point)msp[1]; }
@@ -162,6 +217,8 @@ namespace LaserGRBL
 
 			ManageMessage();
 			ManageCommandLineArgs(args);
+
+		
 		}
 
 		private void ManageCommandLineArgs(string[] args)
@@ -181,7 +238,7 @@ namespace LaserGRBL
 					{
 						if (Core.CanLoadNewFile)
                         {
-							Core.OpenFile(this, filename, false);
+							Core.AddLayer(this, filename);
                         }
 						else
                         {
@@ -214,44 +271,83 @@ namespace LaserGRBL
 			catch (Exception ex){ System.Diagnostics.Debug.WriteLine(ex); }
 		}
 
-		void OnFileLoaded(long elapsed, string filename)
+		void OnFileLoaded(long elapsed)
 		{
 			if (InvokeRequired)
 			{
-				Invoke(new GrblFile.OnFileLoadedDlg(OnFileLoaded), elapsed, filename);
+				Invoke(new GrblFile.OnFileLoadedDlg(OnFileLoaded), elapsed);
 			}
 			else
 			{
-				TimerUpdate();
+				
+
+
+				SuspendLayout();
+
+
 				//TTTFile.Text = System.IO.Path.GetFileName(filename);
-				TTTLines.Text = Core.LoadedFile.Count.ToString();
+				TimeSpan totalEstimatedTime = new TimeSpan();
+				StringBuilder gCodeDebugLines = new StringBuilder();
+				int gCodeLines = 0;
+				foreach(Layer layer in Core.ProjectCore.layers)
+                {
+					gCodeLines += layer.GRBLFile.GCodeLineCount;			// line count.		TODO: Update with 'enabled' feature
+
+					gCodeDebugLines.AppendLine($"-- Layer: {layer.LayerDescription} --");
+					gCodeDebugLines.Append(string.Join("\r\n", layer.GRBLFile.GetCommands()));
+					gCodeDebugLines.AppendLine($"");
+
+					totalEstimatedTime += layer.GRBLFile.EstimatedTime;   //					TODO: Update with 'enabled' feature
+
+				}
+				ProjectDetailForm.UpdateGUI();
 
 
-				//lst = Core.LoadedFile.GetCommands();
-				gcodeText.Text = string.Join("\r\n", Core.LoadedFile.GetCommands());
 
+				// Update GUI
+				TTTLines.Text = gCodeLines.ToString();						// line count
+				TTTGCodeDebugLines.Text = gCodeDebugLines.ToString();		// gcode debug lines
 
-				//TTTLoadedIn.Text = elapsed.ToString() + " ms";
-				TTTEstimated.Text = Tools.Utils.TimeSpanToString(Core.LoadedFile.EstimatedTime, Tools.Utils.TimePrecision.Second, Tools.Utils.TimePrecision.Second, " ,", true);
+				ResumeLayout();
+
+				UpdateGUITimers(totalEstimatedTime);
 			}
 		}
 
 
+
+
+		private void MnAddLayer_Click(object sender, EventArgs e)
+		{
+			Core.AddLayer(this, null);
+		}
+
+
+
+
+
+
 		void OnMachineStatus()
 		{
-			TimerUpdate();
+			UpdateGUITimers();
 			if (Core.MachineStatus == GrblCore.MacStatus.Disconnected && Core.FailedConnectionCount >= 3)
 			{
 				string url = null;
-				ComWrapper.WrapperType wt = Settings.GetObject("ComWrapper Protocol", ComWrapper.WrapperType.UsbSerial);
+				ComWrapper.WrapperType wt = GlobalSettings.GetObject("ComWrapper Protocol", ComWrapper.WrapperType.UsbSerial);
 
 				if (wt == ComWrapper.WrapperType.UsbSerial || wt == ComWrapper.WrapperType.UsbSerial2)
+                {
 					url = "https://lasergrbl.com/usage/arduino-connection/";
+                }
 				else if (wt == ComWrapper.WrapperType.Telnet || wt == ComWrapper.WrapperType.LaserWebESP8266)
+                {
 					url = "https://lasergrbl.com/usage/wifi-with-esp8266/";
+                }
 
 				if (url != null)
+                {
 					MessageBox.Show(this, Strings.ProblemConnectingText, Strings.ProblemConnectingTitle, MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1, 0, url);
+                }
 			}
 		}
 		void MainFormFormClosing(object sender, FormClosingEventArgs e)
@@ -263,8 +359,8 @@ namespace LaserGRBL
 			{
 				SincroStart.StopListen();
 				Core.CloseCom(true);
-				Settings.SetObject("Mainform Size and Position", new object[] { Size, Location, WindowState });
-                Settings.Exiting();
+				GlobalSettings.SetObject("Mainform Size and Position", new object[] { Size, Location, WindowState });
+                GlobalSettings.Exiting();
 
                 UsageStats.SaveFile(Core);
 			}
@@ -273,28 +369,34 @@ namespace LaserGRBL
 
 		private void UpdateTimer_Tick(object sender, EventArgs e)
 		{
-			TimerUpdate();
+			UpdateGUITimers();
 			ConnectionForm.TimerUpdate();
 			PreviewForm.TimerUpdate();
 			JogForm.Enabled = Core.JogEnabled;
 		}
 
-		private void TimerUpdate()
+		private void UpdateGUITimers(TimeSpan? totalEstimatedTime = null)
 		{
 			SuspendLayout();
 			TTTStatus.Text = GrblCore.TranslateEnum(Core.MachineStatus);
 
 			if (Core.InProgram)
+            {
 				TTTEstimated.Text = Tools.Utils.TimeSpanToString(Core.ProjectedTime, Tools.Utils.TimePrecision.Second, Tools.Utils.TimePrecision.Second, " ,", true);
-			else
-				TTTEstimated.Text = Tools.Utils.TimeSpanToString(Core.LoadedFile.EstimatedTime, Tools.Utils.TimePrecision.Second, Tools.Utils.TimePrecision.Second, " ,", true);
-
-			if (Core.InProgram)
 				TTLEstimated.Text = Strings.MainFormProjectedTime;
-			else
+			}
+            else
+            {
 				TTLEstimated.Text = Strings.MainFormEstimatedTime;
+				if (totalEstimatedTime != null)
+				{
+					TTTEstimated.Text = Tools.Utils.TimeSpanToString((TimeSpan)totalEstimatedTime, Tools.Utils.TimePrecision.Second, Tools.Utils.TimePrecision.Second, " ,", true);
+				}
+			}
 
-			MnFileOpen.Enabled = Core.CanLoadNewFile;
+
+
+			//MnFileOpen.Enabled = Core.CanLoadNewFile;
 			MnSaveProject.Enabled = MnAdvancedSave.Enabled = MnSaveProgram.Enabled = Core.HasProgram;
 			MnFileSend.Enabled = Core.CanSendFile;
 			MnStartFromPosition.Enabled = Core.CanSendFile;
@@ -318,7 +420,7 @@ namespace LaserGRBL
 			TTOvS.Visible = Core.SupportOverride;
 			spacer.Visible = Core.SupportOverride;
 
-			ComWrapper.WrapperType wt = Settings.GetObject("ComWrapper Protocol", ComWrapper.WrapperType.UsbSerial);
+			ComWrapper.WrapperType wt = GlobalSettings.GetObject("ComWrapper Protocol", ComWrapper.WrapperType.UsbSerial);
 			MnWiFiDiscovery.Visible = wt == ComWrapper.WrapperType.LaserWebESP8266 || wt == ComWrapper.WrapperType.Telnet;
 			MnWiFiDiscovery.Enabled = !Core.IsConnected;
 
@@ -384,7 +486,7 @@ namespace LaserGRBL
 		private void MnFileOpen_Click(object sender, EventArgs e)
 		{
 			Project.ClearSettings();
-			Core.OpenFile(this);
+			Core.AddLayer(this);
 		}
 
 		private void MnFileSend_Click(object sender, EventArgs e)
@@ -439,8 +541,7 @@ namespace LaserGRBL
 		[System.Windows.Forms.Design.ToolStripItemDesignerAvailability(System.Windows.Forms.Design.ToolStripItemDesignerAvailability.ToolStrip | System.Windows.Forms.Design.ToolStripItemDesignerAvailability.StatusStrip)]
 		public class ToolStripTraceBarItem : System.Windows.Forms.ToolStripControlHost
 		{
-			public ToolStripTraceBarItem(GrblCore core, int function)
-				: base(new UserControls.LabelTB(core, function))
+			public ToolStripTraceBarItem(GrblCore core, int function): base(new UserControls.LabelTB(core, function))
 			{
 				Control.Dock = System.Windows.Forms.DockStyle.Fill;
 			}
@@ -499,9 +600,9 @@ namespace LaserGRBL
 		private void SetLanguage(System.Globalization.CultureInfo ci)
 		{
 			if (ci != null)
-				Settings.SetObject("User Language", ci);
+				GlobalSettings.SetObject("User Language", ci);
 			else
-				Settings.DeleteObject("User Language");
+				GlobalSettings.DeleteObject("User Language");
 
 			if (MessageBox.Show(Strings.LanguageRequireRestartNow, Strings.LanguageRequireRestart, MessageBoxButtons.OKCancel) == DialogResult.OK)
 				Application.Restart();
@@ -519,7 +620,7 @@ namespace LaserGRBL
 
 		private void splitContainer1_SplitterMoved(object sender, SplitterEventArgs e)
 		{
-            Settings.SetObject("MainForm Splitter Position", splitContainer1.SplitterDistance);
+            GlobalSettings.SetObject("MainForm Splitter Position", splitContainer1.SplitterDistance);
 		}
 
 		private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
@@ -606,7 +707,7 @@ namespace LaserGRBL
 
 		private void SetSchema(ColorScheme.Scheme schema)
 		{
-			Settings.SetObject("Color Schema", schema);
+			GlobalSettings.SetObject("Color Schema", schema);
 			ColorScheme.CurrentScheme = schema;
 			RefreshColorSchema();
 		}
@@ -674,7 +775,7 @@ namespace LaserGRBL
 
 		private void MnFileAppend_Click(object sender, EventArgs e)
 		{
-			Core.OpenFile(this, null, true);
+			Core.AddLayer(this, null);
 		}
 
 		private void hungarianToolStripMenuItem_Click(object sender, EventArgs e)
@@ -788,7 +889,7 @@ namespace LaserGRBL
 		{
 			if (this.droppedFile != null)
 			{
-				Core.OpenFile(this, this.droppedFile);
+				Core.AddLayer(this, this.droppedFile);
 				this.droppedFile = null;
 				dropDispatcherTimer.Stop();
 			}
@@ -802,7 +903,7 @@ namespace LaserGRBL
 		private void MnNotifyNewVersion_Click(object sender, EventArgs e)
 		{
 			MnNotifyNewVersion.Checked = !MnNotifyNewVersion.Checked;
-			Settings.SetObject("Auto Update", MnNotifyNewVersion.Checked);
+			GlobalSettings.SetObject("Auto Update", MnNotifyNewVersion.Checked);
 
 			//if (MnNotifyNewVersion.Checked)
 			//	GitHub.CheckVersion();
@@ -816,22 +917,22 @@ namespace LaserGRBL
 				MnNotifyMinorVersion.Checked = false;
 				MnNotifyPreRelease.Enabled = false;
 				MnNotifyPreRelease.Checked = false;
-				Settings.SetObject("Auto Update Build", false);
-				Settings.SetObject("Auto Update Pre", false);
+				GlobalSettings.SetObject("Auto Update Build", false);
+				GlobalSettings.SetObject("Auto Update Pre", false);
 			}
 			else
 			{
 				MnNotifyMinorVersion.Enabled = true;
-				MnNotifyMinorVersion.Checked = Settings.GetObject("Auto Update Build", false);
+				MnNotifyMinorVersion.Checked = GlobalSettings.GetObject("Auto Update Build", false);
 				MnNotifyPreRelease.Enabled = true;
-				MnNotifyPreRelease.Checked = Settings.GetObject("Auto Update Pre", false);
+				MnNotifyPreRelease.Checked = GlobalSettings.GetObject("Auto Update Pre", false);
 			}
 		}
 
 		private void MnNotifyMinorVersion_Click(object sender, EventArgs e)
 		{
 			MnNotifyMinorVersion.Checked = !MnNotifyMinorVersion.Checked;
-			Settings.SetObject("Auto Update Build", MnNotifyMinorVersion.Checked);
+			GlobalSettings.SetObject("Auto Update Build", MnNotifyMinorVersion.Checked);
 
 			//if (MnNotifyNewVersion.Checked && MnNotifyMinorVersion.Checked)
 			//	GitHub.CheckVersion();
@@ -840,7 +941,7 @@ namespace LaserGRBL
 		private void MnNotifyPreRelease_Click(object sender, EventArgs e)
 		{
 			MnNotifyPreRelease.Checked = !MnNotifyPreRelease.Checked;
-			Settings.SetObject("Auto Update Pre", MnNotifyPreRelease.Checked);
+			GlobalSettings.SetObject("Auto Update Pre", MnNotifyPreRelease.Checked);
 
 			//if (MnNotifyNewVersion.Checked && MnNotifyPreRelease.Checked)
 			//	GitHub.CheckVersion();
@@ -971,7 +1072,39 @@ namespace LaserGRBL
         {
 
         }
+
+
+
+        private void ConnectionForm_Load_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void fileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void PreviewForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+
+
+        private void projectDetailForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
+
+
+
+
+
+
+
+
 
 
     public class MMnRenderer : ToolStripProfessionalRenderer

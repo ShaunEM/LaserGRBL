@@ -22,35 +22,31 @@ using System.Globalization;
 
 namespace LaserGRBL.SvgConverter
 {
-	class GCodeFromSVG
+	public class GCodeFromSVG
 	{
+		public System.Drawing.PointF UserOffset = new System.Drawing.PointF(0, 0);
+		public float GCodeXYFeed = 2000;        // XY feed to apply for G1
+		public bool svgConvertToMM = true;
+
+
 		private static float factor_In2Px = 96;
 		private static float factor_Mm2Px = 96f / 25.4f;
 		private static float factor_Cm2Px = 96f / 2.54f;
 		private static float factor_Pt2Px = 96f / 72f;
 		private static float factor_Pc2Px = 12 * 96f / 72f;
 		private static float factor_Em2Px = 150;
-
 		private StringBuilder gcodeString = new StringBuilder();
 		private int svgBezierAccuracy = 12;      // applied line segments at bezier curves
 		private bool svgScaleApply = false;      // try to scale final GCode if true
 		private float svgMaxSize = 100;          // final GCode size (greater dimension) if scale is applied
 		private bool svgClosePathExtend = true;  // not working if true move to first and second point of path to get overlap
-
 		private bool svgNodesOnly = false;        // if true only do pen-down -up on given coordinates
-
 		private bool svgPauseElement = false;    // if true insert GCode pause M0 before each element
 		private bool svgPausePenDown = false;    // if true insert pause M0 before pen down
 		private bool svgComments = false;        // if true insert additional comments into GCode
-
 		private bool gcodeReduce = false;        // if true remove G1 commands if distance is < limit
 		private float gcodeReduceVal = 0.1f;     // limit when to remove G1 commands
-
-		public System.Drawing.PointF UserOffset = new System.Drawing.PointF(0,0);
-		public float GCodeXYFeed = 2000;        // XY feed to apply for G1
-        private double scaledError = 1.0;
-
-		public bool svgConvertToMM = true;
+		private double scaledError = 1.0;
 		private float gcodeScale = 1;                    // finally scale with this factor if svgScaleApply and svgMaxSize
 		private Matrix[] matrixGroup = new Matrix[10];   // store SVG-Group transformation matrixes
 		private Matrix matrixElement = new Matrix();     // store finally applied matrix
@@ -61,11 +57,26 @@ namespace LaserGRBL.SvgConverter
 		/// </summary>
 		/// <param name="file">String keeping file-name or URL</param>
 		/// <returns>String with GCode of imported data</returns>
-		private XElement svgCode;
+		//private XElement svgXML;
 		private bool importInMM = false;
 		//private bool fromText = false;
 
 		Regex RemoveInvalidUnicode = new Regex(@"[^\x09\x0A\x0D\x20-\uD7FF\uE000-\uFFFD\u10000-u10FFFF]+", RegexOptions.Compiled);
+
+
+
+
+
+		//public string ConvertFromXElement(int layerIdx, GrblCore core)
+		//{
+		//	string xml = System.IO.File.ReadAllText(core.ProjectCore.layers[layerIdx].FileName);
+		//	return convertFromText(xml, core, true);
+		//}
+		public string ConvertFromFile(int layerIdx, GrblCore core)
+		{
+			string xml = System.IO.File.ReadAllText(core.ProjectCore.layers[layerIdx].FileName);
+			return convertFromText(xml, core, true);
+		}
 		public string convertFromText(string text, GrblCore core, bool importMM = false)
 		{
 			//fromText = true;
@@ -75,28 +86,33 @@ namespace LaserGRBL.SvgConverter
 			// #x9 | #xA | #xD | [#x20-#xD7FF] | [#xE000-#xFFFD] | [#x10000-#x10FFFF] 
 			// any Unicode character, excluding the surrogate blocks, FFFE, and FFFF. 
 			text = RemoveInvalidUnicode.Replace(text, string.Empty);
-			svgCode = XElement.Parse(text, LoadOptions.None);
-
-			return convertSVG(svgCode, core);
+			XElement svgXML = XElement.Parse(text, LoadOptions.None);
+			return ConvertFromSVG(svgXML, core);
 		}
 
-		public string convertFromFile(string file, GrblCore core)
-		{
-			string xml = System.IO.File.ReadAllText(file);
-			return convertFromText(xml, core, true);
-		}
-
-		private string convertSVG(XElement svgCode, GrblCore core)
+		public string ConvertFromSVG(XElement svgCode, GrblCore core)
 		{
 			gcode.setup(core);          // initialize GCode creation (get stored settings for export)
-			gcode.setRapidNum(Settings.GetObject("Disable G0 fast skip", false) ? 1 : 0);
+			gcode.setRapidNum(GlobalSettings.GetObject("Disable G0 fast skip", false) ? 1 : 0);
 
 			gcode.PutInitialCommand(gcodeString);
+
 			startConvert(svgCode);
+
 			gcode.PutFinalCommand(gcodeString);
 
 			return gcodeString.Replace(',', '.').ToString();
 		}
+
+
+
+
+		public bool UseLegacyBezier { get; set; }
+		public bool SvgScaleApply { get => svgScaleApply; set => svgScaleApply = value; }
+		public float SvgMaxSize { get => svgMaxSize; set => svgMaxSize = value; }
+
+
+
 
 		/// <summary>
 		/// Set defaults and parse main element of SVG-XML
@@ -117,11 +133,15 @@ namespace LaserGRBL.SvgConverter
 			matrixElement.SetIdentity();
 			oldMatrixElement.SetIdentity();
 			for (int i = 0; i < matrixGroup.Length; i++)
+			{
 				matrixGroup[i].SetIdentity();
+			}
 
 			parseGlobals(svgCode);
 			if (!svgNodesOnly)
+			{
 				parseBasicElements(svgCode, 1);
+			}
 			parsePath(svgCode, 1);
 			parseGroup(svgCode, 1);
 			return;
@@ -132,7 +152,7 @@ namespace LaserGRBL.SvgConverter
 		/// </summary>
 		private XNamespace nspace = "http://www.w3.org/2000/svg";
 		private void parseGlobals(XElement svgCode)
-		{  
+		{
 			// One px unit is defined to be equal to one user unit. Thus, a length of "5px" is the same as a length of "5".
 			Matrix tmp = new Matrix(1, 0, 0, 1, 0, 0); // m11, m12, m21, m22, offsetx, offsety
 			svgWidthPx = 0;
@@ -145,9 +165,13 @@ namespace LaserGRBL.SvgConverter
 			string tmpString = "";
 
 			if (svgCode.Attribute("xmlns") != null)
+			{
 				nspace = svgCode.Attribute("xmlns").Value;
+			}
 			else
+			{
 				nspace = "";
+			}
 
 			if (svgCode.Attribute("viewBox") != null)   // viewBox unit always in px
 			{
@@ -164,9 +188,13 @@ namespace LaserGRBL.SvgConverter
 
 			scale = 1;
 			if (svgConvertToMM)                 // convert back from px to mm 
+			{
 				scale = (1 / factor_Mm2Px);
+			}
 			else                                // convert back from px to inch
+			{
 				scale = (1 / factor_In2Px);
+			}
 
 			//if (unitIsPixel)                    // got svg-text from clipboard perhaps from maker.js
 			//	scale = 1;
@@ -215,9 +243,13 @@ namespace LaserGRBL.SvgConverter
 					gcodeScale = SvgMaxSize / Math.Max(newWidth, newHeight);        // calc. factor to get desired max. size
 					tmp.Scale((double)gcodeScale, (double)gcodeScale);
 					if (svgConvertToMM)                         // https://www.w3.org/TR/SVG/coords.html#Units
+					{
 						tmp.Scale(factor_Mm2Px, factor_Mm2Px);  // 3.543307, 3.543307);
+					}
 					else
+					{
 						tmp.Scale(factor_In2Px, factor_In2Px);
+					}
 				}
 			}
 			//else error! dimension not given
@@ -226,7 +258,9 @@ namespace LaserGRBL.SvgConverter
 			tmp.OffsetY += UserOffset.Y; //add user offset for centerline
 
 			for (int i = 0; i < matrixGroup.Length; i++)
-			{ matrixGroup[i] = tmp; }
+			{
+				matrixGroup[i] = tmp;
+			}
 			matrixElement = tmp;
 
 			//var element = svgCode.Element(nspace + "title");
@@ -259,11 +293,17 @@ namespace LaserGRBL.SvgConverter
 			foreach (XElement groupElement in svgCode.Elements(nspace + "g"))
 			{
 				if (svgComments)
+				{
 					if (groupElement.Attribute("id") != null)
+					{
 						gcodeString.Append("\r\n( Group level:" + level.ToString() + " id=" + groupElement.Attribute("id").Value + " )\r\n");
+					}
+				}
 				parseTransform(groupElement, true, level);   // transform will be applied in gcodeMove
 				if (!svgNodesOnly)
+				{
 					parseBasicElements(groupElement, level);
+				}
 				parsePath(groupElement, level);
 				parseGroup(groupElement, level + 1);
 			}
@@ -298,7 +338,9 @@ namespace LaserGRBL.SvgConverter
 				if (level > 0)
 				{
 					for (int i = level; i < matrixGroup.Length; i++)
-					{ matrixGroup[i] = Matrix.Multiply(finalMatrix, matrixGroup[level - 1]); }
+					{
+						matrixGroup[i] = Matrix.Multiply(finalMatrix, matrixGroup[level - 1]);
+					}
 				}
 				else
 				{   //tmp.M22 = -tmp.M22;
@@ -307,7 +349,9 @@ namespace LaserGRBL.SvgConverter
 				matrixElement = matrixGroup[level];
 			}
 			else
-			{ matrixElement = Matrix.Multiply(finalMatrix, matrixGroup[level]); }
+			{
+				matrixElement = Matrix.Multiply(finalMatrix, matrixGroup[level]);
+			}
 
 			return finalMatrix;
 		}
@@ -428,7 +472,9 @@ namespace LaserGRBL.SvgConverter
 				{
 					end = style.IndexOf(';', start);
 					if (end > start)
+					{
 						stroke_color = style.Substring(start + 8, end - start - 8);
+					}
 				}
 				return stroke_color;
 			}
@@ -452,12 +498,17 @@ namespace LaserGRBL.SvgConverter
 						if (svgComments)
 						{
 							if (pathElement.Attribute("id") != null)
+							{
 								gcodeString.Append("\r\n( Basic shape level:" + level.ToString() + " id=" + pathElement.Attribute("id").Value + " )\r\n");
+							}
 							gcodeString.AppendFormat("( SVG color=#{0})\r\n", myColor);
 						}
 
 						if (startFirstElement)
-						{ gcodePenUp("1st shape"); startFirstElement = false; }
+						{
+							gcodePenUp("1st shape");
+							startFirstElement = false;
+						}
 
 						offsetX = 0; offsetY = 0;
 
@@ -610,6 +661,12 @@ namespace LaserGRBL.SvgConverter
 						id = id.Substring(0, 20);
 
 					string myColor = getColor(pathElement);
+
+					if (myColor == "ff0000")
+					{
+						continue;
+					}
+
 
 					// gcodeString.Append("( Start path )\r\n");
 					if (svgComments)
@@ -1094,7 +1151,7 @@ namespace LaserGRBL.SvgConverter
 				return BezierTools.FlattenTo(controlPoints, .2 / scaledError).ToArray();
 		}
 
-        private Point[] GetBezierApproximationOld(Point[] controlPoints, int outputSegmentCount)
+		private Point[] GetBezierApproximationOld(Point[] controlPoints, int outputSegmentCount)
 		{
 			Point[] points = new Point[outputSegmentCount + 1];
 			for (int i = 0; i <= outputSegmentCount; i++)
@@ -1199,10 +1256,8 @@ namespace LaserGRBL.SvgConverter
 		private bool isReduceOk = false;
 		private bool rejectPoint = false;
 		private double lastGCX = 0, lastGCY = 0, lastSetGCX = 0, lastSetGCY = 0, distance;
-		
-		public bool UseLegacyBezier { get; set; }
-		public bool SvgScaleApply { get => svgScaleApply; set => svgScaleApply = value; }
-		public float SvgMaxSize { get => svgMaxSize; set => svgMaxSize = value; }
+
+
 
 		/// <summary>
 		/// Insert G1 gcode command
@@ -1253,7 +1308,9 @@ namespace LaserGRBL.SvgConverter
 		private void gcodePenUp(string cmt)
 		{
 			if (penIsDown)
+			{
 				gcode.PenUp(gcodeString, cmt);
+			}
 			penIsDown = false;
 		}
 		private void gcodePenDown(string cmt)

@@ -36,56 +36,56 @@ namespace LaserGRBL
 			InitStreamingCB();
 			InitThreadingCB();
 
-            CBCore.SelectedItem = Settings.GetObject("Firmware Type", Firmware.Grbl);
-			CBSupportPWM.Checked = Settings.GetObject("Support Hardware PWM", true);
-			CBProtocol.SelectedItem = Settings.GetObject("ComWrapper Protocol", ComWrapper.WrapperType.UsbSerial);
-			CBStreamingMode.SelectedItem = Settings.GetObject("Streaming Mode", GrblCore.StreamingMode.Buffered);
-			CbUnidirectional.Checked = Settings.GetObject("Unidirectional Engraving", false);
-			CbDisableSkip.Checked = Settings.GetObject("Disable G0 fast skip", false);
-			CbThreadingMode.SelectedItem = Settings.GetObject("Threading Mode", GrblCore.ThreadingMode.UltraFast);
-			CbIssueDetector.Checked = !Settings.GetObject("Do not show Issue Detector", false);
-			CbSoftReset.Checked = Settings.GetObject("Reset Grbl On Connect", true);
-			CbHardReset.Checked = Settings.GetObject("HardReset Grbl On Connect", false);
-			CbDisableBoundWarn.Checked = Settings.GetObject("DisableBoundaryWarning", false);
-			CbClickNJog.Checked = Settings.GetObject("Click N Jog", true);
+            CBCore.SelectedItem = GlobalSettings.GetObject("Firmware Type", Firmware.Grbl);
+			CBSupportPWM.Checked = GlobalSettings.GetObject("Support Hardware PWM", true);
+			CBProtocol.SelectedItem = GlobalSettings.GetObject("ComWrapper Protocol", ComWrapper.WrapperType.UsbSerial);
+			CBStreamingMode.SelectedItem = GlobalSettings.GetObject("Streaming Mode", GrblCore.StreamingMode.Buffered);
+			CbUnidirectional.Checked = GlobalSettings.GetObject("Unidirectional Engraving", false);
+			CbDisableSkip.Checked = GlobalSettings.GetObject("Disable G0 fast skip", false);
+			CbThreadingMode.SelectedItem = GlobalSettings.GetObject("Threading Mode", GrblCore.ThreadingMode.UltraFast);
+			CbIssueDetector.Checked = !GlobalSettings.GetObject("Do not show Issue Detector", false);
+			CbSoftReset.Checked = GlobalSettings.GetObject("Reset Grbl On Connect", true);
+			CbHardReset.Checked = GlobalSettings.GetObject("HardReset Grbl On Connect", false);
+			CbDisableBoundWarn.Checked = GlobalSettings.GetObject("DisableBoundaryWarning", false);
+			CbClickNJog.Checked = GlobalSettings.GetObject("Click N Jog", true);
 
-			CbContinuosJog.Checked = Settings.GetObject("Enable Continuous Jog", false);
-            CbEnableZJog.Checked = Settings.GetObject("Enale Z Jog Control", false);
+			CbContinuosJog.Checked = GlobalSettings.GetObject("Enable Continuous Jog", false);
+            CbEnableZJog.Checked = GlobalSettings.GetObject("Enale Z Jog Control", false);
 
-			CbHiRes.Checked = Settings.GetObject("Raster Hi-Res", false );
+			CbHiRes.Checked = GlobalSettings.GetObject("Raster Hi-Res", false );
 
-			TBHeader.Text = Settings.GetObject("GCode.CustomHeader", GrblCore.GCODE_STD_HEADER);
+			TBHeader.Text = GlobalSettings.GetObject("GCode.CustomHeader", GrblCore.GCODE_STD_HEADER);
             TBHeader.ForeColor = ColorScheme.FormForeColor;
             TBHeader.BackColor = ColorScheme.FormBackColor;
-            TBPasses.Text = Settings.GetObject("GCode.CustomPasses", GrblCore.GCODE_STD_PASSES);
+            TBPasses.Text = GlobalSettings.GetObject("GCode.CustomPasses", GrblCore.GCODE_STD_PASSES);
             TBPasses.ForeColor = ColorScheme.FormForeColor;
             TBPasses.BackColor = ColorScheme.FormBackColor;
-            TBFooter.Text = Settings.GetObject("GCode.CustomFooter", GrblCore.GCODE_STD_FOOTER);
+            TBFooter.Text = GlobalSettings.GetObject("GCode.CustomFooter", GrblCore.GCODE_STD_FOOTER);
             TBFooter.ForeColor = ColorScheme.FormForeColor;
             TBFooter.BackColor = ColorScheme.FormBackColor;
 
-            CbPlaySuccess.Checked = Settings.GetObject($"Sound.{SoundEvent.EventId.Success}.Enabled", true);
-            CbPlayWarning.Checked = Settings.GetObject($"Sound.{SoundEvent.EventId.Warning}.Enabled", true);
-            CbPlayFatal.Checked = Settings.GetObject($"Sound.{SoundEvent.EventId.Fatal}.Enabled", true);
-            CbPlayConnect.Checked = Settings.GetObject($"Sound.{SoundEvent.EventId.Connect}.Enabled", true);
-            CbPlayDisconnect.Checked = Settings.GetObject($"Sound.{SoundEvent.EventId.Disconnect}.Enabled", true);
+            CbPlaySuccess.Checked = GlobalSettings.GetObject($"Sound.{SoundEvent.EventId.Success}.Enabled", true);
+            CbPlayWarning.Checked = GlobalSettings.GetObject($"Sound.{SoundEvent.EventId.Warning}.Enabled", true);
+            CbPlayFatal.Checked = GlobalSettings.GetObject($"Sound.{SoundEvent.EventId.Fatal}.Enabled", true);
+            CbPlayConnect.Checked = GlobalSettings.GetObject($"Sound.{SoundEvent.EventId.Connect}.Enabled", true);
+            CbPlayDisconnect.Checked = GlobalSettings.GetObject($"Sound.{SoundEvent.EventId.Disconnect}.Enabled", true);
 
-			CbTelegramNotification.Checked = Settings.GetObject("TelegramNotification.Enabled", false);
-			TxtNotification.Text = Tools.Protector.Decrypt(Settings.GetObject("TelegramNotification.Code", ""));
-			UdTelegramNotificationThreshold.Value = (decimal)Settings.GetObject("TelegramNotification.Threshold", 1);
+			CbTelegramNotification.Checked = GlobalSettings.GetObject("TelegramNotification.Enabled", false);
+			TxtNotification.Text = Tools.Protector.Decrypt(GlobalSettings.GetObject("TelegramNotification.Code", ""));
+			UdTelegramNotificationThreshold.Value = (decimal)GlobalSettings.GetObject("TelegramNotification.Threshold", 1);
 
-			successSoundLabel.Text = System.IO.Path.GetFileName(Settings.GetObject($"Sound.{SoundEvent.EventId.Success}", $"Sound\\{SoundEvent.EventId.Success}.wav"));
-            SuccesFullLabel.Text = Settings.GetObject($"Sound.{SoundEvent.EventId.Success}", $"Sound\\{SoundEvent.EventId.Success}.wav");
-            warningSoundLabel.Text = System.IO.Path.GetFileName(Settings.GetObject($"Sound.{SoundEvent.EventId.Warning}", $"Sound\\{SoundEvent.EventId.Warning}.wav"));
-            WarningFullLabel.Text = Settings.GetObject($"Sound.{SoundEvent.EventId.Warning}", $"Sound\\{SoundEvent.EventId.Warning}.wav");
-            fatalSoundLabel.Text = System.IO.Path.GetFileName(Settings.GetObject($"Sound.{SoundEvent.EventId.Fatal}", $"Sound\\{SoundEvent.EventId.Fatal}.wav"));
-            ErrorFullLabel.Text = Settings.GetObject($"Sound.{SoundEvent.EventId.Fatal}", $"Sound\\{SoundEvent.EventId.Fatal}.wav");
-            connectSoundLabel.Text = System.IO.Path.GetFileName(Settings.GetObject($"Sound.{SoundEvent.EventId.Connect}", $"Sound\\{SoundEvent.EventId.Connect}.wav"));
-            ConnectFullLabel.Text = Settings.GetObject($"Sound.{SoundEvent.EventId.Connect}", $"Sound\\{SoundEvent.EventId.Connect}.wav");
-            disconnectSoundLabel.Text = System.IO.Path.GetFileName(Settings.GetObject($"Sound.{SoundEvent.EventId.Disconnect}", $"Sound\\{SoundEvent.EventId.Disconnect}.wav"));
-            DisconnectFullLabel.Text = Settings.GetObject($"Sound.{SoundEvent.EventId.Disconnect}", $"Sound\\{SoundEvent.EventId.Disconnect}.wav");
+			successSoundLabel.Text = System.IO.Path.GetFileName(GlobalSettings.GetObject($"Sound.{SoundEvent.EventId.Success}", $"Sound\\{SoundEvent.EventId.Success}.wav"));
+            SuccesFullLabel.Text = GlobalSettings.GetObject($"Sound.{SoundEvent.EventId.Success}", $"Sound\\{SoundEvent.EventId.Success}.wav");
+            warningSoundLabel.Text = System.IO.Path.GetFileName(GlobalSettings.GetObject($"Sound.{SoundEvent.EventId.Warning}", $"Sound\\{SoundEvent.EventId.Warning}.wav"));
+            WarningFullLabel.Text = GlobalSettings.GetObject($"Sound.{SoundEvent.EventId.Warning}", $"Sound\\{SoundEvent.EventId.Warning}.wav");
+            fatalSoundLabel.Text = System.IO.Path.GetFileName(GlobalSettings.GetObject($"Sound.{SoundEvent.EventId.Fatal}", $"Sound\\{SoundEvent.EventId.Fatal}.wav"));
+            ErrorFullLabel.Text = GlobalSettings.GetObject($"Sound.{SoundEvent.EventId.Fatal}", $"Sound\\{SoundEvent.EventId.Fatal}.wav");
+            connectSoundLabel.Text = System.IO.Path.GetFileName(GlobalSettings.GetObject($"Sound.{SoundEvent.EventId.Connect}", $"Sound\\{SoundEvent.EventId.Connect}.wav"));
+            ConnectFullLabel.Text = GlobalSettings.GetObject($"Sound.{SoundEvent.EventId.Connect}", $"Sound\\{SoundEvent.EventId.Connect}.wav");
+            disconnectSoundLabel.Text = System.IO.Path.GetFileName(GlobalSettings.GetObject($"Sound.{SoundEvent.EventId.Disconnect}", $"Sound\\{SoundEvent.EventId.Disconnect}.wav"));
+            DisconnectFullLabel.Text = GlobalSettings.GetObject($"Sound.{SoundEvent.EventId.Disconnect}", $"Sound\\{SoundEvent.EventId.Disconnect}.wav");
 
-			CbSmartBezier.Checked = Settings.GetObject($"Vector.UseSmartBezier", true);
+			CbSmartBezier.Checked = GlobalSettings.GetObject($"Vector.UseSmartBezier", true);
 
 			groupBox1.ForeColor = groupBox2.ForeColor = groupBox3.ForeColor = ColorScheme.FormForeColor;
 
@@ -99,7 +99,7 @@ namespace LaserGRBL
 
 		private void InitAutoCoolingTab()
 		{
-			CbAutoCooling.Checked = Settings.GetObject("AutoCooling", false);
+			CbAutoCooling.Checked = GlobalSettings.GetObject("AutoCooling", false);
 			CbOffMin.Items.Clear();
 			CbOffSec.Items.Clear();
 			CbOnMin.Items.Clear();
@@ -115,8 +115,8 @@ namespace LaserGRBL
 			for (int i = 0; i <= 59; i++)
 				CbOffSec.Items.Add(i);
 
-			TimeSpan CoolingOn = Settings.GetObject("AutoCooling TOn", TimeSpan.FromMinutes(10));
-			TimeSpan CoolingOff = Settings.GetObject("AutoCooling TOff", TimeSpan.FromMinutes(1));
+			TimeSpan CoolingOn = GlobalSettings.GetObject("AutoCooling TOn", TimeSpan.FromMinutes(10));
+			TimeSpan CoolingOff = GlobalSettings.GetObject("AutoCooling TOff", TimeSpan.FromMinutes(1));
 
 			CbOnMin.SelectedItem = CoolingOn.Minutes;
 			CbOffMin.SelectedItem = CoolingOff.Minutes;
@@ -173,54 +173,54 @@ namespace LaserGRBL
 
 		private void BtnSave_Click(object sender, EventArgs e)
 		{
-            Settings.SetObject("Firmware Type", CBCore.SelectedItem);
-            Settings.SetObject("Support Hardware PWM", CBSupportPWM.Checked);
-			Settings.SetObject("ComWrapper Protocol", CBProtocol.SelectedItem);
-			Settings.SetObject("Streaming Mode", CBStreamingMode.SelectedItem);
-			Settings.SetObject("Unidirectional Engraving", CbUnidirectional.Checked);
-			Settings.SetObject("Disable G0 fast skip", CbDisableSkip.Checked);
-			Settings.SetObject("Threading Mode", CbThreadingMode.SelectedItem);
-			Settings.SetObject("Do not show Issue Detector", !CbIssueDetector.Checked);
-			Settings.SetObject("Reset Grbl On Connect", CbSoftReset.Checked);
-			Settings.SetObject("HardReset Grbl On Connect", CbHardReset.Checked);
-            Settings.SetObject("Enable Continuous Jog", CbContinuosJog.Checked);
-            Settings.SetObject("Enale Z Jog Control", CbEnableZJog.Checked);
-			Settings.SetObject("DisableBoundaryWarning", CbDisableBoundWarn.Checked);
-			Settings.SetObject("Click N Jog", CbClickNJog.Checked);
+            GlobalSettings.SetObject("Firmware Type", CBCore.SelectedItem);
+            GlobalSettings.SetObject("Support Hardware PWM", CBSupportPWM.Checked);
+			GlobalSettings.SetObject("ComWrapper Protocol", CBProtocol.SelectedItem);
+			GlobalSettings.SetObject("Streaming Mode", CBStreamingMode.SelectedItem);
+			GlobalSettings.SetObject("Unidirectional Engraving", CbUnidirectional.Checked);
+			GlobalSettings.SetObject("Disable G0 fast skip", CbDisableSkip.Checked);
+			GlobalSettings.SetObject("Threading Mode", CbThreadingMode.SelectedItem);
+			GlobalSettings.SetObject("Do not show Issue Detector", !CbIssueDetector.Checked);
+			GlobalSettings.SetObject("Reset Grbl On Connect", CbSoftReset.Checked);
+			GlobalSettings.SetObject("HardReset Grbl On Connect", CbHardReset.Checked);
+            GlobalSettings.SetObject("Enable Continuous Jog", CbContinuosJog.Checked);
+            GlobalSettings.SetObject("Enale Z Jog Control", CbEnableZJog.Checked);
+			GlobalSettings.SetObject("DisableBoundaryWarning", CbDisableBoundWarn.Checked);
+			GlobalSettings.SetObject("Click N Jog", CbClickNJog.Checked);
 
-			Settings.SetObject("AutoCooling", CbAutoCooling.Checked);
-			Settings.SetObject("AutoCooling TOn", MaxTs(TimeSpan.FromSeconds(10), new TimeSpan(0, (int)CbOnMin.SelectedItem, (int)CbOnSec.SelectedItem)));
-			Settings.SetObject("AutoCooling TOff", MaxTs(TimeSpan.FromSeconds(10), new TimeSpan(0, (int)CbOffMin.SelectedItem, (int)CbOffSec.SelectedItem)));
+			GlobalSettings.SetObject("AutoCooling", CbAutoCooling.Checked);
+			GlobalSettings.SetObject("AutoCooling TOn", MaxTs(TimeSpan.FromSeconds(10), new TimeSpan(0, (int)CbOnMin.SelectedItem, (int)CbOnSec.SelectedItem)));
+			GlobalSettings.SetObject("AutoCooling TOff", MaxTs(TimeSpan.FromSeconds(10), new TimeSpan(0, (int)CbOffMin.SelectedItem, (int)CbOffSec.SelectedItem)));
 
-			Settings.SetObject("GCode.CustomHeader", TBHeader.Text.Trim());
-			Settings.SetObject("GCode.CustomPasses", TBPasses.Text.Trim());
-			Settings.SetObject("GCode.CustomFooter", TBFooter.Text.Trim());
+			GlobalSettings.SetObject("GCode.CustomHeader", TBHeader.Text.Trim());
+			GlobalSettings.SetObject("GCode.CustomPasses", TBPasses.Text.Trim());
+			GlobalSettings.SetObject("GCode.CustomFooter", TBFooter.Text.Trim());
 
-            Settings.SetObject($"Sound.{SoundEvent.EventId.Success}", SuccesFullLabel.Text.Trim());
-            Settings.SetObject($"Sound.{SoundEvent.EventId.Warning}", WarningFullLabel.Text.Trim());
-            Settings.SetObject($"Sound.{SoundEvent.EventId.Fatal}", ErrorFullLabel.Text.Trim());
-            Settings.SetObject($"Sound.{SoundEvent.EventId.Connect}", ConnectFullLabel.Text.Trim());
-            Settings.SetObject($"Sound.{SoundEvent.EventId.Disconnect}", DisconnectFullLabel.Text.Trim());
+            GlobalSettings.SetObject($"Sound.{SoundEvent.EventId.Success}", SuccesFullLabel.Text.Trim());
+            GlobalSettings.SetObject($"Sound.{SoundEvent.EventId.Warning}", WarningFullLabel.Text.Trim());
+            GlobalSettings.SetObject($"Sound.{SoundEvent.EventId.Fatal}", ErrorFullLabel.Text.Trim());
+            GlobalSettings.SetObject($"Sound.{SoundEvent.EventId.Connect}", ConnectFullLabel.Text.Trim());
+            GlobalSettings.SetObject($"Sound.{SoundEvent.EventId.Disconnect}", DisconnectFullLabel.Text.Trim());
 
-            Settings.SetObject($"Sound.{SoundEvent.EventId.Success}.Enabled", CbPlaySuccess.Checked);
-            Settings.SetObject($"Sound.{SoundEvent.EventId.Warning}.Enabled", CbPlayWarning.Checked);
-            Settings.SetObject($"Sound.{SoundEvent.EventId.Fatal}.Enabled", CbPlayFatal.Checked);
-            Settings.SetObject($"Sound.{SoundEvent.EventId.Connect}.Enabled", CbPlayConnect.Checked);
-            Settings.SetObject($"Sound.{SoundEvent.EventId.Disconnect}.Enabled", CbPlayDisconnect.Checked);
+            GlobalSettings.SetObject($"Sound.{SoundEvent.EventId.Success}.Enabled", CbPlaySuccess.Checked);
+            GlobalSettings.SetObject($"Sound.{SoundEvent.EventId.Warning}.Enabled", CbPlayWarning.Checked);
+            GlobalSettings.SetObject($"Sound.{SoundEvent.EventId.Fatal}.Enabled", CbPlayFatal.Checked);
+            GlobalSettings.SetObject($"Sound.{SoundEvent.EventId.Connect}.Enabled", CbPlayConnect.Checked);
+            GlobalSettings.SetObject($"Sound.{SoundEvent.EventId.Disconnect}.Enabled", CbPlayDisconnect.Checked);
 
-			Settings.SetObject("TelegramNotification.Enabled", CbTelegramNotification.Checked);
-			Settings.SetObject("TelegramNotification.Threshold", (int)UdTelegramNotificationThreshold.Value);
-			Settings.SetObject("TelegramNotification.Code", Tools.Protector.Encrypt(TxtNotification.Text));
+			GlobalSettings.SetObject("TelegramNotification.Enabled", CbTelegramNotification.Checked);
+			GlobalSettings.SetObject("TelegramNotification.Threshold", (int)UdTelegramNotificationThreshold.Value);
+			GlobalSettings.SetObject("TelegramNotification.Code", Tools.Protector.Encrypt(TxtNotification.Text));
 
-            Settings.SetObject("Raster Hi-Res", CbHiRes.Checked);
+            GlobalSettings.SetObject("Raster Hi-Res", CbHiRes.Checked);
 
-			Settings.SetObject($"Vector.UseSmartBezier", CbSmartBezier.Checked);
+			GlobalSettings.SetObject($"Vector.UseSmartBezier", CbSmartBezier.Checked);
 
 			SettingsChanged?.Invoke(this, null);
 
             Close();
 
-            if (Core.Type != Settings.GetObject("Firmware Type", Firmware.Grbl) && MessageBox.Show(Strings.FirmwareRequireRestartNow, Strings.FirmwareRequireRestart, MessageBoxButtons.OKCancel) == DialogResult.OK)
+            if (Core.Type != GlobalSettings.GetObject("Firmware Type", Firmware.Grbl) && MessageBox.Show(Strings.FirmwareRequireRestartNow, Strings.FirmwareRequireRestart, MessageBoxButtons.OKCancel) == DialogResult.OK)
                 Application.Restart();
 		}
 

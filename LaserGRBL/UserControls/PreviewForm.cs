@@ -46,6 +46,7 @@ namespace LaserGRBL
 		{
 			Preview.TimerUpdate();
 			SuspendLayout();
+
 			BtnReset.Enabled = Core.CanResetGrbl;
 			BtnHoming.Visible = Core.Configuration.HomingEnabled;
 			BtnHoming.Enabled = Core.CanDoHoming;
@@ -55,7 +56,9 @@ namespace LaserGRBL
 			BtnZeroing.Enabled = Core.CanDoZeroing;
 
 			foreach (CustomButtonIB ib in CustomButtonArea.Controls)
+            {
 				ib.RefreshEnabled();
+            }
 
 			ResumeLayout();
 		}
@@ -105,8 +108,12 @@ namespace LaserGRBL
             {
                 List<CustomButtonIB> rv = new List<CustomButtonIB>();
                 foreach (Control c in CustomButtonArea.Controls)
+                {
                     if (c is CustomButtonIB)
+                    {
                         rv.Add(c as CustomButtonIB);
+                    }
+                }
                 return rv;
             }
         }
@@ -132,11 +139,11 @@ namespace LaserGRBL
 				Tag = cb;
 
 				//ContextMenuStrip = MNRemEditCB;
-				SizingMode = UserControls.ImageButton.SizingModes.FixedSize;
+				SizingMode = UserControls.ImageButton.SizingModes.StretchImage;
 				BorderStyle = BorderStyle.FixedSingle;
-				Size = new Size(49, 49);
+				Size = new Size(40, 40);
 				Margin = new Padding(2);
-				this.Caption = cb.Caption;
+				//this.Caption = cb.Caption;
 				tt.SetToolTip(this, cb.ToolTip);
 
 
@@ -200,7 +207,9 @@ namespace LaserGRBL
 			}
 
 			protected override void OnClick(EventArgs e)
-            {PerformClick(e);}
+            {
+				PerformClick(e);
+			}
 
             private bool mEmulateMouseInside;
             public bool EmulateMouseInside
@@ -517,7 +526,20 @@ namespace LaserGRBL
 			Refresh();
 		}
 
-		
-	}
+        private void Preview_Load(object sender, EventArgs e)
+        {
+			
+		}
+
+        private void Preview_DoubleClick(object sender, EventArgs e)
+        {
+			Preview.RecreateBMP();
+		}
+
+        internal void RefreshPreview()
+        {
+			Preview.RecreateBMP();
+		}
+    }
 
 }

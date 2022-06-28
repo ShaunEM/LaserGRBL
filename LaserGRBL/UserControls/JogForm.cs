@@ -26,9 +26,9 @@ namespace LaserGRBL
 			UpdateFMax.Enabled = true;
 			UpdateFMax_Tick(null, null);
 
-			TbSpeed.Value = Math.Max(Math.Min(Settings.GetObject("Jog Speed", 1000), TbSpeed.Maximum), TbSpeed.Minimum);
+			TbSpeed.Value = Math.Max(Math.Min(GlobalSettings.GetObject("Jog Speed", 1000), TbSpeed.Maximum), TbSpeed.Minimum);
             
-			TbStep.Value = Convert.ToDecimal(Settings.GetObject("Jog Step", 10M));
+			TbStep.Value = Convert.ToDecimal(GlobalSettings.GetObject("Jog Step", 10M));
 
 			TbSpeed_ValueChanged(null, null); //set tooltip
 			TbStep_ValueChanged(null, null); //set tooltip
@@ -39,8 +39,8 @@ namespace LaserGRBL
 
         private void SettingsForm_SettingsChanged(object sender, EventArgs e)
         {
-            TlpStepControl.Visible = !Settings.GetObject("Enable Continuous Jog", false);
-            TlpZControl.Visible = Settings.GetObject("Enale Z Jog Control", false);
+            TlpStepControl.Visible = !GlobalSettings.GetObject("Enable Continuous Jog", false);
+            TlpZControl.Visible = GlobalSettings.GetObject("Enale Z Jog Control", false);
         }
 
         private void Core_JogStateChange(bool jog)
@@ -67,7 +67,7 @@ namespace LaserGRBL
 		{
 			TT.SetToolTip(TbSpeed, $"{Strings.SpeedSliderToolTip} {TbSpeed.Value}");
 			LblSpeed.Text = String.Format("F{0}", TbSpeed.Value);
-			Settings.SetObject("Jog Speed", TbSpeed.Value);
+			GlobalSettings.SetObject("Jog Speed", TbSpeed.Value);
 			Core.JogSpeed = TbSpeed.Value;
 		}
 
@@ -75,7 +75,7 @@ namespace LaserGRBL
 		{
 			TT.SetToolTip(TbStep, $"{Strings.StepSliderToolTip} {TbStep.Value}");
 			LblStep.Text = TbStep.Value.ToString();
-			Settings.SetObject("Jog Step", TbStep.Value);
+			GlobalSettings.SetObject("Jog Step", TbStep.Value);
 			Core.JogStep = TbStep.Value;
 		}
 

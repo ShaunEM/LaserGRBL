@@ -29,7 +29,7 @@ namespace LaserGRBL
 			buttons = (List<CustomButton>)Tools.Serializer.ObjFromFile(UserFile);
 			if (buttons == null)
 			{
-				if (buttons == null) buttons = (List<CustomButton>)Settings.GetAndDeleteObject("Custom Buttons", null);
+				if (buttons == null) buttons = (List<CustomButton>)GlobalSettings.GetAndDeleteObject("Custom Buttons", null);
 				if (buttons == null) buttons = new List<CustomButton>();
 				SaveFile();
 			}

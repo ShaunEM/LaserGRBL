@@ -1,0 +1,23 @@
+﻿1. Remove Project Form
+	Load files directly (do not display settings, only when you click on file name)
+	Layer name must be file name.. Ex. FileName (cut)
+
+2. Layer list must include
+	Enable/Disable
+	Setting summery Ex. [M4 75% 1000mm/s]
+
+3. Add layer order (with option to change order)
+
+4. SVG Import
+	Split colors into their own layers.
+
+5. Layer select must highlight selection in preview
+
+6. Allow layerselct by clicking in preview.
+
+ 
+
+
+
+
+	

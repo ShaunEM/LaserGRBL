@@ -5,18 +5,13 @@
 // You should have received a copy of the GPLv3 General Public License  along with this program; if not, write to the Free Software  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307,  USA. using System;
 
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Windows.Forms;
 
 namespace LaserGRBL
 {
-	public partial class ExceptionManager : Form
+    public partial class ExceptionManager : Form
 	{
 		public static GrblCore Core;
 
@@ -56,7 +51,7 @@ namespace LaserGRBL
 					sb.AppendLine();
 					sb.AppendFormat("{0} v{1}", Core?.Type, Core?.Configuration?.GrblVersion);
 					sb.AppendLine();
-					sb.AppendFormat("Wrapper: {0}", Settings.GetObject("ComWrapper Protocol", ComWrapper.WrapperType.UsbSerial));
+					sb.AppendFormat("Wrapper: {0}", GlobalSettings.GetObject("ComWrapper Protocol", ComWrapper.WrapperType.UsbSerial));
 					sb.AppendLine();
 					sb.AppendFormat("{0} ({1})", Tools.OSHelper.GetOSInfo()?.Replace("|", ", "), Tools.OSHelper.GetBitFlag());
 					sb.AppendLine();

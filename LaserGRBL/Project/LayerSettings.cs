@@ -5,38 +5,38 @@
 // You should have received a copy of the GPLv3 General Public License  along with this program; if not, write to the Free Software  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307,  USA. using System;
 
 using System;
+using System.Collections.Generic;
 
 namespace LaserGRBL
 {
     /// <summary>
     /// Description of Settings.
     /// </summary>
-    public static class Settings
+    public class LayerSettings
     {
-        private static System.Threading.Timer Timer = new System.Threading.Timer(OnTimerExpire, null, System.Threading.Timeout.Infinite, System.Threading.Timeout.Infinite);
-        private static System.Collections.Generic.Dictionary<string, object> dic;
-        private static string LastCause = null;
-        private static string LockString = "---- SETTING LOCK ----";
+        private Dictionary<string, object> dic { get; set; }
+        private string LastCause = null;
+        private string LockString = "---- SETTING LOCK ----";
 
-        public static bool IsNewFile { get; private set; } = false;
-        public static Version PrevVersion { get; private set; } = new Version(0, 0, 0);
-
-        static string filename
+        public bool IsNewFile { get; private set; } = false;
+        public Version PrevVersion { get; private set; } = new Version(0, 0, 0);
+        private string filename
         {
             get
             {
                 string basename = "LaserGRBL.Settings.bin";
                 string fullname = System.IO.Path.Combine(GrblCore.DataPath, basename);
-
                 if (!System.IO.File.Exists(fullname) && System.IO.File.Exists(basename))
+                {
                     System.IO.File.Copy(basename, fullname);
-
+                }
                 return fullname;
             }
         }
 
-        static Settings()
+        public LayerSettings()
         {
+            // Load default settings from file
             try
             {
                 IsNewFile = !System.IO.File.Exists(filename);
@@ -55,14 +55,16 @@ namespace LaserGRBL
             catch { }
 
             if (dic == null)
+            {
                 dic = new System.Collections.Generic.Dictionary<string, object>();
+            }
 
             PrevVersion = GetObject("Current LaserGRBL Version", new Version(0, 0, 0));
             SetObject("Current LaserGRBL Version", Program.CurrentVersion);
         }
 
 
-        public static T GetObject<T>(string key, T defval)
+        public T GetObject<T>(string key, T defval)
         {
             try
             {
@@ -70,7 +72,9 @@ namespace LaserGRBL
                 {
                     object obj = dic[key];
                     if (obj != null && obj.GetType() == typeof(T))
+                    {
                         return (T)obj;
+                    }
                 }
             }
             catch
@@ -79,14 +83,14 @@ namespace LaserGRBL
             return defval;
         }
 
-        public static object GetAndDeleteObject(string key, object defval)
+        public object GetAndDeleteObject(string key, object defval)
         {
             object rv = ExistObject(key) && dic[key] != null ? dic[key] : defval;
             DeleteObject(key);
             return rv;
         }
 
-        public static void SetObject(string key, object value)
+        public void SetObject(string key, object value)
         {
             if (ExistObject(key))
             {
@@ -94,11 +98,15 @@ namespace LaserGRBL
                 bool isdifferent = !Equals(dic[key], value);
 
                 if (value is object[] && dic[key] is object[])
+                {
                     isdifferent = !ArraysEqual((object[])dic[key], (object[])value);
+                }
 
                 dic[key] = value;
                 if (isdifferent)
+                {
                     TriggerSave(key);
+                }
             }
             else
             {
@@ -107,7 +115,7 @@ namespace LaserGRBL
             }
         }
 
-        private static bool ArraysEqual<T>(T[] a1, T[] a2)
+        private bool ArraysEqual<T>(T[] a1, T[] a2)
         {
             if (ReferenceEquals(a1, a2))
                 return true;
@@ -126,50 +134,48 @@ namespace LaserGRBL
             return true;
         }
 
-        private static void TriggerSave(string cause)
+        private void TriggerSave(string cause)
         {
             lock (LockString)
             {
                 LastCause = cause;
-                Timer.Change(2000, System.Threading.Timeout.Infinite);
+                //Timer.Change(2000, System.Threading.Timeout.Infinite);
             }
         }
 
-        internal static void Exiting()
-        {
-            OnTimerExpire(null);
-        }
+        //internal void Exiting()
+        //{
+        //    OnTimerExpire(null);
+        //}
+        //private void OnTimerExpire(object state)
+        //{
+        //    lock (LockString)
+        //    {
+        //        //Timer.Change(System.Threading.Timeout.Infinite, System.Threading.Timeout.Infinite);
+        //        InternalSaveFile();
+        //    }
+        //}
+        //private void InternalSaveFile()
+        //{
+        //    if (LastCause != null)
+        //    {
+        //        System.Diagnostics.Debug.WriteLine($"Save setting file [{LastCause}]");
+        //        try
+        //        {
+        //            System.Runtime.Serialization.Formatters.Binary.BinaryFormatter f = new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter();
+        //            f.AssemblyFormat = System.Runtime.Serialization.Formatters.FormatterAssemblyStyle.Simple;
+        //            using (System.IO.FileStream fs = new System.IO.FileStream(filename, System.IO.FileMode.Create, System.IO.FileAccess.Write, System.IO.FileShare.None))
+        //            {
+        //                f.Serialize(fs, dic);
+        //                fs.Close();
+        //            }
+        //        }
+        //        catch { }
+        //    }
+        //    LastCause = null;
+        //}
 
-        private static void OnTimerExpire(object state)
-        {
-            lock (LockString)
-            {
-                Timer.Change(System.Threading.Timeout.Infinite, System.Threading.Timeout.Infinite);
-                InternalSaveFile();
-            }
-        }
-
-        private static void InternalSaveFile()
-        {
-            if (LastCause != null)
-            {
-                System.Diagnostics.Debug.WriteLine($"Save setting file [{LastCause}]");
-                try
-                {
-                    System.Runtime.Serialization.Formatters.Binary.BinaryFormatter f = new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter();
-                    f.AssemblyFormat = System.Runtime.Serialization.Formatters.FormatterAssemblyStyle.Simple;
-                    using (System.IO.FileStream fs = new System.IO.FileStream(filename, System.IO.FileMode.Create, System.IO.FileAccess.Write, System.IO.FileShare.None))
-                    {
-                        f.Serialize(fs, dic);
-                        fs.Close();
-                    }
-                }
-                catch { }
-            }
-            LastCause = null;
-        }
-
-        internal static void DeleteObject(string key)
+        internal void DeleteObject(string key)
         {
             if (ExistObject(key))
             {
@@ -178,10 +184,9 @@ namespace LaserGRBL
             }
         }
 
-        internal static bool ExistObject(string key)
+        internal bool ExistObject(string key)
         {
             return dic.ContainsKey(key);
         }
-
     }
 }

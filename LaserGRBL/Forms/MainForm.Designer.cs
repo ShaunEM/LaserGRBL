@@ -30,14 +30,6 @@
 		{
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.mainTab = new System.Windows.Forms.TabPage();
-            this.ConnectionForm = new LaserGRBL.ConnectLogForm();
-            this.gcodeTab = new System.Windows.Forms.TabPage();
-            this.gcodeText = new System.Windows.Forms.RichTextBox();
-            this.JogForm = new LaserGRBL.JogForm();
-            this.PreviewForm = new LaserGRBL.PreviewForm();
             this.StatusBar = new System.Windows.Forms.StatusStrip();
             this.TTLLines = new System.Windows.Forms.ToolStripStatusLabel();
             this.TTTLines = new System.Windows.Forms.ToolStripStatusLabel();
@@ -72,8 +64,7 @@
             this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripSeparator();
             this.MnExit = new System.Windows.Forms.ToolStripMenuItem();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.MnFileOpen = new System.Windows.Forms.ToolStripMenuItem();
-            this.MnFileAppend = new System.Windows.Forms.ToolStripMenuItem();
+            this.MnAddLayer = new System.Windows.Forms.ToolStripMenuItem();
             this.MnReOpenFile = new System.Windows.Forms.ToolStripMenuItem();
             this.MnSaveProgram = new System.Windows.Forms.ToolStripMenuItem();
             this.MnAdvancedSave = new System.Windows.Forms.ToolStripMenuItem();
@@ -143,74 +134,27 @@
             this.licenseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.AwakeTimer = new System.Windows.Forms.Timer(this.components);
             this.MultipleInstanceTimer = new System.Windows.Forms.Timer(this.components);
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.projectTab = new System.Windows.Forms.TabPage();
+            this.machineTab = new System.Windows.Forms.TabPage();
+            this.gcodeTab = new System.Windows.Forms.TabPage();
+            this.TTTGCodeDebugLines = new System.Windows.Forms.RichTextBox();
+            this.ProjectDetailForm = new LaserGRBL.ProjectDetailForm();
+            this.ConnectionForm = new LaserGRBL.ConnectLogForm();
+            this.JogForm = new LaserGRBL.JogForm();
+            this.PreviewForm = new LaserGRBL.PreviewForm();
+            this.StatusBar.SuspendLayout();
+            this.MMn.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.tabControl1.SuspendLayout();
-            this.mainTab.SuspendLayout();
+            this.projectTab.SuspendLayout();
+            this.machineTab.SuspendLayout();
             this.gcodeTab.SuspendLayout();
-            this.StatusBar.SuspendLayout();
-            this.MMn.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // splitContainer1
-            // 
-            this.splitContainer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            resources.ApplyResources(this.splitContainer1, "splitContainer1");
-            this.splitContainer1.Name = "splitContainer1";
-            // 
-            // splitContainer1.Panel1
-            // 
-            this.splitContainer1.Panel1.Controls.Add(this.tabControl1);
-            this.splitContainer1.Panel1.Controls.Add(this.JogForm);
-            // 
-            // splitContainer1.Panel2
-            // 
-            this.splitContainer1.Panel2.Controls.Add(this.PreviewForm);
-            this.splitContainer1.SplitterMoved += new System.Windows.Forms.SplitterEventHandler(this.splitContainer1_SplitterMoved);
-            // 
-            // tabControl1
-            // 
-            this.tabControl1.Controls.Add(this.mainTab);
-            this.tabControl1.Controls.Add(this.gcodeTab);
-            resources.ApplyResources(this.tabControl1, "tabControl1");
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            // 
-            // mainTab
-            // 
-            this.mainTab.Controls.Add(this.ConnectionForm);
-            resources.ApplyResources(this.mainTab, "mainTab");
-            this.mainTab.Name = "mainTab";
-            this.mainTab.UseVisualStyleBackColor = true;
-            // 
-            // ConnectionForm
-            // 
-            resources.ApplyResources(this.ConnectionForm, "ConnectionForm");
-            this.ConnectionForm.Name = "ConnectionForm";
-            // 
-            // gcodeTab
-            // 
-            this.gcodeTab.Controls.Add(this.gcodeText);
-            resources.ApplyResources(this.gcodeTab, "gcodeTab");
-            this.gcodeTab.Name = "gcodeTab";
-            this.gcodeTab.UseVisualStyleBackColor = true;
-            // 
-            // gcodeText
-            // 
-            resources.ApplyResources(this.gcodeText, "gcodeText");
-            this.gcodeText.Name = "gcodeText";
-            // 
-            // JogForm
-            // 
-            resources.ApplyResources(this.JogForm, "JogForm");
-            this.JogForm.Name = "JogForm";
-            // 
-            // PreviewForm
-            // 
-            resources.ApplyResources(this.PreviewForm, "PreviewForm");
-            this.PreviewForm.Name = "PreviewForm";
             // 
             // StatusBar
             // 
@@ -458,8 +402,7 @@
             // fileToolStripMenuItem
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.MnFileOpen,
-            this.MnFileAppend,
+            this.MnAddLayer,
             this.MnReOpenFile,
             this.MnSaveProgram,
             this.MnAdvancedSave,
@@ -473,18 +416,13 @@
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             resources.ApplyResources(this.fileToolStripMenuItem, "fileToolStripMenuItem");
             this.fileToolStripMenuItem.DropDownOpening += new System.EventHandler(this.fileToolStripMenuItem_DropDownOpening);
+            this.fileToolStripMenuItem.Click += new System.EventHandler(this.fileToolStripMenuItem_Click);
             // 
-            // MnFileOpen
+            // MnAddLayer
             // 
-            resources.ApplyResources(this.MnFileOpen, "MnFileOpen");
-            this.MnFileOpen.Name = "MnFileOpen";
-            this.MnFileOpen.Click += new System.EventHandler(this.MnFileOpen_Click);
-            // 
-            // MnFileAppend
-            // 
-            resources.ApplyResources(this.MnFileAppend, "MnFileAppend");
-            this.MnFileAppend.Name = "MnFileAppend";
-            this.MnFileAppend.Click += new System.EventHandler(this.MnFileAppend_Click);
+            resources.ApplyResources(this.MnAddLayer, "MnAddLayer");
+            this.MnAddLayer.Name = "MnAddLayer";
+            this.MnAddLayer.Click += new System.EventHandler(this.MnAddLayer_Click);
             // 
             // MnReOpenFile
             // 
@@ -943,11 +881,86 @@
             this.MultipleInstanceTimer.Interval = 1000;
             this.MultipleInstanceTimer.Tick += new System.EventHandler(this.MultipleInstanceTimer_Tick);
             // 
+            // splitContainer1
+            // 
+            this.splitContainer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            resources.ApplyResources(this.splitContainer1, "splitContainer1");
+            this.splitContainer1.Name = "splitContainer1";
+            // 
+            // splitContainer1.Panel1
+            // 
+            this.splitContainer1.Panel1.Controls.Add(this.tabControl1);
+            this.splitContainer1.Panel1.Controls.Add(this.JogForm);
+            // 
+            // splitContainer1.Panel2
+            // 
+            this.splitContainer1.Panel2.Controls.Add(this.PreviewForm);
+            this.splitContainer1.SplitterMoved += new System.Windows.Forms.SplitterEventHandler(this.splitContainer1_SplitterMoved);
+            // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.projectTab);
+            this.tabControl1.Controls.Add(this.machineTab);
+            this.tabControl1.Controls.Add(this.gcodeTab);
+            resources.ApplyResources(this.tabControl1, "tabControl1");
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            // 
+            // projectTab
+            // 
+            this.projectTab.Controls.Add(this.ProjectDetailForm);
+            resources.ApplyResources(this.projectTab, "projectTab");
+            this.projectTab.Name = "projectTab";
+            this.projectTab.UseVisualStyleBackColor = true;
+            // 
+            // machineTab
+            // 
+            this.machineTab.Controls.Add(this.ConnectionForm);
+            resources.ApplyResources(this.machineTab, "machineTab");
+            this.machineTab.Name = "machineTab";
+            this.machineTab.UseVisualStyleBackColor = true;
+            // 
+            // gcodeTab
+            // 
+            this.gcodeTab.Controls.Add(this.TTTGCodeDebugLines);
+            resources.ApplyResources(this.gcodeTab, "gcodeTab");
+            this.gcodeTab.Name = "gcodeTab";
+            this.gcodeTab.UseVisualStyleBackColor = true;
+            // 
+            // TTTGCodeDebugLines
+            // 
+            resources.ApplyResources(this.TTTGCodeDebugLines, "TTTGCodeDebugLines");
+            this.TTTGCodeDebugLines.Name = "TTTGCodeDebugLines";
+            // 
+            // ProjectDetailForm
+            // 
+            resources.ApplyResources(this.ProjectDetailForm, "ProjectDetailForm");
+            this.ProjectDetailForm.Name = "ProjectDetailForm";
+            this.ProjectDetailForm.Load += new System.EventHandler(this.projectDetailForm_Load);
+            // 
+            // ConnectionForm
+            // 
+            resources.ApplyResources(this.ConnectionForm, "ConnectionForm");
+            this.ConnectionForm.Name = "ConnectionForm";
+            this.ConnectionForm.Load += new System.EventHandler(this.ConnectionForm_Load_1);
+            // 
+            // JogForm
+            // 
+            resources.ApplyResources(this.JogForm, "JogForm");
+            this.JogForm.Name = "JogForm";
+            // 
+            // PreviewForm
+            // 
+            resources.ApplyResources(this.PreviewForm, "PreviewForm");
+            this.PreviewForm.Name = "PreviewForm";
+            this.PreviewForm.Load += new System.EventHandler(this.PreviewForm_Load);
+            // 
             // MainForm
             // 
             this.AllowDrop = true;
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.StatusBar);
             this.Controls.Add(this.MMn);
@@ -960,18 +973,19 @@
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.DragDrop += new System.Windows.Forms.DragEventHandler(this.MainForm_DragDrop);
             this.DragEnter += new System.Windows.Forms.DragEventHandler(this.MainForm_DragEnter);
+            this.StatusBar.ResumeLayout(false);
+            this.StatusBar.PerformLayout();
+            this.MMn.ResumeLayout(false);
+            this.MMn.PerformLayout();
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
-            this.mainTab.ResumeLayout(false);
-            this.mainTab.PerformLayout();
+            this.projectTab.ResumeLayout(false);
+            this.machineTab.ResumeLayout(false);
+            this.machineTab.PerformLayout();
             this.gcodeTab.ResumeLayout(false);
-            this.StatusBar.ResumeLayout(false);
-            this.StatusBar.PerformLayout();
-            this.MMn.ResumeLayout(false);
-            this.MMn.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -983,7 +997,6 @@
 		private System.Windows.Forms.ToolStripStatusLabel TTTEstimated;
 		private System.Windows.Forms.MenuStrip MMn;
 		private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem MnFileOpen;
 		private System.Windows.Forms.ToolStripMenuItem MnFileSend;
 		private System.Windows.Forms.ToolStripMenuItem MnGrbl;
 		private System.Windows.Forms.ToolStripMenuItem MnGrblReset;
@@ -1043,7 +1056,6 @@
 		private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
 		private System.Windows.Forms.Timer AwakeTimer;
 		private System.Windows.Forms.ToolStripMenuItem MnStartFromPosition;
-		private System.Windows.Forms.ToolStripMenuItem MnFileAppend;
 		private System.Windows.Forms.ToolStripMenuItem slovakianToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem hungarianToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem czechToolStripMenuItem;
@@ -1088,10 +1100,13 @@
         private System.Windows.Forms.ToolStripMenuItem romanianToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem dutchToolStripMenuItem;
         private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage mainTab;
+        private System.Windows.Forms.TabPage machineTab;
         private ConnectLogForm ConnectionForm;
         private System.Windows.Forms.TabPage gcodeTab;
-        private System.Windows.Forms.RichTextBox gcodeText;
+        private System.Windows.Forms.RichTextBox TTTGCodeDebugLines;
+        private System.Windows.Forms.ToolStripMenuItem MnAddLayer;
+        private System.Windows.Forms.TabPage projectTab;
+        private ProjectDetailForm ProjectDetailForm;
     }
 }
 

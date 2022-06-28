@@ -672,7 +672,9 @@ namespace Tools
 		public double EvaluateD()
 		{
 			if (dynamicFunction != null)
+            {
 				return dynamicFunction.EvaluateD(variables);
+            }
 
 			// TODO! Check to see that we have the variable that we need.
 

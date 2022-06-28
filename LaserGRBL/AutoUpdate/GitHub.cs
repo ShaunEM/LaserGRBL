@@ -84,8 +84,13 @@ namespace LaserGRBL
 			if (UrlManager.UpdateMain != null || UrlManager.UpdateMirror != null)
 			{
 				//https://developer.github.com/changes/2018-02-01-weak-crypto-removal-notice/
-				try { System.Net.ServicePointManager.SecurityProtocol = (System.Net.SecurityProtocolType)3072; } //CONFIGURE SYSTEM FOR TLS 1.2 (Required since 22-02-2018) May work only if .net 4.5 is installed?
-				catch { System.Net.ServicePointManager.SecurityProtocol = System.Net.SecurityProtocolType.Tls; } //fallback, but not working with new github API!
+				try { 
+					System.Net.ServicePointManager.SecurityProtocol = (System.Net.SecurityProtocolType)3072; 
+				} //CONFIGURE SYSTEM FOR TLS 1.2 (Required since 22-02-2018) May work only if .net 4.5 is installed?
+				catch 
+				{ 
+					System.Net.ServicePointManager.SecurityProtocol = System.Net.SecurityProtocolType.Tls;
+				} //fallback, but not working with new github API!
 				System.Net.ServicePointManager.ServerCertificateValidationCallback += new System.Net.Security.RemoteCertificateValidationCallback(bypassAllCertificateStuff);
 
 				System.Threading.ThreadPool.QueueUserWorkItem(new System.Threading.WaitCallback(GitHub.AsyncCheckVersion), manual);
@@ -134,8 +139,8 @@ namespace LaserGRBL
 
 				List<OnlineVersion> versions = Tools.JSONParser.FromJson<List<OnlineVersion>>(json);
 
-				bool build = Settings.GetObject("Auto Update Build", false) || manual;
-				bool pre = Settings.GetObject("Auto Update Pre", false);
+				bool build = GlobalSettings.GetObject("Auto Update Build", false) || manual;
+				bool pre = GlobalSettings.GetObject("Auto Update Pre", false);
 
 				Version current = Program.CurrentVersion;
 				OnlineVersion found = null;
@@ -208,7 +213,13 @@ namespace LaserGRBL
 			//run downloaded exe
 			if (System.IO.File.Exists(installer))
 			{
-				System.Diagnostics.ProcessStartInfo p = new System.Diagnostics.ProcessStartInfo { UseShellExecute = true, WorkingDirectory = Environment.CurrentDirectory, FileName = installer, Verb = "runas" };
+				System.Diagnostics.ProcessStartInfo p = new System.Diagnostics.ProcessStartInfo 
+				{ 
+					UseShellExecute = true, 
+					WorkingDirectory = Environment.CurrentDirectory, 
+					FileName = installer, 
+					Verb = "runas" 
+				};
 				try { System.Diagnostics.Process.Start(p); return true; }
 				catch { return false; }
 			}
@@ -224,12 +235,12 @@ namespace LaserGRBL
 
 		private static void InitFlags()
 		{
-			if (!Settings.ExistObject("Auto Update Build"))
+			if (!GlobalSettings.ExistObject("Auto Update Build"))
 			{
 				int percentage = 2; //enable "auto update build" on 2% of installation to be used as test platform
 
 				Random rng = new Random();
-				Settings.SetObject("Auto Update Build", Settings.GetObject("Auto Update", true) && rng.Next(0, 100) < percentage); 
+				GlobalSettings.SetObject("Auto Update Build", GlobalSettings.GetObject("Auto Update", true) && rng.Next(0, 100) < percentage); 
 			}
 		}
 

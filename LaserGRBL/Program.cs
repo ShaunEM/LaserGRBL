@@ -22,8 +22,14 @@ namespace LaserGRBL
         [STAThread]
 		static void Main(string[] args)
 		{
-            try { CurrentVersion = typeof(GitHub).Assembly.GetName().Version; }
-            catch { CurrentVersion = new Version(0, 0, 0); }
+			try 
+			{ 
+				CurrentVersion = typeof(GitHub).Assembly.GetName().Version; 
+			}
+            catch 
+			{ 
+				CurrentVersion = new Version(0, 0, 0); 
+			}
 
             ExceptionManager.RegisterHandler();
 			Tools.TimingBase.TimeFromApplicationStartup();
@@ -34,8 +40,13 @@ namespace LaserGRBL
 			CustomButtons.LoadFile();
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
-			System.Globalization.CultureInfo ci = Settings.GetObject<System.Globalization.CultureInfo>("User Language", null);
-			if (ci != null) Thread.CurrentThread.CurrentUICulture = ci;
+
+			System.Globalization.CultureInfo ci = GlobalSettings.GetObject<System.Globalization.CultureInfo>("User Language", null);
+			if (ci != null)
+			{
+				Thread.CurrentThread.CurrentUICulture = ci;
+			}
+
 			Tools.TaskScheduler.SetClockResolution(1); //use a fast clock
 			
 			Application.Run(new MainForm(args));
@@ -45,6 +56,8 @@ namespace LaserGRBL
 
 			ComWrapper.ComLogger.StopLog();
 			Logger.Stop();
+
+
 
 		}
 	}

@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace LaserGRBL
 {
-	public static class SincroStart
+    public static class SincroStart
 	{
 		static System.Threading.ManualResetEvent EX;	//Exit flag
 		static System.Threading.EventWaitHandle EV;		//Event flag

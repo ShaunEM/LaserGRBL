@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Diagnostics;
-using System.Text;
-
-namespace Tools
+﻿namespace Tools
 {
-	public class TaskScheduler
+    public class TaskScheduler
 	{
 
 		[System.Runtime.InteropServices.DllImport("ntdll.dll", EntryPoint = "NtSetTimerResolution")]

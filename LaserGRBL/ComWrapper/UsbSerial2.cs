@@ -40,10 +40,10 @@ namespace LaserGRBL.ComWrapper
 					com.NewLine = "\n";
 					com.WriteTimeout = 1000; //se si blocca in write
 
-					com.DtrEnable = Settings.GetObject("HardReset Grbl On Connect", false);
-					com.RtsEnable = Settings.GetObject("HardReset Grbl On Connect", false);
+					com.DtrEnable = GlobalSettings.GetObject("HardReset Grbl On Connect", false);
+					com.RtsEnable = GlobalSettings.GetObject("HardReset Grbl On Connect", false);
 
-					if (Settings.GetObject("Firmware Type", Firmware.Grbl) == Firmware.Marlin)
+					if (GlobalSettings.GetObject("Firmware Type", Firmware.Grbl) == Firmware.Marlin)
 						com.DtrEnable = true;
 
 					ComLogger.Log("com", string.Format("Open {0} @ {1} baud {2} (UsbSerial2)", com.PortName.ToUpper(), com.BaudRate, GetResetDiagnosticString()));
@@ -89,7 +89,7 @@ namespace LaserGRBL.ComWrapper
 		{
 			bool rts = com.RtsEnable;
 			bool dtr = com.DtrEnable;
-			bool soft = Settings.GetObject("Reset Grbl On Connect", false);
+			bool soft = GlobalSettings.GetObject("Reset Grbl On Connect", false);
 
 			string rv = "";
 

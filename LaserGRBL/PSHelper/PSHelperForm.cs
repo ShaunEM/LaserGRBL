@@ -28,7 +28,7 @@ namespace LaserGRBL.PSHelper
 
 		private void SetDefault(string key, ComboBox target)
 		{
-			string value = Settings.GetObject(key, (string)null);
+			string value = GlobalSettings.GetObject(key, (string)null);
 			if (value != null && target.Items.Contains(value))
 				target.SelectedItem = value;
 		}
@@ -122,10 +122,10 @@ namespace LaserGRBL.PSHelper
 
 		private void BtnApply_Click(object sender, EventArgs e)
 		{
-            if (CbModel.SelectedItem != null) Settings.SetObject("DB Last Used Laser Model", CbModel.SelectedItem);
-			if (CbMaterial.SelectedItem != null) Settings.SetObject("DB Last Used Material", CbMaterial.SelectedItem);
-			if (CbAction.SelectedItem != null) Settings.SetObject("DB Last Used Action", CbAction.SelectedItem);
-			if (CbThickness.SelectedItem != null) Settings.SetObject("DB Last Used Thickness", CbThickness.SelectedItem);
+            if (CbModel.SelectedItem != null) GlobalSettings.SetObject("DB Last Used Laser Model", CbModel.SelectedItem);
+			if (CbMaterial.SelectedItem != null) GlobalSettings.SetObject("DB Last Used Material", CbMaterial.SelectedItem);
+			if (CbAction.SelectedItem != null) GlobalSettings.SetObject("DB Last Used Action", CbAction.SelectedItem);
+			if (CbThickness.SelectedItem != null) GlobalSettings.SetObject("DB Last Used Thickness", CbThickness.SelectedItem);
 
 			result = current;
 			Close();

@@ -171,9 +171,9 @@ namespace LaserGRBL
             if (Tools.TimingBase.TimeFromApplicationStartup() > TimeSpan.Zero) //prevent wrong values
                 UsageTime = UsageTime.Add(Tools.TimingBase.TimeFromApplicationStartup());
 
-            Wrapper = Settings.GetObject("ComWrapper Protocol", ComWrapper.WrapperType.UsbSerial);
+            Wrapper = GlobalSettings.GetObject("ComWrapper Protocol", ComWrapper.WrapperType.UsbSerial);
 
-			LaserGRBL.Firmware fw = Settings.GetObject("Firmware Type", LaserGRBL.Firmware.Grbl);
+			LaserGRBL.Firmware fw = GlobalSettings.GetObject("Firmware Type", LaserGRBL.Firmware.Grbl);
 			FirmwareString = fw.ToString();
 			VendorString = Core?.GrblVersion?.Vendor != null ? Core.GrblVersion.Vendor : "Unknown";
 

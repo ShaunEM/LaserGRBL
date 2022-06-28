@@ -23,7 +23,7 @@ namespace LaserGRBL.WiFiDiscovery
 		{
 			InitializeComponent();
 
-			ComWrapper.WrapperType currentWrapper = Settings.GetObject("ComWrapper Protocol", ComWrapper.WrapperType.UsbSerial);
+			ComWrapper.WrapperType currentWrapper = GlobalSettings.GetObject("ComWrapper Protocol", ComWrapper.WrapperType.UsbSerial);
 			if (currentWrapper == ComWrapper.WrapperType.Telnet)
 				UdPort.Value = 23;
 			else if (currentWrapper == ComWrapper.WrapperType.LaserWebESP8266)
@@ -157,7 +157,7 @@ namespace LaserGRBL.WiFiDiscovery
 		{
 			if (result != null)
 			{
-				ComWrapper.WrapperType currentWrapper = Settings.GetObject("ComWrapper Protocol", ComWrapper.WrapperType.UsbSerial);
+				ComWrapper.WrapperType currentWrapper = GlobalSettings.GetObject("ComWrapper Protocol", ComWrapper.WrapperType.UsbSerial);
 				if (currentWrapper == ComWrapper.WrapperType.Telnet)
 					RV = $"{result.IP}:{result.Port}";
 				else if (currentWrapper == ComWrapper.WrapperType.LaserWebESP8266)

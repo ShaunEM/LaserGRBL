@@ -22,12 +22,9 @@
 */
 
 using System;
-using System.Diagnostics;
-using System.IO;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows;
-using System.Windows.Forms;
 
 namespace LaserGRBL.SvgConverter
 {
@@ -54,31 +51,36 @@ namespace LaserGRBL.SvgConverter
 
 		private static int mDecimalPlaces = 3;
 
-		private static Firmware firmwareType = Settings.GetObject("Firmware Type", Firmware.Grbl);
+		private static Firmware firmwareType = GlobalSettings.GetObject("Firmware Type", Firmware.Grbl);
 		
 		private static int rapidnum = 0;
 		private static bool SupportPWM = true;
 
 		public static void setup(GrblCore core)
 		{
-			SupportPWM = Settings.GetObject("Support Hardware PWM", true); //If Support PWM use S command instead of M3-M4 / M5
+			SupportPWM = GlobalSettings.GetObject("Support Hardware PWM", true); //If Support PWM use S command instead of M3-M4 / M5
 
 			setDecimalPlaces(mDecimalPlaces);
 
-			gcodeXYFeed = Settings.GetObject("GrayScaleConversion.VectorizeOptions.BorderSpeed", 1000);
+			gcodeXYFeed = GlobalSettings.GetObject("GrayScaleConversion.VectorizeOptions.BorderSpeed", 1000);
 			
 			if (SupportPWM)
-				gcodeSpindleSpeed = Settings.GetObject("GrayScaleConversion.Gcode.LaserOptions.PowerMax", 255);
+            {
+				gcodeSpindleSpeed = GlobalSettings.GetObject("GrayScaleConversion.Gcode.LaserOptions.PowerMax", 255);
+            }
 			else
+            {
 				gcodeSpindleSpeed = (float)core.Configuration.MaxPWM;
-
+            }
 
 			// Smoothieware firmware need a value between 0.0 and 1.1
 			if (firmwareType == Firmware.Smoothie)
+            {
 				gcodeSpindleSpeed /= 255.0f;
-			gcodeSpindleCmdOn = Settings.GetObject("GrayScaleConversion.Gcode.LaserOptions.LaserOn", "M3");
-			gcodeSpindleCmdOff = Settings.GetObject("GrayScaleConversion.Gcode.LaserOptions.LaserOff", "M5");
-			SupportPWM = Settings.GetObject("Support Hardware PWM", true); //If Support PWM use S command instead of M3-M4 / M5
+            }
+			gcodeSpindleCmdOn = GlobalSettings.GetObject("GrayScaleConversion.Gcode.LaserOptions.LaserOn", "M3");
+			gcodeSpindleCmdOff = GlobalSettings.GetObject("GrayScaleConversion.Gcode.LaserOptions.LaserOff", "M5");
+			SupportPWM = GlobalSettings.GetObject("Support Hardware PWM", true); //If Support PWM use S command instead of M3-M4 / M5
 
 			lastMovewasG0 = true;
 			lastx = -1; lasty = -1; lastz = 0; lasts = -1 ; lastg = -1;
@@ -101,9 +103,13 @@ namespace LaserGRBL.SvgConverter
 		{
 			formatNumber = "0.";
 			if (gcodeCompress)
+            {
 				formatNumber = formatNumber.PadRight(num + 2, '#'); //'0'
+            }
 			else
+            {
 				formatNumber = formatNumber.PadRight(num + 2, '0'); //'0'
+            }
 		}
 
 		// get GCode one or two digits
@@ -111,7 +117,9 @@ namespace LaserGRBL.SvgConverter
 		{
 			string cmdG = getStrGCode(code, tmp);       // find number string
 			if (cmdG.Length > 0)
-			{ return Convert.ToInt16(cmdG.Substring(1)); }
+			{ 
+				return Convert.ToInt16(cmdG.Substring(1)); 
+			}
 			return -1;
 		}
 
@@ -177,9 +185,13 @@ namespace LaserGRBL.SvgConverter
 		internal static void PutInitialCommand(StringBuilder gcodeString)
 		{
 			if (SupportPWM)
+            {
 				gcodeString.AppendFormat("{0} S0\r\n", gcodeSpindleCmdOn); //turn ON with zero power
+            }
 			else
+            {
 				gcodeString.AppendFormat("{0} S{1}\r\n", gcodeSpindleCmdOff, gcodeSpindleSpeed); //turn OFF and set MaxPower
+            }
 		}
 
 		internal static void PutFinalCommand(StringBuilder gcodeString)
@@ -283,7 +295,9 @@ namespace LaserGRBL.SvgConverter
 		public static float lastx, lasty, lastz, lastg = -1, lastf, lasts;
 		public static bool lastMovewasG0 = true;
 		public static void MoveTo(StringBuilder gcodeString, Point coord, string cmt = "")
-		{ MoveSplit(gcodeString, 1, (float)coord.X, (float)coord.Y, applyXYFeedRate, cmt); }
+		{ 
+			MoveSplit(gcodeString, 1, (float)coord.X, (float)coord.Y, applyXYFeedRate, cmt); 
+		}
 		public static void MoveTo(StringBuilder gcodeString, float x, float y, string cmt = "")
 		{ MoveSplit(gcodeString, 1, x, y, applyXYFeedRate, cmt); }
 		public static void MoveTo(StringBuilder gcodeString, float x, float y, float z, string cmt = "")
@@ -299,7 +313,9 @@ namespace LaserGRBL.SvgConverter
 
 		// MoveSplit breaks down a line to line segments with given max. length
 		private static void MoveSplit(StringBuilder gcodeString, int gnr, float x, float y, bool applyFeed, string cmt)
-		{ MoveSplit(gcodeString, gnr, x, y, null, applyFeed, cmt); }
+		{ 
+			MoveSplit(gcodeString, gnr, x, y, null, applyFeed, cmt); 
+		}
 
 		private static float remainingC = 10;
 		private static float segFinalX = 0, segFinalY = 0, segLastFinalX = 0, segLastFinalY = 0;
@@ -471,7 +487,8 @@ namespace LaserGRBL.SvgConverter
 
 
 		private static void Move(StringBuilder gcodeString, int gnr, float x, float y, bool applyFeed, string cmt)
-		{ Move(gcodeString, gnr, x, y, null, applyFeed, cmt); }
+		{ 
+			Move(gcodeString, gnr, x, y, null, applyFeed, cmt); }
 		private static void Move(StringBuilder gcodeString, int gnr, float x, float y, float? z, bool applyFeed, string cmt)
 		{
 			if (gnr == 0)

@@ -19,16 +19,25 @@ namespace LaserGRBL.RasterConverter
 		static bool ratiolock = true;
 
 		GrblCore mCore;
-		bool supportPWM = Settings.GetObject("Support Hardware PWM", true);
+		int mLayerIndex;
 
-		public ComboboxItem[] LaserOptions = new ComboboxItem[] { new ComboboxItem("M3 - Constant Power", "M3"), new ComboboxItem("M4 - Dynamic Power", "M4") };
+		bool supportPWM = GlobalSettings.GetObject("Support Hardware PWM", true);
+
+		public ComboboxItem[] LaserOptions = new ComboboxItem[] 
+		{ 
+			new ComboboxItem("M3 - Constant Power", "M3"), 
+			new ComboboxItem("M4 - Dynamic Power", "M4") 
+		};
 		public class ComboboxItem
 		{
 			public string Text { get; set; }
 			public object Value { get; set; }
 
 			public ComboboxItem(string text, object value)
-			{ Text = text; Value = value; }
+			{ 
+				Text = text; 
+				Value = value; 
+			}
 
 			public override string ToString()
 			{
@@ -36,10 +45,11 @@ namespace LaserGRBL.RasterConverter
 			}
 		}
 
-		public ConvertSizeAndOptionForm(GrblCore core)
+		public ConvertSizeAndOptionForm(GrblCore core, int layerIndex)
 		{
 			InitializeComponent();
 			mCore = core;
+			mLayerIndex = layerIndex;
 
 			BackColor = ColorScheme.FormBackColor;
 			GbLaser.ForeColor = GbSize.ForeColor = GbSpeed.ForeColor = ForeColor = ColorScheme.FormForeColor;
@@ -86,27 +96,31 @@ namespace LaserGRBL.RasterConverter
 
 			InitImageSize();
 
-			IIBorderTracing.CurrentValue = IP.BorderSpeed = Settings.GetObject("GrayScaleConversion.VectorizeOptions.BorderSpeed", 1000);
-			IILinearFilling.CurrentValue = IP.MarkSpeed = Settings.GetObject("GrayScaleConversion.Gcode.Speed.Mark", 1000);
-
-			IP.LaserOn = Settings.GetObject("GrayScaleConversion.Gcode.LaserOptions.LaserOn", "M3");
+			IIBorderTracing.CurrentValue = IP.BorderSpeed = mCore.ProjectCore.layers[mLayerIndex].LayerSettings.GetObject("GrayScaleConversion.VectorizeOptions.BorderSpeed", 1000);
+			IILinearFilling.CurrentValue = IP.MarkSpeed = mCore.ProjectCore.layers[mLayerIndex].LayerSettings.GetObject("GrayScaleConversion.Gcode.Speed.Mark", 1000);
+			IILoopCounter.Value = IP.Passes = mCore.ProjectCore.layers[mLayerIndex].LayerSettings.GetObject("Passes", 1);
+			IP.LaserOn = mCore.ProjectCore.layers[mLayerIndex].LayerSettings.GetObject("GrayScaleConversion.Gcode.LaserOptions.LaserOn", "M3");
 
 			if (IP.LaserOn == "M3" || !mCore.Configuration.LaserMode)
+            {
 				CBLaserON.SelectedItem = LaserOptions[0];
+            }
 			else
+            {
 				CBLaserON.SelectedItem = LaserOptions[1];
+            }
 
-			IP.LaserOff = "M5"; 
+			IP.LaserOff = "M5";
 
-			IIMinPower.CurrentValue = IP.MinPower = Settings.GetObject("GrayScaleConversion.Gcode.LaserOptions.PowerMin", 0);
-			IIMaxPower.CurrentValue = IP.MaxPower = Settings.GetObject("GrayScaleConversion.Gcode.LaserOptions.PowerMax", (int)mCore.Configuration.MaxPWM);
+			IIMinPower.CurrentValue = IP.MinPower = mCore.ProjectCore.layers[mLayerIndex].LayerSettings.GetObject("GrayScaleConversion.Gcode.LaserOptions.PowerMin", 0);
+			IIMaxPower.CurrentValue = IP.MaxPower = mCore.ProjectCore.layers[mLayerIndex].LayerSettings.GetObject("GrayScaleConversion.Gcode.LaserOptions.PowerMax", (int)mCore.Configuration.MaxPWM);
 
-			IILinearFilling.Visible = LblLinearFilling.Visible = LblLinearFillingmm.Visible = (IP.SelectedTool == ImageProcessor.Tool.NoProcessing || IP.SelectedTool == ImageProcessor.Tool.Line2Line || IP.SelectedTool == ImageProcessor.Tool.Dithering || (IP.SelectedTool == ImageProcessor.Tool.Vectorize && (IP.FillingDirection != ImageProcessor.Direction.None)));
-			IIBorderTracing.Visible = LblBorderTracing.Visible = LblBorderTracingmm.Visible = (IP.SelectedTool == ImageProcessor.Tool.Vectorize || IP.SelectedTool == ImageProcessor.Tool.Centerline);
+			IILinearFilling.Enabled = LblLinearFilling.Enabled = LblLinearFillingmm.Enabled = (IP.SelectedTool == ImageProcessor.Tool.NoProcessing || IP.SelectedTool == ImageProcessor.Tool.Line2Line || IP.SelectedTool == ImageProcessor.Tool.Dithering || (IP.SelectedTool == ImageProcessor.Tool.Vectorize && (IP.FillingDirection != ImageProcessor.Direction.None)));
+			IIBorderTracing.Enabled = LblBorderTracing.Enabled = LblBorderTracingmm.Enabled = (IP.SelectedTool == ImageProcessor.Tool.Vectorize || IP.SelectedTool == ImageProcessor.Tool.Centerline);
 			LblLinearFilling.Text = IP.SelectedTool == ImageProcessor.Tool.Vectorize ? "Filling Speed" : "Engraving Speed";
 
-			IIOffsetX.CurrentValue = IP.TargetOffset.X = Settings.GetObject("GrayScaleConversion.Gcode.Offset.X", 0F);
-			IIOffsetY.CurrentValue = IP.TargetOffset.Y = Settings.GetObject("GrayScaleConversion.Gcode.Offset.Y", 0F);
+			IIOffsetX.CurrentValue = IP.TargetOffset.X = mCore.ProjectCore.layers[mLayerIndex].LayerSettings.GetObject("GrayScaleConversion.Gcode.Offset.X", 0F);
+			IIOffsetY.CurrentValue = IP.TargetOffset.Y = mCore.ProjectCore.layers[mLayerIndex].LayerSettings.GetObject("GrayScaleConversion.Gcode.Offset.Y", 0F);
 
 			RefreshPerc();
 			ShowDialog(parent);
@@ -130,19 +144,19 @@ namespace LaserGRBL.RasterConverter
 				{
 					if (IP.Original.Height < IP.Original.Width)
 					{
-						IISizeW.CurrentValue = Settings.GetObject("GrayScaleConversion.Gcode.ImageSize.W", 100F);
+						IISizeW.CurrentValue = mCore.ProjectCore.layers[mLayerIndex].LayerSettings.GetObject("GrayScaleConversion.Gcode.ImageSize.W", 100F);
 						IISizeH.CurrentValue = IP.WidthToHeight(IISizeW.CurrentValue);
 					}
 					else
 					{
-						IISizeH.CurrentValue = Settings.GetObject("GrayScaleConversion.Gcode.ImageSize.H", 100F);
+						IISizeH.CurrentValue = mCore.ProjectCore.layers[mLayerIndex].LayerSettings.GetObject("GrayScaleConversion.Gcode.ImageSize.H", 100F);
 						IISizeW.CurrentValue = IP.HeightToWidht(IISizeH.CurrentValue);
 					}
 				}
 				else
 				{
-					IISizeW.CurrentValue = Settings.GetObject("GrayScaleConversion.Gcode.ImageSize.W", 100F);
-					IISizeH.CurrentValue = Settings.GetObject("GrayScaleConversion.Gcode.ImageSize.H", 100F);
+					IISizeW.CurrentValue = mCore.ProjectCore.layers[mLayerIndex].LayerSettings.GetObject("GrayScaleConversion.Gcode.ImageSize.W", 100F);
+					IISizeH.CurrentValue = mCore.ProjectCore.layers[mLayerIndex].LayerSettings.GetObject("GrayScaleConversion.Gcode.ImageSize.H", 100F);
 				}
 			}
 		}
@@ -174,7 +188,10 @@ namespace LaserGRBL.RasterConverter
 		void IIMinPowerCurrentValueChanged(object sender, int OldValue, int NewValue, bool ByUser)
 		{
 			if (ByUser && IIMaxPower.CurrentValue <= NewValue)
+            {
 				IIMaxPower.CurrentValue = NewValue + 1;
+
+            }
 
 			IP.MinPower = NewValue;
 			RefreshPerc();
@@ -182,8 +199,9 @@ namespace LaserGRBL.RasterConverter
 		void IIMaxPowerCurrentValueChanged(object sender, int OldValue, int NewValue, bool ByUser)
 		{
 			if (ByUser && IIMinPower.CurrentValue >= NewValue)
+            {
 				IIMinPower.CurrentValue = NewValue - 1;
-
+            }
 			IP.MaxPower = NewValue;
 			RefreshPerc();
 		}
@@ -221,12 +239,17 @@ namespace LaserGRBL.RasterConverter
 			if (mode != null)
 			{
 				if (!mCore.Configuration.LaserMode && (mode.Value as string) == "M4")
+                {
 					MessageBox.Show(Strings.WarnWrongLaserMode, Strings.WarnWrongLaserModeTitle, MessageBoxButtons.OK, MessageBoxIcon.Warning);//warning!!
+
+                }
 
 				IP.LaserOn = mode.Value as string;
 			} 
 			else
+            {
 				IP.LaserOn = "M3";
+            }
 		}
 
 		//private void CBLaserOFF_SelectedIndexChanged(object sender, EventArgs e)
@@ -237,13 +260,17 @@ namespace LaserGRBL.RasterConverter
 		private void IISizeW_OnTheFlyValueChanged(object sender, float OldValue, float NewValue, bool ByUser)
 		{
 			if (ByUser && KeepSizeRatio)
+            {
 				IISizeH.CurrentValue = IP.WidthToHeight(NewValue);
+            }
 		}
 
 		private void IISizeH_OnTheFlyValueChanged(object sender, float OldValue, float NewValue, bool ByUser)
 		{
 			if (ByUser && KeepSizeRatio)
+            {
 				IISizeW.CurrentValue = IP.HeightToWidht(NewValue);
+            }
 		}
 
 		private bool KeepSizeRatio
@@ -285,7 +312,9 @@ namespace LaserGRBL.RasterConverter
 		private void BtnDPI_Click(object sender, EventArgs e)
 		{
 			if (CbAutosize.Checked)
+            {
 				IIDpi.CurrentValue = IP.FileDPI;
+            }
 		}
 
 		private void BtnPSHelper_Click(object sender, EventArgs e)
@@ -293,10 +322,14 @@ namespace LaserGRBL.RasterConverter
 			MaterialDB.MaterialsRow row = PSHelperForm.CreateAndShowDialog(this);
 			if (row != null)
 			{
-				if (IIBorderTracing.Visible)
+				if (IIBorderTracing.Enabled)
+                {
 					IIBorderTracing.CurrentValue = row.Speed;
-				if (IILinearFilling.Visible)
+                }
+				if (IILinearFilling.Enabled)
+                {
 					IILinearFilling.CurrentValue = row.Speed;
+                }
 
 				IIMaxPower.CurrentValue = IIMaxPower.MaxValue * row.Power / 100;
 			}
@@ -305,12 +338,14 @@ namespace LaserGRBL.RasterConverter
 		private void BtnCreate_Click(object sender, EventArgs e)
 		{
 			if (ConfirmOutOfBoundary())
+            {
 				DialogResult = DialogResult.OK;
+			}
 		}
 
 		private bool ConfirmOutOfBoundary()
 		{
-			if (mCore?.Configuration != null && !Settings.GetObject("DisableBoundaryWarning", false))
+			if (mCore?.Configuration != null && !GlobalSettings.GetObject("DisableBoundaryWarning", false))
 			{
 				if ((IIOffsetX.CurrentValue < 0 || IIOffsetY.CurrentValue < 0) && mCore.Configuration.SoftLimit)
 					if (MessageBox.Show(Strings.WarnSoftLimitNS, Strings.WarnSoftLimitTitle, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) != DialogResult.Yes)

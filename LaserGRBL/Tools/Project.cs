@@ -37,9 +37,9 @@ namespace Tools
         {
             if (settings == null) return;
 
-            // Add image to dictionary
-            settings.Add("ImageName", Path.GetFileName(Settings.GetObject<string>("Core.LastOpenFile", null)));
-            settings.Add("ImageBase64", ConvertImageToBase64(Settings.GetObject<string>("Core.LastOpenFile", null)));
+// Add image to dictionary
+//settings.Add("ImageName", Path.GetFileName(GlobalSettings.GetObject<string>("Core.LastOpenFile", null)));
+//settings.Add("ImageBase64", ConvertImageToBase64(GlobalSettings.GetObject<string>("Core.LastOpenFile", null)));
 
             ProjectSettings.Add(settings);
         }

@@ -12,6 +12,10 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Threading;
 
+
+
+
+// TODO: Remove core dependancy
 namespace LaserGRBL.RasterConverter
 {
 	public class ImageProcessor : ICloneable
@@ -78,10 +82,12 @@ namespace LaserGRBL.RasterConverter
 		public int MarkSpeed;
 		public int MinPower;
 		public int MaxPower;
+		public int Passes = 1;
 
 		private string mFileName;
-		private bool mAppend;
+		//private bool mAppend;
 		GrblCore mCore;
+		int mLayerIndex;
 
 		private ImageProcessor Current; 		//current instance of processor thread/class - used to call abort
 		Thread TH;								//processing thread
@@ -110,27 +116,59 @@ namespace LaserGRBL.RasterConverter
 			NewInsetFilling,
 		}
 
-		public ImageProcessor(GrblCore core, string fileName, Size boxSize, bool append)
+  //      [Obsolete]
+		//public ImageProcessor(GrblCore core, string fileName, Size boxSize, bool append)
+		//{
+		//	mCore = core;
+		//	mFileName = fileName;
+		//	mAppend = append;
+		//	mSuspended = true;
+  //          //mOriginal = new Bitmap(fileName);
+
+  //          //this double pass is needed to normalize loaded image pixelformat
+  //          //http://stackoverflow.com/questions/2016406/converting-bitmap-pixelformats-in-c-sharp
+  //          using (Bitmap loadedBmp = new Bitmap(fileName))
+  //          {
+  //              mFileDPI = (int)loadedBmp.HorizontalResolution;
+  //              mFileResolution = loadedBmp.Size;
+
+  //              using (Bitmap tmpBmp = new Bitmap(loadedBmp))
+  //                  mOriginal = tmpBmp.Clone(new Rectangle(0, 0, tmpBmp.Width, tmpBmp.Height), System.Drawing.Imaging.PixelFormat.Format32bppArgb);
+  //          }
+
+		//	mTrueOriginal = mOriginal.Clone() as Bitmap;
+
+		//	mBoxSize = boxSize;
+		//	ResizeRecalc();
+		//	mGrayScale = TestGrayScale(mOriginal);
+		//}
+
+
+		
+		public ImageProcessor(GrblCore core, int layerIndex, Size boxSize)
 		{
 			mCore = core;
-			mFileName = fileName;
-			mAppend = append;
+			mLayerIndex = layerIndex;
+			mFileName = core.ProjectCore.GetLayer(layerIndex).FileName;
+			//mAppend = core.ProjectCore.GetLayer(layerIndex).ShowLayer;
 			mSuspended = true;
-            //mOriginal = new Bitmap(fileName);
 
-            //this double pass is needed to normalize loaded image pixelformat
-            //http://stackoverflow.com/questions/2016406/converting-bitmap-pixelformats-in-c-sharp
-            using (Bitmap loadedBmp = new Bitmap(fileName))
-            {
-                mFileDPI = (int)loadedBmp.HorizontalResolution;
-                mFileResolution = loadedBmp.Size;
-
-                using (Bitmap tmpBmp = new Bitmap(loadedBmp))
-                    mOriginal = tmpBmp.Clone(new Rectangle(0, 0, tmpBmp.Width, tmpBmp.Height), System.Drawing.Imaging.PixelFormat.Format32bppArgb);
-            }
-
+			using (Bitmap loadedBmp = new Bitmap(mFileName))
+			{
+				mFileDPI = (int)loadedBmp.HorizontalResolution;
+				mFileResolution = loadedBmp.Size;
+				using (Bitmap tmpBmp = new Bitmap(loadedBmp))
+				{
+					mOriginal = tmpBmp.Clone(new Rectangle(
+							0,
+							0,
+							tmpBmp.Width,
+							tmpBmp.Height
+						),
+						System.Drawing.Imaging.PixelFormat.Format32bppArgb);
+				}
+			}
 			mTrueOriginal = mOriginal.Clone() as Bitmap;
-
 			mBoxSize = boxSize;
 			ResizeRecalc();
 			mGrayScale = TestGrayScale(mOriginal);
@@ -406,8 +444,9 @@ namespace LaserGRBL.RasterConverter
 			lock (this)
 			{
 				if (mResized != null)
+                {
 					mResized.Dispose();
-
+                }
 				mResized = ImageTransform.ResizeImage(mOriginal, CalculateResizeToFit(mOriginal.Size, mBoxSize), false, Interpolation);
 			}
 		}
@@ -977,10 +1016,14 @@ namespace LaserGRBL.RasterConverter
 		public void GenerateGCode()
 		{
 			if (mSuspended)
+            {
 				return;
+            }
 
 			if (Current != null)
+            {
 				Current.AbortThread();
+            }
 
 			Current = (ImageProcessor)this.Clone();
 			Current.GenerateGCode2();
@@ -1007,14 +1050,19 @@ namespace LaserGRBL.RasterConverter
 				double res = 10.0;
 
 				if (SelectedTool == Tool.Line2Line || SelectedTool == Tool.Dithering)
+                {
 					res = Math.Min(maxRes, (double)Quality);
+                }
 				else if (SelectedTool == Tool.Centerline)
+                {
 					res = 10.0;
+                }
 				else
+                {
 					res = Math.Min(maxRes, GetVectorQuality(filesize, UseAdaptiveQuality));
+                }
 
-				//System.Diagnostics.Debug.WriteLine(res);
-
+				// System.Diagnostics.Debug.WriteLine(res);
 				Size pixelSize = new Size((int)(TargetSize.Width * res), (int)(TargetSize.Height * res));
 
 
@@ -1039,39 +1087,57 @@ namespace LaserGRBL.RasterConverter
 
 
 						if (SelectedTool == Tool.NoProcessing)
+                        {
 							conf.dir = Direction.Horizontal;
+                        }
 						else if (SelectedTool == Tool.Vectorize)
+                        {
 							conf.dir = FillingDirection;
+                        }
 						else
+                        {
 							conf.dir = LineDirection;
+                        }
 
 						conf.oX = TargetOffset.X;
 						conf.oY = TargetOffset.Y;
 						conf.borderSpeed = BorderSpeed;
-						conf.pwm = Settings.GetObject("Support Hardware PWM", true);
-						conf.firmwareType = Settings.GetObject("Firmware Type", Firmware.Grbl);
+						conf.pwm = GlobalSettings.GetObject("Support Hardware PWM", true);
+						conf.firmwareType = GlobalSettings.GetObject("Firmware Type", Firmware.Grbl);
 
 						if (SelectedTool == Tool.Line2Line || SelectedTool == Tool.Dithering || SelectedTool == Tool.NoProcessing)
-							mCore.LoadedFile.LoadImageL2L(bmp, mFileName, conf, mAppend, mCore);
+                        {
+							mCore.ProjectCore.layers[mLayerIndex].GRBLFile.LoadImageL2L(bmp, mLayerIndex, conf, mCore);
+                        }
 						else if (SelectedTool == Tool.Vectorize)
-							mCore.LoadedFile.LoadImagePotrace(bmp, mFileName, UseSpotRemoval, (int)SpotRemoval, UseSmoothing, Smoothing, UseOptimize, Optimize, OptimizeFast, conf, mAppend, mCore);
+                        {
+							mCore.ProjectCore.layers[mLayerIndex].GRBLFile.LoadImagePotrace(bmp, mLayerIndex, UseSpotRemoval, (int)SpotRemoval, UseSmoothing, Smoothing, UseOptimize, Optimize, OptimizeFast, conf, mCore);
+                        }
 						else if (SelectedTool == Tool.Centerline)
-							mCore.LoadedFile.LoadImageCenterline(bmp, mFileName, UseCornerThreshold, CornerThreshold, UseLineThreshold, LineThreshold, conf, mAppend, mCore);
+                        {
+							mCore.ProjectCore.layers[mLayerIndex].GRBLFile.LoadImageCenterline(bmp, mLayerIndex, UseCornerThreshold, CornerThreshold, UseLineThreshold, LineThreshold, conf, mCore);
+                        }
 					}
 
 					if (GenerationComplete != null)
+                    {
 						GenerationComplete(null);
+                    }
 				}
 				else
 				{
 					if (GenerationComplete != null)
+                    {
 						GenerationComplete(new System.InvalidOperationException("Target size too big for processing!"));
+                    }
 				}
 			}
 			catch (Exception ex)
 			{
 				if (GenerationComplete != null)
+                {
 					GenerationComplete(ex);
+                }
 			}
 		}
 
