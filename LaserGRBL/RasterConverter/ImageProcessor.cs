@@ -11,6 +11,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Threading;
+using static LaserGRBL.RasterConverter.ImageProcessor;
 
 
 
@@ -18,16 +19,68 @@ using System.Threading;
 // TODO: Remove core dependancy
 namespace LaserGRBL.RasterConverter
 {
+
+	public class ImageProcessorSetting
+	{
+		public int mRed;
+		public int mGreen;
+		public int mBlue;
+		public int mContrast;
+		public int mWhitePoint;
+		public int mBrightness;
+		public int mThreshold;
+		public bool mUseThreshold;
+		public decimal mQuality;
+		public bool mLinePreview;
+		public decimal mSpotRemoval;
+		public bool mUseSpotRemoval;
+		public decimal mOptimize;
+		public bool mUseOptimize;
+		public bool mUseAdaptiveQuality;
+		public decimal mSmoothing;
+		public bool mUseSmoothing;
+		public decimal mDownSampling;
+		public bool mUseDownSampling;
+		public bool mOptimizeFast;
+		public Direction mDirection;
+		public Direction mFillingDirection;
+		public ImageTransform.DitheringMode mDithering;
+		public decimal mFillingQuality;
+		public bool mUseLineThreshold;
+		public int mLineThreshold;
+		public bool mUseCornerThreshold;
+		public int mCornerThreshold;
+		public bool mDemo;
+		public Tool mTool;
+		//options for image processing
+		public InterpolationMode mInterpolation = InterpolationMode.HighQualityBicubic;
+		//private Tool mTool;
+		public ImageTransform.Formula mFormula;
+		public int mBorderSpeed;
+
+		public int mMarkSpeed;
+		public int mMinPower;
+		public int mMaxPower;
+		public int mPasses;
+	}
+
+
+
+
+
+
+
+
 	public class ImageProcessor : ICloneable
 	{
 		public delegate void PreviewBeginDlg();
-		public static event PreviewBeginDlg PreviewBegin;
+		public event PreviewBeginDlg PreviewBegin;
 
 		public delegate void PreviewReadyDlg(Image img);
-		public static event PreviewReadyDlg PreviewReady;
+		public event PreviewReadyDlg PreviewReady;
 
 		public delegate void GenerationCompleteDlg(Exception ex);
-		public static event GenerationCompleteDlg GenerationComplete;
+		public event GenerationCompleteDlg GenerationComplete;
 
 		private Bitmap mTrueOriginal;	//real original image
 		private Bitmap mOriginal;		//original image (cropped or rotated)
@@ -37,52 +90,22 @@ namespace LaserGRBL.RasterConverter
 
 		private bool mGrayScale;		//image has no color
 		private bool mSuspended;		//image generator suspended for multiple property change
-		private Size mBoxSize;			//size of the picturebox frame
+		private Size mBoxSize;          //size of the picturebox frame
+		public ImageProcessorSetting Setting = new ImageProcessorSetting();
 
-		//options for image processing
-		private InterpolationMode mInterpolation = InterpolationMode.HighQualityBicubic;
-		private Tool mTool;
-		private ImageTransform.Formula mFormula;
-		private int mRed;
-		private int mGreen;
-		private int mBlue;
-		private int mContrast;
-		private int mWhitePoint;
-		private int mBrightness;
-		private int mThreshold;
-		private bool mUseThreshold;
-		private decimal mQuality;
-		private bool mLinePreview;
-		private decimal mSpotRemoval;
-		private bool mUseSpotRemoval;
-		private decimal mOptimize;
-		private bool mUseOptimize;
-		private bool mUseAdaptiveQuality;
-		private decimal mSmoothing;
-		private bool mUseSmootihing;
-		private decimal mDownSampling;
-		private bool mUseDownSampling;
-		private bool mOptimizeFast;
-		private Direction mDirection;
-		private Direction mFillingDirection;
-		private ImageTransform.DitheringMode mDithering;
-		private decimal mFillingQuality;
-		private bool mUseLineThreshold;
-		private int mLineThreshold;
-		private bool mUseCornerThreshold;
-		private int mCornerThreshold;
-		public bool mDemo;
+
+
+
+
+
 
 		//option for gcode generator
 		public SizeF TargetSize;
 		public PointF TargetOffset;
 		public string LaserOn;
 		public string LaserOff;
-		public int BorderSpeed;
-		public int MarkSpeed;
-		public int MinPower;
-		public int MaxPower;
-		public int Passes = 1;
+		
+
 
 		private string mFileName;
 		//private bool mAppend;
@@ -97,7 +120,7 @@ namespace LaserGRBL.RasterConverter
 		public enum Tool
 		{ 
 			Line2Line,
-			Dithering,
+			//Dithering,
 			Vectorize,
             Centerline,
 			NoProcessing
@@ -115,34 +138,6 @@ namespace LaserGRBL.RasterConverter
 			NewHilbert,
 			NewInsetFilling,
 		}
-
-  //      [Obsolete]
-		//public ImageProcessor(GrblCore core, string fileName, Size boxSize, bool append)
-		//{
-		//	mCore = core;
-		//	mFileName = fileName;
-		//	mAppend = append;
-		//	mSuspended = true;
-  //          //mOriginal = new Bitmap(fileName);
-
-  //          //this double pass is needed to normalize loaded image pixelformat
-  //          //http://stackoverflow.com/questions/2016406/converting-bitmap-pixelformats-in-c-sharp
-  //          using (Bitmap loadedBmp = new Bitmap(fileName))
-  //          {
-  //              mFileDPI = (int)loadedBmp.HorizontalResolution;
-  //              mFileResolution = loadedBmp.Size;
-
-  //              using (Bitmap tmpBmp = new Bitmap(loadedBmp))
-  //                  mOriginal = tmpBmp.Clone(new Rectangle(0, 0, tmpBmp.Width, tmpBmp.Height), System.Drawing.Imaging.PixelFormat.Format32bppArgb);
-  //          }
-
-		//	mTrueOriginal = mOriginal.Clone() as Bitmap;
-
-		//	mBoxSize = boxSize;
-		//	ResizeRecalc();
-		//	mGrayScale = TestGrayScale(mOriginal);
-		//}
-
 
 		
 		public ImageProcessor(GrblCore core, int layerIndex, Size boxSize)
@@ -239,19 +234,19 @@ namespace LaserGRBL.RasterConverter
 			}
 		}
 
-		public InterpolationMode Interpolation
-		{
-			get { return mInterpolation; }
-			set
-			{
-				if (value != mInterpolation)
-				{
-					mInterpolation = value;
-					ResizeRecalc();
-					Refresh();
-				}
-			}
-		}
+		//public InterpolationMode Interpolation
+		//{
+		//	get { return mInterpolation; }
+		//	set
+		//	{
+		//		if (value != mInterpolation)
+		//		{
+		//			mInterpolation = value;
+		//			ResizeRecalc();
+		//			Refresh();
+		//		}
+		//	}
+		//}
 
 		public void AutoTrim()
 		{
@@ -447,411 +442,444 @@ namespace LaserGRBL.RasterConverter
                 {
 					mResized.Dispose();
                 }
-				mResized = ImageTransform.ResizeImage(mOriginal, CalculateResizeToFit(mOriginal.Size, mBoxSize), false, Interpolation);
-			}
-		}
-
-		public Tool SelectedTool
-		{
-			get { return mTool; }
-			set
-			{
-				if (value != mTool)
-				{
-					mTool = value;
-					Refresh();
-				}
-			}
-		}
-
-		public ImageTransform.Formula Formula
-		{
-			get { return mFormula; }
-			set
-			{
-				if (value != mFormula)
-				{
-					mFormula = value;
-					Refresh();
-				}
+				mResized = ImageTransform.ResizeImage(mOriginal, CalculateResizeToFit(mOriginal.Size, mBoxSize), false, Setting.mInterpolation);
 			}
 		}
 
 
-		public ImageTransform.DitheringMode DitheringMode
-		{
-			get { return mDithering; }
-			set
-			{
-				if (value != mDithering)
-				{
-					mDithering = value;
-					Refresh();
-				}
-			}
-		}
-
-		public int Red
-		{
-			get { return mRed; }
-			set
-			{
-				if (value != mRed)
-				{
-					mRed = value;
-					Refresh();
-				}
-			}
-		}
-
-		public int Green
-		{
-			get { return mGreen; }
-			set
-			{
-				if (value != mGreen)
-				{
-					mGreen = value;
-					Refresh();
-				}
-			}
-		}
-
-		public int Blue
-		{
-			get { return mBlue; }
-			set
-			{
-				if (value != mBlue)
-				{
-					mBlue = value;
-					Refresh();
-				}
-			}
-		}
-
-		public int Contrast
-		{
-			get { return mContrast; }
-			set
-			{
-				if (value != mContrast)
-				{
-					mContrast = value;
-					Refresh();
-				}
-			}
-		}
-
-		public int Brightness
-		{
-			get { return mBrightness; }
-			set
-			{
-				if (value != mBrightness)
-				{
-					mBrightness = value;
-					Refresh();
-				}
-			}
-		}
-
-		public int WhiteClip
-		{
-			get { return mWhitePoint; }
-			set
-			{
-				if (value != mWhitePoint)
-				{
-					mWhitePoint = value;
-					Refresh();
-				}
-			}
-		}
-
-		public int Threshold
-		{
-			get { return mThreshold; }
-			set
-			{
-				if (value != mThreshold)
-				{
-					mThreshold = value;
-					Refresh();
-				}
-			}
-		}
-
-		public bool UseThreshold
-		{
-			get { return mUseThreshold; }
-			set
-			{
-				if (value != mUseThreshold)
-				{
-					mUseThreshold = value;
-					Refresh();
-				}
-			}
-		}
-
-		public decimal Quality
-		{
-			get { return mQuality; }
-			set
-			{
-				if (value != mQuality)
-				{
-					mQuality = value;
-					//Refresh();
-				}
-			}
-		}
-
-		public bool LinePreview
-		{
-			get { return mLinePreview; }
-			set
-			{
-				if (value != mLinePreview)
-				{
-					mLinePreview = value;
-					Refresh();
-				}
-			}
-		}
 
 
-		public decimal SpotRemoval
-		{
-			get { return mSpotRemoval; }
-			set
-			{
-				if (value != mSpotRemoval)
-				{
-					mSpotRemoval = value;
-					Refresh();
-				}
-			}
-		}
-
-		public bool UseSpotRemoval
-		{
-			get { return mUseSpotRemoval; }
-			set
-			{
-				if (value != mUseSpotRemoval)
-				{
-					mUseSpotRemoval = value;
-					Refresh();
-				}
-			}
-		}
-
-		public decimal Optimize
-		{
-			get { return mOptimize; }
-			set
-			{
-				if (value != mOptimize)
-				{
-					mOptimize = value;
-					Refresh();
-				}
-			}
-		}
-
-		public bool UseOptimize
-		{
-			get { return mUseOptimize; }
-			set
-			{
-				if (value != mUseOptimize)
-				{
-					mUseOptimize = value;
-					Refresh();
-				}
-			}
-		}
-
-		public bool UseAdaptiveQuality
-		{
-			get => mUseAdaptiveQuality;
-			set => mUseAdaptiveQuality = value;
-		}
-
-		public decimal Smoothing
-		{
-			get { return mSmoothing; }
-			set
-			{
-				if (value != mSmoothing)
-				{
-					mSmoothing = value;
-					Refresh();
-				}
-			}
-		}
-
-
-		public bool UseDownSampling
-		{
-			get { return mUseDownSampling; }
-			set
-			{
-				if (value != mUseDownSampling)
-				{
-					mUseDownSampling = value;
-					Refresh();
-				}
-			}
-		}
-
-		public decimal DownSampling
-		{
-			get { return mDownSampling; }
-			set
-			{
-				if (value != mDownSampling)
-				{
-					mDownSampling = value;
-					Refresh();
-				}
-			}
-		}
-
-		public bool OptimizeFast
-		{
-			get { return mOptimizeFast; }
-			set
-			{
-				if (value != mOptimizeFast)
-				{
-					mOptimizeFast = value;
-					//Refresh();
-				}
-			}
-		}
-
-		public bool UseSmoothing
-		{
-			get { return mUseSmootihing; }
-			set
-			{
-				if (value != mUseSmootihing)
-				{
-					mUseSmootihing = value;
-					Refresh();
-				}
-			}
-		}
-
-		public Direction LineDirection
-		{
-			get { return mDirection; }
-			set
-			{
-				if (value != mDirection)
-				{
-					mDirection = value;
-					Refresh();
-				}
-			}
-		}
-
-		public Direction FillingDirection
-		{
-			get { return mFillingDirection; }
-			set
-			{
-				if (value != mFillingDirection)
-				{
-					mFillingDirection = value;
-					Refresh();
-				}
-			}
-		}
-
-		public decimal FillingQuality
-		{
-			get { return mFillingQuality; }
-			set
-			{
-				if (value != mFillingQuality)
-				{
-					mFillingQuality = value;
-					//Refresh();
-				}
-			}
-		}
-
-		public int LineThreshold
-		{
-			get { return mLineThreshold; }
-			set
-			{
-				if (value != mLineThreshold)
-				{
-					mLineThreshold = value;
-					Refresh();
-				}
-			}
-		}
-
-		public bool UseLineThreshold
-		{
-			get { return mUseLineThreshold; }
-			set
-			{
-				if (value != mUseLineThreshold)
-				{
-					mUseLineThreshold = value;
-					Refresh();
-				}
-			}
-		}
-
-		public int CornerThreshold
-		{
-			get { return mCornerThreshold; }
-			set
-			{
-				if (value != mCornerThreshold)
-				{
-					mCornerThreshold = value;
-					Refresh();
-				}
-			}
-		}
-
-		public bool UseCornerThreshold
-		{
-			get { return mUseCornerThreshold; }
-			set
-			{
-				if (value != mUseCornerThreshold)
-				{
-					mUseCornerThreshold = value;
-					Refresh();
-				}
-			}
-		}
+		// Settings
+		//public Tool SelectedTool
+		//{
+		//	get { return mTool; }
+		//	set
+		//	{
+		//		if (value != mTool)
+		//		{
+		//			mTool = value;
+		//			Refresh();
+		//		}
+		//	}
+		//}
+        //public Direction LineDirection
+        //{
+        //    get { return mDirection; }
+        //    set
+        //    {
+        //        if (value != mDirection)
+        //        {
+        //            mDirection = value;
+        //            Refresh();
+        //        }
+        //    }
+        //}
+  //      public decimal Quality
+		//{
+		//	get { return mQuality; }
+		//	set
+		//	{
+		//		if (value != mQuality)
+		//		{
+		//			mQuality = value;
+		//			//Refresh();
+		//		}
+		//	}
+		//}
+		//public bool LinePreview
+		//{
+		//	get { return mLinePreview; }
+		//	set
+		//	{
+		//		if (value != mLinePreview)
+		//		{
+		//			mLinePreview = value;
+		//			Refresh();
+		//		}
+		//	}
+		//}
+		//public bool UseSpotRemoval
+		//{
+		//	get { return mUseSpotRemoval; }
+		//	set
+		//	{
+		//		if (value != mUseSpotRemoval)
+		//		{
+		//			mUseSpotRemoval = value;
+		//			Refresh();
+		//		}
+		//	}
+		//}
+		//public decimal SpotRemoval
+		//{
+		//	get { return mSpotRemoval; }
+		//	set
+		//	{
+		//		if (value != mSpotRemoval)
+		//		{
+		//			mSpotRemoval = value;
+		//			Refresh();
+		//		}
+		//	}
+		//}
+		//public bool UseSmoothing
+		//{
+		//	get { return mUseSmootihing; }
+		//	set
+		//	{
+		//		if (value != mUseSmootihing)
+		//		{
+		//			mUseSmootihing = value;
+		//			Refresh();
+		//		}
+		//	}
+		//}
+		//public decimal Smoothing
+		//{
+		//	get { return mSmoothing; }
+		//	set
+		//	{
+		//		if (value != mSmoothing)
+		//		{
+		//			mSmoothing = value;
+		//			Refresh();
+		//		}
+		//	}
+		//}
 
 
-		public bool Demo
-		{
-			get { return mDemo; }
-			set
-			{
-				if (value != mDemo)
-				{
-					mDemo = value;
-					Refresh();
-				}
-			}
-		}
+		//public bool UseOptimize
+		//{
+		//	get { return mUseOptimize; }
+		//	set
+		//	{
+		//		if (value != mUseOptimize)
+		//		{
+		//			mUseOptimize = value;
+		//			Refresh();
+		//		}
+		//	}
+		//}
 
-		private void Refresh()
+		//public bool UseAdaptiveQuality
+		//{
+		//	get => mUseAdaptiveQuality;
+		//	set => mUseAdaptiveQuality = value;
+		//}
+		//public decimal Optimize
+		//{
+		//	get { return mOptimize; }
+		//	set
+		//	{
+		//		if (value != mOptimize)
+		//		{
+		//			mOptimize = value;
+		//			Refresh();
+		//		}
+		//	}
+		//}
+
+		//public bool UseDownSampling
+		//{
+		//	get { return mUseDownSampling; }
+		//	set
+		//	{
+		//		if (value != mUseDownSampling)
+		//		{
+		//			mUseDownSampling = value;
+		//			Refresh();
+		//		}
+		//	}
+		//}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		//public ImageTransform.Formula Formula
+		//{
+		//	get { return mFormula; }
+		//	set
+		//	{
+		//		if (value != mFormula)
+		//		{
+		//			mFormula = value;
+		//			Refresh();
+		//		}
+		//	}
+		//}
+
+
+		//public ImageTransform.DitheringMode DitheringMode
+		//{
+		//	get { return mDithering; }
+		//	set
+		//	{
+		//		if (value != mDithering)
+		//		{
+		//			mDithering = value;
+		//			Refresh();
+		//		}
+		//	}
+		//}
+
+		//public int Red
+		//{
+		//	get { return mRed; }
+		//	set
+		//	{
+		//		if (value != mRed)
+		//		{
+		//			mRed = value;
+		//			Refresh();
+		//		}
+		//	}
+		//}
+
+		//public int Green
+		//{
+		//	get { return mGreen; }
+		//	set
+		//	{
+		//		if (value != mGreen)
+		//		{
+		//			mGreen = value;
+		//			Refresh();
+		//		}
+		//	}
+		//}
+
+		//public int Blue
+		//{
+		//	get { return mBlue; }
+		//	set
+		//	{
+		//		if (value != mBlue)
+		//		{
+		//			mBlue = value;
+		//			Refresh();
+		//		}
+		//	}
+		//}
+
+		//public int Contrast
+		//{
+		//	get { return mContrast; }
+		//	set
+		//	{
+		//		if (value != mContrast)
+		//		{
+		//			mContrast = value;
+		//			Refresh();
+		//		}
+		//	}
+		//}
+
+		//public int Brightness
+		//{
+		//	get { return mBrightness; }
+		//	set
+		//	{
+		//		if (value != mBrightness)
+		//		{
+		//			mBrightness = value;
+		//			Refresh();
+		//		}
+		//	}
+		//}
+
+		//public int WhiteClip
+		//{
+		//	get { return mWhitePoint; }
+		//	set
+		//	{
+		//		if (value != mWhitePoint)
+		//		{
+		//			mWhitePoint = value;
+		//			Refresh();
+		//		}
+		//	}
+		//}
+
+		//public int Threshold
+		//{
+		//	get { return mThreshold; }
+		//	set
+		//	{
+		//		if (value != mThreshold)
+		//		{
+		//			mThreshold = value;
+		//			Refresh();
+		//		}
+		//	}
+		//}
+
+		//public bool UseThreshold
+		//{
+		//	get { return mUseThreshold; }
+		//	set
+		//	{
+		//		if (value != mUseThreshold)
+		//		{
+		//			mUseThreshold = value;
+		//			Refresh();
+		//		}
+		//	}
+		//}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		//public decimal DownSampling
+		//{
+		//	get { return mDownSampling; }
+		//	set
+		//	{
+		//		if (value != mDownSampling)
+		//		{
+		//			mDownSampling = value;
+		//			Refresh();
+		//		}
+		//	}
+		//}
+
+		//public bool OptimizeFast
+		//{
+		//	get { return mOptimizeFast; }
+		//	set
+		//	{
+		//		if (value != mOptimizeFast)
+		//		{
+		//			mOptimizeFast = value;
+		//			//Refresh();
+		//		}
+		//	}
+		//}
+
+
+
+
+
+		//public Direction FillingDirection
+		//{
+		//	get { return Setting.mFillingDirection; }
+		//	set
+		//	{
+		//		if (value != mFillingDirection)
+		//		{
+		//			mFillingDirection = value;
+		//			Refresh();
+		//		}
+		//	}
+		//}
+
+		//public decimal FillingQuality
+		//{
+		//	get { return mFillingQuality; }
+		//	set
+		//	{
+		//		if (value != mFillingQuality)
+		//		{
+		//			mFillingQuality = value;
+		//			//Refresh();
+		//		}
+		//	}
+		//}
+
+		//public int LineThreshold
+		//{
+		//	get { return mLineThreshold; }
+		//	set
+		//	{
+		//		if (value != mLineThreshold)
+		//		{
+		//			mLineThreshold = value;
+		//			Refresh();
+		//		}
+		//	}
+		//}
+
+		//public bool UseLineThreshold
+		//{
+		//	get { return mUseLineThreshold; }
+		//	set
+		//	{
+		//		if (value != mUseLineThreshold)
+		//		{
+		//			mUseLineThreshold = value;
+		//			Refresh();
+		//		}
+		//	}
+		//}
+
+		//public int CornerThreshold
+		//{
+		//	get { return mCornerThreshold; }
+		//	set
+		//	{
+		//		if (value != mCornerThreshold)
+		//		{
+		//			mCornerThreshold = value;
+		//			Refresh();
+		//		}
+		//	}
+		//}
+
+		//public bool UseCornerThreshold
+		//{
+		//	get { return mUseCornerThreshold; }
+		//	set
+		//	{
+		//		if (value != mUseCornerThreshold)
+		//		{
+		//			mUseCornerThreshold = value;
+		//			Refresh();
+		//		}
+		//	}
+		//}
+
+
+		//public bool Demo
+		//{
+		//	get { return mDemo; }
+		//	set
+		//	{
+		//		if (value != mDemo)
+		//		{
+		//			mDemo = value;
+		//			Refresh();
+		//		}
+		//	}
+		//}
+
+		public void Refresh()
 		{
 			if (mSuspended)
 				return;
@@ -870,7 +898,9 @@ namespace LaserGRBL.RasterConverter
 			TH.Name = "Image Processor";
 
 			if (PreviewBegin != null)
+            {
 				PreviewBegin();
+            }
 
 			TH.Start();
 		}
@@ -908,12 +938,14 @@ namespace LaserGRBL.RasterConverter
 		{
 			try
 			{
-				if (mDemo)
+				if (Setting.mDemo)
 				{
 					using (Bitmap bmp = ProduceWhitepointDemo(mResized, mResized.Size))
 					{
 						if (!MustExitTH && PreviewReady != null)
+                        {
 							PreviewReady(bmp);
+                        }
 					}
 				}
 				else
@@ -922,20 +954,32 @@ namespace LaserGRBL.RasterConverter
 					{
 						if (!MustExitTH)
 						{
-							if (SelectedTool == Tool.Line2Line)
+							if (Setting.mTool == Tool.Line2Line)
+                            {
 								PreviewLineByLine(bmp);
-							else if (SelectedTool == Tool.Dithering)
-								PreviewDithering(bmp);
-							else if (SelectedTool == Tool.Vectorize)
+                            }
+							//else if (Setting.mTool == Tool.Dithering)
+       //                     {
+							//	PreviewDithering(bmp);
+       //                     }
+							else if (Setting.mTool == Tool.Vectorize)
+                            {
 								PreviewVector(bmp);
-                            else if (SelectedTool == Tool.Centerline)
+                            }
+                            else if (Setting.mTool == Tool.Centerline)
+                            {
                                 PreviewCenterline(bmp);
-							else if (SelectedTool == Tool.NoProcessing)
+                            }
+							else if (Setting.mTool == Tool.NoProcessing)
+                            {
 								PreviewLineByLine(bmp);
+                            }
 						}
 
 						if (!MustExitTH && PreviewReady != null)
+                        {
 							PreviewReady(bmp);
+                        }
 					}
 				}
 			}
@@ -971,7 +1015,7 @@ namespace LaserGRBL.RasterConverter
 			{
 				if (MustExitTH) return;
 
-				Svg.SvgDocument svg = Autotrace.BitmapToSvgDocument(bmp, UseCornerThreshold, CornerThreshold, UseLineThreshold, LineThreshold);
+				Svg.SvgDocument svg = Autotrace.BitmapToSvgDocument(bmp, Setting.mUseCornerThreshold, Setting.mCornerThreshold, Setting.mUseLineThreshold, Setting.mLineThreshold);
 
 				if (MustExitTH) return;
 
@@ -1045,28 +1089,28 @@ namespace LaserGRBL.RasterConverter
 
 				double filesize = TargetSize.Width * TargetSize.Height;
 				double maxRes = Math.Sqrt(maxSize / filesize); //limit res if resultimg bmp size is to big
-				double fres = Math.Min(maxRes, (double)FillingQuality);
+				double fres = Math.Min(maxRes, (double)Setting.mFillingQuality);
 
 				double res = 10.0;
 
-				if (SelectedTool == Tool.Line2Line || SelectedTool == Tool.Dithering)
+				if (Setting.mTool == Tool.Line2Line)
                 {
-					res = Math.Min(maxRes, (double)Quality);
+					res = Math.Min(maxRes, (double)Setting.mQuality);
                 }
-				else if (SelectedTool == Tool.Centerline)
+				else if (Setting.mTool == Tool.Centerline)
                 {
 					res = 10.0;
                 }
 				else
                 {
-					res = Math.Min(maxRes, GetVectorQuality(filesize, UseAdaptiveQuality));
+					res = Math.Min(maxRes, GetVectorQuality(filesize, Setting.mUseAdaptiveQuality));
                 }
 
 				// System.Diagnostics.Debug.WriteLine(res);
 				Size pixelSize = new Size((int)(TargetSize.Width * res), (int)(TargetSize.Height * res));
 
 
-				if (SelectedTool == Tool.NoProcessing)
+				if (Setting.mTool == Tool.NoProcessing)
 				{
 					pixelSize = mOriginal.Size;
 					fres = res = FileDPI / 25.4;
@@ -1079,43 +1123,43 @@ namespace LaserGRBL.RasterConverter
 						GrblFile.L2LConf conf = new GrblFile.L2LConf();
 						conf.res = res;
 						conf.fres = fres;
-						conf.markSpeed = MarkSpeed;
-						conf.minPower = MinPower;
-						conf.maxPower = MaxPower;
+						conf.markSpeed = Setting.mMarkSpeed;
+						conf.minPower = Setting.mMinPower;
+						conf.maxPower = Setting.mMaxPower;
 						conf.lOn = LaserOn;
 						conf.lOff = LaserOff;
 
 
-						if (SelectedTool == Tool.NoProcessing)
+						if (Setting.mTool == Tool.NoProcessing)
                         {
 							conf.dir = Direction.Horizontal;
                         }
-						else if (SelectedTool == Tool.Vectorize)
+						else if (Setting.mTool == Tool.Vectorize)
                         {
-							conf.dir = FillingDirection;
+							conf.dir = Setting.mFillingDirection;
                         }
 						else
                         {
-							conf.dir = LineDirection;
+							conf.dir = Setting.mDirection;
                         }
 
 						conf.oX = TargetOffset.X;
 						conf.oY = TargetOffset.Y;
-						conf.borderSpeed = BorderSpeed;
+						conf.borderSpeed = Setting.mBorderSpeed;
 						conf.pwm = GlobalSettings.GetObject("Support Hardware PWM", true);
 						conf.firmwareType = GlobalSettings.GetObject("Firmware Type", Firmware.Grbl);
 
-						if (SelectedTool == Tool.Line2Line || SelectedTool == Tool.Dithering || SelectedTool == Tool.NoProcessing)
+						if (Setting.mTool == Tool.Line2Line || Setting.mTool == Tool.NoProcessing)
                         {
 							mCore.ProjectCore.layers[mLayerIndex].GRBLFile.LoadImageL2L(bmp, mLayerIndex, conf, mCore);
                         }
-						else if (SelectedTool == Tool.Vectorize)
+						else if (Setting.mTool == Tool.Vectorize)
                         {
-							mCore.ProjectCore.layers[mLayerIndex].GRBLFile.LoadImagePotrace(bmp, mLayerIndex, UseSpotRemoval, (int)SpotRemoval, UseSmoothing, Smoothing, UseOptimize, Optimize, OptimizeFast, conf, mCore);
+							mCore.ProjectCore.layers[mLayerIndex].GRBLFile.LoadImagePotrace(bmp, mLayerIndex, Setting.mUseSpotRemoval, (int)Setting.mSpotRemoval, Setting.mUseSmoothing, Setting.mSmoothing, Setting.mUseOptimize, Setting.mOptimize, Setting.mOptimizeFast, conf, mCore);
                         }
-						else if (SelectedTool == Tool.Centerline)
+						else if (Setting.mTool == Tool.Centerline)
                         {
-							mCore.ProjectCore.layers[mLayerIndex].GRBLFile.LoadImageCenterline(bmp, mLayerIndex, UseCornerThreshold, CornerThreshold, UseLineThreshold, LineThreshold, conf, mCore);
+							mCore.ProjectCore.layers[mLayerIndex].GRBLFile.LoadImageCenterline(bmp, mLayerIndex, Setting.mUseCornerThreshold, Setting.mCornerThreshold, Setting.mUseLineThreshold, Setting.mLineThreshold, conf, mCore);
                         }
 					}
 
@@ -1164,9 +1208,9 @@ namespace LaserGRBL.RasterConverter
 
 		private Bitmap ProduceBitmap(Image img, Size size)
 		{
-			if (SelectedTool == Tool.Vectorize && UseDownSampling && DownSampling > 1) //if downsampling
+			if (Setting.mTool == Tool.Vectorize && Setting.mUseDownSampling && Setting.mDownSampling > 1) //if downsampling
 			{
-				using (Image downsampled = ImageTransform.ResizeImage(img, new Size((int)(size.Width * 1 / DownSampling), (int)(size.Height * 1 / DownSampling)), false, InterpolationMode.HighQualityBicubic))
+				using (Image downsampled = ImageTransform.ResizeImage(img, new Size((int)(size.Width * 1 / Setting.mDownSampling), (int)(size.Height * 1 / Setting.mDownSampling)), false, InterpolationMode.HighQualityBicubic))
 					return ProduceBitmap2(downsampled, ref size);
 			}
 			else
@@ -1177,35 +1221,44 @@ namespace LaserGRBL.RasterConverter
 
 		private Bitmap ProduceWhitepointDemo(Image img, Size size)
 		{
-			using (Bitmap resized = ImageTransform.ResizeImage(mResized, mResized.Size, false, Interpolation))
-			using (Bitmap grayscale = ImageTransform.GrayScale(resized, Red / 100.0F, Green / 100.0F, Blue / 100.0F, -((100 - Brightness) / 100.0F), (Contrast / 100.0F), IsGrayScale ? ImageTransform.Formula.SimpleAverage : Formula))
-				return ImageTransform.Whitenize(grayscale, mWhitePoint, true);
+			using (Bitmap resized = ImageTransform.ResizeImage(mResized, mResized.Size, false, Setting.mInterpolation))
+            {
+				using (Bitmap grayscale = ImageTransform.GrayScale(resized, Setting.mRed / 100.0F, Setting.mGreen / 100.0F, Setting.mBlue / 100.0F, - ((100 - Setting.mBrightness) / 100.0F), (Setting.mContrast / 100.0F), IsGrayScale ? ImageTransform.Formula.SimpleAverage : Setting.mFormula))
+				{
+					return ImageTransform.Whitenize(grayscale, Setting.mWhitePoint, true);
+				}
+            }
 		}
 
 
 		private Bitmap ProduceBitmap2(Image img, ref Size size)
 		{
-			if (SelectedTool == Tool.NoProcessing)
+			if (Setting.mTool == Tool.NoProcessing)
 			{
 				return ImageTransform.GrayScale(img, 0, 0, 0, 0, 1, ImageTransform.Formula.SimpleAverage);
 			}
 			else
 			{
-				using (Bitmap resized = ImageTransform.ResizeImage(img, size, false, Interpolation))
+				using (Bitmap resized = ImageTransform.ResizeImage(img, size, false, Setting.mInterpolation))
 				{
-					using (Bitmap grayscale = ImageTransform.GrayScale(resized, Red / 100.0F, Green / 100.0F, Blue / 100.0F, -((100 - Brightness) / 100.0F), (Contrast / 100.0F), IsGrayScale ? ImageTransform.Formula.SimpleAverage : Formula))
+					using (Bitmap grayscale = ImageTransform.GrayScale(resized, Setting.mRed / 100.0F, Setting.mGreen / 100.0F, Setting.mBlue / 100.0F, -((100 - Setting.mBrightness) / 100.0F), (Setting.mContrast / 100.0F), IsGrayScale ? ImageTransform.Formula.SimpleAverage :Setting.mFormula))
 					{
-						using (Bitmap whiten = ImageTransform.Whitenize(grayscale, mWhitePoint, false))
+						using (Bitmap whiten = ImageTransform.Whitenize(grayscale, Setting.mWhitePoint, false))
 						{
-							if (SelectedTool == Tool.Dithering)
-								return ImageTransform.DitherImage(whiten, mDithering);
-							else if (SelectedTool == Tool.Centerline)
+
+							if (Setting.mTool == Tool.Line2Line && Setting.mDithering != ImageTransform.DitheringMode.None)
+                            {
+								return ImageTransform.DitherImage(whiten, Setting.mDithering);
+                            }
+							else if (Setting.mTool == Tool.Centerline)
 							{
 								//apply variable threshold (if needed) + 50% threshold (always)
-								return ImageTransform.Threshold(ImageTransform.Threshold(whiten, Threshold / 100.0F, UseThreshold), 50.0F / 100.0F, true);
+								return ImageTransform.Threshold(ImageTransform.Threshold(whiten, Setting.mThreshold / 100.0F, Setting.mUseThreshold), 50.0F / 100.0F, true);
 							}
 							else
-								return ImageTransform.Threshold(whiten, Threshold / 100.0F, UseThreshold);
+                            {
+								return ImageTransform.Threshold(whiten, Setting.mThreshold / 100.0F, Setting.mUseThreshold);
+                            }
 						}
 					}
 				}
@@ -1215,13 +1268,17 @@ namespace LaserGRBL.RasterConverter
 		private void PreviewLineByLine(Bitmap bmp)
 		{
 			Direction dir = Direction.None;
-			if (SelectedTool == ImageProcessor.Tool.Line2Line && LinePreview)
-				dir = LineDirection;
-			if (SelectedTool == ImageProcessor.Tool.Dithering && LinePreview)
-				dir = LineDirection;
-			else if (SelectedTool == ImageProcessor.Tool.Vectorize && FillingDirection != Direction.None)
-				dir = FillingDirection;
-			if (SelectedTool == ImageProcessor.Tool.NoProcessing)
+
+			if (Setting.mTool == ImageProcessor.Tool.Line2Line && Setting.mLinePreview)
+				dir = Setting.mDirection;
+
+			//if (Setting.mTool == ImageProcessor.Tool.Dithering && Setting.mLinePreview)
+			//	dir = Setting.mDirection;
+
+
+			else if (Setting.mTool == ImageProcessor.Tool.Vectorize && Setting.mFillingDirection != Direction.None)
+				dir = Setting.mFillingDirection;
+			if (Setting.mTool == ImageProcessor.Tool.NoProcessing)
 				dir = Direction.Horizontal;
 
 			if (!MustExitTH && dir != Direction.None)
@@ -1232,7 +1289,9 @@ namespace LaserGRBL.RasterConverter
 					if (dir == Direction.Horizontal || dir == Direction.NewHorizontal || dir == Direction.NewGrid || dir == Direction.NewCross)
 					{
 						int mod = dir == Direction.Horizontal ? 2 : 3;
-						int alpha = SelectedTool == ImageProcessor.Tool.Dithering ? 100 : 200;
+
+						//int alpha = Setting.mTool == ImageProcessor.Tool.Dithering ? 100 : 200;
+						int alpha = Setting.mDithering != ImageTransform.DitheringMode.None ? 100 : 200;
 						for (int Y = 0; Y < bmp.Height && !MustExitTH; Y++)
 						{
 							using (Pen p = new Pen(Color.FromArgb(alpha, 255, 255, 255), 1F))
@@ -1245,7 +1304,8 @@ namespace LaserGRBL.RasterConverter
 					if (dir == Direction.Vertical || dir == Direction.NewVertical || dir == Direction.NewGrid || dir == Direction.NewCross)
 					{
 						int mod = dir == Direction.Vertical ? 2 : 3;
-						int alpha = SelectedTool == ImageProcessor.Tool.Dithering ? 100 : 200;
+						//int alpha = Setting.mTool == ImageProcessor.Tool.Dithering ? 100 : 200;
+						int alpha = Setting.mDithering != ImageTransform.DitheringMode.None ? 100 : 200;
 						for (int X = 0; X < bmp.Width && !MustExitTH; X++)
 						{
 							using (Pen p = new Pen(Color.FromArgb(alpha, 255, 255, 255), 1F))
@@ -1258,7 +1318,8 @@ namespace LaserGRBL.RasterConverter
 					if (dir == Direction.Diagonal || dir == Direction.NewDiagonal || dir == Direction.NewDiagonalGrid || dir == Direction.NewDiagonalCross || dir == Direction.NewSquares || dir == Direction.NewZigZag)
 					{
 						int mod = dir == Direction.Diagonal ? 3 : 5;
-						int alpha = SelectedTool == ImageProcessor.Tool.Dithering ? 150 : 255;
+						//int alpha = Setting.mTool == ImageProcessor.Tool.Dithering ? 150 : 255;
+						int alpha = Setting.mDithering != ImageTransform.DitheringMode.None ? 150 : 255;
 						for (int I = 0; I < bmp.Width + bmp.Height - 1 && !MustExitTH; I++)
 						{
 							using (Pen p = new Pen(Color.FromArgb(alpha, 255, 255, 255), 1F))
@@ -1270,7 +1331,7 @@ namespace LaserGRBL.RasterConverter
 					}
 					if (dir == Direction.NewReverseDiagonal || dir == Direction.NewDiagonalGrid || dir == Direction.NewDiagonalCross || dir == Direction.NewSquares)
 					{
-						int alpha = SelectedTool == ImageProcessor.Tool.Dithering ? 150 : 255;
+						int alpha = Setting.mDithering != ImageTransform.DitheringMode.None ? 150 : 255;
 						for (int I = 0; I < bmp.Width + bmp.Height - 1 && !MustExitTH; I++)
 						{
 							using (Pen p = new Pen(Color.FromArgb(alpha, 255, 255, 255), 1F))
@@ -1288,12 +1349,14 @@ namespace LaserGRBL.RasterConverter
 		private void PreviewNoProcessing(Bitmap bmp)
 		{
 			Direction dir = Direction.None;
-			if (SelectedTool == ImageProcessor.Tool.Line2Line && LinePreview)
-				dir = LineDirection;
-			if (SelectedTool == ImageProcessor.Tool.Dithering && LinePreview)
-				dir = LineDirection;
-			else if (SelectedTool == ImageProcessor.Tool.Vectorize && FillingDirection != Direction.None)
-				dir = FillingDirection;
+			if (Setting.mTool == ImageProcessor.Tool.Line2Line && Setting.mLinePreview)
+            {
+				dir = Setting.mDirection;
+            }
+			else if (Setting.mTool == ImageProcessor.Tool.Vectorize && Setting.mFillingDirection != Direction.None)
+            {
+				dir = Setting.mFillingDirection;
+            }
 
 			if (!MustExitTH && dir != Direction.None)
 			{
@@ -1303,7 +1366,9 @@ namespace LaserGRBL.RasterConverter
 					if (dir == Direction.Horizontal || dir == Direction.NewHorizontal || dir == Direction.NewGrid || dir == Direction.NewCross)
 					{
 						int mod = dir == Direction.Horizontal ? 2 : 3;
-						int alpha = SelectedTool == ImageProcessor.Tool.Dithering ? 100 : 200;
+						
+
+						int alpha = Setting.mDithering != ImageTransform.DitheringMode.None ? 100 : 200;
 						for (int Y = 0; Y < bmp.Height && !MustExitTH; Y++)
 						{
 							using (Pen p = new Pen(Color.FromArgb(alpha, 255, 255, 255), 1F))
@@ -1316,7 +1381,7 @@ namespace LaserGRBL.RasterConverter
 					if (dir == Direction.Vertical || dir == Direction.NewVertical || dir == Direction.NewGrid || dir == Direction.NewCross)
 					{
 						int mod = dir == Direction.Vertical ? 2 : 3;
-						int alpha = SelectedTool == ImageProcessor.Tool.Dithering ? 100 : 200;
+						int alpha = Setting.mDithering != ImageTransform.DitheringMode.None ? 100 : 200;
 						for (int X = 0; X < bmp.Width && !MustExitTH; X++)
 						{
 							using (Pen p = new Pen(Color.FromArgb(alpha, 255, 255, 255), 1F))
@@ -1329,7 +1394,7 @@ namespace LaserGRBL.RasterConverter
 					if (dir == Direction.Diagonal || dir == Direction.NewDiagonal || dir == Direction.NewDiagonalGrid || dir == Direction.NewDiagonalCross || dir == Direction.NewSquares || dir == Direction.NewZigZag)
 					{
 						int mod = dir == Direction.Diagonal ? 3 : 5;
-						int alpha = SelectedTool == ImageProcessor.Tool.Dithering ? 150 : 255;
+						int alpha = Setting.mDithering != ImageTransform.DitheringMode.None ? 150 : 255;
 						for (int I = 0; I < bmp.Width + bmp.Height - 1 && !MustExitTH; I++)
 						{
 							using (Pen p = new Pen(Color.FromArgb(alpha, 255, 255, 255), 1F))
@@ -1341,7 +1406,7 @@ namespace LaserGRBL.RasterConverter
 					}
 					if (dir == Direction.NewReverseDiagonal || dir == Direction.NewDiagonalGrid || dir == Direction.NewDiagonalCross || dir == Direction.NewSquares)
 					{
-						int alpha = SelectedTool == ImageProcessor.Tool.Dithering ? 150 : 255;
+						int alpha = Setting.mDithering != ImageTransform.DitheringMode.None ? 150 : 255;
 						for (int I = 0; I < bmp.Width + bmp.Height - 1 && !MustExitTH; I++)
 						{
 							using (Pen p = new Pen(Color.FromArgb(alpha, 255, 255, 255), 1F))
@@ -1359,10 +1424,10 @@ namespace LaserGRBL.RasterConverter
 
 		private void PreviewVector(Bitmap bmp)
 		{
-			Potrace.turdsize = (int)(UseSpotRemoval ? SpotRemoval : 2);
-			Potrace.alphamax = UseSmoothing ? (double)Smoothing : 0.0;
-			Potrace.opttolerance = UseOptimize ? (double)Optimize : 0.2;
-			Potrace.curveoptimizing = UseOptimize; //optimize the path p, replacing sequences of Bezier segments by a single segment when possible.
+			Potrace.turdsize = (int)(Setting.mUseSpotRemoval ? Setting.mSpotRemoval : 2);
+			Potrace.alphamax = Setting.mUseSmoothing ? (double)Setting.mSmoothing : 0.0;
+			Potrace.opttolerance = Setting.mUseOptimize ? (double)Setting.mOptimize : 0.2;
+			Potrace.curveoptimizing = Setting.mUseOptimize; //optimize the path p, replacing sequences of Bezier segments by a single segment when possible.
 
 			if (MustExitTH)
 				return;
@@ -1376,7 +1441,7 @@ namespace LaserGRBL.RasterConverter
 			{
 				g.Clear(Color.White); //remove original image
 
-				using (Brush fill = new SolidBrush(Color.FromArgb(FillingDirection != Direction.None ? 255 : 30, Color.Black)))
+				using (Brush fill = new SolidBrush(Color.FromArgb(Setting.mFillingDirection != Direction.None ? 255 : 30, Color.Black)))
 					Potrace.Export2GDIPlus(plist, g, fill, null, 1); //trace filling
 
 				if (MustExitTH)

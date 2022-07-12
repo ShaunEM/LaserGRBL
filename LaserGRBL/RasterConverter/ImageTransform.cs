@@ -150,6 +150,7 @@ namespace LaserGRBL.RasterConverter
 
 		public enum DitheringMode
 		{
+			None,
 			Atkinson,
 			FloydSteinberg,
 			Burks,

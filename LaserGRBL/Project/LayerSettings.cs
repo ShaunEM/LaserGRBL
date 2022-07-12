@@ -62,7 +62,10 @@ namespace LaserGRBL
             PrevVersion = GetObject("Current LaserGRBL Version", new Version(0, 0, 0));
             SetObject("Current LaserGRBL Version", Program.CurrentVersion);
         }
-
+        public Dictionary<string, object> GetSettings()
+        {
+            return dic;
+        }
 
         public T GetObject<T>(string key, T defval)
         {

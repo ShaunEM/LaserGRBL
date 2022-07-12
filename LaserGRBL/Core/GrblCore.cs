@@ -20,6 +20,7 @@ using LaserGRBL.SvgConverter;
 using System.Xml.Linq;
 using System.IO;
 using LaserGRBL.Extentions;
+using LaserGRBL.RasterConverter;
 
 namespace LaserGRBL
 {
@@ -808,7 +809,6 @@ namespace LaserGRBL
 			string fileExtension = System.IO.Path.GetExtension(filename).ToLowerInvariant();
 			try
             {
-
 				if (ImageExtensions.Contains(fileExtension)) //import raster image
 				{
 					int layerIdx = this.ProjectCore.AddLayer(new Layer()
@@ -816,14 +816,15 @@ namespace LaserGRBL
 						FileName = filename,
 						LayerDescription = Path.GetFileName(filename),
 						GRBLFile = new GrblFile(ProjectCore.programRange),
-						PreviewColor = Color.Black			// TODO
+						PreviewColor = Color.Black         // TODO
 					});
 					this.ProjectCore.layers[layerIdx].GRBLFile.OnFileLoading += RiseOnFileLoading;
 					this.ProjectCore.layers[layerIdx].GRBLFile.OnFileLoaded += RiseOnFileLoaded;
 
 
-					// TODO: Complete rework...of spaghetti
+					// TODO: Rework the spaghetti
 					FormManager.EditRaster(this, layerIdx, parent);
+
 
 
 					// below is from RasterToLaserForm (events to be checked)
@@ -847,7 +848,6 @@ namespace LaserGRBL
 				}
 				else if (fileExtension == ".svg")
 				{
-
 					// Split SVG into color layers
 					SVGColor svgColor = new SVGColor(filename);
 					List<(XElement, Color)> colorLayers = svgColor.GetColorLayers();  // TODO: Add no color

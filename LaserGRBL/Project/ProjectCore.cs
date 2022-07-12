@@ -65,7 +65,7 @@ namespace LaserGRBL
         public string LayerDescription { get; set; }
         public Color PreviewColor { get; set; }             // Color used on preview panel
         public GrblFile GRBLFile { get; set; }              // TODO: Clean this mess up
-        public ImageProcessor ImageProcessor { get; set; }
+        //public ImageProcessor IP { get; set; }
 
         public XElement XElement { get; set; }
         public bool ShowLayer { get; set; } = true;
