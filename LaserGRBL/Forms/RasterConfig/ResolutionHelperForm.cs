@@ -13,7 +13,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace LaserGRBL.RasterConverter
+namespace LaserGRBLPlus.RasterConverter
 {
 	public partial class ResolutionHelperForm : Form
 	{
@@ -89,6 +89,6 @@ namespace LaserGRBL.RasterConverter
 		}
 
 		private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-		{Tools.Utils.OpenLink(@"https://lasergrbl.com/usage/raster-image-import/setting-reliable-resolution/");}
+		{Tools.Utils.OpenLink(@"https://LaserGRBLPlus.com/usage/raster-image-import/setting-reliable-resolution/");}
 	}
 }

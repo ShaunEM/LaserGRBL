@@ -1,9 +1,9 @@
-﻿using LaserGRBL.RasterConverter;
-using LaserGRBL.SvgConverter;
+﻿using LaserGRBLPlus.RasterConverter;
+using LaserGRBLPlus.SvgConverter;
 using System;
 using System.Windows.Forms;
 
-namespace LaserGRBL.Forms
+namespace LaserGRBLPlus.Forms
 {
     internal static class FormManager
     {

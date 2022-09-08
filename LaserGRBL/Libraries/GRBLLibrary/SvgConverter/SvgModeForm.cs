@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace LaserGRBL.SvgConverter
+namespace LaserGRBLPlus.SvgConverter
 {
 	public partial class SvgModeForm : Form
 	{

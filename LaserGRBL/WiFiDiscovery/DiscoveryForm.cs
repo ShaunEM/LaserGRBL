@@ -10,7 +10,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace LaserGRBL.WiFiDiscovery
+namespace LaserGRBLPlus.WiFiDiscovery
 {
 	public partial class DiscoveryForm : Form
 	{

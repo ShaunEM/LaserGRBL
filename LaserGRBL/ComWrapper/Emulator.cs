@@ -11,11 +11,11 @@ using System.Text;
 using System.IO;
 using System.Net;
 
-namespace LaserGRBL.ComWrapper
+namespace LaserGRBLPlus.ComWrapper
 {
 	class Emulator : IComWrapper
 	{
-		private LaserGRBL.GrblEmulator.Grblv11Emulator emu;
+		private LaserGRBLPlus.GrblEmulator.Grblv11Emulator emu;
 		private bool opened;
 		private bool closing;
 		private Queue<string> buffer = new Queue<string>();

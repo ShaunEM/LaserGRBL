@@ -4,8 +4,8 @@
 // This program is distributed in the hope that it will be useful, but  WITHOUT ANY WARRANTY; without even the implied warranty of  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GPLv3  General Public License for more details.
 // You should have received a copy of the GPLv3 General Public License  along with this program; if not, write to the Free Software  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307,  USA. using System;
 
-using LaserGRBL.Core;
-using LaserGRBL.Forms;
+using LaserGRBLPlus.Core;
+using LaserGRBLPlus.Forms;
 using Sound;
 using System;
 using System.Collections.Generic;
@@ -15,16 +15,16 @@ using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
 using Tools;
-using LaserGRBL.SvgConverter;
+using LaserGRBLPlus.SvgConverter;
 using System.Xml.Linq;
 using System.IO;
-using LaserGRBL.Extentions;
-using LaserGRBL.RasterConverter;
-using LaserGRBL.Project;
-using LaserGRBL.Libraries.GRBLLibrary;
-using LaserGRBL.Libraries.SVGLibrary;
+using LaserGRBLPlus.Extentions;
+using LaserGRBLPlus.RasterConverter;
+using LaserGRBLPlus.Project;
+using LaserGRBLPlus.Libraries.GRBLLibrary;
+using LaserGRBLPlus.Libraries.SVGLibrary;
 
-namespace LaserGRBL
+namespace LaserGRBLPlus
 {
 	public enum Firmware
 	{
@@ -1565,7 +1565,7 @@ namespace LaserGRBL
 			{
 				// TODO: need to cycle the layers
 				//bool homing = false;
-				//int position = LaserGRBL.RunFromPositionForm.CreateAndShowDialog(
+				//int position = LaserGRBLPlus.RunFromPositionForm.CreateAndShowDialog(
 				//	parent, 
 				//	ProjectCore.layers[layerIdx].LoadedFile.Count, 
 				//	Configuration.HomingEnabled, 
@@ -1582,7 +1582,7 @@ namespace LaserGRBL
 		{
 			bool setwco = mWCO == GPoint.Zero && mTP.LastKnownWCO != GPoint.Zero;
 			bool homing = MachinePosition == GPoint.Zero && mTP.LastIssue != DetectedIssue.ManualAbort && mTP.LastIssue != DetectedIssue.ManualReset; //potrebbe essere dovuto ad un hard reset -> posizione non affidabile
-			int position = LaserGRBL.ResumeJobForm.CreateAndShowDialog(parent, mTP.Executed, mTP.Sent, mTP.Target, mTP.LastIssue, Configuration.HomingEnabled, homing, out homing, setwco, setwco, out setwco, mTP.LastKnownWCO);
+			int position = LaserGRBLPlus.ResumeJobForm.CreateAndShowDialog(parent, mTP.Executed, mTP.Sent, mTP.Target, mTP.LastIssue, Configuration.HomingEnabled, homing, out homing, setwco, setwco, out setwco, mTP.LastKnownWCO);
 
 			if (position == 0)
 				RunProgramFromStart(homing);
@@ -3146,7 +3146,7 @@ namespace LaserGRBL
 		}
 
 		internal void HelpOnLine()
-		{ Tools.Utils.OpenLink(@"https://lasergrbl.com/usage/"); }
+		{ Tools.Utils.OpenLink(@"https://LaserGRBLPlus.com/usage/"); }
 
 		internal void GrblHoming()
 		{ if (CanDoHoming) EnqueueCommand(new GrblCommand("$H")); }

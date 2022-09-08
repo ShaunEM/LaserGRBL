@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 
-namespace LaserGRBL.Project
+namespace LaserGRBLPlus.Project
 {
 
     public class ProjectFileObject

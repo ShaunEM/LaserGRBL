@@ -148,7 +148,7 @@
     <value>Tăiere Automată Imagine</value>
   </data>
   <data name="TbPassthroughInfo.Text" xml:space="preserve">
-    <value>Modul Pătrundere lasă imaginea intactă, fără nicio prelucrare de către LaserGRBL. Imaginea va fi gravată linie cu linie, pe orizontală, în funcție de dimensiunea și rezoluția DPI conținută în informațiile fișierului.</value>
+    <value>Modul Pătrundere lasă imaginea intactă, fără nicio prelucrare de către LaserGRBLPlus. Imaginea va fi gravată linie cu linie, pe orizontală, în funcție de dimensiunea și rezoluția DPI conținută în informațiile fișierului.</value>
   </data>
   <data name="GbPassthrough.Text" xml:space="preserve">
     <value>Opțiuni Trecere</value>

@@ -125,7 +125,7 @@
   </data>
   <data name="BoxAutoUpdateFailed" xml:space="preserve">
     <value>Η αυτόματη ενημέρωση απέτυχε!
-Κάντε μη αυτόματη λήψη της νέας έκδοσης από τον ιστότοπο lasergrbl.</value>
+Κάντε μη αυτόματη λήψη της νέας έκδοσης από τον ιστότοπο LaserGRBLPlus.</value>
   </data>
   <data name="BoxAutoUpdateRequireAdmin" xml:space="preserve">
     <value>Η ενημέρωση απαιτεί προνόμιο διαχειριστή!</value>

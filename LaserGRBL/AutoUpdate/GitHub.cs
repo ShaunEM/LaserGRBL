@@ -9,7 +9,7 @@ using System.Collections.Generic;
 using System.Runtime.Serialization;
 using System.Text.RegularExpressions;
 
-namespace LaserGRBL
+namespace LaserGRBLPlus
 {
 	class GitHub
 	{

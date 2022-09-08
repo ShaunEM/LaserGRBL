@@ -9,7 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace LaserGRBL
+namespace LaserGRBLPlus
 {
 	class MyDatagridView : System.Windows.Forms.DataGridView
 	{

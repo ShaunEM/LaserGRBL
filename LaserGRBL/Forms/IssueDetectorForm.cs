@@ -13,7 +13,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace LaserGRBL
+namespace LaserGRBLPlus
 {
 	public partial class IssueDetectorForm : Form
 	{
@@ -32,7 +32,7 @@ namespace LaserGRBL
 
 		private void LL_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
 		{
-			Tools.Utils.OpenLink(@"https://lasergrbl.com/faq#issues");
+			Tools.Utils.OpenLink(@"https://LaserGRBLPlus.com/faq#issues");
 		}
 
 		private void BtnOK_Click(object sender, EventArgs e)

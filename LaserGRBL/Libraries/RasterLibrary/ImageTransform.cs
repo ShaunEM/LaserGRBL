@@ -10,7 +10,7 @@ using System.Drawing.Drawing2D;
 using System.Runtime.InteropServices;
 
 
-namespace LaserGRBL.RasterConverter
+namespace LaserGRBLPlus.RasterConverter
 {
 
 

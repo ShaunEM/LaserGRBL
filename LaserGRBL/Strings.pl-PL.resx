@@ -221,7 +221,7 @@
   </data>
   <data name="BoxAutoUpdateFailed" xml:space="preserve">
     <value>Automatyczna aktualizacja nie powiodła się!
-Proszę ręcznie pobrać nową wersję ze strony lasergrbl.</value>
+Proszę ręcznie pobrać nową wersję ze strony LaserGRBLPlus.</value>
   </data>
   <data name="BoxWriteConfigWithoutError" xml:space="preserve">
     <value>{0} Konfiguracja zapisana pomyślnie!</value>

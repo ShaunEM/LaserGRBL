@@ -1,6 +1,6 @@
 ﻿using System.Drawing;
 
-namespace LaserGRBL.Libraries.GRBLLibrary
+namespace LaserGRBLPlus.Libraries.GRBLLibrary
 {
 	public interface IGrblRow
 	{

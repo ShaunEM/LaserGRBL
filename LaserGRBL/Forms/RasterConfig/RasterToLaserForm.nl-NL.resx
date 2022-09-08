@@ -148,7 +148,7 @@
     <value>Afbeelding automatisch bijsnijden</value>
   </data>
   <data name="TbPassthroughInfo.Text" xml:space="preserve">
-    <value>Passthrough-modus laat het beeld intact, zonder enige verwerking door LaserGRBL. De afbeelding wordt regel voor regel, horizontaal, gegraveerd, afhankelijk van de grootte en DPI-resolutie in bestandsinformatie.</value>
+    <value>Passthrough-modus laat het beeld intact, zonder enige verwerking door LaserGRBLPlus. De afbeelding wordt regel voor regel, horizontaal, gegraveerd, afhankelijk van de grootte en DPI-resolutie in bestandsinformatie.</value>
   </data>
   <data name="GbPassthrough.Text" xml:space="preserve">
     <value>Passthrough-opties</value>

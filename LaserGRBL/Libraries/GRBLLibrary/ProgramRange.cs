@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Drawing;
 
-namespace LaserGRBL.Libraries.GRBLLibrary
+namespace LaserGRBLPlus.Libraries.GRBLLibrary
 {
     public class ProgramRange
 	{

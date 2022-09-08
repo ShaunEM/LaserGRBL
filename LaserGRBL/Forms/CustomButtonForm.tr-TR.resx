@@ -137,7 +137,7 @@
 - Köşeli parantez içindeki matematik ifadesini destekleyin: ör. G0 X [sol-5] Y [alt-5]
 - Mevcut değişkenler: left(sol), right(sağ), top(üst), bottom(alt), width(genişlik), height(yükseklik) .. (ve daha fazlası)
 
-Bkz. Https://lasergrbl.com/usage/custom-buttons/</value>
+Bkz. Https://LaserGRBLPlus.com/usage/custom-buttons/</value>
   </data>
   <data name="LblType.Text" xml:space="preserve">
     <value>Tip:</value>

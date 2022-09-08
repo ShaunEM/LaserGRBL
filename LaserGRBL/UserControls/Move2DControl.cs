@@ -11,7 +11,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using System.Drawing.Drawing2D;
 
-namespace LaserGRBL.UserControls
+namespace LaserGRBLPlus.UserControls
 {
 	public class Move2DControl : UserControl
 	{

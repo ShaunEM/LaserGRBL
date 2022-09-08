@@ -13,7 +13,7 @@ using System.Drawing;
 using System.ComponentModel;
 using System.ComponentModel.Design;
 
-namespace LaserGRBL.UserControls.NumericInput
+namespace LaserGRBLPlus.UserControls.NumericInput
 {
 	[Designer(typeof(System.Windows.Forms.Design.ParentControlDesigner))]
 	public class ColoredBorderControl : System.Windows.Forms.UserControl

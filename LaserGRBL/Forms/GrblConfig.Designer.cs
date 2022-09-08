@@ -1,4 +1,4 @@
-﻿namespace LaserGRBL
+﻿namespace LaserGRBLPlus
 {
 	partial class GrblConfig
 	{
@@ -29,7 +29,7 @@
 			this.BtnImport = new System.Windows.Forms.Button();
 			this.GB = new System.Windows.Forms.GroupBox();
 			this.LblAction = new System.Windows.Forms.Label();
-			this.DGV = new LaserGRBL.MyDatagridView();
+			this.DGV = new LaserGRBLPlus.MyDatagridView();
 			this.DollarNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.Parameter = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.Value = new System.Windows.Forms.DataGridViewTextBoxColumn();

@@ -443,7 +443,7 @@
     <value>materialDB</value>
   </data>
   <data name="&gt;&gt;materialDB.Type" xml:space="preserve">
-    <value>LaserGRBL.PSHelper.MaterialDB, PSHelper.MaterialDB.Designer.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>LaserGRBLPlus.PSHelper.MaterialDB, PSHelper.MaterialDB.Designer.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;toolStripStatusLabel1.Name" xml:space="preserve">
     <value>toolStripStatusLabel1</value>

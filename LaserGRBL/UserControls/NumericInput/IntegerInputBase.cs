@@ -12,7 +12,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.ComponentModel;
 
-namespace LaserGRBL.UserControls.NumericInput
+namespace LaserGRBLPlus.UserControls.NumericInput
 {
 	[DefaultEvent("CurrentValueChanged"), DefaultProperty("CurrentValue")]
 	public class IntegerInputBase : ColoredBorderControl

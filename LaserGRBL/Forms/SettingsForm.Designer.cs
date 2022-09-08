@@ -1,4 +1,4 @@
-﻿namespace LaserGRBL
+﻿namespace LaserGRBLPlus
 {
 	partial class SettingsForm
 	{
@@ -40,12 +40,12 @@
             this.CbThreadingMode = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.CBStreamingMode = new System.Windows.Forms.ComboBox();
-            this.BtnStreamingMode = new LaserGRBL.UserControls.ImageButton();
+            this.BtnStreamingMode = new LaserGRBLPlus.UserControls.ImageButton();
             this.CBProtocol = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.BtnProtocol = new LaserGRBL.UserControls.ImageButton();
+            this.BtnProtocol = new LaserGRBLPlus.UserControls.ImageButton();
             this.label6 = new System.Windows.Forms.Label();
-            this.BtnThreadingModel = new LaserGRBL.UserControls.ImageButton();
+            this.BtnThreadingModel = new LaserGRBLPlus.UserControls.ImageButton();
             this.CbIssueDetector = new System.Windows.Forms.CheckBox();
             this.label7 = new System.Windows.Forms.Label();
             this.CbSoftReset = new System.Windows.Forms.CheckBox();
@@ -53,14 +53,14 @@
             this.CbHardReset = new System.Windows.Forms.CheckBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.BtnFType = new LaserGRBL.UserControls.ImageButton();
+            this.BtnFType = new LaserGRBLPlus.UserControls.ImageButton();
             this.TpRasterImport = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.CbUnidirectional = new System.Windows.Forms.CheckBox();
             this.CBSupportPWM = new System.Windows.Forms.CheckBox();
-            this.BtnModulationInfo = new LaserGRBL.UserControls.ImageButton();
+            this.BtnModulationInfo = new LaserGRBLPlus.UserControls.ImageButton();
             this.CbHiRes = new System.Windows.Forms.CheckBox();
             this.label22 = new System.Windows.Forms.Label();
             this.CbDisableSkip = new System.Windows.Forms.CheckBox();
@@ -71,7 +71,7 @@
             this.tableLayoutPanel18 = new System.Windows.Forms.TableLayoutPanel();
             this.label43 = new System.Windows.Forms.Label();
             this.CbSmartBezier = new System.Windows.Forms.CheckBox();
-            this.imageButton1 = new LaserGRBL.UserControls.ImageButton();
+            this.imageButton1 = new LaserGRBLPlus.UserControls.ImageButton();
             this.TpJogControl = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.label10 = new System.Windows.Forms.Label();
@@ -158,7 +158,7 @@
             this.label28 = new System.Windows.Forms.Label();
             this.tableLayoutPanel17 = new System.Windows.Forms.TableLayoutPanel();
             this.label44 = new System.Windows.Forms.Label();
-            this.BtnTelegNoteInfo = new LaserGRBL.UserControls.ImageButton();
+            this.BtnTelegNoteInfo = new LaserGRBLPlus.UserControls.ImageButton();
             this.label31 = new System.Windows.Forms.Label();
             this.label33 = new System.Windows.Forms.Label();
             this.TxtNotification = new System.Windows.Forms.TextBox();
@@ -309,7 +309,7 @@
             this.BtnStreamingMode.Image = ((System.Drawing.Image)(resources.GetObject("BtnStreamingMode.Image")));
             resources.ApplyResources(this.BtnStreamingMode, "BtnStreamingMode");
             this.BtnStreamingMode.Name = "BtnStreamingMode";
-            this.BtnStreamingMode.SizingMode = LaserGRBL.UserControls.ImageButton.SizingModes.FixedSize;
+            this.BtnStreamingMode.SizingMode = LaserGRBLPlus.UserControls.ImageButton.SizingModes.FixedSize;
             this.BtnStreamingMode.UseAltImage = false;
             this.BtnStreamingMode.Click += new System.EventHandler(this.BtnStreamingMode_Click);
             // 
@@ -334,7 +334,7 @@
             this.BtnProtocol.Image = ((System.Drawing.Image)(resources.GetObject("BtnProtocol.Image")));
             resources.ApplyResources(this.BtnProtocol, "BtnProtocol");
             this.BtnProtocol.Name = "BtnProtocol";
-            this.BtnProtocol.SizingMode = LaserGRBL.UserControls.ImageButton.SizingModes.FixedSize;
+            this.BtnProtocol.SizingMode = LaserGRBLPlus.UserControls.ImageButton.SizingModes.FixedSize;
             this.BtnProtocol.UseAltImage = false;
             this.BtnProtocol.Click += new System.EventHandler(this.BtnProtocol_Click);
             // 
@@ -352,7 +352,7 @@
             this.BtnThreadingModel.Image = ((System.Drawing.Image)(resources.GetObject("BtnThreadingModel.Image")));
             resources.ApplyResources(this.BtnThreadingModel, "BtnThreadingModel");
             this.BtnThreadingModel.Name = "BtnThreadingModel";
-            this.BtnThreadingModel.SizingMode = LaserGRBL.UserControls.ImageButton.SizingModes.FixedSize;
+            this.BtnThreadingModel.SizingMode = LaserGRBLPlus.UserControls.ImageButton.SizingModes.FixedSize;
             this.BtnThreadingModel.UseAltImage = false;
             this.BtnThreadingModel.Click += new System.EventHandler(this.BtnThreadingModel_Click);
             // 
@@ -403,7 +403,7 @@
             this.BtnFType.Image = ((System.Drawing.Image)(resources.GetObject("BtnFType.Image")));
             resources.ApplyResources(this.BtnFType, "BtnFType");
             this.BtnFType.Name = "BtnFType";
-            this.BtnFType.SizingMode = LaserGRBL.UserControls.ImageButton.SizingModes.FixedSize;
+            this.BtnFType.SizingMode = LaserGRBLPlus.UserControls.ImageButton.SizingModes.FixedSize;
             this.BtnFType.UseAltImage = false;
             this.BtnFType.Click += new System.EventHandler(this.BtnFType_Click);
             // 
@@ -461,7 +461,7 @@
             this.BtnModulationInfo.Image = ((System.Drawing.Image)(resources.GetObject("BtnModulationInfo.Image")));
             resources.ApplyResources(this.BtnModulationInfo, "BtnModulationInfo");
             this.BtnModulationInfo.Name = "BtnModulationInfo";
-            this.BtnModulationInfo.SizingMode = LaserGRBL.UserControls.ImageButton.SizingModes.FixedSize;
+            this.BtnModulationInfo.SizingMode = LaserGRBLPlus.UserControls.ImageButton.SizingModes.FixedSize;
             this.BtnModulationInfo.UseAltImage = false;
             this.BtnModulationInfo.Click += new System.EventHandler(this.BtnModulationInfo_Click);
             // 
@@ -533,7 +533,7 @@
             this.imageButton1.Image = ((System.Drawing.Image)(resources.GetObject("imageButton1.Image")));
             resources.ApplyResources(this.imageButton1, "imageButton1");
             this.imageButton1.Name = "imageButton1";
-            this.imageButton1.SizingMode = LaserGRBL.UserControls.ImageButton.SizingModes.FixedSize;
+            this.imageButton1.SizingMode = LaserGRBLPlus.UserControls.ImageButton.SizingModes.FixedSize;
             this.imageButton1.UseAltImage = false;
             // 
             // TpJogControl
@@ -1105,7 +1105,7 @@
             this.BtnTelegNoteInfo.Image = ((System.Drawing.Image)(resources.GetObject("BtnTelegNoteInfo.Image")));
             resources.ApplyResources(this.BtnTelegNoteInfo, "BtnTelegNoteInfo");
             this.BtnTelegNoteInfo.Name = "BtnTelegNoteInfo";
-            this.BtnTelegNoteInfo.SizingMode = LaserGRBL.UserControls.ImageButton.SizingModes.FixedSize;
+            this.BtnTelegNoteInfo.SizingMode = LaserGRBLPlus.UserControls.ImageButton.SizingModes.FixedSize;
             this.BtnTelegNoteInfo.UseAltImage = false;
             this.BtnTelegNoteInfo.Click += new System.EventHandler(this.BtnTelegNoteInfo_Click);
             // 

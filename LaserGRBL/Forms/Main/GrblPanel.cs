@@ -9,12 +9,12 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
-using LaserGRBL;
-using LaserGRBL.Libraries.GRBLLibrary;
-using LaserGRBL.Libraries.SVGLibrary;
-using static LaserGRBL.Libraries.GRBLLibrary.ProgramRange;
+using LaserGRBLPlus;
+using LaserGRBLPlus.Libraries.GRBLLibrary;
+using LaserGRBLPlus.Libraries.SVGLibrary;
+using static LaserGRBLPlus.Libraries.GRBLLibrary.ProgramRange;
 
-namespace LaserGRBL.UserControls
+namespace LaserGRBLPlus.UserControls
 {
 	public partial class GrblPanel : UserControl
 	{

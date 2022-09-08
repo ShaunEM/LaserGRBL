@@ -17,9 +17,9 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Xml.Linq;
 using System.Globalization;
-using LaserGRBL.Project;
+using LaserGRBLPlus.Project;
 
-namespace LaserGRBL.SvgConverter
+namespace LaserGRBLPlus.SvgConverter
 {
     public class GCodeFromSVG
 	{

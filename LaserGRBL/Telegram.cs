@@ -2,7 +2,7 @@
 using System.Collections.Specialized;
 using System.Net;
 
-namespace LaserGRBL
+namespace LaserGRBLPlus
 {
 	public class Telegram
 	{

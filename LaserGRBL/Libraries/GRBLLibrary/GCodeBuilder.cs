@@ -1,6 +1,6 @@
 ﻿using CsPotrace;
 using CsPotrace.BezierToBiarc;
-using LaserGRBL.SvgConverter;
+using LaserGRBLPlus.SvgConverter;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -8,10 +8,10 @@ using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Xml.Linq;
-using static LaserGRBL.Libraries.GRBLLibrary.GrblFile;
-using static LaserGRBL.RasterConverter.ImageProcessor;
+using static LaserGRBLPlus.Libraries.GRBLLibrary.GrblFile;
+using static LaserGRBLPlus.RasterConverter.ImageProcessor;
 
-namespace LaserGRBL.Libraries.GRBLLibrary
+namespace LaserGRBLPlus.Libraries.GRBLLibrary
 {
     public class GCodeBuilder
     {

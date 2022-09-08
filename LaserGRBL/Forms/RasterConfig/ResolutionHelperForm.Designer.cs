@@ -1,4 +1,4 @@
-﻿namespace LaserGRBL.RasterConverter
+﻿namespace LaserGRBLPlus.RasterConverter
 {
 	partial class ResolutionHelperForm
 	{

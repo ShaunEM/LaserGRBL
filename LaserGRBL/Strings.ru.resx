@@ -119,7 +119,7 @@
   </resheader>
   <data name="BoxAutoUpdateFailed" xml:space="preserve">
     <value>Автоматическое обновление не удалось!
-Пожалуйста, вручную скачайте новую версию с сайта lasergrbl.</value>
+Пожалуйста, вручную скачайте новую версию с сайта LaserGRBLPlus.</value>
   </data>
   <data name="BoxAutoUpdateRequireAdmin" xml:space="preserve">
     <value>Обновление, требуются права администратора!</value>

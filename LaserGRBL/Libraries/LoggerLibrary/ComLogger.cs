@@ -9,7 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace LaserGRBL.ComWrapper
+namespace LaserGRBLPlus.ComWrapper
 {
     public static class ComLogger
     {

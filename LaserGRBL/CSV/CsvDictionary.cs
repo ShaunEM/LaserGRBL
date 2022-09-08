@@ -9,7 +9,7 @@ using System.Reflection;
 using System.IO;
 
 
-namespace LaserGRBL.CSV
+namespace LaserGRBLPlus.CSV
 {
 	/// <summary>
 	/// Description of CsvDictionary.

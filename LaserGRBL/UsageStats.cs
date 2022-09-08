@@ -13,7 +13,7 @@ using System.Net;
 using System.Runtime.Serialization;
 using System.Linq;
 
-namespace LaserGRBL
+namespace LaserGRBLPlus
 {
     // this class is used to collect anonymous usage statistics
     // statistics will be used to provide better versions
@@ -173,7 +173,7 @@ namespace LaserGRBL
 
             Wrapper = GlobalSettings.GetObject("ComWrapper Protocol", ComWrapper.WrapperType.UsbSerial);
 
-			LaserGRBL.Firmware fw = GlobalSettings.GetObject("Firmware Type", LaserGRBL.Firmware.Grbl);
+			LaserGRBLPlus.Firmware fw = GlobalSettings.GetObject("Firmware Type", LaserGRBLPlus.Firmware.Grbl);
 			FirmwareString = fw.ToString();
 			VendorString = Core?.GrblVersion?.Vendor != null ? Core.GrblVersion.Vendor : "Unknown";
 

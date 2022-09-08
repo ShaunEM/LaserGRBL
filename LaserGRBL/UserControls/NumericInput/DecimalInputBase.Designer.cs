@@ -1,4 +1,4 @@
-﻿namespace LaserGRBL.UserControls.NumericInput
+﻿namespace LaserGRBLPlus.UserControls.NumericInput
 {
     public partial class DecimalInputBase
     {

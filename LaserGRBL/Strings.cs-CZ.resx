@@ -328,7 +328,7 @@ To by mohlo vygenerovat chybu soft-limitu. Jste si jisti zadanými hodnotami?</v
     <value>Středová čára je možnost, která není kompatibilní s Vaším PC, je vyžadován 64 bitový operační systém!</value>
   </data>
   <data name="WarnLine2LinePWM" xml:space="preserve">
-    <value>Možnost Line2Line není kompatibilní s Vaším zařízením nebo s Vaší konfigurací. Je zapotřebí PWM řízení, měla by být také povolené PWM v nastavení LaserGRBL.</value>
+    <value>Možnost Line2Line není kompatibilní s Vaším zařízením nebo s Vaší konfigurací. Je zapotřebí PWM řízení, měla by být také povolené PWM v nastavení LaserGRBLPlus.</value>
   </data>
   <data name="MsgboxCannotOpenFileNow" xml:space="preserve">
     <value>Nelze nyní otevřít nový soubor.</value>

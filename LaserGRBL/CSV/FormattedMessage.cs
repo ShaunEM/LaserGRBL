@@ -8,7 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace LaserGRBL.CSV
+namespace LaserGRBLPlus.CSV
 {
 	public class FormattedMessage
 	{

@@ -8,10 +8,10 @@ using System;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
-using LaserGRBL;
-using LaserGRBL.Libraries.GRBLLibrary;
+using LaserGRBLPlus;
+using LaserGRBLPlus.Libraries.GRBLLibrary;
 
-namespace LaserGRBL.UserControls
+namespace LaserGRBLPlus.UserControls
 {
 	public partial class CommandLog : UserControl
 	{

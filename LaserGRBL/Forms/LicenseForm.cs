@@ -13,7 +13,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace LaserGRBL
+namespace LaserGRBLPlus
 {
 	public partial class LicenseForm : Form
 	{
@@ -29,7 +29,7 @@ namespace LaserGRBL
 
 		private void BtnDonate_Click(object sender, EventArgs e)
 		{
-			Tools.Utils.OpenLink(@"https://lasergrbl.com/donate");
+			Tools.Utils.OpenLink(@"https://LaserGRBLPlus.com/donate");
 		}
 
 		internal static void CreateAndShowDialog(Form parent)

@@ -457,7 +457,7 @@ namespace Tools
 				foreach (string s in list)
 				{
 					if (s.ToLower().StartsWith("http://") || s.ToLower().StartsWith("https://"))
-						Process.Start(string.Format(s, LaserGRBL.UsageStats.GetID()));
+						Process.Start(string.Format(s, LaserGRBLPlus.UsageStats.GetID()));
 				}
 			}
 		}

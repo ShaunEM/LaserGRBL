@@ -1,8 +1,8 @@
 ﻿
-using LaserGRBL.RasterConverter;
+using LaserGRBLPlus.RasterConverter;
 using System.Drawing;
 
-namespace LaserGRBL.Libraries.GRBLLibrary
+namespace LaserGRBLPlus.Libraries.GRBLLibrary
 {
     public class GCodeConfig
     {

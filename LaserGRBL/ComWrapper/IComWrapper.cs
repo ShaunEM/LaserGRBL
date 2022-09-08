@@ -9,7 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace LaserGRBL.ComWrapper
+namespace LaserGRBLPlus.ComWrapper
 {
 	public enum WrapperType
 	{ UsbSerial, UsbSerial2, Telnet, LaserWebESP8266, Emulator }

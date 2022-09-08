@@ -758,7 +758,7 @@ solamente cuando está conectado y sin trabajos</value>
     <value>DGV</value>
   </data>
   <data name="&gt;&gt;DGV.Type" xml:space="preserve">
-    <value>LaserGRBL.MyDatagridView, LaserGRBL, Version=3.7.1.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>LaserGRBLPlus.MyDatagridView, LaserGRBL, Version=3.7.1.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;DGV.Parent" xml:space="preserve">
     <value>GB</value>

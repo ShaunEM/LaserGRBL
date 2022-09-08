@@ -10,7 +10,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using System.Collections.Generic;
 
-namespace LaserGRBL
+namespace LaserGRBLPlus
 {
 	/// <summary>
 	/// Description of PreviewForm.
@@ -121,13 +121,13 @@ namespace LaserGRBL
 		public class CustomButtonIB : UserControls.ImageButton
 		{
 			private GrblCore Core;
-			private LaserGRBL.CustomButton cb;
+			private LaserGRBLPlus.CustomButton cb;
 			PreviewForm form;
 			private ToolTip tt;
 			private ContextMenuStrip cms;
 			private bool mDrawDisabled = true;
 
-			public CustomButtonIB(GrblCore Core, LaserGRBL.CustomButton cb, PreviewForm form)
+			public CustomButtonIB(GrblCore Core, LaserGRBLPlus.CustomButton cb, PreviewForm form)
 			{
 				// TODO: Complete member initialization
 				this.Core = Core;

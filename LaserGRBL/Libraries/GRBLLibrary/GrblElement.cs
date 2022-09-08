@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LaserGRBL.Libraries.GRBLLibrary
+namespace LaserGRBLPlus.Libraries.GRBLLibrary
 {
 	public class GrblElement
 	{

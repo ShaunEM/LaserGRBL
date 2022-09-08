@@ -17,7 +17,7 @@ using System.Drawing;
 using System.Windows.Forms;
 
 
-namespace LaserGRBL.UserControls
+namespace LaserGRBLPlus.UserControls
 {
 
 	public class ColorProgressBarDesigner : System.Windows.Forms.Design.ControlDesigner

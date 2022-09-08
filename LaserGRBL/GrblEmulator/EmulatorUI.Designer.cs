@@ -1,4 +1,4 @@
-﻿namespace LaserGRBL.GrblEmulator
+﻿namespace LaserGRBLPlus.GrblEmulator
 {
 	partial class EmulatorUI
 	{

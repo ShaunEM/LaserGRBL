@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading;
 using System.Windows.Forms;
 
-namespace LaserGRBL
+namespace LaserGRBLPlus
 {
     public partial class ExceptionManager : Form
 	{

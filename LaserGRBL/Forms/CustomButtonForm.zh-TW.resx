@@ -140,7 +140,7 @@
 
 
 
-参考 http://lasergrbl.com/usage/custom-buttons/</value>
+参考 http://LaserGRBLPlus.com/usage/custom-buttons/</value>
   </data>
   <data name="LblType.Text" xml:space="preserve">
     <value>類型：</value>

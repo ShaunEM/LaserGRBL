@@ -14,7 +14,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Diagnostics;
 
-namespace LaserGRBL
+namespace LaserGRBLPlus
 {
 	public partial class AutotraceTest : Form
 	{

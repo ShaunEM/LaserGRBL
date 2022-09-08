@@ -15,9 +15,9 @@ using System.Windows.Forms;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Threading;
-using LaserGRBL.SvgConverter;
+using LaserGRBLPlus.SvgConverter;
 
-namespace LaserGRBL.Libraries.GRBLLibrary
+namespace LaserGRBLPlus.Libraries.GRBLLibrary
 {
 
 	public class GrblFile : IEnumerable<GrblCommand>

@@ -6,7 +6,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Xml.Linq;
 
-namespace LaserGRBL.SvgConverter
+namespace LaserGRBLPlus.SvgConverter
 {
 
     internal class SVGColor

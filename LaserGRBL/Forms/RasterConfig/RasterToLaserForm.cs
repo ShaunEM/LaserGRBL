@@ -11,13 +11,13 @@ using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 using System.Threading;
 using Tools;
-using static LaserGRBL.RasterConverter.ConvertSizeAndOptionForm;
-using static LaserGRBL.RasterConverter.ImageProcessor;
-using LaserGRBL.Project;
-using LaserGRBL.Libraries.GRBLLibrary;
+using static LaserGRBLPlus.RasterConverter.ConvertSizeAndOptionForm;
+using static LaserGRBLPlus.RasterConverter.ImageProcessor;
+using LaserGRBLPlus.Project;
+using LaserGRBLPlus.Libraries.GRBLLibrary;
 using CsPotrace;
 
-namespace LaserGRBL.RasterConverter
+namespace LaserGRBLPlus.RasterConverter
 {
 	public partial class RasterToLaserForm : Form
 	{

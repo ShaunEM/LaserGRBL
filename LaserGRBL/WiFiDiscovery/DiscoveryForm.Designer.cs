@@ -1,4 +1,4 @@
-﻿namespace LaserGRBL.WiFiDiscovery
+﻿namespace LaserGRBLPlus.WiFiDiscovery
 {
 	partial class DiscoveryForm
 	{

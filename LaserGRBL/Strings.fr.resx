@@ -119,7 +119,7 @@
   </resheader>
   <data name="BoxAutoUpdateFailed" xml:space="preserve">
     <value>Mise à jour automatique échouée!
-Téléchargez manuellement la nouvelle version à partir du site Lasergrbl.</value>
+Téléchargez manuellement la nouvelle version à partir du site LaserGRBLPlus.</value>
   </data>
   <data name="BoxAutoUpdateRequireAdmin" xml:space="preserve">
     <value>La mise à jour nécessite le privilège Administrateur!</value>

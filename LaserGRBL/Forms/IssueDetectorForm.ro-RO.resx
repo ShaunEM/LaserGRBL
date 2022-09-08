@@ -136,7 +136,7 @@
     <value>Se pare că grbl are probleme la execuția acestei comenzi. Cauzele acestei situații pot fi multiple, vă rugăm să citiți întrebările frecvente pentru informații despre cum să rezolvați această problemă.</value>
   </data>
   <data name="LL.Text" xml:space="preserve">
-    <value>https://lasergrbl.com/faq/</value>
+    <value>https://LaserGRBLPlus.com/faq/</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Problemă detectată!</value>

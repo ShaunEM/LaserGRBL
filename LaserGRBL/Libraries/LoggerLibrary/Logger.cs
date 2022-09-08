@@ -7,7 +7,7 @@
 using System;
 using System.Text;
 
-namespace LaserGRBL
+namespace LaserGRBLPlus
 {
 	static class Logger
 	{

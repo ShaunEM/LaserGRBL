@@ -1,7 +1,7 @@
 ﻿using System.Drawing;
 using System.IO;
 
-namespace LaserGRBL.Project
+namespace LaserGRBLPlus.Project
 {
     public class FileObject
     {

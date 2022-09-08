@@ -6,7 +6,7 @@
  * 
  * To change this template use Tools | Options | Coding | Edit Standard Headers.
  */
-namespace LaserGRBL
+namespace LaserGRBLPlus
 {
 	partial class PreviewForm
 	{
@@ -14,7 +14,7 @@ namespace LaserGRBL
 		/// Designer variable used to keep track of non-visual components.
 		/// </summary>
 		private System.ComponentModel.IContainer components = null;
-		private LaserGRBL.UserControls.GrblPanel Preview;
+		private LaserGRBLPlus.UserControls.GrblPanel Preview;
 		
 		/// <summary>
 		/// Disposes resources used by the control.
@@ -39,21 +39,21 @@ namespace LaserGRBL
 		{
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PreviewForm));
-            this.Preview = new LaserGRBL.UserControls.GrblPanel();
+            this.Preview = new LaserGRBLPlus.UserControls.GrblPanel();
             this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
-            this.BtnReset = new LaserGRBL.UserControls.ImageButton();
-            this.CustomButtonArea = new LaserGRBL.PreviewForm.MyFlowPanel();
+            this.BtnReset = new LaserGRBLPlus.UserControls.ImageButton();
+            this.CustomButtonArea = new LaserGRBLPlus.PreviewForm.MyFlowPanel();
             this.MNAddCB = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.addCustomButtonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MnLockButton = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
             this.exportCustomButtonsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.importCustomButtonsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.BtnUnlock = new LaserGRBL.UserControls.ImageButton();
-            this.BtnHoming = new LaserGRBL.UserControls.ImageButton();
-            this.BtnZeroing = new LaserGRBL.UserControls.ImageButton();
-            this.BtnResume = new LaserGRBL.UserControls.ImageButton();
-            this.BtnStop = new LaserGRBL.UserControls.ImageButton();
+            this.BtnUnlock = new LaserGRBLPlus.UserControls.ImageButton();
+            this.BtnHoming = new LaserGRBLPlus.UserControls.ImageButton();
+            this.BtnZeroing = new LaserGRBLPlus.UserControls.ImageButton();
+            this.BtnResume = new LaserGRBLPlus.UserControls.ImageButton();
+            this.BtnStop = new LaserGRBLPlus.UserControls.ImageButton();
             this.TT = new System.Windows.Forms.ToolTip(this.components);
             this.MNRemEditCB = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.RemoveButton = new System.Windows.Forms.ToolStripMenuItem();
@@ -94,7 +94,7 @@ namespace LaserGRBL
             this.BtnReset.Coloration = System.Drawing.Color.Empty;
             this.BtnReset.Image = ((System.Drawing.Image)(resources.GetObject("BtnReset.Image")));
             this.BtnReset.Name = "BtnReset";
-            this.BtnReset.SizingMode = LaserGRBL.UserControls.ImageButton.SizingModes.StretchImage;
+            this.BtnReset.SizingMode = LaserGRBLPlus.UserControls.ImageButton.SizingModes.StretchImage;
             this.TT.SetToolTip(this.BtnReset, resources.GetString("BtnReset.ToolTip"));
             this.BtnReset.UseAltImage = false;
             this.BtnReset.Click += new System.EventHandler(this.BtnResetClick);
@@ -160,7 +160,7 @@ namespace LaserGRBL
             this.BtnUnlock.Coloration = System.Drawing.Color.Empty;
             this.BtnUnlock.Image = ((System.Drawing.Image)(resources.GetObject("BtnUnlock.Image")));
             this.BtnUnlock.Name = "BtnUnlock";
-            this.BtnUnlock.SizingMode = LaserGRBL.UserControls.ImageButton.SizingModes.StretchImage;
+            this.BtnUnlock.SizingMode = LaserGRBLPlus.UserControls.ImageButton.SizingModes.StretchImage;
             this.TT.SetToolTip(this.BtnUnlock, resources.GetString("BtnUnlock.ToolTip"));
             this.BtnUnlock.UseAltImage = false;
             this.BtnUnlock.Click += new System.EventHandler(this.BtnUnlockClick);
@@ -175,7 +175,7 @@ namespace LaserGRBL
             this.BtnHoming.Coloration = System.Drawing.Color.Empty;
             this.BtnHoming.Image = ((System.Drawing.Image)(resources.GetObject("BtnHoming.Image")));
             this.BtnHoming.Name = "BtnHoming";
-            this.BtnHoming.SizingMode = LaserGRBL.UserControls.ImageButton.SizingModes.StretchImage;
+            this.BtnHoming.SizingMode = LaserGRBLPlus.UserControls.ImageButton.SizingModes.StretchImage;
             this.TT.SetToolTip(this.BtnHoming, resources.GetString("BtnHoming.ToolTip"));
             this.BtnHoming.UseAltImage = false;
             this.BtnHoming.Click += new System.EventHandler(this.BtnGoHomeClick);
@@ -190,7 +190,7 @@ namespace LaserGRBL
             this.BtnZeroing.Coloration = System.Drawing.Color.Empty;
             this.BtnZeroing.Image = ((System.Drawing.Image)(resources.GetObject("BtnZeroing.Image")));
             this.BtnZeroing.Name = "BtnZeroing";
-            this.BtnZeroing.SizingMode = LaserGRBL.UserControls.ImageButton.SizingModes.StretchImage;
+            this.BtnZeroing.SizingMode = LaserGRBLPlus.UserControls.ImageButton.SizingModes.StretchImage;
             this.TT.SetToolTip(this.BtnZeroing, resources.GetString("BtnZeroing.ToolTip"));
             this.BtnZeroing.UseAltImage = false;
             this.BtnZeroing.Click += new System.EventHandler(this.BtnZeroing_Click);
@@ -205,7 +205,7 @@ namespace LaserGRBL
             this.BtnResume.Coloration = System.Drawing.Color.Empty;
             this.BtnResume.Image = ((System.Drawing.Image)(resources.GetObject("BtnResume.Image")));
             this.BtnResume.Name = "BtnResume";
-            this.BtnResume.SizingMode = LaserGRBL.UserControls.ImageButton.SizingModes.StretchImage;
+            this.BtnResume.SizingMode = LaserGRBLPlus.UserControls.ImageButton.SizingModes.StretchImage;
             this.TT.SetToolTip(this.BtnResume, resources.GetString("BtnResume.ToolTip"));
             this.BtnResume.UseAltImage = false;
             this.BtnResume.Click += new System.EventHandler(this.BtnResumeClick);
@@ -220,7 +220,7 @@ namespace LaserGRBL
             this.BtnStop.Coloration = System.Drawing.Color.Empty;
             this.BtnStop.Image = ((System.Drawing.Image)(resources.GetObject("BtnStop.Image")));
             this.BtnStop.Name = "BtnStop";
-            this.BtnStop.SizingMode = LaserGRBL.UserControls.ImageButton.SizingModes.StretchImage;
+            this.BtnStop.SizingMode = LaserGRBLPlus.UserControls.ImageButton.SizingModes.StretchImage;
             this.TT.SetToolTip(this.BtnStop, resources.GetString("BtnStop.ToolTip"));
             this.BtnStop.UseAltImage = false;
             this.BtnStop.Click += new System.EventHandler(this.BtnStopClick);

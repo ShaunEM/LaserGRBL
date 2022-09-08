@@ -1,8 +1,8 @@
-﻿using LaserGRBL.Libraries.GRBLLibrary;
-using LaserGRBL.Project;
+﻿using LaserGRBLPlus.Libraries.GRBLLibrary;
+using LaserGRBLPlus.Project;
 using System.Collections.Generic;
 
-namespace LaserGRBL
+namespace LaserGRBLPlus
 {
     public class ProjectCore
     {

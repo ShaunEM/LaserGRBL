@@ -9,7 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace LaserGRBL.UserControls
+namespace LaserGRBLPlus.UserControls
 {
 	public class EnumComboBox : System.Windows.Forms.ComboBox
 	{

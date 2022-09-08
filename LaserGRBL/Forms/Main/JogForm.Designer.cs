@@ -1,4 +1,4 @@
-﻿namespace LaserGRBL
+﻿namespace LaserGRBLPlus
 {
 	partial class JogForm
 	{
@@ -31,28 +31,28 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(JogForm));
             this.tlp = new System.Windows.Forms.TableLayoutPanel();
-            this.BtnHome = new LaserGRBL.DirectionButton();
-            this.BtnW = new LaserGRBL.DirectionButton();
-            this.BtnN = new LaserGRBL.DirectionButton();
-            this.BtnE = new LaserGRBL.DirectionButton();
-            this.BtnNW = new LaserGRBL.DirectionButton();
-            this.BtnNE = new LaserGRBL.DirectionButton();
-            this.BtnS = new LaserGRBL.DirectionButton();
-            this.BtnSW = new LaserGRBL.DirectionButton();
-            this.BtnSE = new LaserGRBL.DirectionButton();
+            this.BtnHome = new LaserGRBLPlus.DirectionButton();
+            this.BtnW = new LaserGRBLPlus.DirectionButton();
+            this.BtnN = new LaserGRBLPlus.DirectionButton();
+            this.BtnE = new LaserGRBLPlus.DirectionButton();
+            this.BtnNW = new LaserGRBLPlus.DirectionButton();
+            this.BtnNE = new LaserGRBLPlus.DirectionButton();
+            this.BtnS = new LaserGRBLPlus.DirectionButton();
+            this.BtnSW = new LaserGRBLPlus.DirectionButton();
+            this.BtnSE = new LaserGRBLPlus.DirectionButton();
             this.TlpSpeedControl = new System.Windows.Forms.TableLayoutPanel();
             this.TbSpeed = new System.Windows.Forms.TrackBar();
             this.LblSpeed = new System.Windows.Forms.Label();
             this.TlpStepControl = new System.Windows.Forms.TableLayoutPanel();
-            this.TbStep = new LaserGRBL.StepBar();
+            this.TbStep = new LaserGRBLPlus.StepBar();
             this.LblStep = new System.Windows.Forms.Label();
             this.TlpZControl = new System.Windows.Forms.TableLayoutPanel();
-            this.BtnZup01 = new LaserGRBL.DirectionStepButton();
-            this.BtnZup1 = new LaserGRBL.DirectionStepButton();
-            this.BtnZup10 = new LaserGRBL.DirectionStepButton();
-            this.BtnZdown10 = new LaserGRBL.DirectionStepButton();
-            this.BtnZdown1 = new LaserGRBL.DirectionStepButton();
-            this.BtnZdown01 = new LaserGRBL.DirectionStepButton();
+            this.BtnZup01 = new LaserGRBLPlus.DirectionStepButton();
+            this.BtnZup1 = new LaserGRBLPlus.DirectionStepButton();
+            this.BtnZup10 = new LaserGRBLPlus.DirectionStepButton();
+            this.BtnZdown10 = new LaserGRBLPlus.DirectionStepButton();
+            this.BtnZdown1 = new LaserGRBLPlus.DirectionStepButton();
+            this.BtnZdown01 = new LaserGRBLPlus.DirectionStepButton();
             this.label1 = new System.Windows.Forms.Label();
             this.TT = new System.Windows.Forms.ToolTip(this.components);
             this.UpdateFMax = new System.Windows.Forms.Timer(this.components);
@@ -106,12 +106,12 @@
             this.BtnHome.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.BtnHome.Coloration = System.Drawing.Color.Empty;
             this.BtnHome.Image = ((System.Drawing.Image)(resources.GetObject("BtnHome.Image")));
-            this.BtnHome.JogDirection = LaserGRBL.GrblCore.JogDirection.Home;
+            this.BtnHome.JogDirection = LaserGRBLPlus.GrblCore.JogDirection.Home;
             this.BtnHome.Location = new System.Drawing.Point(107, 45);
             this.BtnHome.MaximumSize = new System.Drawing.Size(48, 48);
             this.BtnHome.Name = "BtnHome";
             this.BtnHome.Size = new System.Drawing.Size(33, 33);
-            this.BtnHome.SizingMode = LaserGRBL.UserControls.ImageButton.SizingModes.StretchImage;
+            this.BtnHome.SizingMode = LaserGRBLPlus.UserControls.ImageButton.SizingModes.StretchImage;
             this.BtnHome.TabIndex = 7;
             this.BtnHome.TabStop = false;
             this.BtnHome.UseAltImage = false;
@@ -125,12 +125,12 @@
             this.BtnW.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.BtnW.Coloration = System.Drawing.Color.Empty;
             this.BtnW.Image = ((System.Drawing.Image)(resources.GetObject("BtnW.Image")));
-            this.BtnW.JogDirection = LaserGRBL.GrblCore.JogDirection.W;
+            this.BtnW.JogDirection = LaserGRBLPlus.GrblCore.JogDirection.W;
             this.BtnW.Location = new System.Drawing.Point(66, 45);
             this.BtnW.MaximumSize = new System.Drawing.Size(48, 48);
             this.BtnW.Name = "BtnW";
             this.BtnW.Size = new System.Drawing.Size(33, 33);
-            this.BtnW.SizingMode = LaserGRBL.UserControls.ImageButton.SizingModes.StretchImage;
+            this.BtnW.SizingMode = LaserGRBLPlus.UserControls.ImageButton.SizingModes.StretchImage;
             this.BtnW.TabIndex = 8;
             this.BtnW.TabStop = false;
             this.BtnW.UseAltImage = false;
@@ -144,12 +144,12 @@
             this.BtnN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.BtnN.Coloration = System.Drawing.Color.Empty;
             this.BtnN.Image = ((System.Drawing.Image)(resources.GetObject("BtnN.Image")));
-            this.BtnN.JogDirection = LaserGRBL.GrblCore.JogDirection.N;
+            this.BtnN.JogDirection = LaserGRBLPlus.GrblCore.JogDirection.N;
             this.BtnN.Location = new System.Drawing.Point(107, 6);
             this.BtnN.MaximumSize = new System.Drawing.Size(48, 48);
             this.BtnN.Name = "BtnN";
             this.BtnN.Size = new System.Drawing.Size(33, 33);
-            this.BtnN.SizingMode = LaserGRBL.UserControls.ImageButton.SizingModes.StretchImage;
+            this.BtnN.SizingMode = LaserGRBLPlus.UserControls.ImageButton.SizingModes.StretchImage;
             this.BtnN.TabIndex = 9;
             this.BtnN.TabStop = false;
             this.BtnN.UseAltImage = false;
@@ -163,12 +163,12 @@
             this.BtnE.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.BtnE.Coloration = System.Drawing.Color.Empty;
             this.BtnE.Image = ((System.Drawing.Image)(resources.GetObject("BtnE.Image")));
-            this.BtnE.JogDirection = LaserGRBL.GrblCore.JogDirection.E;
+            this.BtnE.JogDirection = LaserGRBLPlus.GrblCore.JogDirection.E;
             this.BtnE.Location = new System.Drawing.Point(148, 45);
             this.BtnE.MaximumSize = new System.Drawing.Size(48, 48);
             this.BtnE.Name = "BtnE";
             this.BtnE.Size = new System.Drawing.Size(33, 33);
-            this.BtnE.SizingMode = LaserGRBL.UserControls.ImageButton.SizingModes.StretchImage;
+            this.BtnE.SizingMode = LaserGRBLPlus.UserControls.ImageButton.SizingModes.StretchImage;
             this.BtnE.TabIndex = 11;
             this.BtnE.TabStop = false;
             this.BtnE.UseAltImage = false;
@@ -182,12 +182,12 @@
             this.BtnNW.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.BtnNW.Coloration = System.Drawing.Color.Empty;
             this.BtnNW.Image = ((System.Drawing.Image)(resources.GetObject("BtnNW.Image")));
-            this.BtnNW.JogDirection = LaserGRBL.GrblCore.JogDirection.NW;
+            this.BtnNW.JogDirection = LaserGRBLPlus.GrblCore.JogDirection.NW;
             this.BtnNW.Location = new System.Drawing.Point(66, 6);
             this.BtnNW.MaximumSize = new System.Drawing.Size(48, 48);
             this.BtnNW.Name = "BtnNW";
             this.BtnNW.Size = new System.Drawing.Size(33, 33);
-            this.BtnNW.SizingMode = LaserGRBL.UserControls.ImageButton.SizingModes.StretchImage;
+            this.BtnNW.SizingMode = LaserGRBLPlus.UserControls.ImageButton.SizingModes.StretchImage;
             this.BtnNW.TabIndex = 13;
             this.BtnNW.TabStop = false;
             this.BtnNW.UseAltImage = false;
@@ -201,12 +201,12 @@
             this.BtnNE.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.BtnNE.Coloration = System.Drawing.Color.Empty;
             this.BtnNE.Image = ((System.Drawing.Image)(resources.GetObject("BtnNE.Image")));
-            this.BtnNE.JogDirection = LaserGRBL.GrblCore.JogDirection.NE;
+            this.BtnNE.JogDirection = LaserGRBLPlus.GrblCore.JogDirection.NE;
             this.BtnNE.Location = new System.Drawing.Point(148, 6);
             this.BtnNE.MaximumSize = new System.Drawing.Size(48, 48);
             this.BtnNE.Name = "BtnNE";
             this.BtnNE.Size = new System.Drawing.Size(33, 33);
-            this.BtnNE.SizingMode = LaserGRBL.UserControls.ImageButton.SizingModes.StretchImage;
+            this.BtnNE.SizingMode = LaserGRBLPlus.UserControls.ImageButton.SizingModes.StretchImage;
             this.BtnNE.TabIndex = 12;
             this.BtnNE.TabStop = false;
             this.BtnNE.UseAltImage = false;
@@ -220,12 +220,12 @@
             this.BtnS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.BtnS.Coloration = System.Drawing.Color.Empty;
             this.BtnS.Image = ((System.Drawing.Image)(resources.GetObject("BtnS.Image")));
-            this.BtnS.JogDirection = LaserGRBL.GrblCore.JogDirection.S;
+            this.BtnS.JogDirection = LaserGRBLPlus.GrblCore.JogDirection.S;
             this.BtnS.Location = new System.Drawing.Point(106, 84);
             this.BtnS.MaximumSize = new System.Drawing.Size(48, 48);
             this.BtnS.Name = "BtnS";
             this.BtnS.Size = new System.Drawing.Size(35, 35);
-            this.BtnS.SizingMode = LaserGRBL.UserControls.ImageButton.SizingModes.StretchImage;
+            this.BtnS.SizingMode = LaserGRBLPlus.UserControls.ImageButton.SizingModes.StretchImage;
             this.BtnS.TabIndex = 15;
             this.BtnS.TabStop = false;
             this.BtnS.UseAltImage = false;
@@ -239,12 +239,12 @@
             this.BtnSW.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.BtnSW.Coloration = System.Drawing.Color.Empty;
             this.BtnSW.Image = ((System.Drawing.Image)(resources.GetObject("BtnSW.Image")));
-            this.BtnSW.JogDirection = LaserGRBL.GrblCore.JogDirection.SW;
+            this.BtnSW.JogDirection = LaserGRBLPlus.GrblCore.JogDirection.SW;
             this.BtnSW.Location = new System.Drawing.Point(65, 84);
             this.BtnSW.MaximumSize = new System.Drawing.Size(48, 48);
             this.BtnSW.Name = "BtnSW";
             this.BtnSW.Size = new System.Drawing.Size(35, 35);
-            this.BtnSW.SizingMode = LaserGRBL.UserControls.ImageButton.SizingModes.StretchImage;
+            this.BtnSW.SizingMode = LaserGRBLPlus.UserControls.ImageButton.SizingModes.StretchImage;
             this.BtnSW.TabIndex = 14;
             this.BtnSW.TabStop = false;
             this.BtnSW.UseAltImage = false;
@@ -258,12 +258,12 @@
             this.BtnSE.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.BtnSE.Coloration = System.Drawing.Color.Empty;
             this.BtnSE.Image = ((System.Drawing.Image)(resources.GetObject("BtnSE.Image")));
-            this.BtnSE.JogDirection = LaserGRBL.GrblCore.JogDirection.SE;
+            this.BtnSE.JogDirection = LaserGRBLPlus.GrblCore.JogDirection.SE;
             this.BtnSE.Location = new System.Drawing.Point(147, 84);
             this.BtnSE.MaximumSize = new System.Drawing.Size(48, 48);
             this.BtnSE.Name = "BtnSE";
             this.BtnSE.Size = new System.Drawing.Size(35, 35);
-            this.BtnSE.SizingMode = LaserGRBL.UserControls.ImageButton.SizingModes.StretchImage;
+            this.BtnSE.SizingMode = LaserGRBLPlus.UserControls.ImageButton.SizingModes.StretchImage;
             this.BtnSE.TabIndex = 10;
             this.BtnSE.TabStop = false;
             this.BtnSE.UseAltImage = false;
@@ -399,7 +399,7 @@
             this.BtnZup01.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.BtnZup01.Coloration = System.Drawing.Color.Empty;
             this.BtnZup01.Image = ((System.Drawing.Image)(resources.GetObject("BtnZup01.Image")));
-            this.BtnZup01.JogDirection = LaserGRBL.GrblCore.JogDirection.Zup;
+            this.BtnZup01.JogDirection = LaserGRBLPlus.GrblCore.JogDirection.Zup;
             this.BtnZup01.JogStep = (float)new decimal(new int[] {
             1,
             0,
@@ -411,7 +411,7 @@
             this.BtnZup01.MinimumSize = new System.Drawing.Size(16, 16);
             this.BtnZup01.Name = "BtnZup01";
             this.BtnZup01.Size = new System.Drawing.Size(16, 16);
-            this.BtnZup01.SizingMode = LaserGRBL.UserControls.ImageButton.SizingModes.FixedSize;
+            this.BtnZup01.SizingMode = LaserGRBLPlus.UserControls.ImageButton.SizingModes.FixedSize;
             this.BtnZup01.TabIndex = 19;
             this.BtnZup01.TabStop = false;
             this.TT.SetToolTip(this.BtnZup01, "0.1mm");
@@ -425,7 +425,7 @@
             this.BtnZup1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.BtnZup1.Coloration = System.Drawing.Color.Empty;
             this.BtnZup1.Image = ((System.Drawing.Image)(resources.GetObject("BtnZup1.Image")));
-            this.BtnZup1.JogDirection = LaserGRBL.GrblCore.JogDirection.Zup;
+            this.BtnZup1.JogDirection = LaserGRBLPlus.GrblCore.JogDirection.Zup;
             this.BtnZup1.JogStep = (float)new decimal(new int[] {
             10,
             0,
@@ -437,7 +437,7 @@
             this.BtnZup1.MinimumSize = new System.Drawing.Size(16, 16);
             this.BtnZup1.Name = "BtnZup1";
             this.BtnZup1.Size = new System.Drawing.Size(16, 16);
-            this.BtnZup1.SizingMode = LaserGRBL.UserControls.ImageButton.SizingModes.FixedSize;
+            this.BtnZup1.SizingMode = LaserGRBLPlus.UserControls.ImageButton.SizingModes.FixedSize;
             this.BtnZup1.TabIndex = 18;
             this.BtnZup1.TabStop = false;
             this.TT.SetToolTip(this.BtnZup1, "1mm");
@@ -451,7 +451,7 @@
             this.BtnZup10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.BtnZup10.Coloration = System.Drawing.Color.Empty;
             this.BtnZup10.Image = ((System.Drawing.Image)(resources.GetObject("BtnZup10.Image")));
-            this.BtnZup10.JogDirection = LaserGRBL.GrblCore.JogDirection.Zup;
+            this.BtnZup10.JogDirection = LaserGRBLPlus.GrblCore.JogDirection.Zup;
             this.BtnZup10.JogStep = (float)new decimal(new int[] {
             100,
             0,
@@ -463,7 +463,7 @@
             this.BtnZup10.MinimumSize = new System.Drawing.Size(16, 16);
             this.BtnZup10.Name = "BtnZup10";
             this.BtnZup10.Size = new System.Drawing.Size(16, 16);
-            this.BtnZup10.SizingMode = LaserGRBL.UserControls.ImageButton.SizingModes.FixedSize;
+            this.BtnZup10.SizingMode = LaserGRBLPlus.UserControls.ImageButton.SizingModes.FixedSize;
             this.BtnZup10.TabIndex = 17;
             this.BtnZup10.TabStop = false;
             this.TT.SetToolTip(this.BtnZup10, "10mm");
@@ -477,7 +477,7 @@
             this.BtnZdown10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.BtnZdown10.Coloration = System.Drawing.Color.Empty;
             this.BtnZdown10.Image = ((System.Drawing.Image)(resources.GetObject("BtnZdown10.Image")));
-            this.BtnZdown10.JogDirection = LaserGRBL.GrblCore.JogDirection.Zdown;
+            this.BtnZdown10.JogDirection = LaserGRBLPlus.GrblCore.JogDirection.Zdown;
             this.BtnZdown10.JogStep = (float) new decimal(new int[] {
             100,
             0,
@@ -489,7 +489,7 @@
             this.BtnZdown10.MinimumSize = new System.Drawing.Size(16, 16);
             this.BtnZdown10.Name = "BtnZdown10";
             this.BtnZdown10.Size = new System.Drawing.Size(16, 16);
-            this.BtnZdown10.SizingMode = LaserGRBL.UserControls.ImageButton.SizingModes.FixedSize;
+            this.BtnZdown10.SizingMode = LaserGRBLPlus.UserControls.ImageButton.SizingModes.FixedSize;
             this.BtnZdown10.TabIndex = 16;
             this.BtnZdown10.TabStop = false;
             this.TT.SetToolTip(this.BtnZdown10, "10mm");
@@ -503,7 +503,7 @@
             this.BtnZdown1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.BtnZdown1.Coloration = System.Drawing.Color.Empty;
             this.BtnZdown1.Image = ((System.Drawing.Image)(resources.GetObject("BtnZdown1.Image")));
-            this.BtnZdown1.JogDirection = LaserGRBL.GrblCore.JogDirection.Zdown;
+            this.BtnZdown1.JogDirection = LaserGRBLPlus.GrblCore.JogDirection.Zdown;
             this.BtnZdown1.JogStep = (float)new decimal(new int[] {
             10,
             0,
@@ -515,7 +515,7 @@
             this.BtnZdown1.MinimumSize = new System.Drawing.Size(16, 16);
             this.BtnZdown1.Name = "BtnZdown1";
             this.BtnZdown1.Size = new System.Drawing.Size(16, 16);
-            this.BtnZdown1.SizingMode = LaserGRBL.UserControls.ImageButton.SizingModes.FixedSize;
+            this.BtnZdown1.SizingMode = LaserGRBLPlus.UserControls.ImageButton.SizingModes.FixedSize;
             this.BtnZdown1.TabIndex = 15;
             this.BtnZdown1.TabStop = false;
             this.TT.SetToolTip(this.BtnZdown1, "1mm");
@@ -529,7 +529,7 @@
             this.BtnZdown01.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.BtnZdown01.Coloration = System.Drawing.Color.Empty;
             this.BtnZdown01.Image = ((System.Drawing.Image)(resources.GetObject("BtnZdown01.Image")));
-            this.BtnZdown01.JogDirection = LaserGRBL.GrblCore.JogDirection.Zdown;
+            this.BtnZdown01.JogDirection = LaserGRBLPlus.GrblCore.JogDirection.Zdown;
             this.BtnZdown01.JogStep = (float)new decimal(new int[] {
             1,
             0,
@@ -541,7 +541,7 @@
             this.BtnZdown01.MinimumSize = new System.Drawing.Size(16, 16);
             this.BtnZdown01.Name = "BtnZdown01";
             this.BtnZdown01.Size = new System.Drawing.Size(16, 16);
-            this.BtnZdown01.SizingMode = LaserGRBL.UserControls.ImageButton.SizingModes.FixedSize;
+            this.BtnZdown01.SizingMode = LaserGRBLPlus.UserControls.ImageButton.SizingModes.FixedSize;
             this.BtnZdown01.TabIndex = 14;
             this.BtnZdown01.TabStop = false;
             this.TT.SetToolTip(this.BtnZdown01, "0.1mm");

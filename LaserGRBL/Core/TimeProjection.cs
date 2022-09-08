@@ -1,9 +1,9 @@
-﻿using LaserGRBL.Libraries.GRBLLibrary;
+﻿using LaserGRBLPlus.Libraries.GRBLLibrary;
 using Sound;
 using System;
 using System.Collections.Generic;
 
-namespace LaserGRBL.Core
+namespace LaserGRBLPlus.Core
 {
 	public class TimeProjection
 	{

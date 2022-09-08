@@ -7,7 +7,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace LaserGRBL
+namespace LaserGRBLPlus
 {
     /// <summary>
     /// Description of Settings.
@@ -24,7 +24,7 @@ namespace LaserGRBL
         {
             get
             {
-                string basename = "LaserGRBL.Settings.bin";
+                string basename = "LaserGRBLPlus.Settings.bin";
                 string fullname = System.IO.Path.Combine(GrblCore.DataPath, basename);
                 if (!System.IO.File.Exists(fullname) && System.IO.File.Exists(basename))
                 {

@@ -7,10 +7,10 @@
 using System;
 using System.Collections.Generic;
 using System.Drawing;
-using LaserGRBL.Core;
-using LaserGRBL.CSV;
+using LaserGRBLPlus.Core;
+using LaserGRBLPlus.CSV;
 
-namespace LaserGRBL.Libraries.GRBLLibrary
+namespace LaserGRBLPlus.Libraries.GRBLLibrary
 {
 	/// <summary>
 	/// This is a single grbl command

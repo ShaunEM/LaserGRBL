@@ -1,4 +1,4 @@
-﻿namespace LaserGRBL.UserControls
+﻿namespace LaserGRBLPlus.UserControls
 {
     partial class ColorSlider
     {

@@ -137,7 +137,7 @@
 - Υποστήριξη έκφρασης μαθηματικών σε αγκύλες: δηλαδή G0 X [αριστερά-5] Y [κάτω-5]
 - Διαθέσιμες μεταβλητές: αριστερά, δεξιά, πάνω, κάτω, πλάτος, ύψος .. (και περισσότερα)
 
-Δείτε https://lasergrbl.com/usage/custom-buttons/</value>
+Δείτε https://LaserGRBLPlus.com/usage/custom-buttons/</value>
   </data>
   <data name="LblType.Text" xml:space="preserve">
     <value>Τύπος:</value>

@@ -1,4 +1,4 @@
-﻿namespace LaserGRBL.PSHelper
+﻿namespace LaserGRBLPlus.PSHelper
 {
 	partial class PSHelperForm
 	{

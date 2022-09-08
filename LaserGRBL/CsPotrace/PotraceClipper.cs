@@ -5,7 +5,7 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
-using static LaserGRBL.Libraries.GRBLLibrary.GrblFile;
+using static LaserGRBLPlus.Libraries.GRBLLibrary.GrblFile;
 
 namespace CsPotrace
 {
@@ -15,7 +15,7 @@ namespace CsPotrace
 
 		internal static List<List<Curve>> BuildFilling(List<List<Curve>> plist, double w, double h, L2LConf c)
 		{
-			if (c.dir == LaserGRBL.RasterConverter.ImageProcessor.Direction.NewInsetFilling)
+			if (c.dir == LaserGRBLPlus.RasterConverter.ImageProcessor.Direction.NewInsetFilling)
 				return BuildInsetFilling(plist, c);
 			else
 				return BuildGridFilling(plist, w, h, c);
@@ -37,7 +37,7 @@ namespace CsPotrace
 			return ToPotraceList(ll, false);
 		}
 
-		private static List<List<Curve>> BuildInsetFilling(List<List<Curve>> plist, LaserGRBL.Libraries.GRBLLibrary.GrblFile.L2LConf cnf)
+		private static List<List<Curve>> BuildInsetFilling(List<List<Curve>> plist, LaserGRBLPlus.Libraries.GRBLLibrary.GrblFile.L2LConf cnf)
 		{
 			double spacing = cnf.res / cnf.fres;
 			List<List<Curve>> flist = new List<List<Curve>>();
@@ -162,9 +162,9 @@ namespace CsPotrace
 			c.AddPath(subject, JoinType.jtRound, EndType.etClosedPolygon);
 		}
 
-		static void AddGridSubject(Clipper c, double w, double h, LaserGRBL.Libraries.GRBLLibrary.GrblFile.L2LConf cnf)
+		static void AddGridSubject(Clipper c, double w, double h, LaserGRBLPlus.Libraries.GRBLLibrary.GrblFile.L2LConf cnf)
 		{
-			LaserGRBL.RasterConverter.ImageProcessor.Direction dir = cnf.dir;
+			LaserGRBLPlus.RasterConverter.ImageProcessor.Direction dir = cnf.dir;
 
 			double step = cnf.res / cnf.fres;
 			double dstep = step * Math.Sqrt(2); //step for diagonal (1.414)
@@ -178,28 +178,28 @@ namespace CsPotrace
 			//double cX = (stepmm - cnf.oX % stepmm) * cnf.res;
 			//double cY = (stepmm - cnf.oY % stepmm) * cnf.res;
 
-			if (dir == LaserGRBL.RasterConverter.ImageProcessor.Direction.NewHorizontal || dir == LaserGRBL.RasterConverter.ImageProcessor.Direction.NewGrid)
+			if (dir == LaserGRBLPlus.RasterConverter.ImageProcessor.Direction.NewHorizontal || dir == LaserGRBLPlus.RasterConverter.ImageProcessor.Direction.NewGrid)
 			{
 				for (int y = 1; y < (h / step); y ++)
 					AddSegment(paths, 0, y * step, w, y * step, y % 2 == 1);
 			}
-			if (dir == LaserGRBL.RasterConverter.ImageProcessor.Direction.NewVertical || dir == LaserGRBL.RasterConverter.ImageProcessor.Direction.NewGrid)
+			if (dir == LaserGRBLPlus.RasterConverter.ImageProcessor.Direction.NewVertical || dir == LaserGRBLPlus.RasterConverter.ImageProcessor.Direction.NewGrid)
 			{
 				for (int x = 1; x < (w / step); x++)
 					AddSegment(paths, x * step, 0, x * step, h, x % 2 == 0);
 			}
-			if (dir == LaserGRBL.RasterConverter.ImageProcessor.Direction.NewDiagonal || dir == LaserGRBL.RasterConverter.ImageProcessor.Direction.NewDiagonalGrid)
+			if (dir == LaserGRBLPlus.RasterConverter.ImageProcessor.Direction.NewDiagonal || dir == LaserGRBLPlus.RasterConverter.ImageProcessor.Direction.NewDiagonalGrid)
 			{
 				for (int i = 0 ; i < (w + h) / dstep; i ++)
 					AddSegment(paths, 0, i * dstep, i * dstep, 0, i % 2 == 0);
 			}
-			if (dir == LaserGRBL.RasterConverter.ImageProcessor.Direction.NewReverseDiagonal || dir == LaserGRBL.RasterConverter.ImageProcessor.Direction.NewDiagonalGrid)
+			if (dir == LaserGRBLPlus.RasterConverter.ImageProcessor.Direction.NewReverseDiagonal || dir == LaserGRBLPlus.RasterConverter.ImageProcessor.Direction.NewDiagonalGrid)
 			{
 				for (int i = 0; i < (w + h) / dstep; i++)
 					AddSegment(paths, 0, h - (i * dstep), i * dstep, h, i % 2 == 1);
 			}
 
-			if (dir == LaserGRBL.RasterConverter.ImageProcessor.Direction.NewCross)
+			if (dir == LaserGRBLPlus.RasterConverter.ImageProcessor.Direction.NewCross)
 			{
 				double cl = step / 3; //cross len
 				for (int y = 1; y < (h / step); y++)
@@ -212,7 +212,7 @@ namespace CsPotrace
 				}
 			}
 
-			if (dir == LaserGRBL.RasterConverter.ImageProcessor.Direction.NewDiagonalCross)
+			if (dir == LaserGRBLPlus.RasterConverter.ImageProcessor.Direction.NewDiagonalCross)
 			{
 				double cl = rdstep / 3;
 				for (int y = 0; y < (h / step) + 1; y++)
@@ -224,7 +224,7 @@ namespace CsPotrace
 					}
 				}
 			}
-			if (dir == LaserGRBL.RasterConverter.ImageProcessor.Direction.NewSquares)
+			if (dir == LaserGRBLPlus.RasterConverter.ImageProcessor.Direction.NewSquares)
 			{
 				double cl = step / 3;
 				for (int y = 0; y < (h / step) + 1; y++)
@@ -241,7 +241,7 @@ namespace CsPotrace
 					}
 				}
 			}
-			if (dir == LaserGRBL.RasterConverter.ImageProcessor.Direction.NewZigZag)
+			if (dir == LaserGRBLPlus.RasterConverter.ImageProcessor.Direction.NewZigZag)
 			{
 				double hs = dstep / 2;	//halfstep
 
@@ -279,7 +279,7 @@ namespace CsPotrace
 					AddPathPoints(paths, list);
 				}
 			}
-			if (dir == LaserGRBL.RasterConverter.ImageProcessor.Direction.NewHilbert)
+			if (dir == LaserGRBLPlus.RasterConverter.ImageProcessor.Direction.NewHilbert)
 			{
 				int n = 6;
 				float ts = (float)(Math.Pow(2, n) * step);

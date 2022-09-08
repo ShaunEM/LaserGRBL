@@ -4,13 +4,13 @@
 // This program is distributed in the hope that it will be useful, but  WITHOUT ANY WARRANTY; without even the implied warranty of  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GPLv3  General Public License for more details.
 // You should have received a copy of the GPLv3 General Public License  along with this program; if not, write to the Free Software  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307,  USA. using System;
 
-using LaserGRBL.Libraries.GRBLLibrary;
-using LaserGRBL.PSHelper;
+using LaserGRBLPlus.Libraries.GRBLLibrary;
+using LaserGRBLPlus.PSHelper;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace LaserGRBL.RasterConverter
+namespace LaserGRBLPlus.RasterConverter
 {
 	/// <summary>
 	/// Description of ConvertSizeAndOptionForm.
@@ -240,12 +240,12 @@ namespace LaserGRBL.RasterConverter
 
 		private void BtnOnOffInfo_Click(object sender, EventArgs e)
 		{
-			Tools.Utils.OpenLink(@"https://lasergrbl.com/usage/raster-image-import/target-image-size-and-laser-options/#laser-modes");
+			Tools.Utils.OpenLink(@"https://LaserGRBLPlus.com/usage/raster-image-import/target-image-size-and-laser-options/#laser-modes");
 		}
 
 		private void BtnModulationInfo_Click(object sender, EventArgs e)
 		{
-			Tools.Utils.OpenLink(@"https://lasergrbl.com/usage/raster-image-import/target-image-size-and-laser-options/#power-modulation");
+			Tools.Utils.OpenLink(@"https://LaserGRBLPlus.com/usage/raster-image-import/target-image-size-and-laser-options/#power-modulation");
 		}
 
 		private void CBLaserON_SelectedIndexChanged(object sender, EventArgs e)

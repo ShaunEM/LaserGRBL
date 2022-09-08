@@ -62,7 +62,7 @@ namespace Tools
 
 				try
 				{
-					filename = System.IO.Path.Combine(LaserGRBL.GrblCore.DataPath, filename);
+					filename = System.IO.Path.Combine(LaserGRBLPlus.GrblCore.DataPath, filename);
 					tmpfile = Path.GetDirectoryName(filename) + Path.DirectorySeparatorChar + "tmp_" + System.IO.Path.GetRandomFileName();
 					backupfile = filename + ".bak";
 
@@ -140,7 +140,7 @@ namespace Tools
 			lock (ThreadLock)
 			{
 				Exception err = null;
-				filename = System.IO.Path.Combine(LaserGRBL.GrblCore.DataPath, filename);
+				filename = System.IO.Path.Combine(LaserGRBLPlus.GrblCore.DataPath, filename);
 
 				if ((File.Exists(filename + ".bak") & !File.Exists(filename)))
 					ManageOrphanTmp(filename);
@@ -635,7 +635,7 @@ namespace Tools
 
 			public void WriteLogLines(string Text)
 			{
-				LaserGRBL.Logger.LogMessage("Serialization", Text);
+				LaserGRBLPlus.Logger.LogMessage("Serialization", Text);
 			}
 
 			public void WriteEmptyLine()
@@ -646,7 +646,7 @@ namespace Tools
 			public void WriteSeparator()
 			{
 				WriteLogLines("");
-				LaserGRBL.Logger.LogMessage("Serialization", "---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+				LaserGRBLPlus.Logger.LogMessage("Serialization", "---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
 			}
 
 

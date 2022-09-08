@@ -4,7 +4,7 @@
 // This program is distributed in the hope that it will be useful, but  WITHOUT ANY WARRANTY; without even the implied warranty of  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GPLv3  General Public License for more details.
 // You should have received a copy of the GPLv3 General Public License  along with this program; if not, write to the Free Software  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307,  USA. using System;
 
-using LaserGRBL.Libraries.GRBLLibrary;
+using LaserGRBLPlus.Libraries.GRBLLibrary;
 using System;
 using System.Drawing;
 using System.Linq;
@@ -14,7 +14,7 @@ using System.Windows.Threading;
 using Tools;
 using static Tools.ModifyProgressBarColor;
 
-namespace LaserGRBL
+namespace LaserGRBLPlus
 {
     public partial class MainForm : Form
 	{
@@ -182,7 +182,7 @@ namespace LaserGRBL
 			else
 			{
 				if (error != null)
-					MessageBox.Show(this, "Cannot check for new version, please verify http://lasergrbl.com manually.", "Software info", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+					MessageBox.Show(this, "Cannot check for new version, please verify http://LaserGRBLPlus.com manually.", "Software info", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
 				else if (available != null)
 					NewVersionForm.CreateAndShowDialog(current, available, this);
 				else
@@ -325,11 +325,11 @@ namespace LaserGRBL
 
 				if (wt == ComWrapper.WrapperType.UsbSerial || wt == ComWrapper.WrapperType.UsbSerial2)
                 {
-					url = "https://lasergrbl.com/usage/arduino-connection/";
+					url = "https://LaserGRBLPlus.com/usage/arduino-connection/";
                 }
 				else if (wt == ComWrapper.WrapperType.Telnet || wt == ComWrapper.WrapperType.LaserWebESP8266)
                 {
-					url = "https://lasergrbl.com/usage/wifi-with-esp8266/";
+					url = "https://LaserGRBLPlus.com/usage/wifi-with-esp8266/";
                 }
 
 				if (url != null)
@@ -609,7 +609,7 @@ namespace LaserGRBL
 
 		private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			Tools.Utils.OpenLink(@"https://lasergrbl.com/faq/");
+			Tools.Utils.OpenLink(@"https://LaserGRBLPlus.com/faq/");
 		}
 
 		private void splitContainer1_SplitterMoved(object sender, SplitterEventArgs e)
@@ -671,7 +671,7 @@ namespace LaserGRBL
 
 		private void MNGrblEmulator_Click(object sender, EventArgs e)
 		{
-			LaserGRBL.GrblEmulator.WebSocketEmulator.Start();
+			LaserGRBLPlus.GrblEmulator.WebSocketEmulator.Start();
 		}
 
 		private void blueLaserToolStripMenuItem_Click(object sender, EventArgs e)
@@ -713,7 +713,7 @@ namespace LaserGRBL
 
 		private void donateToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			Tools.Utils.OpenLink(@"https://lasergrbl.com/donate");
+			Tools.Utils.OpenLink(@"https://LaserGRBLPlus.com/donate");
 		}
 
 
@@ -959,12 +959,12 @@ namespace LaserGRBL
 
 		private void orturSupportGroupToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			Tools.Utils.OpenLink(@"https://lasergrbl.com/orturfacebook/");
+			Tools.Utils.OpenLink(@"https://LaserGRBLPlus.com/orturfacebook/");
 		}
 
 		private void orturWebsiteToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			Tools.Utils.OpenLink(@"https://lasergrbl.com/orturwebsite/");
+			Tools.Utils.OpenLink(@"https://LaserGRBLPlus.com/orturwebsite/");
 		}
 
 		private void traditionalChineseToolStripMenuItem_Click(object sender, EventArgs e)
@@ -974,17 +974,17 @@ namespace LaserGRBL
 
 		private void youtubeChannelToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			Tools.Utils.OpenLink(@"https://lasergrbl.com/orturYTchannel/");
+			Tools.Utils.OpenLink(@"https://LaserGRBLPlus.com/orturYTchannel/");
 		}
 
 		private void firmwareToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			Tools.Utils.OpenLink(@"https://lasergrbl.com/ortur-firmware/");
+			Tools.Utils.OpenLink(@"https://LaserGRBLPlus.com/ortur-firmware/");
 		}
 
 		private void manualsDownloadToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			Tools.Utils.OpenLink(@"https://lasergrbl.com/ortur-manuals/");
+			Tools.Utils.OpenLink(@"https://LaserGRBLPlus.com/ortur-manuals/");
 		}
 
 		private void MultipleInstanceTimer_Tick(object sender, EventArgs e)
@@ -1007,7 +1007,7 @@ namespace LaserGRBL
 
 		private void orturSupportAndFeedbackToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			Tools.Utils.OpenLink(@"https://lasergrbl.com/ortursupport/");
+			Tools.Utils.OpenLink(@"https://LaserGRBLPlus.com/ortursupport/");
 		}
 
 		private void TTLinkToNews_Click(object sender, EventArgs e)
@@ -1041,7 +1041,7 @@ namespace LaserGRBL
 
 		private void BtnUnlockFromStuck_Click(object sender, EventArgs e)
 		{
-			if (MessageBox.Show(Strings.WarnBufferStuckUnlockText, Strings.WarnBufferStuckUnlockTitle, MessageBoxButtons.OKCancel, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1, 0, "http://lasergrbl.com/faq", "issues") == DialogResult.OK)
+			if (MessageBox.Show(Strings.WarnBufferStuckUnlockText, Strings.WarnBufferStuckUnlockTitle, MessageBoxButtons.OKCancel, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1, 0, "http://LaserGRBLPlus.com/faq", "issues") == DialogResult.OK)
 			{
 				Core.UnlockFromBufferStuck(false);
 			}
@@ -1059,7 +1059,7 @@ namespace LaserGRBL
 
 		private void TTTStatus_DoubleClick(object sender, EventArgs e)
 		{
-			Tools.Utils.OpenLink(@"https://lasergrbl.com/usage/machine-status/");
+			Tools.Utils.OpenLink(@"https://LaserGRBLPlus.com/usage/machine-status/");
 		}
 
         private void ConnectionForm_Load(object sender, EventArgs e)

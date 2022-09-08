@@ -13,7 +13,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace LaserGRBL.GrblEmulator
+namespace LaserGRBLPlus.GrblEmulator
 {
 	public partial class EmulatorUI : Form
 	{

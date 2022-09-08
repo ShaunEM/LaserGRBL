@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 
-namespace LaserGRBL.PSHelper
+namespace LaserGRBLPlus.PSHelper
 {
 
 
@@ -178,7 +178,7 @@ namespace LaserGRBL.PSHelper
         }
 
 
-        private static string UserFile { get => System.IO.Path.Combine(LaserGRBL.GrblCore.DataPath, "UserMaterials.psh"); }
-        private static string ServerFile { get => System.IO.Path.Combine(LaserGRBL.GrblCore.ExePath, "StandardMaterials.psh"); }
+        private static string UserFile { get => System.IO.Path.Combine(LaserGRBLPlus.GrblCore.DataPath, "UserMaterials.psh"); }
+        private static string ServerFile { get => System.IO.Path.Combine(LaserGRBLPlus.GrblCore.ExePath, "StandardMaterials.psh"); }
     }
 }

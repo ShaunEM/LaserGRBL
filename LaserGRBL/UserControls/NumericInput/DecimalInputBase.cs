@@ -8,7 +8,7 @@ using System.ComponentModel;
 using System.Drawing;
 using System;
 
-namespace LaserGRBL.UserControls.NumericInput
+namespace LaserGRBLPlus.UserControls.NumericInput
 {
 
     [DefaultEvent("CurrentValueChanged")]

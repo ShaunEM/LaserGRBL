@@ -1,4 +1,4 @@
-﻿namespace LaserGRBL
+﻿namespace LaserGRBLPlus
 {
 	partial class HotkeyManagerForm
 	{
@@ -35,7 +35,7 @@
             this.BtnCancel = new System.Windows.Forms.Button();
             this.BtnSave = new System.Windows.Forms.Button();
             this.GB = new System.Windows.Forms.GroupBox();
-            this.DGV = new LaserGRBL.MyDatagridView();
+            this.DGV = new LaserGRBLPlus.MyDatagridView();
             this.Action = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Shortcut = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel1.SuspendLayout();

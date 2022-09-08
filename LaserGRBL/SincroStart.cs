@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace LaserGRBL
+namespace LaserGRBLPlus
 {
     public static class SincroStart
 	{

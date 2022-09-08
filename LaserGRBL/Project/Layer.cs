@@ -1,9 +1,9 @@
-﻿using LaserGRBL.Libraries.GRBLLibrary;
-using LaserGRBL.Project;
+﻿using LaserGRBLPlus.Libraries.GRBLLibrary;
+using LaserGRBLPlus.Project;
 using System.Drawing;
 using System.Xml.Linq;
 
-namespace LaserGRBL
+namespace LaserGRBLPlus
 {
     public class Layer
     {

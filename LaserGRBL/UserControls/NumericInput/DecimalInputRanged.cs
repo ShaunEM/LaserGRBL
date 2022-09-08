@@ -8,7 +8,7 @@ using System;
 using System.Drawing;
 using System.ComponentModel;
 
-namespace LaserGRBL.UserControls.NumericInput
+namespace LaserGRBLPlus.UserControls.NumericInput
 {
     public class DecimalInputRanged : DecimalInputBase
     {

@@ -5,21 +5,21 @@
 // You should have received a copy of the GPLv3 General Public License  along with this program; if not, write to the Free Software  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307,  USA. using System;
 
 using CsPotrace;
-using LaserGRBL.Libraries.GRBLLibrary;
-using LaserGRBL.Project;
+using LaserGRBLPlus.Libraries.GRBLLibrary;
+using LaserGRBLPlus.Project;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.IO;
 using System.Threading;
-using static LaserGRBL.RasterConverter.ImageProcessor;
+using static LaserGRBLPlus.RasterConverter.ImageProcessor;
 
 
 
 
 
-namespace LaserGRBL.RasterConverter
+namespace LaserGRBLPlus.RasterConverter
 {
 	/// <summary>
 	/// Not sure what to make of this?

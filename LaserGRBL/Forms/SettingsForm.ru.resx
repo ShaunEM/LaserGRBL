@@ -204,7 +204,7 @@
   </data>
   <data name="label9.Text" xml:space="preserve">
     <value>Тип прошивки
-- Grbl: потрясающая прошивка, для которой была разработана LaserGRBL.
+- Grbl: потрясающая прошивка, для которой была разработана LaserGRBLPlus.
 - Smoothie [экспериментальная]: поддержка была добавлена недавно и не полностью протестирована.</value>
   </data>
   <data name="TpAutoCooling.Text" xml:space="preserve">

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace LaserGRBL.Libraries.GRBLLibrary
+namespace LaserGRBLPlus.Libraries.GRBLLibrary
 {
     [Serializable]
 	public class GrblConf : IEnumerable<System.Collections.Generic.KeyValuePair<int, float>>

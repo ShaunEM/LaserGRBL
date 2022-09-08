@@ -11,7 +11,7 @@ using System.Text;
 using System.IO;
 using WebSocketSharp;
 
-namespace LaserGRBL.ComWrapper
+namespace LaserGRBLPlus.ComWrapper
 {
 	class LaserWebESP8266 : IComWrapper
 	{

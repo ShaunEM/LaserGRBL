@@ -8,7 +8,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
-namespace LaserGRBL.PSHelper
+namespace LaserGRBLPlus.PSHelper
 {
 	public partial class PSEditorForm : Form
 	{

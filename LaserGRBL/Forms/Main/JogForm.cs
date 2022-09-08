@@ -7,7 +7,7 @@
 using System;
 using System.Windows.Forms;
 
-namespace LaserGRBL
+namespace LaserGRBLPlus
 {
 	public partial class JogForm : System.Windows.Forms.UserControl
 	{

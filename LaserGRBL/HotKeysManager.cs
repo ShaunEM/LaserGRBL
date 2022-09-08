@@ -10,7 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace LaserGRBL
+namespace LaserGRBLPlus
 {
 	[Serializable]
 	public class HotKeysManager : List<HotKeysManager.HotKey>

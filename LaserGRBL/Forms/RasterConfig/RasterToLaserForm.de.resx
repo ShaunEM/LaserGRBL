@@ -712,7 +712,7 @@
     <value>Mittellinien-Vektorisierung</value>
   </data>
   <data name="TbPassthroughInfo.Text" xml:space="preserve">
-    <value>Der Durchreich-Modus lässt das Bild intakt, ohne weitere Verarbeitung durch LaserGRBL. Das Bild wird Linie für Linie eingebrannt, horizontal, entsprehcend der Größe und DPI Auflösung in den Bilddateiinformationen.</value>
+    <value>Der Durchreich-Modus lässt das Bild intakt, ohne weitere Verarbeitung durch LaserGRBLPlus. Das Bild wird Linie für Linie eingebrannt, horizontal, entsprehcend der Größe und DPI Auflösung in den Bilddateiinformationen.</value>
   </data>
   <data name="GbPassthrough.Text" xml:space="preserve">
     <value>Durchreich-Optionen</value>

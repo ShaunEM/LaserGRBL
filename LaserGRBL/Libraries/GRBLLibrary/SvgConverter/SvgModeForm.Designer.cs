@@ -1,4 +1,4 @@
-﻿namespace LaserGRBL.SvgConverter
+﻿namespace LaserGRBLPlus.SvgConverter
 {
 	partial class SvgModeForm
 	{

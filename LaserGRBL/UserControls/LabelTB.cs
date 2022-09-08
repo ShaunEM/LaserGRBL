@@ -12,7 +12,7 @@ using System.Data;
 using System.Text;
 using System.Windows.Forms;
 
-namespace LaserGRBL.UserControls
+namespace LaserGRBLPlus.UserControls
 {
 	public partial class LabelTB : UserControl
 	{

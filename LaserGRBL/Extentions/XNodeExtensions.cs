@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.Xml.Linq;
 using System.Xml;
 
-namespace LaserGRBL.Extentions
+namespace LaserGRBLPlus.Extentions
 {
     public static partial class XNodeExtensions
     {

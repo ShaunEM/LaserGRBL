@@ -12,7 +12,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 
-namespace LaserGRBL
+namespace LaserGRBLPlus
 {
 	public partial class CustomButtonForm : Form
 	{
@@ -148,7 +148,7 @@ namespace LaserGRBL
 				{
 					using (System.Drawing.Image newicon = Bitmap.FromFile(ofd.FileName))
                     {
-						BTOpenImage.Image = LaserGRBL.RasterConverter.ImageTransform.ResizeImage(
+						BTOpenImage.Image = LaserGRBLPlus.RasterConverter.ImageTransform.ResizeImage(
 							newicon, 
 							 new Size(48, 48), 
 							 false, 

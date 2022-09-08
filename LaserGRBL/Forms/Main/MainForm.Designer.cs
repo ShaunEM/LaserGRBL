@@ -1,4 +1,4 @@
-﻿namespace LaserGRBL
+﻿namespace LaserGRBLPlus
 {
 	partial class MainForm
 	{
@@ -134,13 +134,13 @@
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.projectTab = new System.Windows.Forms.TabPage();
-            this.ProjectDetailForm = new LaserGRBL.ProjectDetailForm();
+            this.ProjectDetailForm = new LaserGRBLPlus.ProjectDetailForm();
             this.machineTab = new System.Windows.Forms.TabPage();
-            this.ConnectionForm = new LaserGRBL.ConnectLogForm();
+            this.ConnectionForm = new LaserGRBLPlus.ConnectLogForm();
             this.gcodeTab = new System.Windows.Forms.TabPage();
             this.TTTGCodeDebugLines = new System.Windows.Forms.RichTextBox();
-            this.JogForm = new LaserGRBL.JogForm();
-            this.PreviewForm = new LaserGRBL.PreviewForm();
+            this.JogForm = new LaserGRBLPlus.JogForm();
+            this.PreviewForm = new LaserGRBLPlus.PreviewForm();
             this.StatusBar.SuspendLayout();
             this.MMn.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();

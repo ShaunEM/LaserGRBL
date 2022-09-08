@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LaserGRBL.Libraries.SVGLibrary
+namespace LaserGRBLPlus.Libraries.SVGLibrary
 {
     public class SVGEditor
     {

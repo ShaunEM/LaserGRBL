@@ -2,11 +2,11 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "LaserGRBL"
-#define MyAppVersion "4.8.1"
+#define MyAppVersion "0.1.0"
 #define MyAppVersionName "Rhydon"
-#define MyAppPublisher "LaserGRBL"
-#define MyAppURL "https://lasergrbl.com"
-#define MyAppExeName "LaserGRBL.exe"
+#define MyAppPublisher "LaserGRBLPlus"
+#define MyAppURL ""
+#define MyAppExeName "LaserGRBLPlus.exe"
 
 [Setup]
 ; NOTE: The value of AppId uniquely identifies this application.
@@ -33,7 +33,7 @@ RestartIfNeededByRun=False
 Uninstallable=yes
 UninstallFilesDir={pf}
 SetupIconFile=.\install.ico
-UninstallDisplayIcon={app}\LaserGRBL.exe
+UninstallDisplayIcon={app}\LaserGRBLPlus.exe
 
 [Languages]
 Name: "english"; MessagesFile: "compiler:Default.isl"
@@ -43,28 +43,28 @@ Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{
 ;Name: "quicklaunchicon"; Description: "{cm:CreateQuickLaunchIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
 
 [Files]
-Source: ".\LaserGRBL\bin\Release\LaserGRBL.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: ".\LaserGRBL\bin\Release\LaserGRBL.pdb"; DestDir: "{app}"; Flags: ignoreversion
+Source: ".\LaserGRBL\bin\Release\LaserGRBLPlus.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: ".\LaserGRBL\bin\Release\LaserGRBLPlus.pdb"; DestDir: "{app}"; Flags: ignoreversion
 Source: ".\LaserGRBL\bin\Release\Autotrace\autotrace.exe"; DestDir: "{app}\Autotrace"; Flags: ignoreversion
-Source: ".\LaserGRBL\bin\Release\it\LaserGRBL.resources.dll"; DestDir: "{app}\it"; Flags: ignoreversion
-Source: ".\LaserGRBL\bin\Release\da\LaserGRBL.resources.dll"; DestDir: "{app}\da"; Flags: ignoreversion
-Source: ".\LaserGRBL\bin\Release\de\LaserGRBL.resources.dll"; DestDir: "{app}\de"; Flags: ignoreversion
-Source: ".\LaserGRBL\bin\Release\es\LaserGRBL.resources.dll"; DestDir: "{app}\es"; Flags: ignoreversion
-Source: ".\LaserGRBL\bin\Release\fr\LaserGRBL.resources.dll"; DestDir: "{app}\fr"; Flags: ignoreversion
-Source: ".\LaserGRBL\bin\Release\pt-BR\LaserGRBL.resources.dll"; DestDir: "{app}\pt-BR"; Flags: ignoreversion
-Source: ".\LaserGRBL\bin\Release\ru\LaserGRBL.resources.dll"; DestDir: "{app}\ru"; Flags: ignoreversion
-Source: ".\LaserGRBL\bin\Release\zh-CN\LaserGRBL.resources.dll"; DestDir: "{app}\zh-CN"; Flags: ignoreversion
-Source: ".\LaserGRBL\bin\Release\sk-SK\LaserGRBL.resources.dll"; DestDir: "{app}\sk-SK"; Flags: ignoreversion
-Source: ".\LaserGRBL\bin\Release\hu-HU\LaserGRBL.resources.dll"; DestDir: "{app}\hu-HU"; Flags: ignoreversion
-Source: ".\LaserGRBL\bin\Release\cs-CZ\LaserGRBL.resources.dll"; DestDir: "{app}\cs-CZ"; Flags: ignoreversion
-Source: ".\LaserGRBL\bin\Release\pl-PL\LaserGRBL.resources.dll"; DestDir: "{app}\pl-PL"; Flags: ignoreversion
-Source: ".\LaserGRBL\bin\Release\zh-TW\LaserGRBL.resources.dll"; DestDir: "{app}\zh-TW"; Flags: ignoreversion
-Source: ".\LaserGRBL\bin\Release\el-GR\LaserGRBL.resources.dll"; DestDir: "{app}\el-GR"; Flags: ignoreversion
-Source: ".\LaserGRBL\bin\Release\tr-TR\LaserGRBL.resources.dll"; DestDir: "{app}\tr-TR"; Flags: ignoreversion
-Source: ".\LaserGRBL\bin\Release\ro-RO\LaserGRBL.resources.dll"; DestDir: "{app}\ro-RO"; Flags: ignoreversion
+Source: ".\LaserGRBL\bin\Release\it\LaserGRBLPlus.resources.dll"; DestDir: "{app}\it"; Flags: ignoreversion
+Source: ".\LaserGRBL\bin\Release\da\LaserGRBLPlus.resources.dll"; DestDir: "{app}\da"; Flags: ignoreversion
+Source: ".\LaserGRBL\bin\Release\de\LaserGRBLPlus.resources.dll"; DestDir: "{app}\de"; Flags: ignoreversion
+Source: ".\LaserGRBL\bin\Release\es\LaserGRBLPlus.resources.dll"; DestDir: "{app}\es"; Flags: ignoreversion
+Source: ".\LaserGRBL\bin\Release\fr\LaserGRBLPlus.resources.dll"; DestDir: "{app}\fr"; Flags: ignoreversion
+Source: ".\LaserGRBL\bin\Release\pt-BR\LaserGRBLPlus.resources.dll"; DestDir: "{app}\pt-BR"; Flags: ignoreversion
+Source: ".\LaserGRBL\bin\Release\ru\LaserGRBLPlus.resources.dll"; DestDir: "{app}\ru"; Flags: ignoreversion
+Source: ".\LaserGRBL\bin\Release\zh-CN\LaserGRBLPlus.resources.dll"; DestDir: "{app}\zh-CN"; Flags: ignoreversion
+Source: ".\LaserGRBL\bin\Release\sk-SK\LaserGRBLPlus.resources.dll"; DestDir: "{app}\sk-SK"; Flags: ignoreversion
+Source: ".\LaserGRBL\bin\Release\hu-HU\LaserGRBLPlus.resources.dll"; DestDir: "{app}\hu-HU"; Flags: ignoreversion
+Source: ".\LaserGRBL\bin\Release\cs-CZ\LaserGRBLPlus.resources.dll"; DestDir: "{app}\cs-CZ"; Flags: ignoreversion
+Source: ".\LaserGRBL\bin\Release\pl-PL\LaserGRBLPlus.resources.dll"; DestDir: "{app}\pl-PL"; Flags: ignoreversion
+Source: ".\LaserGRBL\bin\Release\zh-TW\LaserGRBLPlus.resources.dll"; DestDir: "{app}\zh-TW"; Flags: ignoreversion
+Source: ".\LaserGRBL\bin\Release\el-GR\LaserGRBLPlus.resources.dll"; DestDir: "{app}\el-GR"; Flags: ignoreversion
+Source: ".\LaserGRBL\bin\Release\tr-TR\LaserGRBLPlus.resources.dll"; DestDir: "{app}\tr-TR"; Flags: ignoreversion
+Source: ".\LaserGRBL\bin\Release\ro-RO\LaserGRBLPlus.resources.dll"; DestDir: "{app}\ro-RO"; Flags: ignoreversion
 Source: ".\LaserGRBL\bin\Release\Driver\*"; DestDir: "{app}\Driver"; Flags: ignoreversion
 Source: ".\LaserGRBL\bin\Release\Firmware\*"; DestDir: "{app}\Firmware"; Flags: ignoreversion
-Source: ".\LaserGRBL\bin\Release\LaserGRBL.exe.config"; DestDir: "{app}"; Flags: ignoreversion
+Source: ".\LaserGRBL\bin\Release\LaserGRBLPlus.exe.config"; DestDir: "{app}"; Flags: ignoreversion
 Source: ".\LaserGRBL\bin\Release\StandardMaterials.psh"; DestDir: "{app}"; Flags: ignoreversion
 Source: ".\LaserGRBL\bin\Release\StandardButtons.zbn"; DestDir: "{app}"; Flags: ignoreversion
 Source: ".\LaserGRBL\bin\Release\Sound\*"; DestDir: "{app}\Sound"; Flags: ignoreversion
@@ -84,15 +84,15 @@ Filename: "{app}\{#MyAppExeName}"; Description: "{cm:LaunchProgram,{#StringChang
 [Registry]
 Root: HKCR; SubKey: ".nc"; ValueType: string; ValueData: "LaserGRBL gcode file"; Flags: uninsdeletekey
 Root: HKCR; SubKey: "LaserGRBL gcode file"; ValueType: string; ValueData: "GCode file for laser engraving"; Flags: uninsdeletekey
-Root: HKCR; SubKey: "LaserGRBL gcode file\Shell\Open\Command"; ValueType: string; ValueData: """{app}\LaserGRBL.exe"" ""%1"""; Flags: uninsdeletekey
+Root: HKCR; SubKey: "LaserGRBL gcode file\Shell\Open\Command"; ValueType: string; ValueData: """{app}\LaserGRBLPlus.exe"" ""%1"""; Flags: uninsdeletekey
 Root: HKCR; Subkey: "LaserGRBL gcode file\DefaultIcon"; ValueType: string; ValueData: "{app}\lasergrblfile.ico,0"; Flags: uninsdeletevalue
 
 Root: HKCR; SubKey: ".zbn"; ValueType: string; ValueData: "LaserGRBL zipped button"; Flags: uninsdeletekey
 Root: HKCR; SubKey: "LaserGRBL zipped button"; ValueType: string; ValueData: "This file contains LaserGRBL custom buttons"; Flags: uninsdeletekey
-Root: HKCR; SubKey: "LaserGRBL zipped button\Shell\Open\Command"; ValueType: string; ValueData: """{app}\LaserGRBL.exe"" ""%1"""; Flags: uninsdeletekey
+Root: HKCR; SubKey: "LaserGRBL zipped button\Shell\Open\Command"; ValueType: string; ValueData: """{app}\LaserGRBLPlus.exe"" ""%1"""; Flags: uninsdeletekey
 Root: HKCR; Subkey: "LaserGRBL zipped button\DefaultIcon"; ValueType: string; ValueData: "{app}\zippedbutton.ico,0"; Flags: uninsdeletevalue
 
 Root: HKCR; SubKey: ".lps"; ValueType: string; ValueData: "LaserGRBL Project file"; Flags: uninsdeletekey
 Root: HKCR; SubKey: "LaserGRBL Project file"; ValueType: string; ValueData: "Project file for laser engraving"; Flags: uninsdeletekey
-Root: HKCR; SubKey: "LaserGRBL Project file\Shell\Open\Command"; ValueType: string; ValueData: """{app}\LaserGRBL.exe"" ""%1"""; Flags: uninsdeletekey
+Root: HKCR; SubKey: "LaserGRBL Project file\Shell\Open\Command"; ValueType: string; ValueData: """{app}\LaserGRBLPlus.exe"" ""%1"""; Flags: uninsdeletekey
 Root: HKCR; Subkey: "LaserGRBL Project file\DefaultIcon"; ValueType: string; ValueData: "{app}\lasergrblfile.ico,0"; Flags: uninsdeletevalue

@@ -1,6 +1,6 @@
 ﻿using System.Drawing;
 
-namespace LaserGRBL.Extentions
+namespace LaserGRBLPlus.Extentions
 {
     public static class ColorExtentions
     {

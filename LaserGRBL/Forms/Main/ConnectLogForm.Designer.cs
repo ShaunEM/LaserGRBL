@@ -6,7 +6,7 @@
  * 
  * To change this template use Tools | Options | Coding | Edit Standard Headers.
  */
-namespace LaserGRBL
+namespace LaserGRBLPlus
 {
 	partial class ConnectLogForm
 	{
@@ -17,17 +17,17 @@ namespace LaserGRBL
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
 		private System.Windows.Forms.Panel GBCommands;
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
-		private LaserGRBL.UserControls.GrblTextBox TxtManualCommand;
-		private LaserGRBL.UserControls.CommandLog CmdLog;
-		private LaserGRBL.UserControls.DoubleProgressBar PB;
-		private LaserGRBL.UserControls.ImageButton BtnRunProgram;
+		private LaserGRBLPlus.UserControls.GrblTextBox TxtManualCommand;
+		private LaserGRBLPlus.UserControls.CommandLog CmdLog;
+		private LaserGRBLPlus.UserControls.DoubleProgressBar PB;
+		private LaserGRBLPlus.UserControls.ImageButton BtnRunProgram;
 		private System.Windows.Forms.Panel GBConnection;
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
 		private System.Windows.Forms.Label LblComPort;
 		private System.Windows.Forms.Label LblBaudRate;
 		private System.Windows.Forms.ComboBox CBPort;
 		private System.Windows.Forms.ComboBox CBSpeed;
-		private LaserGRBL.UserControls.ImageButton BtnConnectDisconnect;
+		private LaserGRBLPlus.UserControls.ImageButton BtnConnectDisconnect;
 		private System.Windows.Forms.ToolTip TT;
 		
 		/// <summary>
@@ -56,15 +56,15 @@ namespace LaserGRBL
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.GBCommands = new System.Windows.Forms.Panel();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
-            this.TxtManualCommand = new LaserGRBL.UserControls.GrblTextBox();
-            this.CmdLog = new LaserGRBL.UserControls.CommandLog();
+            this.TxtManualCommand = new LaserGRBLPlus.UserControls.GrblTextBox();
+            this.CmdLog = new LaserGRBLPlus.UserControls.CommandLog();
             this.GBFile = new System.Windows.Forms.Panel();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.LblProgress = new System.Windows.Forms.Label();
-            this.PB = new LaserGRBL.UserControls.DoubleProgressBar();
-            this.BtnRunProgram = new LaserGRBL.UserControls.ImageButton();
+            this.PB = new LaserGRBLPlus.UserControls.DoubleProgressBar();
+            this.BtnRunProgram = new LaserGRBLPlus.UserControls.ImageButton();
             this.UDLoopCounter = new System.Windows.Forms.NumericUpDown();
-            this.BtnAbortProgram = new LaserGRBL.UserControls.ImageButton();
+            this.BtnAbortProgram = new LaserGRBLPlus.UserControls.ImageButton();
             this.GBConnection = new System.Windows.Forms.Panel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.LblEmulator = new System.Windows.Forms.Label();
@@ -75,7 +75,7 @@ namespace LaserGRBL
             this.LblAddress = new System.Windows.Forms.Label();
             this.TxtAddress = new System.Windows.Forms.TextBox();
             this.TxtEmulator = new System.Windows.Forms.TextBox();
-            this.BtnConnectDisconnect = new LaserGRBL.UserControls.ImageButton();
+            this.BtnConnectDisconnect = new LaserGRBLPlus.UserControls.ImageButton();
             this.TT = new System.Windows.Forms.ToolTip(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             this.GBCommands.SuspendLayout();
@@ -115,7 +115,7 @@ namespace LaserGRBL
             this.TxtManualCommand.WaterMarkActiveForeColor = System.Drawing.Color.Gray;
             this.TxtManualCommand.WaterMarkFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtManualCommand.WaterMarkForeColor = System.Drawing.Color.LightGray;
-            this.TxtManualCommand.CommandEntered += new LaserGRBL.UserControls.GrblTextBox.CommandEnteredDlg(this.TxtManualCommandCommandEntered);
+            this.TxtManualCommand.CommandEntered += new LaserGRBLPlus.UserControls.GrblTextBox.CommandEnteredDlg(this.TxtManualCommandCommandEntered);
             this.TxtManualCommand.Enter += new System.EventHandler(this.TxtManualCommand_Enter);
             this.TxtManualCommand.Leave += new System.EventHandler(this.TxtManualCommand_Leave);
             // 
@@ -154,7 +154,7 @@ namespace LaserGRBL
             resources.ApplyResources(this.PB, "PB");
             this.PB.DrawProgressString = true;
             this.PB.FillColor = System.Drawing.Color.White;
-            this.PB.FillStyle = LaserGRBL.UserControls.FillStyles.Solid;
+            this.PB.FillStyle = LaserGRBLPlus.UserControls.FillStyles.Solid;
             this.PB.ForeColor = System.Drawing.Color.Black;
             this.PB.Maximum = 100D;
             this.PB.Minimum = 0D;
@@ -175,7 +175,7 @@ namespace LaserGRBL
             this.BtnRunProgram.Coloration = System.Drawing.Color.Empty;
             this.BtnRunProgram.Image = ((System.Drawing.Image)(resources.GetObject("BtnRunProgram.Image")));
             this.BtnRunProgram.Name = "BtnRunProgram";
-            this.BtnRunProgram.SizingMode = LaserGRBL.UserControls.ImageButton.SizingModes.FixedSize;
+            this.BtnRunProgram.SizingMode = LaserGRBLPlus.UserControls.ImageButton.SizingModes.FixedSize;
             this.BtnRunProgram.TabStop = false;
             this.TT.SetToolTip(this.BtnRunProgram, resources.GetString("BtnRunProgram.ToolTip"));
             this.BtnRunProgram.UseAltImage = false;
@@ -212,7 +212,7 @@ namespace LaserGRBL
             this.BtnAbortProgram.Coloration = System.Drawing.Color.Empty;
             this.BtnAbortProgram.Image = ((System.Drawing.Image)(resources.GetObject("BtnAbortProgram.Image")));
             this.BtnAbortProgram.Name = "BtnAbortProgram";
-            this.BtnAbortProgram.SizingMode = LaserGRBL.UserControls.ImageButton.SizingModes.FixedSize;
+            this.BtnAbortProgram.SizingMode = LaserGRBLPlus.UserControls.ImageButton.SizingModes.FixedSize;
             this.BtnAbortProgram.TabStop = false;
             this.TT.SetToolTip(this.BtnAbortProgram, resources.GetString("BtnAbortProgram.ToolTip"));
             this.BtnAbortProgram.UseAltImage = false;
@@ -299,7 +299,7 @@ namespace LaserGRBL
             this.BtnConnectDisconnect.Image = ((System.Drawing.Image)(resources.GetObject("BtnConnectDisconnect.Image")));
             this.BtnConnectDisconnect.Name = "BtnConnectDisconnect";
             this.tableLayoutPanel4.SetRowSpan(this.BtnConnectDisconnect, 3);
-            this.BtnConnectDisconnect.SizingMode = LaserGRBL.UserControls.ImageButton.SizingModes.StretchImage;
+            this.BtnConnectDisconnect.SizingMode = LaserGRBLPlus.UserControls.ImageButton.SizingModes.StretchImage;
             this.BtnConnectDisconnect.TabStop = false;
             this.TT.SetToolTip(this.BtnConnectDisconnect, resources.GetString("BtnConnectDisconnect.ToolTip"));
             this.BtnConnectDisconnect.UseAltImage = false;

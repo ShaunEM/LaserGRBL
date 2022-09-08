@@ -161,7 +161,7 @@ Jeśli masz problemy, ustaw wolniejsze wartości.</value>
   </data>
   <data name="label9.Text" xml:space="preserve">
     <value>Typ oprogramowania kontrolera
-- Grbl: świetne oprogramowanie, dla którego opracowano LaserGRBL.
+- Grbl: świetne oprogramowanie, dla którego opracowano LaserGRBLPlus.
 - Smoothie [eksperymentalne]: Wsparcie zostało dodane niedawno i nie zostało w pełni przetestowane.</value>
   </data>
   <data name="TpHardware.Text" xml:space="preserve">

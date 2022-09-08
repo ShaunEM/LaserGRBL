@@ -1,4 +1,4 @@
-﻿namespace LaserGRBL.RasterConverter
+﻿namespace LaserGRBLPlus.RasterConverter
 {
 	partial class RasterToLaserForm
 	{
@@ -33,19 +33,19 @@
             this.TlpMain = new System.Windows.Forms.TableLayoutPanel();
             this.TCOriginalPreview = new System.Windows.Forms.TabControl();
             this.TpPreview = new System.Windows.Forms.TabPage();
-            this.WB = new LaserGRBL.UserControls.WaitingProgressBar();
+            this.WB = new LaserGRBLPlus.UserControls.WaitingProgressBar();
             this.PbConverted = new System.Windows.Forms.PictureBox();
             this.TpOriginal = new System.Windows.Forms.TabPage();
             this.PbOriginal = new System.Windows.Forms.PictureBox();
             this.FlipControl = new System.Windows.Forms.TableLayoutPanel();
-            this.BtFlipV = new LaserGRBL.UserControls.ImageButton();
-            this.BtFlipH = new LaserGRBL.UserControls.ImageButton();
-            this.BtRotateCW = new LaserGRBL.UserControls.ImageButton();
-            this.BtRotateCCW = new LaserGRBL.UserControls.ImageButton();
-            this.BtnRevert = new LaserGRBL.UserControls.ImageButton();
-            this.BtnCrop = new LaserGRBL.UserControls.ImageButton();
-            this.BtnReverse = new LaserGRBL.UserControls.ImageButton();
-            this.BtnAutoTrim = new LaserGRBL.UserControls.ImageButton();
+            this.BtFlipV = new LaserGRBLPlus.UserControls.ImageButton();
+            this.BtFlipH = new LaserGRBLPlus.UserControls.ImageButton();
+            this.BtRotateCW = new LaserGRBLPlus.UserControls.ImageButton();
+            this.BtRotateCCW = new LaserGRBLPlus.UserControls.ImageButton();
+            this.BtnRevert = new LaserGRBLPlus.UserControls.ImageButton();
+            this.BtnCrop = new LaserGRBLPlus.UserControls.ImageButton();
+            this.BtnReverse = new LaserGRBLPlus.UserControls.ImageButton();
+            this.BtnAutoTrim = new LaserGRBLPlus.UserControls.ImageButton();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.BtnCancel = new System.Windows.Forms.Button();
             this.BtnCreate = new System.Windows.Forms.Button();
@@ -54,10 +54,10 @@
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.IIOffsetX = new LaserGRBL.UserControls.NumericInput.DecimalInputRanged();
-            this.IIOffsetY = new LaserGRBL.UserControls.NumericInput.DecimalInputRanged();
-            this.IISizeH = new LaserGRBL.UserControls.NumericInput.DecimalInputRanged();
-            this.IISizeW = new LaserGRBL.UserControls.NumericInput.DecimalInputRanged();
+            this.IIOffsetX = new LaserGRBLPlus.UserControls.NumericInput.DecimalInputRanged();
+            this.IIOffsetY = new LaserGRBLPlus.UserControls.NumericInput.DecimalInputRanged();
+            this.IISizeH = new LaserGRBLPlus.UserControls.NumericInput.DecimalInputRanged();
+            this.IISizeW = new LaserGRBLPlus.UserControls.NumericInput.DecimalInputRanged();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
@@ -65,26 +65,26 @@
             this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
             this.label17 = new System.Windows.Forms.Label();
             this.CbAutosize = new System.Windows.Forms.CheckBox();
-            this.IIDpi = new LaserGRBL.UserControls.NumericInput.IntegerInputRanged();
-            this.BtnDPI = new LaserGRBL.UserControls.ImageButton();
+            this.IIDpi = new LaserGRBLPlus.UserControls.NumericInput.IntegerInputRanged();
+            this.BtnDPI = new LaserGRBLPlus.UserControls.ImageButton();
             this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
-            this.BtnReset = new LaserGRBL.UserControls.ImageButton();
-            this.BtnCenter = new LaserGRBL.UserControls.ImageButton();
-            this.BtnUnlockProportion = new LaserGRBL.UserControls.ImageButton();
+            this.BtnReset = new LaserGRBLPlus.UserControls.ImageButton();
+            this.BtnCenter = new LaserGRBLPlus.UserControls.ImageButton();
+            this.BtnUnlockProportion = new LaserGRBLPlus.UserControls.ImageButton();
             this.GbLaser = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
-            this.BtnModulationInfo = new LaserGRBL.UserControls.ImageButton();
-            this.IIMinPower = new LaserGRBL.UserControls.NumericInput.IntegerInputRanged();
+            this.BtnModulationInfo = new LaserGRBLPlus.UserControls.ImageButton();
+            this.IIMinPower = new LaserGRBLPlus.UserControls.NumericInput.IntegerInputRanged();
             this.CBLaserON = new System.Windows.Forms.ComboBox();
             this.LblSmax = new System.Windows.Forms.Label();
-            this.IIMaxPower = new LaserGRBL.UserControls.NumericInput.IntegerInputRanged();
+            this.IIMaxPower = new LaserGRBLPlus.UserControls.NumericInput.IntegerInputRanged();
             this.LblMinPerc = new System.Windows.Forms.Label();
             this.LblMaxPerc = new System.Windows.Forms.Label();
-            this.BtnOnOffInfo = new LaserGRBL.UserControls.ImageButton();
+            this.BtnOnOffInfo = new LaserGRBLPlus.UserControls.ImageButton();
             this.LblBorderTracing = new System.Windows.Forms.Label();
             this.LblLinearFilling = new System.Windows.Forms.Label();
-            this.IIBorderTracing = new LaserGRBL.UserControls.NumericInput.IntegerInputRanged();
-            this.IILinearFilling = new LaserGRBL.UserControls.NumericInput.IntegerInputRanged();
+            this.IIBorderTracing = new LaserGRBLPlus.UserControls.NumericInput.IntegerInputRanged();
+            this.IILinearFilling = new LaserGRBLPlus.UserControls.NumericInput.IntegerInputRanged();
             this.LblBorderTracingmm = new System.Windows.Forms.Label();
             this.LblLinearFillingmm = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -93,40 +93,40 @@
             this.LblSmin = new System.Windows.Forms.Label();
             this.GbParameters = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.TBRed = new LaserGRBL.UserControls.ColorSlider();
-            this.CbResize = new LaserGRBL.UserControls.EnumComboBox();
+            this.TBRed = new LaserGRBLPlus.UserControls.ColorSlider();
+            this.CbResize = new LaserGRBLPlus.UserControls.EnumComboBox();
             this.label28 = new System.Windows.Forms.Label();
             this.LblGrayscale = new System.Windows.Forms.Label();
-            this.CbMode = new LaserGRBL.UserControls.EnumComboBox();
+            this.CbMode = new LaserGRBLPlus.UserControls.EnumComboBox();
             this.LblRed = new System.Windows.Forms.Label();
             this.LblGreen = new System.Windows.Forms.Label();
             this.LblBlue = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.TbBright = new LaserGRBL.UserControls.ColorSlider();
-            this.TbContrast = new LaserGRBL.UserControls.ColorSlider();
+            this.TbBright = new LaserGRBLPlus.UserControls.ColorSlider();
+            this.TbContrast = new LaserGRBLPlus.UserControls.ColorSlider();
             this.label3 = new System.Windows.Forms.Label();
             this.CbThreshold = new System.Windows.Forms.CheckBox();
-            this.TbThreshold = new LaserGRBL.UserControls.ColorSlider();
-            this.TBWhiteClip = new LaserGRBL.UserControls.ColorSlider();
+            this.TbThreshold = new LaserGRBLPlus.UserControls.ColorSlider();
+            this.TBWhiteClip = new LaserGRBLPlus.UserControls.ColorSlider();
             this.label4 = new System.Windows.Forms.Label();
-            this.TBBlue = new LaserGRBL.UserControls.ColorSlider();
-            this.TBGreen = new LaserGRBL.UserControls.ColorSlider();
+            this.TBBlue = new LaserGRBLPlus.UserControls.ColorSlider();
+            this.TBGreen = new LaserGRBLPlus.UserControls.ColorSlider();
             this.GbConversionTool = new System.Windows.Forms.GroupBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabLineTrace = new System.Windows.Forms.TabPage();
             this.TLP = new System.Windows.Forms.TableLayoutPanel();
             this.CbDither = new System.Windows.Forms.ComboBox();
             this.label21 = new System.Windows.Forms.Label();
-            this.CbDirections = new LaserGRBL.UserControls.EnumComboBox();
+            this.CbDirections = new LaserGRBLPlus.UserControls.EnumComboBox();
             this.UDQuality = new System.Windows.Forms.NumericUpDown();
             this.label5 = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.BtnQualityInfo = new LaserGRBL.UserControls.ImageButton();
+            this.BtnQualityInfo = new LaserGRBLPlus.UserControls.ImageButton();
             this.CbLinePreview = new System.Windows.Forms.CheckBox();
             this.tabVectorize = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
-            this.BtnAdaptiveQualityInfo = new LaserGRBL.UserControls.ImageButton();
+            this.BtnAdaptiveQualityInfo = new LaserGRBLPlus.UserControls.ImageButton();
             this.CbAdaptiveQuality = new System.Windows.Forms.CheckBox();
             this.LAdaptiveQuality = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
@@ -139,7 +139,7 @@
             this.CbOptimize = new System.Windows.Forms.CheckBox();
             this.CbSmoothing = new System.Windows.Forms.CheckBox();
             this.label14 = new System.Windows.Forms.Label();
-            this.CbFillingDirection = new LaserGRBL.UserControls.EnumComboBox();
+            this.CbFillingDirection = new LaserGRBLPlus.UserControls.EnumComboBox();
             this.LblFillingQuality = new System.Windows.Forms.Label();
             this.UDFillingQuality = new System.Windows.Forms.NumericUpDown();
             this.LblFillingLineLbl = new System.Windows.Forms.Label();
@@ -147,14 +147,14 @@
             this.label1 = new System.Windows.Forms.Label();
             this.CbDownSample = new System.Windows.Forms.CheckBox();
             this.lOptimizeFast = new System.Windows.Forms.Label();
-            this.BtnFillingQualityInfo = new LaserGRBL.UserControls.ImageButton();
+            this.BtnFillingQualityInfo = new LaserGRBLPlus.UserControls.ImageButton();
             this.CbOptimizeFast = new System.Windows.Forms.CheckBox();
             this.tabCenterline = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.TBLineThreshold = new LaserGRBL.UserControls.ColorSlider();
-            this.TBCornerThreshold = new LaserGRBL.UserControls.ColorSlider();
+            this.TBLineThreshold = new LaserGRBLPlus.UserControls.ColorSlider();
+            this.TBCornerThreshold = new LaserGRBLPlus.UserControls.ColorSlider();
             this.CbLineThreshold = new System.Windows.Forms.CheckBox();
             this.CbCornerThreshold = new System.Windows.Forms.CheckBox();
             this.WT = new System.Windows.Forms.Timer(this.components);
@@ -224,10 +224,10 @@
             // 
             this.WB.BarColor = System.Drawing.Color.SteelBlue;
             this.WB.BorderColor = System.Drawing.Color.Black;
-            this.WB.BouncingMode = LaserGRBL.UserControls.WaitingProgressBar.BouncingModeEnum.PingPong;
+            this.WB.BouncingMode = LaserGRBLPlus.UserControls.WaitingProgressBar.BouncingModeEnum.PingPong;
             this.WB.DrawProgressString = false;
             this.WB.FillColor = System.Drawing.Color.White;
-            this.WB.FillStyle = LaserGRBL.UserControls.FillStyles.Solid;
+            this.WB.FillStyle = LaserGRBLPlus.UserControls.FillStyles.Solid;
             this.WB.Interval = 25D;
             resources.ApplyResources(this.WB, "WB");
             this.WB.Maximum = 20D;
@@ -288,7 +288,7 @@
             this.BtFlipV.Image = ((System.Drawing.Image)(resources.GetObject("BtFlipV.Image")));
             resources.ApplyResources(this.BtFlipV, "BtFlipV");
             this.BtFlipV.Name = "BtFlipV";
-            this.BtFlipV.SizingMode = LaserGRBL.UserControls.ImageButton.SizingModes.FixedSize;
+            this.BtFlipV.SizingMode = LaserGRBLPlus.UserControls.ImageButton.SizingModes.FixedSize;
             this.TT.SetToolTip(this.BtFlipV, resources.GetString("BtFlipV.ToolTip"));
             this.BtFlipV.UseAltImage = false;
             this.BtFlipV.Click += new System.EventHandler(this.BtFlipVClick);
@@ -302,7 +302,7 @@
             this.BtFlipH.Image = ((System.Drawing.Image)(resources.GetObject("BtFlipH.Image")));
             resources.ApplyResources(this.BtFlipH, "BtFlipH");
             this.BtFlipH.Name = "BtFlipH";
-            this.BtFlipH.SizingMode = LaserGRBL.UserControls.ImageButton.SizingModes.FixedSize;
+            this.BtFlipH.SizingMode = LaserGRBLPlus.UserControls.ImageButton.SizingModes.FixedSize;
             this.TT.SetToolTip(this.BtFlipH, resources.GetString("BtFlipH.ToolTip"));
             this.BtFlipH.UseAltImage = false;
             this.BtFlipH.Click += new System.EventHandler(this.BtFlipHClick);
@@ -316,7 +316,7 @@
             this.BtRotateCW.Image = ((System.Drawing.Image)(resources.GetObject("BtRotateCW.Image")));
             resources.ApplyResources(this.BtRotateCW, "BtRotateCW");
             this.BtRotateCW.Name = "BtRotateCW";
-            this.BtRotateCW.SizingMode = LaserGRBL.UserControls.ImageButton.SizingModes.FixedSize;
+            this.BtRotateCW.SizingMode = LaserGRBLPlus.UserControls.ImageButton.SizingModes.FixedSize;
             this.TT.SetToolTip(this.BtRotateCW, resources.GetString("BtRotateCW.ToolTip"));
             this.BtRotateCW.UseAltImage = false;
             this.BtRotateCW.Click += new System.EventHandler(this.BtRotateCWClick);
@@ -330,7 +330,7 @@
             this.BtRotateCCW.Image = ((System.Drawing.Image)(resources.GetObject("BtRotateCCW.Image")));
             resources.ApplyResources(this.BtRotateCCW, "BtRotateCCW");
             this.BtRotateCCW.Name = "BtRotateCCW";
-            this.BtRotateCCW.SizingMode = LaserGRBL.UserControls.ImageButton.SizingModes.FixedSize;
+            this.BtRotateCCW.SizingMode = LaserGRBLPlus.UserControls.ImageButton.SizingModes.FixedSize;
             this.TT.SetToolTip(this.BtRotateCCW, resources.GetString("BtRotateCCW.ToolTip"));
             this.BtRotateCCW.UseAltImage = false;
             this.BtRotateCCW.Click += new System.EventHandler(this.BtRotateCCWClick);
@@ -344,7 +344,7 @@
             this.BtnRevert.Image = ((System.Drawing.Image)(resources.GetObject("BtnRevert.Image")));
             resources.ApplyResources(this.BtnRevert, "BtnRevert");
             this.BtnRevert.Name = "BtnRevert";
-            this.BtnRevert.SizingMode = LaserGRBL.UserControls.ImageButton.SizingModes.FixedSize;
+            this.BtnRevert.SizingMode = LaserGRBLPlus.UserControls.ImageButton.SizingModes.FixedSize;
             this.TT.SetToolTip(this.BtnRevert, resources.GetString("BtnRevert.ToolTip"));
             this.BtnRevert.UseAltImage = false;
             this.BtnRevert.Click += new System.EventHandler(this.BtnRevertClick);
@@ -358,7 +358,7 @@
             this.BtnCrop.Image = ((System.Drawing.Image)(resources.GetObject("BtnCrop.Image")));
             resources.ApplyResources(this.BtnCrop, "BtnCrop");
             this.BtnCrop.Name = "BtnCrop";
-            this.BtnCrop.SizingMode = LaserGRBL.UserControls.ImageButton.SizingModes.FixedSize;
+            this.BtnCrop.SizingMode = LaserGRBLPlus.UserControls.ImageButton.SizingModes.FixedSize;
             this.TT.SetToolTip(this.BtnCrop, resources.GetString("BtnCrop.ToolTip"));
             this.BtnCrop.UseAltImage = false;
             this.BtnCrop.Click += new System.EventHandler(this.BtnCropClick);
@@ -372,7 +372,7 @@
             this.BtnReverse.Image = ((System.Drawing.Image)(resources.GetObject("BtnReverse.Image")));
             resources.ApplyResources(this.BtnReverse, "BtnReverse");
             this.BtnReverse.Name = "BtnReverse";
-            this.BtnReverse.SizingMode = LaserGRBL.UserControls.ImageButton.SizingModes.FixedSize;
+            this.BtnReverse.SizingMode = LaserGRBLPlus.UserControls.ImageButton.SizingModes.FixedSize;
             this.TT.SetToolTip(this.BtnReverse, resources.GetString("BtnReverse.ToolTip"));
             this.BtnReverse.UseAltImage = false;
             this.BtnReverse.Click += new System.EventHandler(this.BtnReverse_Click);
@@ -386,7 +386,7 @@
             this.BtnAutoTrim.Image = ((System.Drawing.Image)(resources.GetObject("BtnAutoTrim.Image")));
             resources.ApplyResources(this.BtnAutoTrim, "BtnAutoTrim");
             this.BtnAutoTrim.Name = "BtnAutoTrim";
-            this.BtnAutoTrim.SizingMode = LaserGRBL.UserControls.ImageButton.SizingModes.FixedSize;
+            this.BtnAutoTrim.SizingMode = LaserGRBLPlus.UserControls.ImageButton.SizingModes.FixedSize;
             this.TT.SetToolTip(this.BtnAutoTrim, resources.GetString("BtnAutoTrim.ToolTip"));
             this.BtnAutoTrim.UseAltImage = false;
             this.BtnAutoTrim.Click += new System.EventHandler(this.BtnAutoTrim_Click);
@@ -469,7 +469,7 @@
             this.IIOffsetX.MinValue = 0F;
             this.IIOffsetX.Name = "IIOffsetX";
             this.IIOffsetX.NormalBorderColor = System.Drawing.SystemColors.ActiveBorder;
-            this.IIOffsetX.CurrentValueChanged += new LaserGRBL.UserControls.NumericInput.DecimalInputBase.CurrentValueChangedDlg(this.IIOffsetXYCurrentValueChanged);
+            this.IIOffsetX.CurrentValueChanged += new LaserGRBLPlus.UserControls.NumericInput.DecimalInputBase.CurrentValueChangedDlg(this.IIOffsetXYCurrentValueChanged);
             // 
             // IIOffsetY
             // 
@@ -481,7 +481,7 @@
             this.IIOffsetY.MinValue = 0F;
             this.IIOffsetY.Name = "IIOffsetY";
             this.IIOffsetY.NormalBorderColor = System.Drawing.SystemColors.ActiveBorder;
-            this.IIOffsetY.CurrentValueChanged += new LaserGRBL.UserControls.NumericInput.DecimalInputBase.CurrentValueChangedDlg(this.IIOffsetXYCurrentValueChanged);
+            this.IIOffsetY.CurrentValueChanged += new LaserGRBLPlus.UserControls.NumericInput.DecimalInputBase.CurrentValueChangedDlg(this.IIOffsetXYCurrentValueChanged);
             // 
             // IISizeH
             // 
@@ -493,8 +493,8 @@
             this.IISizeH.MinValue = 10F;
             this.IISizeH.Name = "IISizeH";
             this.IISizeH.NormalBorderColor = System.Drawing.SystemColors.ActiveBorder;
-            this.IISizeH.CurrentValueChanged += new LaserGRBL.UserControls.NumericInput.DecimalInputBase.CurrentValueChangedDlg(this.IISizeH_CurrentValueChanged);
-            this.IISizeH.OnTheFlyValueChanged += new LaserGRBL.UserControls.NumericInput.DecimalInputBase.CurrentValueChangedDlg(this.IISizeH_OnTheFlyValueChanged);
+            this.IISizeH.CurrentValueChanged += new LaserGRBLPlus.UserControls.NumericInput.DecimalInputBase.CurrentValueChangedDlg(this.IISizeH_CurrentValueChanged);
+            this.IISizeH.OnTheFlyValueChanged += new LaserGRBLPlus.UserControls.NumericInput.DecimalInputBase.CurrentValueChangedDlg(this.IISizeH_OnTheFlyValueChanged);
             // 
             // IISizeW
             // 
@@ -506,8 +506,8 @@
             this.IISizeW.MinValue = 10F;
             this.IISizeW.Name = "IISizeW";
             this.IISizeW.NormalBorderColor = System.Drawing.SystemColors.ActiveBorder;
-            this.IISizeW.CurrentValueChanged += new LaserGRBL.UserControls.NumericInput.DecimalInputBase.CurrentValueChangedDlg(this.IISizeW_CurrentValueChanged);
-            this.IISizeW.OnTheFlyValueChanged += new LaserGRBL.UserControls.NumericInput.DecimalInputBase.CurrentValueChangedDlg(this.IISizeW_OnTheFlyValueChanged);
+            this.IISizeW.CurrentValueChanged += new LaserGRBLPlus.UserControls.NumericInput.DecimalInputBase.CurrentValueChangedDlg(this.IISizeW_CurrentValueChanged);
+            this.IISizeW.OnTheFlyValueChanged += new LaserGRBLPlus.UserControls.NumericInput.DecimalInputBase.CurrentValueChangedDlg(this.IISizeW_OnTheFlyValueChanged);
             // 
             // label12
             // 
@@ -571,7 +571,7 @@
             this.BtnDPI.Coloration = System.Drawing.Color.Empty;
             this.BtnDPI.Image = ((System.Drawing.Image)(resources.GetObject("BtnDPI.Image")));
             this.BtnDPI.Name = "BtnDPI";
-            this.BtnDPI.SizingMode = LaserGRBL.UserControls.ImageButton.SizingModes.FixedSize;
+            this.BtnDPI.SizingMode = LaserGRBLPlus.UserControls.ImageButton.SizingModes.FixedSize;
             this.TT.SetToolTip(this.BtnDPI, resources.GetString("BtnDPI.ToolTip"));
             this.BtnDPI.UseAltImage = false;
             this.BtnDPI.Click += new System.EventHandler(this.BtnDPI_Click);
@@ -592,7 +592,7 @@
             resources.ApplyResources(this.BtnReset, "BtnReset");
             this.BtnReset.Image = ((System.Drawing.Image)(resources.GetObject("BtnReset.Image")));
             this.BtnReset.Name = "BtnReset";
-            this.BtnReset.SizingMode = LaserGRBL.UserControls.ImageButton.SizingModes.FixedSize;
+            this.BtnReset.SizingMode = LaserGRBLPlus.UserControls.ImageButton.SizingModes.FixedSize;
             this.BtnReset.TabStop = false;
             this.BtnReset.UseAltImage = false;
             this.BtnReset.Click += new System.EventHandler(this.BtnReset_Click);
@@ -606,7 +606,7 @@
             resources.ApplyResources(this.BtnCenter, "BtnCenter");
             this.BtnCenter.Image = ((System.Drawing.Image)(resources.GetObject("BtnCenter.Image")));
             this.BtnCenter.Name = "BtnCenter";
-            this.BtnCenter.SizingMode = LaserGRBL.UserControls.ImageButton.SizingModes.FixedSize;
+            this.BtnCenter.SizingMode = LaserGRBLPlus.UserControls.ImageButton.SizingModes.FixedSize;
             this.TT.SetToolTip(this.BtnCenter, resources.GetString("BtnCenter.ToolTip"));
             this.BtnCenter.UseAltImage = false;
             this.BtnCenter.Click += new System.EventHandler(this.BtnCenter_Click);
@@ -620,7 +620,7 @@
             resources.ApplyResources(this.BtnUnlockProportion, "BtnUnlockProportion");
             this.BtnUnlockProportion.Image = ((System.Drawing.Image)(resources.GetObject("BtnUnlockProportion.Image")));
             this.BtnUnlockProportion.Name = "BtnUnlockProportion";
-            this.BtnUnlockProportion.SizingMode = LaserGRBL.UserControls.ImageButton.SizingModes.FixedSize;
+            this.BtnUnlockProportion.SizingMode = LaserGRBLPlus.UserControls.ImageButton.SizingModes.FixedSize;
             this.TT.SetToolTip(this.BtnUnlockProportion, resources.GetString("BtnUnlockProportion.ToolTip"));
             this.BtnUnlockProportion.UseAltImage = false;
             this.BtnUnlockProportion.Click += new System.EventHandler(this.BtnUnlockProportion_Click);
@@ -665,7 +665,7 @@
             resources.ApplyResources(this.BtnModulationInfo, "BtnModulationInfo");
             this.BtnModulationInfo.Image = ((System.Drawing.Image)(resources.GetObject("BtnModulationInfo.Image")));
             this.BtnModulationInfo.Name = "BtnModulationInfo";
-            this.BtnModulationInfo.SizingMode = LaserGRBL.UserControls.ImageButton.SizingModes.FixedSize;
+            this.BtnModulationInfo.SizingMode = LaserGRBLPlus.UserControls.ImageButton.SizingModes.FixedSize;
             this.TT.SetToolTip(this.BtnModulationInfo, resources.GetString("BtnModulationInfo.ToolTip"));
             this.BtnModulationInfo.UseAltImage = false;
             // 
@@ -703,7 +703,7 @@
             this.IIMaxPower.MinValue = 1;
             this.IIMaxPower.Name = "IIMaxPower";
             this.IIMaxPower.NormalBorderColor = System.Drawing.SystemColors.ActiveBorder;
-            this.IIMaxPower.CurrentValueChanged += new LaserGRBL.UserControls.NumericInput.IntegerInputBase.CurrentValueChangedEventHandler(this.IIMaxPower_CurrentValueChanged);
+            this.IIMaxPower.CurrentValueChanged += new LaserGRBLPlus.UserControls.NumericInput.IntegerInputBase.CurrentValueChangedEventHandler(this.IIMaxPower_CurrentValueChanged);
             // 
             // LblMinPerc
             // 
@@ -724,7 +724,7 @@
             resources.ApplyResources(this.BtnOnOffInfo, "BtnOnOffInfo");
             this.BtnOnOffInfo.Image = ((System.Drawing.Image)(resources.GetObject("BtnOnOffInfo.Image")));
             this.BtnOnOffInfo.Name = "BtnOnOffInfo";
-            this.BtnOnOffInfo.SizingMode = LaserGRBL.UserControls.ImageButton.SizingModes.FixedSize;
+            this.BtnOnOffInfo.SizingMode = LaserGRBLPlus.UserControls.ImageButton.SizingModes.FixedSize;
             this.TT.SetToolTip(this.BtnOnOffInfo, resources.GetString("BtnOnOffInfo.ToolTip"));
             this.BtnOnOffInfo.UseAltImage = false;
             // 
@@ -1145,7 +1145,7 @@
             this.BtnQualityInfo.Coloration = System.Drawing.Color.Empty;
             this.BtnQualityInfo.Image = ((System.Drawing.Image)(resources.GetObject("BtnQualityInfo.Image")));
             this.BtnQualityInfo.Name = "BtnQualityInfo";
-            this.BtnQualityInfo.SizingMode = LaserGRBL.UserControls.ImageButton.SizingModes.FixedSize;
+            this.BtnQualityInfo.SizingMode = LaserGRBLPlus.UserControls.ImageButton.SizingModes.FixedSize;
             this.TT.SetToolTip(this.BtnQualityInfo, resources.GetString("BtnQualityInfo.ToolTip"));
             this.BtnQualityInfo.UseAltImage = false;
             // 
@@ -1204,7 +1204,7 @@
             resources.ApplyResources(this.BtnAdaptiveQualityInfo, "BtnAdaptiveQualityInfo");
             this.BtnAdaptiveQualityInfo.Image = ((System.Drawing.Image)(resources.GetObject("BtnAdaptiveQualityInfo.Image")));
             this.BtnAdaptiveQualityInfo.Name = "BtnAdaptiveQualityInfo";
-            this.BtnAdaptiveQualityInfo.SizingMode = LaserGRBL.UserControls.ImageButton.SizingModes.FixedSize;
+            this.BtnAdaptiveQualityInfo.SizingMode = LaserGRBLPlus.UserControls.ImageButton.SizingModes.FixedSize;
             this.TT.SetToolTip(this.BtnAdaptiveQualityInfo, resources.GetString("BtnAdaptiveQualityInfo.ToolTip"));
             this.BtnAdaptiveQualityInfo.UseAltImage = false;
             // 
@@ -1423,7 +1423,7 @@
             resources.ApplyResources(this.BtnFillingQualityInfo, "BtnFillingQualityInfo");
             this.BtnFillingQualityInfo.Image = ((System.Drawing.Image)(resources.GetObject("BtnFillingQualityInfo.Image")));
             this.BtnFillingQualityInfo.Name = "BtnFillingQualityInfo";
-            this.BtnFillingQualityInfo.SizingMode = LaserGRBL.UserControls.ImageButton.SizingModes.FixedSize;
+            this.BtnFillingQualityInfo.SizingMode = LaserGRBLPlus.UserControls.ImageButton.SizingModes.FixedSize;
             this.TT.SetToolTip(this.BtnFillingQualityInfo, resources.GetString("BtnFillingQualityInfo.ToolTip"));
             this.BtnFillingQualityInfo.UseAltImage = false;
             // 
@@ -1590,12 +1590,12 @@
 		private System.Windows.Forms.TableLayoutPanel TlpLeft;
 		private System.Windows.Forms.Timer WT;
 		private System.Windows.Forms.TableLayoutPanel FlipControl;
-		private LaserGRBL.UserControls.ImageButton BtFlipV;
-		private LaserGRBL.UserControls.ImageButton BtFlipH;
-		private LaserGRBL.UserControls.ImageButton BtRotateCW;
-		private LaserGRBL.UserControls.ImageButton BtRotateCCW;
-		private LaserGRBL.UserControls.ImageButton BtnCrop;
-		private LaserGRBL.UserControls.ImageButton BtnRevert;
+		private LaserGRBLPlus.UserControls.ImageButton BtFlipV;
+		private LaserGRBLPlus.UserControls.ImageButton BtFlipH;
+		private LaserGRBLPlus.UserControls.ImageButton BtRotateCW;
+		private LaserGRBLPlus.UserControls.ImageButton BtRotateCCW;
+		private LaserGRBLPlus.UserControls.ImageButton BtnCrop;
+		private LaserGRBLPlus.UserControls.ImageButton BtnRevert;
 		private System.Windows.Forms.ToolTip TT;
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
 		private System.Windows.Forms.Button BtnCancel;

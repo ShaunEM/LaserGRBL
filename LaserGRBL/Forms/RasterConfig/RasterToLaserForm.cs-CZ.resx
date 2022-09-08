@@ -316,7 +316,7 @@
     <value>Automatický ořez</value>
   </data>
   <data name="TbPassthroughInfo.Text" xml:space="preserve">
-    <value>Režim průchodu ponechá obrázk beze změny, bez jakéhokoli zpracování programem LaserGRBL. Obrázek bude gravírován řádek po řádku, vodorovně, podle velikosti a rozlišení DPI podle informacích v souboru.</value>
+    <value>Režim průchodu ponechá obrázk beze změny, bez jakéhokoli zpracování programem LaserGRBLPlus. Obrázek bude gravírován řádek po řádku, vodorovně, podle velikosti a rozlišení DPI podle informacích v souboru.</value>
   </data>
   <data name="GbPassthrough.Text" xml:space="preserve">
     <value>Možnosti průchodu</value>

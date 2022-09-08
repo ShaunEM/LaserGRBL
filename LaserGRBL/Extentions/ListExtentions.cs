@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 
 
-namespace LaserGRBL.Extentions
+namespace LaserGRBLPlus.Extentions
 {
     public static class ListExtentions
     {

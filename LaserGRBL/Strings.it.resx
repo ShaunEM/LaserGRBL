@@ -204,7 +204,7 @@ Si desidera scrivere la configurazione?</value>
   </data>
   <data name="BoxAutoUpdateFailed" xml:space="preserve">
     <value>Aggiornamento fallito!
-Si prega di scaricare manualmente la nuova versione dal sito lasergrbl.com</value>
+Si prega di scaricare manualmente la nuova versione dal sito LaserGRBLPlus.com</value>
   </data>
   <data name="BoxAutoUpdateRequireAdmin" xml:space="preserve">
     <value>L'aggiornamento richiede i privilegi di amministratore!</value>

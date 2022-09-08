@@ -162,7 +162,7 @@ Dacă este dezactivată, toate problemele sunt gestionate în mod silențios, f�
   </data>
   <data name="label9.Text" xml:space="preserve">
     <value>Tip de firmware (program (software) placa control laser):
-- Grbl: firmware-ul minunat pentru care a fost dezvoltat LaserGRBL.
+- Grbl: firmware-ul minunat pentru care a fost dezvoltat LaserGRBLPlus.
 - Smoothie [experimental]: suportul a fost adăugat recent și nu este testat complet.
 - Marlin [experimental]: suportul a fost adăugat recent și nu este complet testat.
 - VigoWork [experimental]: suport pentru modelul VG-L7x care nu este standard grbl.</value>

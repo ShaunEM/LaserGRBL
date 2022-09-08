@@ -13,7 +13,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace LaserGRBL
+namespace LaserGRBLPlus
 {
 	public partial class FlashGrbl : Form
 	{
@@ -157,12 +157,12 @@ namespace LaserGRBL
 
 		private void BtnTarget_Click(object sender, EventArgs e)
 		{
-			Tools.Utils.OpenLink(@"https://lasergrbl.com/usage/flash/#target");
+			Tools.Utils.OpenLink(@"https://LaserGRBLPlus.com/usage/flash/#target");
 		}
 
 		private void BtnFirmware_Click(object sender, EventArgs e)
 		{
-			Tools.Utils.OpenLink(@"https://lasergrbl.com/usage/flash/#firmware");
+			Tools.Utils.OpenLink(@"https://LaserGRBLPlus.com/usage/flash/#firmware");
 		}
 
 		private void CbFirmware_SelectedIndexChanged(object sender, EventArgs e)

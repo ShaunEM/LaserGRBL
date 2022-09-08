@@ -1,4 +1,4 @@
-﻿namespace LaserGRBL.PSHelper
+﻿namespace LaserGRBLPlus.PSHelper
 {
 	partial class PSEditorForm
 	{
@@ -44,7 +44,7 @@
             this.ColCycles = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColRemarks = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.source = new System.Windows.Forms.BindingSource(this.components);
-            this.materialDB = new LaserGRBL.PSHelper.MaterialDB();
+            this.materialDB = new LaserGRBLPlus.PSHelper.MaterialDB();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.TbNewElement = new System.Windows.Forms.ToolStripStatusLabel();

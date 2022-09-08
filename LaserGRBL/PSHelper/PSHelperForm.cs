@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace LaserGRBL.PSHelper
+namespace LaserGRBLPlus.PSHelper
 {
 	public partial class PSHelperForm : Form
 	{

@@ -9,8 +9,8 @@ using System.Runtime.CompilerServices;
 using System.Threading;
 using System.Windows.Forms;
 
-[assembly:InternalsVisibleTo("LaserGRBL.Tests")]
-namespace LaserGRBL
+[assembly:InternalsVisibleTo("LaserGRBLPlus.Tests")]
+namespace LaserGRBLPlus
 {
 	static class Program
 	{

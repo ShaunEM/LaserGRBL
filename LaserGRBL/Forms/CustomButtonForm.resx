@@ -378,7 +378,7 @@
     <value>BTOpenImage</value>
   </data>
   <data name="&gt;&gt;BTOpenImage.Type" xml:space="preserve">
-    <value>LaserGRBL.UserControls.ImageButton, LaserGRBL, Version=4.8.1.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>LaserGRBLPlus.UserControls.ImageButton, LaserGRBL, Version=4.8.1.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;BTOpenImage.Parent" xml:space="preserve">
     <value>tableLayoutPanel2</value>
@@ -541,7 +541,7 @@
 - Support math expression in square brackets: i.e. G0 X[left-5] Y[bottom-5]
 - Available variables: left, right, top, bottom, width, height.. (and more)
 
-See https://lasergrbl.com/usage/custom-buttons/
+See https://LaserGRBLPlus.com/usage/custom-buttons/
 
 </value>
   </data>

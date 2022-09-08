@@ -193,7 +193,7 @@ This could generate a soft-limit error. Are you sure of the entered values?</val
     <value>Reinicio es requerido para aplicar los cambios al Firmware. ¿Reiniciar ahora?</value>
   </data>
   <data name="WarnLine2LinePWM" xml:space="preserve">
-    <value>La opción Line2Line no es compatible con el grabador o con la configuración. Se necesita láser PWM y se debe habilitar el soporte PWM en los valores de LaserGRBL.</value>
+    <value>La opción Line2Line no es compatible con el grabador o con la configuración. Se necesita láser PWM y se debe habilitar el soporte PWM en los valores de LaserGRBLPlus.</value>
   </data>
   <data name="FormulaSimpleAverage" xml:space="preserve">
     <value>Promedio simple</value>
@@ -242,7 +242,7 @@ This could generate a soft-limit error. Are you sure of the entered values?</val
   </data>
   <data name="BoxAutoUpdateFailed" xml:space="preserve">
     <value>¡Actualización automática fallida!
-Por favor, descargue manualmente la nueva versión desde el sitio de laserGRBL.</value>
+Por favor, descargue manualmente la nueva versión desde el sitio de LaserGRBLPlus.</value>
   </data>
   <data name="BoxWriteConfigWithoutError" xml:space="preserve">
     <value>{0} Configuración escrita correctamente!</value>

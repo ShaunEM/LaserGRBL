@@ -8,7 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace LaserGRBL
+namespace LaserGRBLPlus
 {
 	[Serializable()]
 	public class CustomButtons
@@ -16,7 +16,7 @@ namespace LaserGRBL
 		private static List<CustomButton> buttons;
 
 		private static string UserFile { get => System.IO.Path.Combine(GrblCore.DataPath, "CustomButtons.bin"); }
-		private static string StandardFile { get => System.IO.Path.Combine(LaserGRBL.GrblCore.ExePath, "StandardButtons.zbn"); }
+		private static string StandardFile { get => System.IO.Path.Combine(LaserGRBLPlus.GrblCore.ExePath, "StandardButtons.zbn"); }
 
 		public static void LoadFile() //in ingresso
 		{

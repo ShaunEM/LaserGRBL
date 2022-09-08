@@ -5,9 +5,9 @@ using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using static LaserGRBL.Libraries.GRBLLibrary.ProgramRange;
+using static LaserGRBLPlus.Libraries.GRBLLibrary.ProgramRange;
 
-namespace LaserGRBL.Libraries.GRBLLibrary
+namespace LaserGRBLPlus.Libraries.GRBLLibrary
 {
 	public enum CartesianQuadrant
 	{

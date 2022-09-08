@@ -8,7 +8,7 @@
 //https://fallengamer.livejournal.com/93321.html
 //https://stackoverflow.com/questions/13630849/git-difference-between-assume-unchanged-and-skip-worktree
 
-namespace LaserGRBL
+namespace LaserGRBLPlus
 {
 	public static class UrlManager
 	{

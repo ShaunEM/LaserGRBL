@@ -7,7 +7,7 @@
 using WebSocketSharp;
 using WebSocketSharp.Server;
 
-namespace LaserGRBL.GrblEmulator
+namespace LaserGRBLPlus.GrblEmulator
 {
     class WebSocketEmulator
 	{

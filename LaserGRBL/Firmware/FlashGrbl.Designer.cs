@@ -1,4 +1,4 @@
-﻿namespace LaserGRBL
+﻿namespace LaserGRBLPlus
 {
 	partial class FlashGrbl
 	{
@@ -47,8 +47,8 @@
 			this.CbPort = new System.Windows.Forms.ComboBox();
 			this.LblSpeed = new System.Windows.Forms.Label();
 			this.CbBaudRate = new System.Windows.Forms.ComboBox();
-			this.BtnTarget = new LaserGRBL.UserControls.ImageButton();
-			this.BtnFirmware = new LaserGRBL.UserControls.ImageButton();
+			this.BtnTarget = new LaserGRBLPlus.UserControls.ImageButton();
+			this.BtnFirmware = new LaserGRBLPlus.UserControls.ImageButton();
 			this.TT = new System.Windows.Forms.ToolTip(this.components);
 			this.LblNotForOrtur = new System.Windows.Forms.Label();
 			this.tableLayoutPanel1.SuspendLayout();
@@ -304,7 +304,7 @@
 			this.BtnTarget.Location = new System.Drawing.Point(285, 5);
 			this.BtnTarget.Name = "BtnTarget";
 			this.BtnTarget.Size = new System.Drawing.Size(17, 17);
-			this.BtnTarget.SizingMode = LaserGRBL.UserControls.ImageButton.SizingModes.FixedSize;
+			this.BtnTarget.SizingMode = LaserGRBLPlus.UserControls.ImageButton.SizingModes.FixedSize;
 			this.BtnTarget.TabIndex = 23;
 			this.TT.SetToolTip(this.BtnTarget, "Select exact kind of arduino board you want to upgrade.\r\nClick here for more info" +
         "...");
@@ -322,7 +322,7 @@
 			this.BtnFirmware.Location = new System.Drawing.Point(285, 32);
 			this.BtnFirmware.Name = "BtnFirmware";
 			this.BtnFirmware.Size = new System.Drawing.Size(17, 17);
-			this.BtnFirmware.SizingMode = LaserGRBL.UserControls.ImageButton.SizingModes.FixedSize;
+			this.BtnFirmware.SizingMode = LaserGRBLPlus.UserControls.ImageButton.SizingModes.FixedSize;
 			this.BtnFirmware.TabIndex = 24;
 			this.TT.SetToolTip(this.BtnFirmware, "Select the firmware you want to flash on your board\r\nClick here if you need more " +
         "info about available versions...");

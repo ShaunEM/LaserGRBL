@@ -11,7 +11,7 @@ using System.Text;
 using System.IO;
 using System.Net;
 
-namespace LaserGRBL.ComWrapper
+namespace LaserGRBLPlus.ComWrapper
 {
 	class Telnet : IComWrapper
 	{

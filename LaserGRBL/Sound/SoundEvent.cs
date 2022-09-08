@@ -28,9 +28,9 @@ namespace Sound
 			try
 			{
 				string name = id.ToString();
-				if (LaserGRBL.GlobalSettings.GetObject($"Sound.{name}.Enabled", true))
+				if (LaserGRBLPlus.GlobalSettings.GetObject($"Sound.{name}.Enabled", true))
 				{
-					string filename = LaserGRBL.GlobalSettings.GetObject($"Sound.{name}", $"Sound\\{name}.wav");
+					string filename = LaserGRBLPlus.GlobalSettings.GetObject($"Sound.{name}", $"Sound\\{name}.wav");
 					if (System.IO.File.Exists(filename))
 					{
 						lock (mLock)

@@ -193,7 +193,7 @@ Este necesar un sistem de operare pe 64 de biţi!</value>
     <value>Repornirea este necesarã pentru a aplica modificãrile tipului de firmware. Reporniţi acum?</value>
   </data>
   <data name="WarnLine2LinePWM" xml:space="preserve">
-    <value>Opţiunea LinieCuLinie nu este compatibilã cu gravorul dvs. sau cu configuraţia dvs.. Este necesar un laser compatibil PWM, iar suportul PWM ar trebui activat în setãrile LaserGRBL.</value>
+    <value>Opţiunea LinieCuLinie nu este compatibilã cu gravorul dvs. sau cu configuraţia dvs.. Este necesar un laser compatibil PWM, iar suportul PWM ar trebui activat în setãrile LaserGRBLPlus.</value>
   </data>
   <data name="FormulaSimpleAverage" xml:space="preserve">
     <value>SimpleAverage (MediaAritmenticã)</value>
@@ -242,7 +242,7 @@ Este necesar un sistem de operare pe 64 de biţi!</value>
   </data>
   <data name="BoxAutoUpdateFailed" xml:space="preserve">
     <value>Actualizarea automatã a eşuat!
-Vã rugãm sa descãrcaţi manual noua versiune de pe site-ul lasergrbl.</value>
+Vã rugãm sa descãrcaţi manual noua versiune de pe site-ul LaserGRBLPlus.</value>
   </data>
   <data name="BoxWriteConfigWithoutError" xml:space="preserve">
     <value>{0} Configuraţia scrisã cu succes!</value>
@@ -300,7 +300,7 @@ Doriţi sa rescrieţi configuraţia?</value>
     <value>Deconectat</value>
   </data>
   <data name="BoxAutoUpdateRequireAdmin" xml:space="preserve">
-    <value>Actualizarea necesitã privilegii de administrator! Executati laserGRBL.exe, clic dreapta pe fisier si "Rulati Ca Administrator".</value>
+    <value>Actualizarea necesitã privilegii de administrator! Executati LaserGRBLPlus.exe, clic dreapta pe fisier si "Rulati Ca Administrator".</value>
   </data>
   <data name="ResumeJobHomingRequired" xml:space="preserve">
     <value>Se pare cã poziţia actualã nu mai este cunoscutã de Grbl.

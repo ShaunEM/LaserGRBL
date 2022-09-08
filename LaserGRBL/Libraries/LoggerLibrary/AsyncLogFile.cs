@@ -10,7 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 
-namespace LaserGRBL
+namespace LaserGRBLPlus
 {
 	public class AsyncLogFile
 	{

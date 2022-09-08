@@ -16,7 +16,7 @@ using System.Threading.Tasks;
 using System.Linq;
 using System.Collections.Generic;
 
-namespace LaserGRBL.WiFiDiscovery
+namespace LaserGRBLPlus.WiFiDiscovery
 {
 	public static class IPAddressHelper
 	{

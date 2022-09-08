@@ -1,6 +1,6 @@
 ﻿using System.Windows.Forms;
 
-namespace LaserGRBL.UserControls
+namespace LaserGRBLPlus.UserControls
 {
 	partial class MyPictureBox : Control
 	{

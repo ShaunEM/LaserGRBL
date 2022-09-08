@@ -1,4 +1,4 @@
-﻿using LaserGRBL.SvgConverter;
+﻿using LaserGRBLPlus.SvgConverter;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -8,7 +8,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 
-namespace LaserGRBL.Libraries.SVGLibrary
+namespace LaserGRBLPlus.Libraries.SVGLibrary
 {
     public class SVGLibrary
     {

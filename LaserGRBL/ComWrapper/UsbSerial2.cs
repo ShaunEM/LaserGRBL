@@ -6,7 +6,7 @@
 using System;
 using MySerialPort;
 
-namespace LaserGRBL.ComWrapper
+namespace LaserGRBLPlus.ComWrapper
 {
 	class UsbSerial2 : IComWrapper
 	{

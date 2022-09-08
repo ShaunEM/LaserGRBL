@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Windows;
 
-namespace LaserGRBL.SvgConverter
+namespace LaserGRBLPlus.SvgConverter
 {
     /// <summary>
     /// Tools for high quality rendering of bezier curves

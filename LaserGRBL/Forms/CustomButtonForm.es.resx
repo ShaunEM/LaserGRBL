@@ -366,7 +366,7 @@
     <value>BTOpenImage</value>
   </data>
   <data name="&gt;&gt;BTOpenImage.Type" xml:space="preserve">
-    <value>LaserGRBL.UserControls.ImageButton, LaserGRBL, Version=3.3.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>LaserGRBLPlus.UserControls.ImageButton, LaserGRBL, Version=3.3.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;BTOpenImage.Parent" xml:space="preserve">
     <value>tableLayoutPanel2</value>
@@ -517,7 +517,7 @@
 - Soporta la expresión matemática entre corchetes: ej. G0 X[left-5] Y[bottom-5]
 - Variables disponibles: izquierda, derecha, arriba, abajo, ancho, altura.. (y más)
 
-Ver https://lasergrbl.com/usage/custom-buttons/
+Ver https://LaserGRBLPlus.com/usage/custom-buttons/
 
 </value>
   </data>

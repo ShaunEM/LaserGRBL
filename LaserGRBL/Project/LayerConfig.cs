@@ -1,10 +1,10 @@
-﻿using LaserGRBL.Libraries.GRBLLibrary;
-using LaserGRBL.RasterConverter;
+﻿using LaserGRBLPlus.Libraries.GRBLLibrary;
+using LaserGRBLPlus.RasterConverter;
 using System;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 
-namespace LaserGRBL
+namespace LaserGRBLPlus
 {
     public class LayerConfig
     {
