@@ -5,6 +5,7 @@
 // You should have received a copy of the GPLv3 General Public License  along with this program; if not, write to the Free Software  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307,  USA. using System;
 
 using LaserGRBL.Core;
+using LaserGRBL.Libraries.GRBLLibrary;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -245,7 +246,7 @@ namespace LaserGRBL
 							{
 								string msg = rline; //"$0=10 (Step pulse time)"
 								int num = int.Parse(msg.Split('=')[0].Substring(1));
-								decimal val = decimal.Parse(msg.Split('=')[1].Split(' ')[0], System.Globalization.NumberFormatInfo.InvariantInfo);
+								float val = float.Parse(msg.Split('=')[1].Split(' ')[0], System.Globalization.NumberFormatInfo.InvariantInfo);
 								conf.Add(new GrblConf.GrblConfParam(num, val));
 							}
 						}

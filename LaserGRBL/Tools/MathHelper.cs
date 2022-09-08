@@ -13,11 +13,11 @@ namespace Tools
 	/// </summary>
 	public static class MathHelper
 	{
-		public static decimal LinearDistance(decimal curX, decimal curY, decimal newX, decimal newY)
+		public static float LinearDistance(float curX, float curY, float newX, float newY)
 		{
-			decimal dX = newX - curX;
-			decimal dY = newY - curY;
-			return (decimal)Math.Sqrt((double)(dX * dX + dY * dY));
+			float dX = newX - curX;
+			float dY = newY - curY;
+			return (float)Math.Sqrt((double)(dX * dX + dY * dY));
 		}
 
 

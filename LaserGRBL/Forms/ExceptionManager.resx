@@ -117,7 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="pictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAHIAAABkCAYAAABaUmT7AAAAIGNIUk0AAHonAACAjwAA+f8AAIDoAAB1
@@ -128,7 +128,7 @@
         LOzVs+tauR91k9ZkbmFO6eLdWESZJIiHaSYIEWCQUYkBfPjplx1/5PuL+RHykqtJNNjEZI00GWz6RF2X
         6klZU6In5cnKCTH1D37P1koN+UtfaJ2B+hfH+eiFxiP43nGcrxPH+S5Arczleq+Sn9+DkTfRdyua9xja
         t+HiqqIlTuFyFzqfjLgZL0q14q5UCt7PoG0ROm6hebk0t/J7Cg8wvwXhGzg4hB45377yA+SMZyuUjxa8
-        AAAACXBIWXMAABcSAAAXEgFnn9JSAAAuNElEQVR4Xu1dB1hUV9pmd/9/d5PdTd0UYxI10U0sUWPvvcUu
+        AAAACXBIWXMAABcRAAAXEQHKJvM/AAAuNElEQVR4Xu1dB1hUV9pmd/9/d5PdTd0UYxI10U0sUWPvvcUu
         qIgiSLFj12AXuyKCvWAvgIBgl6KgKIpdEHuhd5HOMO3e7//eOzM6kAsao4j+e3xe597DnTtzz3u+esqY
         ENG7hr8xKjHqMX5kfMT4C0Pu2ncGspVvEf7MeI/xL8bf9ef/ZnQNOR81PSYxbRwfN2C8z5B7/zsD2cq3
         BH9igMCfGB31rx8wvmeMaWX+676tvsFb+LiPKIof86vcPd4ZyFa+JYD01UhMzRyxYK2X65Oc/JF8/gOj
@@ -336,7 +336,7 @@ Please copy following message in your report.</value>
   <data name="BtnContinue.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABYAAAAWCAYAAADEtGw7AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        EgAACxIB0t1+/AAAAAd0SU1FB9QBBwUiNRIGpXgAAANcSURBVEhLjVVZS+tAGO2T+D/6D/rQf+Uuatyt
+        EAAACxABrSO9dQAAAAd0SU1FB9QBBwUiNRIGpXgAAANcSURBVEhLjVVZS+tAGO2T+D/6D/rQf+Uuatyt
         K64P6pMoKK4oKNYHF9CiglsxbqjgAhLEBRWXgIkav3vONPGmtt7rgdNM55s5M/m2BNIhJycns6GhITQ8
         PKzNzMxEFxYWjKWlJZvkmHNDQ0NafX19KDs7O9Pd9m/U1tYGBwcHIysrK/rh4aF5fn7uGIYhl5eXihxz
         jrbl5WV9YGAgAgTd7amoqanJaGtrC09NTcV0XbdOTk7k7Ozsi6enp8I5Pr05/ufaycnJWGtra7iqqirD

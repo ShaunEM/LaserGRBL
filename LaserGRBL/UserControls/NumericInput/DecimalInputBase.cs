@@ -289,7 +289,7 @@ namespace LaserGRBL.UserControls.NumericInput
 
         protected virtual float ParseEditValue()
         {
-            return float.Parse(TB.Text);
+            return float.TryParse(TB.Text, out float v) ? v : 0f;
         }
 
         protected virtual void OnValueChanging(float oldvalue, float newvalue, ref bool cancel)

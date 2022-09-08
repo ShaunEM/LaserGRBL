@@ -84,7 +84,8 @@ namespace LaserGRBL
 			if (UrlManager.UpdateMain != null || UrlManager.UpdateMirror != null)
 			{
 				//https://developer.github.com/changes/2018-02-01-weak-crypto-removal-notice/
-				try { 
+				try 
+				{ 
 					System.Net.ServicePointManager.SecurityProtocol = (System.Net.SecurityProtocolType)3072; 
 				} //CONFIGURE SYSTEM FOR TLS 1.2 (Required since 22-02-2018) May work only if .net 4.5 is installed?
 				catch 
@@ -249,11 +250,17 @@ namespace LaserGRBL
 			try
 			{
 				foreach (string filePath in System.IO.Directory.GetFiles("./", "*.todelete", System.IO.SearchOption.AllDirectories))
+				{
 					System.IO.File.Delete(filePath);
+				}
 				if (System.IO.File.Exists("sessionlog.txt")) //old session log in program file
+				{
 					System.IO.File.Delete("sessionlog.txt");
-				if (System.IO.File.Exists("LaserGRBL.Settings.bin")) //old setting in program file
-					System.IO.File.Delete("LaserGRBL.Settings.bin");
+				}
+				if (System.IO.File.Exists("LaserGRBLPlus.Settings.bin")) //old setting in program file
+				{
+					System.IO.File.Delete("LaserGRBLPlus.Settings.bin");
+				}
 			}
 			catch { }
 		}

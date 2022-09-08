@@ -79,7 +79,7 @@ namespace LaserGRBL.Forms
             Layer = new Layer()
             {
                 LayerDescription = layerName.Text,
-                FileName = fileName.Text,
+                //FileName = fileName.Text,
                 PreviewColor = Color.FromName(colorDropDown.Text)
             };
             this.DialogResult = DialogResult.OK;

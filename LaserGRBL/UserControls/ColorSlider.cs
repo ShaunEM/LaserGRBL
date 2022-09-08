@@ -608,12 +608,26 @@ namespace LaserGRBL.UserControls
         {
             if (!Enabled)
             {
-                Color[] desaturatedColors = DesaturateColors(thumbOuterColor, thumbInnerColor, thumbPenColor,
-                                                             barOuterColor, barInnerColor, barPenColor,
-                                                             elapsedOuterColor, elapsedInnerColor);
-                DrawColorSlider(e, desaturatedColors[0], desaturatedColors[1], desaturatedColors[2],
-                                desaturatedColors[3],
-                                desaturatedColors[4], desaturatedColors[5], desaturatedColors[6], desaturatedColors[7]);
+                Color[] desaturatedColors = DesaturateColors(
+                                        thumbOuterColor, 
+                                        thumbInnerColor, 
+                                        thumbPenColor,
+                                        barOuterColor, 
+                                        barInnerColor, 
+                                        barPenColor,
+                                        elapsedOuterColor, 
+                                        elapsedInnerColor);
+
+                DrawColorSlider(e, Color.White, Color.White, Color.White, Color.White, Color.White, Color.White, Color.White, Color.White);
+                    //desaturatedColors[0], 
+                    //desaturatedColors[1], 
+                    //desaturatedColors[2],
+                    //desaturatedColors[3],
+                    //desaturatedColors[4], 
+                    //desaturatedColors[5], 
+                    //desaturatedColors[6], 
+                    //desaturatedColors[7]
+                    //);
             }
             else
             {

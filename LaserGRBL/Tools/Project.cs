@@ -58,7 +58,8 @@ namespace Tools
         /// <param name="filename">Filepath where project should be stored</param>
         public static void StoreSettings(string filename)
         {
-            if (string.IsNullOrEmpty(filename)) return;
+            if (string.IsNullOrEmpty(filename)) 
+                return;
 
             using (var fs = new FileStream(filename, FileMode.Create, FileAccess.Write, FileShare.None))
             {

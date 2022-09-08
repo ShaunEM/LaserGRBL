@@ -4,8 +4,7 @@
 // This program is distributed in the hope that it will be useful, but  WITHOUT ANY WARRANTY; without even the implied warranty of  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GPLv3  General Public License for more details.
 // You should have received a copy of the GPLv3 General Public License  along with this program; if not, write to the Free Software  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307,  USA. using System;
 
-using LaserGRBL.Core;
-using LaserGRBL.GRBL;
+using LaserGRBL.Libraries.GRBLLibrary;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,7 +24,7 @@ namespace LaserGRBL.GrblEmulator
 		private bool mPaused = false; //da spostare nel spb
 		private bool mCheck = false;
 		private GrblCommand.StatePositionBuilder SPB;
-		decimal px, py, pz, wx, wy, wz;
+		float px, py, pz, wx, wy, wz;
 		
 		TimeSpan toSleep = TimeSpan.Zero;
 		private Tools.ThreadObject RX;
@@ -49,7 +48,8 @@ namespace LaserGRBL.GrblEmulator
 			mSendFunc = sendFunc;
 
 			conf = (GrblConf)Tools.Serializer.ObjFromFile(filename);
-			if (conf == null) conf = new GrblConf(new GrblCore.GrblVersionInfo(1, 1, '#'), new Dictionary<int, decimal> { { 0, 10 }, { 1, 25 }, { 2, 0 }, { 3, 0 }, { 4, 0 }, { 5, 0 }, { 6, 0 }, { 10, 1 }, { 11, 0.010m }, { 12, 0.002m }, { 13, 0 }, { 20, 0 }, { 21, 0 }, { 22, 0 }, { 23, 0 }, { 24, 25.000m }, { 25, 500.000m }, { 26, 250 }, { 27, 1.000m }, { 30, 1000.0m }, { 31, 0.0m }, { 32, 0 }, { 100, 250.000m }, { 101, 250.000m }, { 102, 250.000m }, { 110, 500.000m }, { 111, 500.000m }, { 112, 500.000m }, { 120, 10.000m }, { 121, 10.000m }, { 122, 10.000m }, { 130, 200.000m }, { 131, 200.000m }, { 132, 200.000m } });
+			if (conf == null) conf = new GrblConf(
+				   new GrblCore.GrblVersionInfo(1, 1, '#'), new Dictionary<int, float> { { 0, 10 }, { 1, 25 }, { 2, 0 }, { 3, 0 }, { 4, 0 }, { 5, 0 }, { 6, 0 }, { 10, 1 }, { 11, 0.010f }, { 12, 0.002f }, { 13, 0 }, { 20, 0 }, { 21, 0 }, { 22, 0 }, { 23, 0 }, { 24, 25.000f }, { 25, 500.000f }, { 26, 250 }, { 27, 1.000f }, { 30, 1000.0f }, { 31, 0.0f }, { 32, 0 }, { 100, 250.000f }, { 101, 250.000f }, { 102, 250.000f }, { 110, 500.000f }, { 111, 500.000f }, { 112, 500.000f }, { 120, 10.000f }, { 121, 10.000f }, { 122, 10.000f }, { 130, 200.000f }, { 131, 200.000f }, { 132, 200.000f } });
 		}
 
 		public void CloseCom()
@@ -154,7 +154,7 @@ namespace LaserGRBL.GrblEmulator
 		{
 			EnqueueTX("ok"); //REPLY TO $$
 
-			foreach (KeyValuePair<int, decimal> kvp in conf)
+			foreach (KeyValuePair<int, float> kvp in conf)
 				ImmediateTX(string.Format(System.Globalization.CultureInfo.InvariantCulture, "${0}={1}", kvp.Key, kvp.Value));
 		}
 

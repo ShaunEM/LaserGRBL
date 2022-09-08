@@ -1,32 +1,50 @@
-﻿using LaserGRBL.GRBL;
-using LaserGRBL.RasterConverter;
-using System;
+﻿using LaserGRBL.Libraries.GRBLLibrary;
+using LaserGRBL.Project;
 using System.Collections.Generic;
-using System.Drawing;
-using System.Xml.Linq;
 
 namespace LaserGRBL
 {
     public class ProjectCore
     {
+        public List<FileObject> ProjectFiles;
         public List<Layer> layers;
-        public ProgramRange programRange;
-        public float zoom = 1;
-        public ProjectCore(decimal tableWidth, decimal tableHeight)
-        {
-            this.layers = new List<Layer>();
-            this.programRange = new ProgramRange();
-            this.programRange.UpdateXYRange(
-                new GrblElement('X', 0),
-                new GrblElement('Y', 0),
-                  false
-                  );
-            this.programRange.UpdateXYRange(
-                new GrblElement('X', tableWidth),
-                   new GrblElement('Y', tableHeight),
-            false);
-        }
+        public GlobalConfig Config;
 
+        //[Obsolete("use grblFileGlobal")]
+        //public ProgramRange programRange; 
+        
+        public GrblFileGlobal grblFileGlobal;
+       
+        public ProjectCore(float tableWidth, float tableHeight)
+        {
+            
+            this.ProjectFiles = new List<FileObject>();
+            this.Config = new GlobalConfig();
+            this.layers = new List<Layer>();
+            //this.programRange = new ProgramRange();
+            //this.programRange.UpdateXYRange(new GrblElement('X', 0), new GrblElement('Y', 0), false);
+
+
+            // Move grblFile globals into here (currenlty has a copy on each layer)
+            this.grblFileGlobal = new GrblFileGlobal();
+        }
+        public int AddFileToProject(string fileName, byte[] data = null)
+        {
+            ProjectFiles.Add(new FileObject(fileName, data));
+            return ProjectFiles.Count - 1;
+        }
+        //public void RemoveFileFromProject(int fileIndex)
+        //{
+        //    ProjectFiles.RemoveAt(fileIndex);
+        //}
+        //public FileObject GetFileObject(int fileIndex)
+        //{
+        //    return ProjectFiles[fileIndex];
+        //}
+        ////public FileObject GetLayerFileObject(int layerIndex)
+        //{
+        //    return ProjectFiles[layers[layerIndex].FileObject .FileObjectIndex];
+        //}
 
 
 
@@ -54,43 +72,81 @@ namespace LaserGRBL
         //}
 
 
-    }
 
 
 
-    public class Layer
-    {
-        public string FileName { get; set; }
-        public LayerSettings LayerSettings { get; set; }
-        public string LayerDescription { get; set; }
-        public Color PreviewColor { get; set; }             // Color used on preview panel
-        public GrblFile GRBLFile { get; set; }              // TODO: Clean this mess up
-        //public ImageProcessor IP { get; set; }
 
-        public XElement XElement { get; set; }
-        public bool ShowLayer { get; set; } = true;
-        
-        
 
-        public Layer()
+        public void SaveProject(string fileName)
         {
-            LayerSettings = new LayerSettings();
+            // Add Project files 
+            ProjectFileObject projectFileFormat = new ProjectFileObject
+            {
+                ProjectFiles = this.ProjectFiles,
+                Config = this.Config,
+                Layers = new List<ProjectFileLayer>(),
+            };
+
+            // Add Layers
+            foreach (Layer layer in this.layers)
+            {
+                projectFileFormat.Layers.Add(new ProjectFileLayer()
+                {
+                    LayerDescription = layer.LayerDescription,      // Description
+                    Config = layer.Config,                          // Layer Configuration
+                    FileObject = layer.FileObject,
+                    OrigFileObjectIndex = layer.OrigFileObjectIndex,
+                    LayerType = layer.LayerType,
+                });
+            }
+            ProjectFile.WriteToJsonFile(fileName, projectFileFormat);
+        }
+
+        internal void UnSelectAllLayers()
+        {
+            foreach(Layer layer in layers)
+            {
+                layer.Selected = false;
+            }
         }
 
 
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// TODO: Update this to Layer.LoadFile(filename, layername?)
-        /// </remarks>
-        /// <param name="filename"></param>
-        /// <param name="append"></param>
-        //public void LoadGCodeFile()
+        //public void LoadProject(string fileName)
         //{
-        //    file.LoadFile(FileName);
-        //}
+        //    // reset all
+        //    this.layers.Clear();
 
+        //    // Load project files
+        //    ProjectFileFormat projectFileFormat = ProjectFile.ReadFromJsonFile<ProjectFileFormat>(fileName);
+        //    this.Config = projectFileFormat.Config;
+        //    this.ProjectFiles = projectFileFormat.ProjectFiles;
+
+        //    // load layers
+        //    foreach (ProjectFileLayer layer in projectFileFormat.Layers)
+        //    {
+        //        this.layers.Add(new Layer()
+        //        {
+        //            Config = layer.Config,
+        //            FileObjectIndex = layer.FileObjectIndex,
+        //            LayerDescription = layer.LayerDescription,
+        //            PreviewColor = layer.PreviewColor,
+        //            GRBLFile = new GrblFile(this.programRange),  // TODO: add range
+        //            XElement = layer.xElement
+        //        });
+        //    }
+        //}
     }
+
+    //FileName = filename,
+    //LayerDescription = $"{Path.GetFileName(filename)}",
+    //PreviewColor = colorLayer.Item2,
+    //GRBLFile = new GrblFile(ProjectCore.programRange),
+    //XElement = colorLayer.Item1
+
+
+
+
+
+
+
 }

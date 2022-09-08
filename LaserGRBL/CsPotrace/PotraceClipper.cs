@@ -5,6 +5,7 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
+using static LaserGRBL.Libraries.GRBLLibrary.GrblFile;
 
 namespace CsPotrace
 {
@@ -12,7 +13,7 @@ namespace CsPotrace
 	{
 		private const double resolution = 1000.0;
 
-		internal static List<List<Curve>> BuildFilling(List<List<Curve>> plist, double w, double h, LaserGRBL.GrblFile.L2LConf c)
+		internal static List<List<Curve>> BuildFilling(List<List<Curve>> plist, double w, double h, L2LConf c)
 		{
 			if (c.dir == LaserGRBL.RasterConverter.ImageProcessor.Direction.NewInsetFilling)
 				return BuildInsetFilling(plist, c);
@@ -20,7 +21,7 @@ namespace CsPotrace
 				return BuildGridFilling(plist, w, h, c);
 		}
 
-		private static List<List<Curve>> BuildGridFilling(List<List<Curve>> plist, double w, double h, LaserGRBL.GrblFile.L2LConf cnf)
+		private static List<List<Curve>> BuildGridFilling(List<List<Curve>> plist, double w, double h, L2LConf cnf)
 		{
 			Clipper c = new Clipper();
 			AddGridSubject(c, w, h, cnf);
@@ -36,7 +37,7 @@ namespace CsPotrace
 			return ToPotraceList(ll, false);
 		}
 
-		private static List<List<Curve>> BuildInsetFilling(List<List<Curve>> plist, LaserGRBL.GrblFile.L2LConf cnf)
+		private static List<List<Curve>> BuildInsetFilling(List<List<Curve>> plist, LaserGRBL.Libraries.GRBLLibrary.GrblFile.L2LConf cnf)
 		{
 			double spacing = cnf.res / cnf.fres;
 			List<List<Curve>> flist = new List<List<Curve>>();
@@ -161,7 +162,7 @@ namespace CsPotrace
 			c.AddPath(subject, JoinType.jtRound, EndType.etClosedPolygon);
 		}
 
-		static void AddGridSubject(Clipper c, double w, double h, LaserGRBL.GrblFile.L2LConf cnf)
+		static void AddGridSubject(Clipper c, double w, double h, LaserGRBL.Libraries.GRBLLibrary.GrblFile.L2LConf cnf)
 		{
 			LaserGRBL.RasterConverter.ImageProcessor.Direction dir = cnf.dir;
 

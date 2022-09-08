@@ -38,6 +38,7 @@ namespace LaserGRBL
 			GitHub.InitUpdate();
 			UsageStats.LoadFile();
 			CustomButtons.LoadFile();
+
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
 
@@ -56,9 +57,6 @@ namespace LaserGRBL
 
 			ComWrapper.ComLogger.StopLog();
 			Logger.Stop();
-
-
-
 		}
 	}
 }

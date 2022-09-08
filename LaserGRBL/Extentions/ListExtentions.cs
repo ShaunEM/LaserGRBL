@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 
+
 namespace LaserGRBL.Extentions
 {
     public static class ListExtentions
@@ -9,4 +10,7 @@ namespace LaserGRBL.Extentions
             (list[indexB], list[indexA]) = (list[indexA], list[indexB]);
         }
     }
+
+
+    
 }

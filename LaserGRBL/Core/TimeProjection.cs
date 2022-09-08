@@ -1,10 +1,7 @@
-﻿using LaserGRBL.GRBL;
+﻿using LaserGRBL.Libraries.GRBLLibrary;
 using Sound;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LaserGRBL.Core
 {
@@ -168,35 +165,35 @@ namespace LaserGRBL.Core
 			}
 		}
 
-		public void JobContinue(GrblFile file, int position, int added)
-		{
-			if (!mStarted)
-			{
-				if (mETarget == TimeSpan.Zero)
-				{
-					mETarget = file.EstimatedTime;
-				}
-				if (mTargetCount == 0)
-				{
-					mTargetCount = file.GCodeLineCount;
-				}
-				//mEProgress = TimeSpan.Zero;
-				if (mStart == 0)
-				{
-					mGlobalStart = mStart = Tools.HiResTimer.TotalMilliseconds;
-				}
+		//public void JobContinue(GrblFile file, int position, int added)
+		//{
+		//	if (!mStarted)
+		//	{
+		//		if (mETarget == TimeSpan.Zero)
+		//		{
+		//			mETarget = file.EstimatedTime;
+		//		}
+		//		if (mTargetCount == 0)
+		//		{
+		//			mTargetCount = file.GCodeLineCount;
+		//		}
+		//		//mEProgress = TimeSpan.Zero;
+		//		if (mStart == 0)
+		//		{
+		//			mGlobalStart = mStart = Tools.HiResTimer.TotalMilliseconds;
+		//		}
 
-				mPauseBegin = 0;
-				mInPause = false;
-				mCompleted = false;
-				mStarted = true;
-				mExecutedCount = position;
-				mSentCount = position;
-				mLastIssue = GrblCore.DetectedIssue.Unknown;
-				//	mErrorCount = 0;
-				mContinueCorrection = added;
-			}
-		}
+		//		mPauseBegin = 0;
+		//		mInPause = false;
+		//		mCompleted = false;
+		//		mStarted = true;
+		//		mExecutedCount = position;
+		//		mSentCount = position;
+		//		mLastIssue = GrblCore.DetectedIssue.Unknown;
+		//		//	mErrorCount = 0;
+		//		mContinueCorrection = added;
+		//	}
+		//}
 
 		public void JobSent()
 		{

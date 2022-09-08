@@ -1,12 +1,8 @@
 using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Drawing.Text;
-using Svg.DataTypes;
 using System.Linq;
 
 namespace Svg

@@ -25,5 +25,9 @@ namespace LaserGRBL
 			}
 		}
 
-	}
+        private void BtnSave_Click(object sender, EventArgs e)
+        {
+
+        }
+    }
 }

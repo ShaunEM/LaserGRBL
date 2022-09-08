@@ -121,50 +121,92 @@
     <value>id</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="ColID.MinimumWidth" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
   <data name="ColID.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
+  </data>
+  <data name="ColID.Width" type="System.Int32, mscorlib">
+    <value>125</value>
   </data>
   <data name="ColVisible.HeaderText" xml:space="preserve">
     <value>Visible</value>
   </data>
+  <data name="ColVisible.MinimumWidth" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
   <data name="ColVisible.Width" type="System.Int32, mscorlib">
-    <value>43</value>
+    <value>54</value>
   </data>
   <data name="ColModel.HeaderText" xml:space="preserve">
     <value>Model</value>
   </data>
+  <data name="ColModel.MinimumWidth" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="ColModel.Width" type="System.Int32, mscorlib">
+    <value>125</value>
+  </data>
   <data name="ColMaterial.HeaderText" xml:space="preserve">
     <value>Material</value>
+  </data>
+  <data name="ColMaterial.MinimumWidth" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="ColMaterial.Width" type="System.Int32, mscorlib">
+    <value>125</value>
   </data>
   <data name="ColAction.HeaderText" xml:space="preserve">
     <value>Action</value>
   </data>
+  <data name="ColAction.MinimumWidth" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="ColAction.Width" type="System.Int32, mscorlib">
+    <value>125</value>
+  </data>
   <data name="ColThick.HeaderText" xml:space="preserve">
     <value>Thickness</value>
   </data>
+  <data name="ColThick.MinimumWidth" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
   <data name="ColThick.Width" type="System.Int32, mscorlib">
-    <value>81</value>
+    <value>98</value>
   </data>
   <data name="ColPower.HeaderText" xml:space="preserve">
     <value>Power</value>
   </data>
+  <data name="ColPower.MinimumWidth" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
   <data name="ColPower.Width" type="System.Int32, mscorlib">
-    <value>62</value>
+    <value>74</value>
   </data>
   <data name="ColSpeed.HeaderText" xml:space="preserve">
     <value>Speed</value>
   </data>
+  <data name="ColSpeed.MinimumWidth" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
   <data name="ColSpeed.Width" type="System.Int32, mscorlib">
-    <value>63</value>
+    <value>77</value>
   </data>
   <data name="ColCycles.HeaderText" xml:space="preserve">
     <value>Cycles</value>
   </data>
+  <data name="ColCycles.MinimumWidth" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
   <data name="ColCycles.Width" type="System.Int32, mscorlib">
-    <value>63</value>
+    <value>77</value>
   </data>
   <data name="ColRemarks.HeaderText" xml:space="preserve">
     <value>Remarks</value>
+  </data>
+  <data name="ColRemarks.MinimumWidth" type="System.Int32, mscorlib">
+    <value>6</value>
   </data>
   <metadata name="source.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>128, 17</value>
@@ -180,8 +222,14 @@
   <data name="DG.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
+  <data name="DG.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
+  </data>
+  <data name="DG.RowHeadersWidth" type="System.Int32, mscorlib">
+    <value>51</value>
+  </data>
   <data name="DG.Size" type="System.Drawing.Size, System.Drawing">
-    <value>891, 480</value>
+    <value>1188, 596</value>
   </data>
   <data name="DG.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -202,7 +250,7 @@
     <value>215, 17</value>
   </metadata>
   <data name="toolStripStatusLabel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>85, 17</value>
+    <value>106, 20</value>
   </data>
   <data name="toolStripStatusLabel1.Text" xml:space="preserve">
     <value>New elements:</value>
@@ -211,7 +259,7 @@
     <value>False</value>
   </data>
   <data name="TbNewElement.Size" type="System.Drawing.Size, System.Drawing">
-    <value>13, 17</value>
+    <value>17, 20</value>
   </data>
   <data name="TbNewElement.Text" xml:space="preserve">
     <value>0</value>
@@ -220,7 +268,7 @@
     <value>False</value>
   </data>
   <data name="BtnImport.Size" type="System.Drawing.Size, System.Drawing">
-    <value>43, 17</value>
+    <value>54, 20</value>
   </data>
   <data name="BtnImport.Text" xml:space="preserve">
     <value>import</value>
@@ -229,10 +277,13 @@
     <value>False</value>
   </data>
   <data name="statusStrip1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 480</value>
+    <value>0, 596</value>
+  </data>
+  <data name="statusStrip1.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>1, 0, 19, 0</value>
   </data>
   <data name="statusStrip1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>891, 22</value>
+    <value>1188, 22</value>
   </data>
   <data name="statusStrip1.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -256,10 +307,10 @@
     <value>53</value>
   </metadata>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>6, 13</value>
+    <value>8, 16</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>891, 502</value>
+    <value>1188, 618</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -312,6 +363,9 @@
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAf4F9AH9ZgQB//f0AAf39AAGt0AAB
         xnwAAf39AAH9/QAB0NAAAaSkAAH9/QAB/f38AdCy/AGkpPwBWVX///39
 </value>
+  </data>
+  <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
   </data>
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
     <value>CenterParent</value>

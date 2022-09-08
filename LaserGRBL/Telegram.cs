@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.Specialized;
-using System.Linq;
 using System.Net;
-using System.Text;
 
 namespace LaserGRBL
 {
@@ -13,7 +10,9 @@ namespace LaserGRBL
 		public static void NotifyEvent(string message)
 		{
 			if (GlobalSettings.GetObject("TelegramNotification.Enabled", false))
+			{
 				NotifyEvent(Tools.Protector.Decrypt(GlobalSettings.GetObject("TelegramNotification.Code", "")), message);
+			}
 		}
 		public static void NotifyEvent(string usercode, string message)
 		{
