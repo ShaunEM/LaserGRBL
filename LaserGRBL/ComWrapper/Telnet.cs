@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.IO;
 using System.Net;
+using LaserGRBLPlus.Settings;
 
 namespace LaserGRBLPlus.ComWrapper
 {
@@ -52,9 +53,10 @@ namespace LaserGRBLPlus.ComWrapper
 		{
 			//bool rts = Settings.GetObject("HardReset Grbl On Connect", false);
 			//bool dtr = Settings.GetObject("HardReset Grbl On Connect", false);
-			bool soft = GlobalSettings.GetObject("Reset Grbl On Connect", false);
+			bool soft = (bool)Setting.App.ResetGrblOnConnect;
 
-			string rv = "";
+
+            string rv = "";
 
 			//if (dtr) rv += "DTR, ";
 			//if (rts) rv += "RTS, ";

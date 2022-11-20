@@ -13,7 +13,7 @@ namespace LaserGRBLPlus
 		{
 			C = Core;
 			EX = new System.Threading.ManualResetEvent(false);
-			EV = new System.Threading.EventWaitHandle(false, System.Threading.EventResetMode.ManualReset, "LaserGRBL syncro event");
+			EV = new System.Threading.EventWaitHandle(false, System.Threading.EventResetMode.ManualReset, "LaserGRBLPlus syncro event");
 			TH = new System.Threading.Thread(DoTheJob);
 			TH.Start();
 		}

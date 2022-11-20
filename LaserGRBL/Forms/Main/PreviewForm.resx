@@ -139,7 +139,7 @@
     <value>Preview</value>
   </data>
   <data name="&gt;&gt;Preview.Type" xml:space="preserve">
-    <value>LaserGRBLPlus.UserControls.GrblPanel, LaserGRBL, Version=4.8.1.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>LaserGRBLPlus.UserControls.GrblPanel, LaserGRBLPlus, Version=0.9.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;Preview.Parent" xml:space="preserve">
     <value>tableLayoutPanel1</value>
@@ -208,7 +208,7 @@
         akcvvKkZO/e2fLzwXeZE1Ps1k0unGFPDHy5OH5hZN6s+O/ix+lM5ln9hvygYog7cKG4cy9VhJfx/R3RU
         Ant+pUGNZ0iMz1r0KYn1orE8D6wXlkfbcnAALkShLQ5Y4IqOVs7tWcCe/yYCOOgThP2s4H+PCXAc63eh
         wbz7H/fmhWwT9IwO3NjkuIiwcB7LDnXzISwHbnRsAi8kTpflEsPW12UZGRoaAwD8C6JOktGJ7q1EAAAA
-        CXBIWXMAAAsNAAALDQHtB8AsAAALeklEQVRoQ7VZCViVZRr9WS7IdmUVAUsz0UpcptJGSS2ryV0fm9TG
+        CXBIWXMAAAsMAAALDAE/QCLIAAALeklEQVRoQ7VZCViVZRr9WS7IdmUVAUsz0UpcptJGSS2ryV0fm9TG
         NB/bS7NSk3KZcBt1nClARcll3Al3BNkucFlkUwQBw0oUKhu30kmnUtEz57v/xS6Xl4nKzvOc53Lf+9/v
         P+d/3/dbLhqAFlHCo6EGA9b6zUCU7/LrH/hENmJUQOT16LZk4Lzr0W3+Vh8duIZcTcZaGBUQWx8TFFu/
         JjS2Pq5LbP3Gh1YgZ1h6ytQ7XlZjSxokikGJEkZ00Xoj+RHA/BaQ/ipgegPIepvv3wEKFgKH/gmURgNl
@@ -288,7 +288,7 @@
     <value>BtnReset</value>
   </data>
   <data name="&gt;&gt;BtnReset.Type" xml:space="preserve">
-    <value>LaserGRBLPlus.UserControls.ImageButton, LaserGRBL, Version=4.8.1.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>LaserGRBLPlus.UserControls.ImageButton, LaserGRBLPlus, Version=0.9.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;BtnReset.Parent" xml:space="preserve">
     <value>tableLayoutPanel8</value>
@@ -300,34 +300,34 @@
     <value>81, 17</value>
   </metadata>
   <data name="addCustomButtonToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>280, 26</value>
+    <value>235, 22</value>
   </data>
   <data name="addCustomButtonToolStripMenuItem.Text" xml:space="preserve">
     <value>Add Custom Button</value>
   </data>
   <data name="MnLockButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>280, 26</value>
+    <value>235, 22</value>
   </data>
   <data name="MnLockButton.Text" xml:space="preserve">
     <value>Lock position (click to reorder)</value>
   </data>
   <data name="toolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>277, 6</value>
+    <value>232, 6</value>
   </data>
   <data name="exportCustomButtonsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>280, 26</value>
+    <value>235, 22</value>
   </data>
   <data name="exportCustomButtonsToolStripMenuItem.Text" xml:space="preserve">
     <value>Export custom buttons</value>
   </data>
   <data name="importCustomButtonsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>280, 26</value>
+    <value>235, 22</value>
   </data>
   <data name="importCustomButtonsToolStripMenuItem.Text" xml:space="preserve">
     <value>Import custom buttons</value>
   </data>
   <data name="MNAddCB.Size" type="System.Drawing.Size, System.Drawing">
-    <value>281, 114</value>
+    <value>236, 98</value>
   </data>
   <data name="&gt;&gt;MNAddCB.Name" xml:space="preserve">
     <value>MNAddCB</value>
@@ -354,7 +354,7 @@
     <value>CustomButtonArea</value>
   </data>
   <data name="&gt;&gt;CustomButtonArea.Type" xml:space="preserve">
-    <value>LaserGRBLPlus.PreviewForm+MyFlowPanel, LaserGRBL, Version=4.8.1.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>LaserGRBLPlus.PreviewForm+MyFlowPanel, LaserGRBLPlus, Version=0.9.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;CustomButtonArea.Parent" xml:space="preserve">
     <value>tableLayoutPanel8</value>
@@ -446,7 +446,7 @@
     <value>BtnUnlock</value>
   </data>
   <data name="&gt;&gt;BtnUnlock.Type" xml:space="preserve">
-    <value>LaserGRBLPlus.UserControls.ImageButton, LaserGRBL, Version=4.8.1.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>LaserGRBLPlus.UserControls.ImageButton, LaserGRBLPlus, Version=0.9.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;BtnUnlock.Parent" xml:space="preserve">
     <value>tableLayoutPanel8</value>
@@ -460,7 +460,7 @@
   <data name="BtnHoming.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1
-        MAAA6mAAADqYAAAXb5JfxUYAAAAJcEhZcwAACw0AAAsNAe0HwCwAABGvSURBVGhDtVkJXFTl+h7cKrPb
+        MAAA6mAAADqYAAAXb5JfxUYAAAAJcEhZcwAACwwAAAsMAT9AIsgAABGvSURBVGhDtVkJXFTl+h7cKrPb
         /ectu5my7wi4gJBXBcuSlpuWdjGtXLLUIL2SZgkKpCJalhkq7nuiFgiIayr7Nuy77MMIDJssgrvP/32/
         mTOMCt3wdvn9Xs43Z86ceZ7vfb7nfb8zMmN9A3UYGslMKIwNDMVRGkuvHzzf7TUUhkOGymwsrWUj7OzF
         a1NDI73uPvvgWGD5nbGpkbEI6Zz6DQ46oXsjaay9wQPnu7rGiO7DgM1NTGUu412fmTHjgxGmxiZ9+H36
@@ -564,7 +564,7 @@
     <value>BtnHoming</value>
   </data>
   <data name="&gt;&gt;BtnHoming.Type" xml:space="preserve">
-    <value>LaserGRBLPlus.UserControls.ImageButton, LaserGRBL, Version=4.8.1.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>LaserGRBLPlus.UserControls.ImageButton, LaserGRBLPlus, Version=0.9.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;BtnHoming.Parent" xml:space="preserve">
     <value>tableLayoutPanel8</value>
@@ -578,7 +578,7 @@
   <data name="BtnZeroing.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1
-        MAAA6mAAADqYAAAXb5JfxUYAAAAJcEhZcwAACw0AAAsNAe0HwCwAAAxBSURBVGhDvZkJdFTVGcdJyAIE
+        MAAA6mAAADqYAAAXb5JfxUYAAAAJcEhZcwAACwwAAAsMAT9AIsgAAAxBSURBVGhDvZkJdFTVGcdJyAIE
         kEWggkAVWSooHglrAJEEk8wSQmBmEjJZ2ALZiC1oCCAgiVBRaiUIGJBz8JyCsgehsWAAG6WiFi2aCFIo
         0KDIIqiASIDp73vcN52ZvEmiPaf/c34n8757373/77777rvvpdHP1WXbyE5gBhsMghBVpKm6ujpA/fz/
         yOVyualLGA2HcrgNLp1LjqiLF52moqMvFraqqKhocvjwYb8JUBZ48ODB0AMHDoTu378/tKysrMHJevr0
@@ -659,7 +659,7 @@
     <value>BtnZeroing</value>
   </data>
   <data name="&gt;&gt;BtnZeroing.Type" xml:space="preserve">
-    <value>LaserGRBLPlus.UserControls.ImageButton, LaserGRBL, Version=4.8.1.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>LaserGRBLPlus.UserControls.ImageButton, LaserGRBLPlus, Version=0.9.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;BtnZeroing.Parent" xml:space="preserve">
     <value>tableLayoutPanel8</value>
@@ -676,7 +676,7 @@
   <data name="BtnResume.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1
-        MAAA6mAAADqYAAAXb5JfxUYAAAAJcEhZcwAACw0AAAsNAe0HwCwAAA//SURBVGhD1VlpdBXHla636D3t
+        MAAA6mAAADqYAAAXb5JfxUYAAAAJcEhZcwAACwwAAAsMAT9AIsgAAA//SURBVGhD1VlpdBXHla636D3t
         C6B9QRsSkhAgAU/7hoQWtABi1QIYYzYhgwCzhV0YxmAwYOfYJDmHcUJmHCZe4ywzjscxwfHx8SQTQuyx
         M7Zjk2FsJ15ix/GCu1p3vlvd771+D0EyTvIj75xPX99bVbe+W32ruhsEEf1dQ/2JcjmuQUSIXThsNnHz
         1GSxuzZLbCzPEIPlmWJt2XhxvC1f7JuZI3qmpIr9jXnivjlF4mRXUdnjKzzrnltfdfqNHY3//u7e5peu
@@ -773,7 +773,7 @@
     <value>BtnResume</value>
   </data>
   <data name="&gt;&gt;BtnResume.Type" xml:space="preserve">
-    <value>LaserGRBLPlus.UserControls.ImageButton, LaserGRBL, Version=4.8.1.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>LaserGRBLPlus.UserControls.ImageButton, LaserGRBLPlus, Version=0.9.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;BtnResume.Parent" xml:space="preserve">
     <value>tableLayoutPanel8</value>
@@ -889,7 +889,7 @@
         XTesb3QPLh88M+QwdP6m681Lt7xuXbu94vbgcOjwnZHokdE77DtTd1PuvriXeW/h/sYH6AdFD6UeVjxS
         fNTws+7PbaOWo6fHXMf6Hwc/vj/OGn/2S8Yv7ycKnpCfVEyqTDZPmU2dmnafvvF05dOJZ+nPFmYKf5X+
         tfa5zvMffnP8rX82YnbiBf/Fp99LXsq/PPRq2aueuYC5R69TXy/MF72Rf3P4LeNt37vwd5MLWe+x7ys/
-        6H7o/ujz8cGn1E+f/gUDmPP8usTo0wAAAAlwSFlzAAALDQAACw0B7QfALAAADvVJREFUaEPVWmdYVNcW
+        6H7o/ujz8cGn1E+f/gUDmPP8usTo0wAAAAlwSFlzAAALDAAACwwBP0AiyAAADvVJREFUaEPVWmdYVNcW
         HWxA4nsvYkKaBZQmzd41xvTee++9gd00o8bYUzSJNVHsMYkhMZYoitGoFI2YxJgYhaEzMDAMMJSZcb+1
         zr0XBgQF3q+3v29xz23nrLX3PvucO2oSkf9r/E/Wu337zlFeXpeGmUwXhwI89moAXjPAZ3gtum1bhSFt
         2lzezWRqr3fnpR+bba0X4OVlmt6ly2u2nj0L8kJCijN69rSc7N7dkhEYaMkKCrJk9uihAefmgACLGfeI
@@ -981,7 +981,7 @@
     <value>BtnStop</value>
   </data>
   <data name="&gt;&gt;BtnStop.Type" xml:space="preserve">
-    <value>LaserGRBLPlus.UserControls.ImageButton, LaserGRBL, Version=4.8.1.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>LaserGRBLPlus.UserControls.ImageButton, LaserGRBLPlus, Version=0.9.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;BtnStop.Parent" xml:space="preserve">
     <value>tableLayoutPanel8</value>
@@ -1026,19 +1026,19 @@
     <value>236, 17</value>
   </metadata>
   <data name="RemoveButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 24</value>
+    <value>156, 22</value>
   </data>
   <data name="RemoveButton.Text" xml:space="preserve">
     <value>Remove Button</value>
   </data>
   <data name="editButtonToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 24</value>
+    <value>156, 22</value>
   </data>
   <data name="editButtonToolStripMenuItem.Text" xml:space="preserve">
     <value>Edit Button</value>
   </data>
   <data name="MNRemEditCB.Size" type="System.Drawing.Size, System.Drawing">
-    <value>181, 52</value>
+    <value>157, 48</value>
   </data>
   <data name="&gt;&gt;MNRemEditCB.Name" xml:space="preserve">
     <value>MNRemEditCB</value>
@@ -1077,7 +1077,7 @@
     <value>2</value>
   </data>
   <data name="tableLayoutPanel1.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="tableLayoutPanel8" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="Preview" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,50" /&gt;&lt;Rows Styles="Percent,50,AutoSize,50" /&gt;&lt;/TableLayoutSettings&gt;</value>
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="tableLayoutPanel8" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="Preview" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,100" /&gt;&lt;Rows Styles="Percent,100,AutoSize,0,Absolute,20" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>

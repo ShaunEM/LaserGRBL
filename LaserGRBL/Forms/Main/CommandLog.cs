@@ -8,8 +8,8 @@ using System;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
+using GRBLLibrary;
 using LaserGRBLPlus;
-using LaserGRBLPlus.Libraries.GRBLLibrary;
 
 namespace LaserGRBLPlus.UserControls
 {

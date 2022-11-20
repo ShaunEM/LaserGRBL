@@ -4,6 +4,7 @@
 // This program is distributed in the hope that it will be useful, but  WITHOUT ANY WARRANTY; without even the implied warranty of  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GPLv3  General Public License for more details.
 // You should have received a copy of the GPLv3 General Public License  along with this program; if not, write to the Free Software  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307,  USA. using System;
 
+using LaserGRBLPlus.Settings;
 using System;
 using System.Text;
 using System.Threading;
@@ -47,11 +48,11 @@ namespace LaserGRBLPlus
 
 				try
 				{
-					sb.AppendFormat("LaserGrbl v{0}", Program.CurrentVersion);
+					sb.AppendFormat("LaserGrbl-Plus v{0}", Program.CurrentVersion);
 					sb.AppendLine();
-					sb.AppendFormat("{0} v{1}", Core?.Type, Core?.Configuration?.GrblVersion);
+					sb.AppendFormat("{0} v{1}", Core?.Type, Core?.configuration?.Version);
 					sb.AppendLine();
-					sb.AppendFormat("Wrapper: {0}", GlobalSettings.GetObject("ComWrapper Protocol", ComWrapper.WrapperType.UsbSerial));
+					sb.AppendFormat("Wrapper: {0}", Setting.App.ComWrapperProtocol);
 					sb.AppendLine();
 					sb.AppendFormat("{0} ({1})", Tools.OSHelper.GetOSInfo()?.Replace("|", ", "), Tools.OSHelper.GetBitFlag());
 					sb.AppendLine();
@@ -132,6 +133,8 @@ namespace LaserGRBLPlus
 		}
 
 		private void LblFormDescription_LinkClicked(object sender, LinkClickedEventArgs e)
-		{Tools.Utils.OpenLink(e.LinkText);}
+		{
+			Tools.Utils.OpenLink(e.LinkText);
+		}
 	}
 }

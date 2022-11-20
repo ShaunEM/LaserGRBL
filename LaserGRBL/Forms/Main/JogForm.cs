@@ -4,6 +4,8 @@
 // This program is distributed in the hope that it will be useful, but  WITHOUT ANY WARRANTY; without even the implied warranty of  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GPLv3  General Public License for more details.
 // You should have received a copy of the GPLv3 General Public License  along with this program; if not, write to the Free Software  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307,  USA. using System;
 
+using LaserGRBLPlus.Core.Enum;
+using LaserGRBLPlus.Settings;
 using System;
 using System.Windows.Forms;
 
@@ -26,9 +28,9 @@ namespace LaserGRBLPlus
 			UpdateFMax.Enabled = true;
 			UpdateFMax_Tick(null, null);
 
-			TbSpeed.Value = Math.Max(Math.Min(GlobalSettings.GetObject("Jog Speed", 1000), TbSpeed.Maximum), TbSpeed.Minimum);
+			TbSpeed.Value = Math.Max(Math.Min(Setting.App.JogSpeed, TbSpeed.Maximum), TbSpeed.Minimum);
             
-			TbStep.Value = Convert.ToSingle(GlobalSettings.GetObject("Jog Step", 10M));
+			TbStep.Value = Convert.ToSingle(Setting.App.JogStep);
 
 			TbSpeed_ValueChanged(null, null); //set tooltip
 			TbStep_ValueChanged(null, null); //set tooltip
@@ -39,8 +41,8 @@ namespace LaserGRBLPlus
 
         private void SettingsForm_SettingsChanged(object sender, EventArgs e)
         {
-            TlpStepControl.Visible = !GlobalSettings.GetObject("Enable Continuous Jog", false);
-            TlpZControl.Visible = GlobalSettings.GetObject("Enale Z Jog Control", false);
+            TlpStepControl.Visible = !Setting.App.EnableContinuousJog;
+            TlpZControl.Visible = Setting.App.EnableZJogControl;
         }
 
         private void Core_JogStateChange(bool jog)
@@ -67,7 +69,7 @@ namespace LaserGRBLPlus
 		{
 			TT.SetToolTip(TbSpeed, $"{Strings.SpeedSliderToolTip} {TbSpeed.Value}");
 			LblSpeed.Text = String.Format("F{0}", TbSpeed.Value);
-			GlobalSettings.SetObject("Jog Speed", TbSpeed.Value);
+            Setting.App.JogSpeed = TbSpeed.Value;
 			Core.JogSpeed = TbSpeed.Value;
 		}
 
@@ -75,7 +77,7 @@ namespace LaserGRBLPlus
 		{
 			TT.SetToolTip(TbStep, $"{Strings.StepSliderToolTip} {TbStep.Value}");
 			LblStep.Text = TbStep.Value.ToString();
-			GlobalSettings.SetObject("Jog Step", TbStep.Value);
+            Setting.App.JogStep = TbStep.Value;
 			Core.JogStep = TbStep.Value;
 		}
 
@@ -92,7 +94,7 @@ namespace LaserGRBLPlus
 		int oldMax;
 		private void UpdateFMax_Tick(object sender, EventArgs e)
 		{
-			int curMax = (int)Math.Max(TbSpeed.Minimum, Math.Max(Core.Configuration.MaxRateX, Core.Configuration.MaxRateY));
+			int curMax = (int)Math.Max(TbSpeed.Minimum, Math.Max(Core.configuration.MaxRateX, Core.configuration.MaxRateY));
 
 			if (oldMax != curMax)
 			{
@@ -146,9 +148,9 @@ namespace LaserGRBLPlus
 
     public class DirectionButton : UserControls.ImageButton
 	{
-		private GrblCore.JogDirection mDir = GrblCore.JogDirection.N;
+		private JogDirection mDir = JogDirection.N;
 
-		public GrblCore.JogDirection JogDirection
+		public JogDirection JogDirection
 		{
 			get { return mDir; }
 			set { mDir = value; }

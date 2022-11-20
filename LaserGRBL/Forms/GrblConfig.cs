@@ -4,23 +4,21 @@
 // This program is distributed in the hope that it will be useful, but  WITHOUT ANY WARRANTY; without even the implied warranty of  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GPLv3  General Public License for more details.
 // You should have received a copy of the GPLv3 General Public License  along with this program; if not, write to the Free Software  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307,  USA. using System;
 
-using LaserGRBLPlus.Core;
-using LaserGRBLPlus.Libraries.GRBLLibrary;
+using GRBLLibrary;
+using LaserGRBLPlus.Core.Enum;
+using LaserGRBLPlus.Settings;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Windows.Forms;
+using static LaserGRBLPlus.Settings.GrblSettings;
 
 namespace LaserGRBLPlus
 {
 	public partial class GrblConfig : Form
 	{
 		private GrblCore Core;
-		private List<GrblConf.GrblConfParam> mLocalCopy;
+		private List<GrblSetting> mLocalCopy;
 
 		public GrblConfig(GrblCore core)
 		{
@@ -40,7 +38,7 @@ namespace LaserGRBLPlus
             DGV.Columns["Value"].DefaultCellStyle.BackColor = ColorScheme.FormBackColor;
             BtnRead.BackColor = BtnWrite.BackColor = BtnImport.BackColor = BtnExport.BackColor = BtnCancel.BackColor = ColorScheme.FormButtonsColor;
 
-			mLocalCopy = Core.Configuration.ToList();
+			mLocalCopy = Core.configuration.ToList();
 			DGV.DataSource = mLocalCopy;
             Core.MachineStatusChanged += RefreshEnabledButtons;
 			
@@ -64,7 +62,7 @@ namespace LaserGRBLPlus
 
 		void RefreshEnabledButtons()
 		{
-			BtnExport.Enabled = Core.Configuration.Count > 0;
+			BtnExport.Enabled = Core.configuration.Count > 0;
 			BtnImport.Enabled = BtnRead.Enabled = BtnWrite.Enabled = Core.CanReadWriteConfig;
 			DGV.ReadOnly = LblConnect.Visible = !Core.IsConnected;
 		}
@@ -86,7 +84,7 @@ namespace LaserGRBLPlus
 			{
 				Cursor = Cursors.WaitCursor;
 				Core.RefreshConfig();
-				mLocalCopy = Core.Configuration.ToList();
+				mLocalCopy = Core.configuration.ToList();
 				DGV.DataSource = mLocalCopy;
 				RefreshEnabledButtons();
 				Cursor = DefaultCursor;
@@ -106,7 +104,7 @@ namespace LaserGRBLPlus
 			try
 			{
 				Core.RefreshConfig();
-				List<GrblConf.GrblConfParam> changes = GetChanges(); //get changes
+                List<GrblSetting> changes = GetChanges(); //get changes
 
 				if (changes.Count > 0)
 					WriteConf(changes, false);
@@ -116,7 +114,7 @@ namespace LaserGRBLPlus
 			catch { }
 		}
 
-		private bool WriteConf(List<GrblConf.GrblConfParam> conf, bool import)
+		private bool WriteConf(List<GrblSetting> conf, bool import)
 		{
 			bool noerror = false;
 
@@ -177,14 +175,14 @@ namespace LaserGRBLPlus
 			{
 				Core.RefreshConfig(); //internally skipped if not possible
 
-				List<GrblConf.GrblConfParam> toexport = Core.Configuration.ToList();
+                List<GrblSetting> toexport = Core.configuration.ToList();
 				if (toexport.Count > 0)
 				{
 					try
 					{
 						using (System.IO.StreamWriter sw = new System.IO.StreamWriter(filename))
 						{
-							foreach (GrblConf.GrblConfParam p in toexport)
+							foreach (GrblSetting p in toexport)
 								sw.WriteLine(string.Format("${0}={1} ({2})", p.Number, p.Value.ToString(System.Globalization.NumberFormatInfo.InvariantInfo), p.Parameter));
 
 							sw.Close();
@@ -237,7 +235,7 @@ namespace LaserGRBLPlus
 				{
 					try
 					{
-						List<GrblConf.GrblConfParam> conf = new List<GrblConf.GrblConfParam>();
+                        List<GrblSetting> conf = new List<GrblSetting>();
 
 						using (System.IO.StreamReader sr = new System.IO.StreamReader(filename))
 						{
@@ -247,7 +245,7 @@ namespace LaserGRBLPlus
 								string msg = rline; //"$0=10 (Step pulse time)"
 								int num = int.Parse(msg.Split('=')[0].Substring(1));
 								float val = float.Parse(msg.Split('=')[1].Split(' ')[0], System.Globalization.NumberFormatInfo.InvariantInfo);
-								conf.Add(new GrblConf.GrblConfParam(num, val));
+								conf.Add(new GrblSetting(num, val));
 							}
 						}
 
@@ -258,7 +256,7 @@ namespace LaserGRBLPlus
 
 						//refresh actual conf
 						Core.RefreshConfig();
-						mLocalCopy = Core.Configuration.ToList();
+						mLocalCopy = Core.configuration.ToList();
 						DGV.DataSource = mLocalCopy;
 					}
 					catch (Exception ex)
@@ -296,7 +294,7 @@ namespace LaserGRBLPlus
 
 		private void GrblConfig_FormClosing(object sender, FormClosingEventArgs e)
 		{
-			if (HasChanges() && Core.MachineStatus == GrblCore.MacStatus.Idle)
+			if (HasChanges() && Core.MachineStatus == MacStatus.Idle)
 			{
 				DialogResult rv = System.Windows.Forms.MessageBox.Show(Strings.BoxConfigDetectedChanges, Strings.BoxConfigDetectedChangesTitle, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button3);
 
@@ -307,11 +305,11 @@ namespace LaserGRBLPlus
 			}
 		}
 
-		public List<GrblConf.GrblConfParam> GetChanges()
+		public List<GrblSetting> GetChanges()
 		{
-			List<GrblConf.GrblConfParam> rv = new List<GrblConf.GrblConfParam>();
-			GrblConf conf = Core.Configuration;
-			foreach (GrblConf.GrblConfParam p in mLocalCopy)
+            List<GrblSetting> rv = new List<GrblSetting>();
+            GrblSettings conf = Core.configuration;
+			foreach (GrblSetting p in mLocalCopy)
 				if (conf.HasChanges(p))
 					rv.Add(p);
 			return rv;
@@ -319,12 +317,12 @@ namespace LaserGRBLPlus
 
 		public bool HasChanges()
 		{
-			GrblConf conf = Core.Configuration;
+            GrblSettings conf = Core.configuration;
 
 			if (conf.Count != mLocalCopy.Count)
 				return true;
 
-			foreach(GrblConf.GrblConfParam p in mLocalCopy)
+			foreach(GrblSettings.GrblSetting p in mLocalCopy)
 				if (conf.HasChanges(p))
 					return true;
 

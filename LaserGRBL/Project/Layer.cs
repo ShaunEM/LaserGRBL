@@ -1,7 +1,6 @@
-﻿using LaserGRBLPlus.Libraries.GRBLLibrary;
+﻿using GCodeLibrary;
 using LaserGRBLPlus.Project;
-using System.Drawing;
-using System.Xml.Linq;
+using LaserGRBLPlus.Settings;
 
 namespace LaserGRBLPlus
 {
@@ -12,7 +11,7 @@ namespace LaserGRBLPlus
         public int OrigFileObjectIndex { get; set; }
         // public string FileName { get; set; }
         //public LayerSettings LayerSettings { get; set; }
-        public LayerType LayerType { get; set; } = LayerType.Notset;
+
         public string LayerDescription { get; set; }
        // public Color PreviewColor { get; set; }             // Color used on preview panel
         public bool Selected { get; set; } = false;
@@ -26,12 +25,30 @@ namespace LaserGRBLPlus
 
         // Layer settings
         public LayerConfig Config { get; set; }
-       
-        public Layer()
+        public GCodeConfig GCodeConfig { get; set; }
+        public LayerType LayerType { get; set; } = LayerType.Notset;
+
+
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="layerType">Can by anything to identify the layer, will load last config if found, otherwise default</param>
+        public Layer(string layerType)
         {
             // replace this with LayerConfig
             //LayerSettings = new LayerSettings(); 
-            Config = new LayerConfig();
+
+
+            //GCodeConfig = (GCodeConfig)Setting.LastGCodeConfig.Clone();
+            // TODO: Load as per layer type
+            GCodeConfig = Setting.GetLastGCodeConfig();                     // Machine settings, power, speed
+
+
+
+
+            Config = new LayerConfig();                 // Color, with,height...
             GCode = new GCode();
         }
 

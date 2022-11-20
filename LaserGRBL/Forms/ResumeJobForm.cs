@@ -4,6 +4,7 @@
 // This program is distributed in the hope that it will be useful, but  WITHOUT ANY WARRANTY; without even the implied warranty of  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GPLv3  General Public License for more details.
 // You should have received a copy of the GPLv3 General Public License  along with this program; if not, write to the Free Software  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307,  USA. using System;
 
+using LaserGRBLPlus.Core.Enum;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -22,7 +23,7 @@ namespace LaserGRBLPlus
 		bool mAllowH, mSuggestH;
 		int mExec, mSent, mSomeLine;
 
-		internal static int CreateAndShowDialog(Form parent, int exec, int sent, int target, GrblCore.DetectedIssue issue, bool allowHoming, bool suggestHoming, out bool homing, bool allowWCO, bool suggestWCO, out bool wco, GPoint wcopos)
+		internal static int CreateAndShowDialog(Form parent, int exec, int sent, int target, DetectedIssue issue, bool allowHoming, bool suggestHoming, out bool homing, bool allowWCO, bool suggestWCO, out bool wco, GPoint wcopos)
 		{
 			ResumeJobForm f = new ResumeJobForm(exec, sent, target, issue, allowHoming, suggestHoming, allowWCO, suggestWCO, wcopos);
 
@@ -34,7 +35,7 @@ namespace LaserGRBLPlus
 			return rv;
 		}
 
-		private ResumeJobForm(int exec, int sent, int target, GrblCore.DetectedIssue issue, bool allowHoming, bool suggestHoming, bool allowWCO, bool suggestWCO, GPoint wcopos)
+		private ResumeJobForm(int exec, int sent, int target, DetectedIssue issue, bool allowHoming, bool suggestHoming, bool allowWCO, bool suggestWCO, GPoint wcopos)
 		{
 			InitializeComponent();
 			mAllowH = allowHoming;
@@ -51,7 +52,7 @@ namespace LaserGRBLPlus
 
 			TxtCause.Text = issue.ToString();
 
-            if (/*issue == GrblCore.DetectedIssue.StopMoving ||*/ issue == GrblCore.DetectedIssue.StopResponding || issue == GrblCore.DetectedIssue.UnexpectedReset || issue == GrblCore.DetectedIssue.ManualReset)
+            if (/*issue == GrblCore.DetectedIssue.StopMoving ||*/ issue == DetectedIssue.StopResponding || issue == DetectedIssue.UnexpectedReset || issue == DetectedIssue.ManualReset)
             {
                 //all this causes indicate a situation where grbl does not execute the content of buffers (both planned and rx)
                 //so restart from some line (17 lines) before the last command in planned buffer
@@ -61,7 +62,7 @@ namespace LaserGRBLPlus
                 else
                     RbFromBeginning.Checked = true;
             }
-            else if (issue == GrblCore.DetectedIssue.ManualDisconnect || issue == GrblCore.DetectedIssue.UnexpectedDisconnect)
+            else if (issue == DetectedIssue.ManualDisconnect || issue == DetectedIssue.UnexpectedDisconnect)
             {
                 //if issue is a disconnect all sent lines could be already executed
                 //so restart from sent
@@ -70,7 +71,7 @@ namespace LaserGRBLPlus
                 else
                     RbFromSpecific.Checked = true;
             }
-            else if (issue == GrblCore.DetectedIssue.ManualAbort)
+            else if (issue == DetectedIssue.ManualAbort)
             {
                 RbFromBeginning.Checked = true;
             }

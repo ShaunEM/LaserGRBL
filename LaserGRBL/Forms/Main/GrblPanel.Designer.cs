@@ -32,11 +32,11 @@
             // 
             // GrblPanel
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Margin = new System.Windows.Forms.Padding(4);
+            this.BackColor = System.Drawing.Color.Silver;
             this.Name = "GrblPanel";
-            this.Size = new System.Drawing.Size(731, 492);
+            this.Size = new System.Drawing.Size(667, 366);
             this.Load += new System.EventHandler(this.GrblPanel_Load);
             this.Scroll += new System.Windows.Forms.ScrollEventHandler(this.GrblPanel_Scroll);
             this.Click += new System.EventHandler(this.GrblPanel_Click);
@@ -50,6 +50,5 @@
 		}
 
 		#endregion
-
 	}
 }

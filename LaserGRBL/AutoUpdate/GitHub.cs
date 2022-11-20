@@ -4,6 +4,7 @@
 // This program is distributed in the hope that it will be useful, but  WITHOUT ANY WARRANTY; without even the implied warranty of  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GPLv3  General Public License for more details.
 // You should have received a copy of the GPLv3 General Public License  along with this program; if not, write to the Free Software  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307,  USA. using System;
 
+using LaserGRBLPlus.Settings;
 using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
@@ -140,8 +141,8 @@ namespace LaserGRBLPlus
 
 				List<OnlineVersion> versions = Tools.JSONParser.FromJson<List<OnlineVersion>>(json);
 
-				bool build = GlobalSettings.GetObject("Auto Update Build", false) || manual;
-				bool pre = GlobalSettings.GetObject("Auto Update Pre", false);
+				bool build = Setting.App.AutoUpdateBuild || manual;
+				bool pre = Setting.App.AutoUpdatePre;
 
 				Version current = Program.CurrentVersion;
 				OnlineVersion found = null;
@@ -230,20 +231,10 @@ namespace LaserGRBLPlus
 
 		public static void InitUpdate()
 		{
-			InitFlags();
 			CleanupOldVersion();
 		}
 
-		private static void InitFlags()
-		{
-			if (!GlobalSettings.ExistObject("Auto Update Build"))
-			{
-				int percentage = 2; //enable "auto update build" on 2% of installation to be used as test platform
 
-				Random rng = new Random();
-				GlobalSettings.SetObject("Auto Update Build", GlobalSettings.GetObject("Auto Update", true) && rng.Next(0, 100) < percentage); 
-			}
-		}
 
 		private static void CleanupOldVersion()
 		{

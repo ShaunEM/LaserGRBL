@@ -157,12 +157,12 @@ namespace LaserGRBLPlus
 
 		private void BtnTarget_Click(object sender, EventArgs e)
 		{
-			Tools.Utils.OpenLink(@"https://LaserGRBLPlus.com/usage/flash/#target");
+			Tools.Utils.OpenLink(@"https://LaserGRBL.com/usage/flash/#target");
 		}
 
 		private void BtnFirmware_Click(object sender, EventArgs e)
 		{
-			Tools.Utils.OpenLink(@"https://LaserGRBLPlus.com/usage/flash/#firmware");
+			Tools.Utils.OpenLink(@"https://LaserGRBL.com/usage/flash/#firmware");
 		}
 
 		private void CbFirmware_SelectedIndexChanged(object sender, EventArgs e)

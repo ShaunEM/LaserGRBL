@@ -29,7 +29,7 @@ namespace LaserGRBLPlus
 
 		private void BtnDonate_Click(object sender, EventArgs e)
 		{
-			Tools.Utils.OpenLink(@"https://LaserGRBLPlus.com/donate");
+			Tools.Utils.OpenLink(@"https://LaserGRBL.com/donate");
 		}
 
 		internal static void CreateAndShowDialog(Form parent)

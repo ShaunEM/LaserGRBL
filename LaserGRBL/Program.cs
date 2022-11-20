@@ -4,6 +4,7 @@
 // This program is distributed in the hope that it will be useful, but  WITHOUT ANY WARRANTY; without even the implied warranty of  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GPLv3  General Public License for more details.
 // You should have received a copy of the GPLv3 General Public License  along with this program; if not, write to the Free Software  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307,  USA. using System;
 
+using LaserGRBLPlus.Settings;
 using System;
 using System.Runtime.CompilerServices;
 using System.Threading;
@@ -15,6 +16,9 @@ namespace LaserGRBLPlus
 	static class Program
 	{
         public static Version CurrentVersion { get; private set; }
+		public static GrblCore AppCore { get; set; }
+
+
 
         /// <summary>
         /// Punto di ingresso principale dell'applicazione.
@@ -35,14 +39,18 @@ namespace LaserGRBLPlus
 			Tools.TimingBase.TimeFromApplicationStartup();
 
             Logger.Start();
+
 			GitHub.InitUpdate();
+
 			UsageStats.LoadFile();
+
 			CustomButtons.LoadFile();
 
 			Application.EnableVisualStyles();
+
 			Application.SetCompatibleTextRenderingDefault(false);
 
-			System.Globalization.CultureInfo ci = GlobalSettings.GetObject<System.Globalization.CultureInfo>("User Language", null);
+			System.Globalization.CultureInfo ci = Setting.App.UserLanguage;
 			if (ci != null)
 			{
 				Thread.CurrentThread.CurrentUICulture = ci;

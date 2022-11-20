@@ -352,7 +352,7 @@
     <value>layerListBox</value>
   </data>
   <data name="&gt;&gt;layerListBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ListBoxRowColor, LaserGRBL, Version=4.8.1.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>System.Windows.Forms.ListBoxRowColor, LaserGRBLPlus, Version=0.1.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;layerListBox.Parent" xml:space="preserve">
     <value>tableLayoutPanel4</value>
@@ -508,7 +508,7 @@
     <value>0</value>
   </data>
   <data name="tableLayoutPanel4.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="btnSave" Row="0" RowSpan="1" Column="4" ColumnSpan="1" /&gt;&lt;Control Name="btnResetAll" Row="1" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="btnAddLayer" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="btnRemoveLayer" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="btnLayerSetting" Row="1" RowSpan="1" Column="4" ColumnSpan="1" /&gt;&lt;Control Name="layerListBox" Row="4" RowSpan="1" Column="1" ColumnSpan="5" /&gt;&lt;Control Name="btnMoveLayerUp" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="btnMoveLayerDown" Row="1" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="label1" Row="2" RowSpan="1" Column="0" ColumnSpan="5" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Absolute,75,Absolute,75,Absolute,75,Absolute,75,Percent,100" /&gt;&lt;Rows Styles="Absolute,30,Absolute,30,Absolute,20,AutoSize,0,Absolute,5,Absolute,20" /&gt;&lt;/TableLayoutSettings&gt;</value>
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="btnSave" Row="0" RowSpan="1" Column="4" ColumnSpan="1" /&gt;&lt;Control Name="btnResetAll" Row="1" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="btnAddLayer" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="btnRemoveLayer" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="btnLayerSetting" Row="1" RowSpan="1" Column="4" ColumnSpan="1" /&gt;&lt;Control Name="layerListBox" Row="4" RowSpan="1" Column="1" ColumnSpan="5" /&gt;&lt;Control Name="btnMoveLayerUp" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="btnMoveLayerDown" Row="1" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="label1" Row="2" RowSpan="1" Column="0" ColumnSpan="5" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Absolute,75,Absolute,75,Absolute,75,AutoSize,0,Percent,100" /&gt;&lt;Rows Styles="Absolute,30,Absolute,30,Absolute,20,AutoSize,0,Absolute,5,Absolute,20" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
   <data name="tableLayoutPanel1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>

@@ -39,7 +39,7 @@ namespace LaserGRBLPlus
             LogMultiLine(
 				 "Program", 
 						String.Format(
-					   "------- LaserGRBL v{0} [{1}{2}] START -------", 
+					   "------- LaserGRBL-Plus v{0} [{1}{2}] START -------", 
 						Program.CurrentVersion.ToString(3), 
 						p64 ? "64bit" : "32bit" , 
 						p64 != o64 ? "!" : "")

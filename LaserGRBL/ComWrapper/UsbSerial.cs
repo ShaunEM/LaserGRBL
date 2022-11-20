@@ -3,6 +3,9 @@
 // This program is free software; you can redistribute it and/or modify  it under the terms of the GPLv3 General Public License as published by  the Free Software Foundation; either version 3 of the License, or (at  your option) any later version.
 // This program is distributed in the hope that it will be useful, but  WITHOUT ANY WARRANTY; without even the implied warranty of  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GPLv3  General Public License for more details.
 // You should have received a copy of the GPLv3 General Public License  along with this program; if not, write to the Free Software  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307,  USA. using System;
+using GCodeLibrary.Enum;
+using LaserGRBLPlus.Core.Enum;
+using LaserGRBLPlus.Settings;
 using System;
 
 namespace LaserGRBLPlus.ComWrapper
@@ -39,10 +42,10 @@ namespace LaserGRBLPlus.ComWrapper
 					com.NewLine = "\n";
 					com.WriteTimeout = 1000; //se si blocca in write
 
-					com.DtrEnable = GlobalSettings.GetObject("HardReset Grbl On Connect", false);
-					com.RtsEnable = GlobalSettings.GetObject("HardReset Grbl On Connect", false);
+					com.DtrEnable = Setting.App.HardResetGrblOnConnect;
+					com.RtsEnable = Setting.App.HardResetGrblOnConnect;
 
-					if (GlobalSettings.GetObject("Firmware Type", Firmware.Grbl) == Firmware.Marlin)
+                    if (Setting.App.FirmwareType == Firmware.Marlin)
 						com.DtrEnable = true;
 
 					ComLogger.Log("com", string.Format("Open {0} @ {1} baud {2} (UsbSerial)", com.PortName.ToUpper(), com.BaudRate, GetResetDiagnosticString()));
@@ -88,9 +91,10 @@ namespace LaserGRBLPlus.ComWrapper
 		{
 			bool rts = com.RtsEnable;
 			bool dtr = com.DtrEnable;
-			bool soft = GlobalSettings.GetObject("Reset Grbl On Connect", false);
+			bool soft = (bool)Setting.App.ResetGrblOnConnect;
 
-			string rv = "";
+
+            string rv = "";
 
 			if (dtr) rv += "DTR, ";
 			if (rts) rv += "RTS, ";

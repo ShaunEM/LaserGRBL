@@ -5,12 +5,8 @@
 // You should have received a copy of the GPLv3 General Public License  along with this program; if not, write to the Free Software  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307,  USA. using System;
 
 using LaserGRBLPlus.Extentions;
-using LaserGRBLPlus.UserControls;
 using System;
-using System.Collections.Generic;
-using System.Drawing;
 using System.Windows.Forms;
-using static System.Windows.Forms.ListBox;
 
 namespace LaserGRBLPlus
 {
@@ -38,13 +34,11 @@ namespace LaserGRBLPlus
 
             //List<int> selectedIndices = new List<int>();
             layerListBox.Items.Clear();
-            //var imageList1 = new ImageList(this.components);
-            //imageList1.Images.Add(Image.FromFile("C:\\DevHome\\LaserGRBL\\LaserGRBL\\Grafica\\add2.png"));
-            //layerListview.StateImageList = imageList1;
-
             for (int idx = 0; idx < Core.ProjectCore.layers.Count; idx++)
 			{
-                ListBoxItem newItem = new ListBoxItem(Core.ProjectCore.layers[idx].LayerDescription, (int)idx,
+                ListBoxItem newItem = new ListBoxItem(
+                    Core.ProjectCore.layers[idx].LayerDescription, 
+                    (int)idx,
                     Core.ProjectCore.layers[idx].Config.PreviewColor);
                 int itemIdx = layerListBox.Items.Add(newItem);
 
@@ -70,18 +64,21 @@ namespace LaserGRBLPlus
             //    layerListBox.Items.RemoveAt(idx);
             //}
 
-               layerListBox.ResumeLayout();
+            layerListBox.ResumeLayout();
             UpdateGUIBusy = false;
         }
 
 
 		private void btnLayerSetting_Click(object sender, EventArgs e)
         {
-            int idx = (int)((ListBoxItem)(layerListBox?.SelectedItem ?? -1))?.Value;
-            if (idx >= 0)
+            if(layerListBox?.SelectedItem != null)
             {
-                Core.EditLayerSetting(this.ParentForm, idx);
-                UpdateGUI();
+                int idx = (int)((ListBoxItem)(layerListBox?.SelectedItem ?? -1))?.Value;
+                if (idx >= 0)
+                {
+                    Core.EditLayerSetting(this.ParentForm, idx);
+                    UpdateGUI();
+                }
             }
 
             //string layerName = lstLayers.SelectedItem?.ToString() ?? "";
@@ -115,7 +112,6 @@ namespace LaserGRBLPlus
         {
 			Core.AddLayer(this.ParentForm);
             UpdateGUI();
-
         }
 
 

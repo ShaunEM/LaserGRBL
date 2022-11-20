@@ -4,6 +4,7 @@
 // This program is distributed in the hope that it will be useful, but  WITHOUT ANY WARRANTY; without even the implied warranty of  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GPLv3  General Public License for more details.
 // You should have received a copy of the GPLv3 General Public License  along with this program; if not, write to the Free Software  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307,  USA. using System;
 
+using LaserGRBLPlus.Core.Enum;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -255,27 +256,27 @@ namespace LaserGRBLPlus
 				case HotKey.Actions.SetNewZero:
 					mCore.SetNewZero(); break;
 				case HotKey.Actions.JogHome:
-					RequestJog(GrblCore.JogDirection.Home); break;
+					RequestJog(JogDirection.Home); break;
 				case HotKey.Actions.JogN:
-					RequestJog(GrblCore.JogDirection.N); break;
+					RequestJog(JogDirection.N); break;
 				case HotKey.Actions.JogNE:
-					RequestJog(GrblCore.JogDirection.NE); break;
+					RequestJog(JogDirection.NE); break;
 				case HotKey.Actions.JogE:
-					RequestJog(GrblCore.JogDirection.E); break;
+					RequestJog(JogDirection.E); break;
 				case HotKey.Actions.JogSE:
-					RequestJog(GrblCore.JogDirection.SE); break;
+					RequestJog(JogDirection.SE); break;
 				case HotKey.Actions.JogS:
-					RequestJog(GrblCore.JogDirection.S); break;
+					RequestJog(JogDirection.S); break;
 				case HotKey.Actions.JogSW:
-					RequestJog(GrblCore.JogDirection.SW); break;
+					RequestJog(JogDirection.SW); break;
 				case HotKey.Actions.JogW:
-					RequestJog(GrblCore.JogDirection.W); break;
+					RequestJog(JogDirection.W); break;
 				case HotKey.Actions.JogNW:
-					RequestJog(GrblCore.JogDirection.NW); break;
+					RequestJog(JogDirection.NW); break;
 				case HotKey.Actions.JogUp:
-					RequestJog(GrblCore.JogDirection.Zup); break;
+					RequestJog(JogDirection.Zup); break;
 				case HotKey.Actions.JogDown:
-					RequestJog(GrblCore.JogDirection.Zdown); break;
+					RequestJog(JogDirection.Zdown); break;
 				case HotKey.Actions.JogStepIncrease:
 					ChangeJogStep(true); break;
 				case HotKey.Actions.JogStepDecrease:
@@ -340,7 +341,7 @@ namespace LaserGRBLPlus
 				mJogForm.ChangeJogSpeedIndexBy(increase ? 1 : -1);
 		}
 
-		private void RequestJog(GrblCore.JogDirection dir)
+		private void RequestJog(JogDirection dir)
 		{
 			mJogKeyRequested = true;
 			mCore.BeginJog(dir, false);

@@ -67,6 +67,8 @@ namespace LaserGRBLPlus
             // 
             // Preview
             // 
+            this.Preview.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.Preview.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             resources.ApplyResources(this.Preview, "Preview");
             this.Preview.Name = "Preview";
             this.Preview.Load += new System.EventHandler(this.Preview_Load);
@@ -250,6 +252,7 @@ namespace LaserGRBLPlus
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel8, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.Preview, 0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
             // 
             // PreviewForm
             // 

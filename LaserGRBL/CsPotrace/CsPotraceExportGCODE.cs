@@ -26,7 +26,7 @@ namespace CsPotrace
 		/// <param name="Width">Width of the exportd cvg-File</param>
 		/// <param name="Height">Height of the exportd cvg-File</param>
 		/// <returns></returns>
-		public static List<string> Export2GCode(List<List<CsPotrace.Curve>> list, float oX, float oY, double scale, string lOn, string lOff, Size originalImageSize, string skipcmd)
+		public static List<string> Export2GCode(List<List<CsPotrace.Curve>> list, float oX, float oY, double scale, string laserOn, string lOff, Size originalImageSize, string skipcmd)
 		{
 			bool debug = false;
 
@@ -43,7 +43,9 @@ namespace CsPotrace
 
 			List<string> rv = new List<string>();
 			foreach (List<CsPotrace.Curve> Curves in list)
-				rv.AddRange(GetPathGC(Curves, lOn, lOff, oX * scale, oY * scale, scale, g, skipcmd));
+			{
+				rv.AddRange(GetPathGC(Curves, laserOn, lOff, oX * scale, oY * scale, scale, g, skipcmd));
+			}
 
 			if (debug)
 			{
@@ -62,7 +64,9 @@ namespace CsPotrace
 			OnPathBegin(Curves, lOn, oX, oY, scale, rv, skipcmd);
 
 			foreach (CsPotrace.Curve Curve in Curves)
+			{
 				OnPathSegment(Curve, oX, oY, scale, rv, g);
+			}
 
 			OnPathEnd(Curves, lOff, oX, oY, scale, rv);
 

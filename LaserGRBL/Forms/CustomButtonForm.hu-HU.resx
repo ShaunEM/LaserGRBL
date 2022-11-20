@@ -131,7 +131,7 @@
 - Támogatja a matematikai kifejezést szögletes zárójelben: azaz G0 X [left-5] Y [bottom-5]
 - Elérhető változók: left, right, top, bottom, width, height.. (stb.)
 
-Lásd: https://LaserGRBLPlus.com/usage/custom-buttons/</value>
+Lásd: https://LaserGRBL.com/usage/custom-buttons/</value>
   </data>
   <data name="LblEnabled.Text" xml:space="preserve">
     <value>Bekapcsolva</value>

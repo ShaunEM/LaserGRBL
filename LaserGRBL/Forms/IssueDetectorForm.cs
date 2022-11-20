@@ -4,6 +4,8 @@
 // This program is distributed in the hope that it will be useful, but  WITHOUT ANY WARRANTY; without even the implied warranty of  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GPLv3  General Public License for more details.
 // You should have received a copy of the GPLv3 General Public License  along with this program; if not, write to the Free Software  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307,  USA. using System;
 
+using LaserGRBLPlus.Core.Enum;
+using LaserGRBLPlus.Settings;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -22,7 +24,7 @@ namespace LaserGRBLPlus
 			InitializeComponent();
 		}
 
-		internal static void CreateAndShowDialog(Form parent, GrblCore.DetectedIssue issue)
+		internal static void CreateAndShowDialog(Form parent, DetectedIssue issue)
 		{
 			IssueDetectorForm f = new IssueDetectorForm();
 			f.TxtCause.Text = issue.ToString();
@@ -32,13 +34,15 @@ namespace LaserGRBLPlus
 
 		private void LL_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
 		{
-			Tools.Utils.OpenLink(@"https://LaserGRBLPlus.com/faq#issues");
+			Tools.Utils.OpenLink(@"https://LaserGRBL.com/faq#issues");
 		}
 
 		private void BtnOK_Click(object sender, EventArgs e)
 		{
 			if (CbDoNotShow.Checked)
-				GlobalSettings.SetObject("Do not show Issue Detector", true);
+			{
+                Setting.App.DoNotShowIssueDetector = true;
+			}
 		}
 	}
 }

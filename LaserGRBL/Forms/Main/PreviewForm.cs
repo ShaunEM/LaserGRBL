@@ -9,6 +9,7 @@ using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
 using System.Collections.Generic;
+using GCodeLibrary.Enum;
 
 namespace LaserGRBLPlus
 {
@@ -48,7 +49,7 @@ namespace LaserGRBLPlus
 			SuspendLayout();
 
 			BtnReset.Enabled = Core.CanResetGrbl;
-			BtnHoming.Visible = Core.Configuration.HomingEnabled;
+			BtnHoming.Visible = Core.configuration.HomingEnabled;
 			BtnHoming.Enabled = Core.CanDoHoming;
 			BtnUnlock.Enabled = Core.CanUnlock;
 			BtnStop.Enabled = Core.CanFeedHold;
@@ -192,11 +193,13 @@ namespace LaserGRBLPlus
 
 				if (PositionUnlocked)
 				{
-					using (Pen p = new Pen(Color.FromArgb(150, 135, 206, 250)))
-					{
+                    using (Pen p = new Pen(Color.FromArgb(150, 135, 206, 250)))
+                    {
 						e.Graphics.DrawRectangle(p, r);
 						for (int i = 0; i < 2 * Math.Max(r.Width, r.Height); i += 5)
+						{
 							e.Graphics.DrawLine(p, i, 0, 0, i);
+						}
 					}
 				}
 			}
@@ -540,6 +543,11 @@ namespace LaserGRBLPlus
         {
 			Preview.RecreateBMP();
 		}
-    }
+
+		private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+		{
+
+		}
+	}
 
 }

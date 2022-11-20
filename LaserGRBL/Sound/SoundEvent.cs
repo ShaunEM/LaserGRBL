@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using LaserGRBLPlus.Settings;
 using System.Linq;
-using System.Text;
 using System.Media;
+using System.Web.Caching;
 
-namespace Sound
+namespace LaserGRBLPlus.Sounds
 {
 	public class SoundEvent
 	{
@@ -17,28 +16,46 @@ namespace Sound
          *  
          */
 
-		public enum EventId
-		{ Success = 0, Warning = 1, Fatal = 2, Connect = 3, Disconnect = 4 }
+		public enum SoundType
+		{ 
+			Success = 0, 
+			Warning = 1, 
+			Fatal = 2, 
+			Connect = 3, 
+			Disconnect = 4 
+		}
+		public class Sound
+		{
+			public SoundType Type { get; set;}
+			public bool Enabled { get; set; }
+			public string FileName { get; set; }
+			public Sound(SoundType type, string fileName, bool enabled = true)
+			{
+				this.Type = type; 
+				this.FileName = fileName;
+				this.Enabled = enabled;
+			}
+        }
 
 
 		private static bool mBusy = false;
 		private static string mLock = "PLAY LOCK TOKEN";
-		public static void PlaySound(EventId id)
+		public static void PlaySound(SoundType sountType)
 		{
 			try
 			{
-				string name = id.ToString();
-				if (LaserGRBLPlus.GlobalSettings.GetObject($"Sound.{name}.Enabled", true))
+                // Fix sound issue
+                Sound sound = Setting.App.Sounds.Where(x => x.Type == sountType).FirstOrDefault();
+				if (sound?.Enabled ?? false)
 				{
-					string filename = LaserGRBLPlus.GlobalSettings.GetObject($"Sound.{name}", $"Sound\\{name}.wav");
-					if (System.IO.File.Exists(filename))
+					if (System.IO.File.Exists(sound.FileName))
 					{
 						lock (mLock)
 						{
 							if (!mBusy)
 							{
 								mBusy = true;
-								System.Threading.ThreadPool.QueueUserWorkItem(PlayAsync, filename);
+								System.Threading.ThreadPool.QueueUserWorkItem(PlayAsync, sound.FileName);
 							}
 						}
 					}

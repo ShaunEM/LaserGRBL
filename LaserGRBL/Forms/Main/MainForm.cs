@@ -4,10 +4,13 @@
 // This program is distributed in the hope that it will be useful, but  WITHOUT ANY WARRANTY; without even the implied warranty of  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GPLv3  General Public License for more details.
 // You should have received a copy of the GPLv3 General Public License  along with this program; if not, write to the Free Software  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307,  USA. using System;
 
-using LaserGRBLPlus.Libraries.GRBLLibrary;
+using GCodeLibrary.Enum;
+using GRBLLibrary;
+using LaserGRBLPlus.Core.Enum;
+using LaserGRBLPlus.Forms;
+using LaserGRBLPlus.Settings;
 using System;
 using System.Drawing;
-using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Windows.Threading;
@@ -21,21 +24,23 @@ namespace LaserGRBLPlus
 		private GrblCore Core;
 		private UsageStats.MessageData ToolBarMessage;
 		private bool IsBufferStuck = false;
+		private bool FormLoadComplete = false;
 
 		public MainForm()
 		{
 			InitializeComponent();
 
+
+
+            #region Setup UI Controls and events
+
+			MnNotifyNewVersion.Checked = Setting.App.AutoUpdate;
+			MnNotifyMinorVersion.Checked = Setting.App.AutoUpdateBuild;
+			MnNotifyPreRelease.Checked = Setting.App.AutoUpdatePre;
+
+            MMn.Renderer = new MMnRenderer();
 			MnOrtur.Visible = false;
-			MMn.Renderer = new MMnRenderer();
-
-            
 			splitContainer1.FixedPanel = FixedPanel.Panel1;
-            splitContainer1.SplitterDistance = GlobalSettings.GetObject("MainForm Splitter Position", 260);
-			MnNotifyNewVersion.Checked = GlobalSettings.GetObject("Auto Update", true);
-			MnNotifyMinorVersion.Checked = GlobalSettings.GetObject("Auto Update Build", false);
-			MnNotifyPreRelease.Checked = GlobalSettings.GetObject("Auto Update Pre", false);
-
 			MnAutoUpdate.DropDown.Closing += MnAutoUpdateDropDown_Closing;
 
 			if (System.Threading.Thread.CurrentThread.Name == null)
@@ -45,11 +50,29 @@ namespace LaserGRBLPlus
 
 
 
-			//build main communication object
-			Firmware ftype = GlobalSettings.GetObject("Firmware Type", Firmware.Grbl);
+			// Restore last window state
+            if (Setting.App.Last != null)
+            {
+				if (Setting.App.Last?.WindowState != null)
+					WindowState = (FormWindowState)Setting.App.Last.WindowState;
+
+                if (Setting.App.Last.WindowSize != null)
+                    Size = (Size)Setting.App.Last.WindowSize;
+
+                if (Setting.App.Last.WindowLocation != null)
+                    Location = (Point)Setting.App.Last.WindowLocation;
+
+                splitContainer1.SplitterDistance = Setting.App.Last.WindowSplitterPosition;
+            }
+            #endregion
+
+
+
+            //build main communication object
+            Firmware ftype = Setting.App.FirmwareType;
 			if (ftype == Firmware.Smoothie)
             {
-				Core = new SmoothieCore(this, PreviewForm, JogForm);
+                Core = new SmoothieCore(this, PreviewForm, JogForm);
             }
 			else if (ftype == Firmware.Marlin)
             {
@@ -63,9 +86,11 @@ namespace LaserGRBLPlus
             {
 				Core = new GrblCore(this, PreviewForm, JogForm);
             }
-
-
 			ExceptionManager.Core = Core;
+
+
+
+
 
 			if (true) //use multi instance trigger
 			{
@@ -78,6 +103,7 @@ namespace LaserGRBLPlus
 
 			MnGrbl.Text = Core.Type.ToString();
 
+			
 			Core.MachineStatusChanged += OnMachineStatus;
 			Core.OnFileLoaded += OnFileLoaded;
 			Core.OnOverrideChange += RefreshOverride;
@@ -94,17 +120,65 @@ namespace LaserGRBLPlus
 
 			GitHub.NewVersion += GitHub_NewVersion;
 
-			ColorScheme.CurrentScheme = GlobalSettings.GetObject("Color Schema", ColorScheme.Scheme.BlueLaser); ;
+			ColorScheme.CurrentScheme = Setting.App.ColorSchema;
 			RefreshColorSchema(); //include RefreshOverride();
 			RefreshFormTitle();
-		}
+            if (Setting.App.AutoUpdate)
+            {
+                GitHub.CheckVersion(false);
+            }
+        }
 
 		public MainForm(string[] args) : this()
 		{
 			this.args = args;
 		}
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            ManageMessage();
+            ManageCommandLineArgs(args);
 
-		private void MnAutoUpdateDropDown_Closing(object sender, ToolStripDropDownClosingEventArgs e)
+            UpdateTimer.Enabled = true;
+            FormLoadComplete = true;
+        }
+
+        void MainFormFormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (Core.InProgram && System.Windows.Forms.MessageBox.Show(Strings.ExitAnyway, Strings.WarnMessageBoxHeader, MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != System.Windows.Forms.DialogResult.Yes)
+			{
+                e.Cancel = true;
+            }
+            if (!e.Cancel)
+            {
+                SincroStart.StopListen();
+                Core.CloseCom(true);
+                
+                // FormWindowState.Maximized
+                Setting.App.Last.WindowSize = Size;
+				Setting.App.Last.WindowLocation = Location;
+				Setting.App.Last.WindowState = WindowState;
+
+				// Save all settings
+                Setting.SaveAll();
+                UsageStats.SaveFile(Core);	// TODO: Move to form settings.. or maybe Stats.blabla
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        private void MnAutoUpdateDropDown_Closing(object sender, ToolStripDropDownClosingEventArgs e)
 		{
 			if (e.CloseReason == ToolStripDropDownCloseReason.ItemClicked)
 			{
@@ -112,10 +186,12 @@ namespace LaserGRBLPlus
 			}
 		}
 
-		void OnIssueDetected(GrblCore.DetectedIssue issue)
+		void OnIssueDetected(DetectedIssue issue)
 		{
-			if (!GlobalSettings.GetObject("Do not show Issue Detector", false))
+			if (!Setting.App.DonotshowIssueDetector)
+			{
 				IssueDetectorForm.CreateAndShowDialog(this, issue);
+			}
 		}
 
 		void OnProjectUpdated()
@@ -148,7 +224,12 @@ namespace LaserGRBLPlus
 
 		private void RefreshColorSchema()
 		{
-			MMn.BackColor = BackColor = StatusBar.BackColor = ColorScheme.FormBackColor;
+			MMn.BackColor = ColorScheme.FormBackColor;
+            BackColor = ColorScheme.FormBackColor;
+            StatusBar.BackColor = ColorScheme.FormBackColor;
+			
+			
+			
 			MMn.ForeColor = ForeColor = ColorScheme.FormForeColor;
 			blueLaserToolStripMenuItem.Checked = ColorScheme.CurrentScheme == ColorScheme.Scheme.BlueLaser;
 			redLaserToolStripMenuItem.Checked = ColorScheme.CurrentScheme == ColorScheme.Scheme.RedLaser;
@@ -182,7 +263,7 @@ namespace LaserGRBLPlus
 			else
 			{
 				if (error != null)
-					MessageBox.Show(this, "Cannot check for new version, please verify http://LaserGRBLPlus.com manually.", "Software info", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+					MessageBox.Show(this, "Cannot check for new version, please verify manually.", "Software info", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
 				else if (available != null)
 					NewVersionForm.CreateAndShowDialog(current, available, this);
 				else
@@ -190,32 +271,6 @@ namespace LaserGRBLPlus
 			
 			}
 		}
-
-		private void MainForm_Load(object sender, EventArgs e)
-		{
-			UpdateTimer.Enabled = true;
-
-
-			if (GlobalSettings.GetObject("Auto Update", true))
-            {
-				GitHub.CheckVersion(false);
-			}
-				
-
-			SuspendLayout();
-			//restore last size and position
-			Object[] msp = GlobalSettings.GetObject<Object[]>("Mainform Size and Position", null);
-			FormWindowState state = msp == null ? FormWindowState.Maximized : (FormWindowState)msp[2] != FormWindowState.Minimized ? (FormWindowState)msp[2] : FormWindowState.Maximized;
-			if (state == FormWindowState.Normal)
-			{ WindowState = state; Size = (Size)msp[0]; Location = (Point)msp[1]; }
-			ResumeLayout();
-
-			ManageMessage();
-			ManageCommandLineArgs(args);
-
-		
-		}
-
 		private void ManageCommandLineArgs(string[] args)
 		{
 			if (args != null && args.Length == 1)
@@ -304,32 +359,21 @@ namespace LaserGRBLPlus
 
 
 
-
-		private void MnAddLayer_Click(object sender, EventArgs e)
-		{
-			Core.AddLayer(this, null);
-		}
-
-
-
-
-
-
 		void OnMachineStatus()
 		{
 			UpdateGUITimers();
-			if (Core.MachineStatus == GrblCore.MacStatus.Disconnected && Core.FailedConnectionCount >= 3)
+			if (Core.MachineStatus == MacStatus.Disconnected && Core.FailedConnectionCount >= 3)
 			{
 				string url = null;
-				ComWrapper.WrapperType wt = GlobalSettings.GetObject("ComWrapper Protocol", ComWrapper.WrapperType.UsbSerial);
+				ComWrapper.WrapperType wt = Setting.App.ComWrapperProtocol; 
 
 				if (wt == ComWrapper.WrapperType.UsbSerial || wt == ComWrapper.WrapperType.UsbSerial2)
                 {
-					url = "https://LaserGRBLPlus.com/usage/arduino-connection/";
+					url = "https://LaserGRBL.com/usage/arduino-connection/";
                 }
 				else if (wt == ComWrapper.WrapperType.Telnet || wt == ComWrapper.WrapperType.LaserWebESP8266)
                 {
-					url = "https://LaserGRBLPlus.com/usage/wifi-with-esp8266/";
+					url = "https://LaserGRBL.com/usage/wifi-with-esp8266/";
                 }
 
 				if (url != null)
@@ -338,21 +382,7 @@ namespace LaserGRBLPlus
                 }
 			}
 		}
-		void MainFormFormClosing(object sender, FormClosingEventArgs e)
-		{
-			if (Core.InProgram && System.Windows.Forms.MessageBox.Show(Strings.ExitAnyway, Strings.WarnMessageBoxHeader, MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != System.Windows.Forms.DialogResult.Yes)
-				e.Cancel = true;
 
-			if (!e.Cancel)
-			{
-				SincroStart.StopListen();
-				Core.CloseCom(true);
-				GlobalSettings.SetObject("Mainform Size and Position", new object[] { Size, Location, WindowState });
-                GlobalSettings.Exiting();
-
-                UsageStats.SaveFile(Core);
-			}
-		}
 
 
 		private void UpdateTimer_Tick(object sender, EventArgs e)
@@ -399,7 +429,7 @@ namespace LaserGRBLPlus
 			MnConnect.Visible = !Core.IsConnected;
 			MnDisconnect.Visible = Core.IsConnected;
 
-			MnGoHome.Visible = Core.Configuration.HomingEnabled;
+			MnGoHome.Visible = Core.configuration.HomingEnabled;
 			MnGoHome.Enabled = Core.CanDoHoming;
 			MnUnlock.Enabled = Core.CanUnlock;
 
@@ -408,7 +438,7 @@ namespace LaserGRBLPlus
 			TTOvS.Visible = Core.SupportOverride;
 			spacer.Visible = Core.SupportOverride;
 
-			ComWrapper.WrapperType wt = GlobalSettings.GetObject("ComWrapper Protocol", ComWrapper.WrapperType.UsbSerial);
+			ComWrapper.WrapperType wt = Setting.App.ComWrapperProtocol;
 			MnWiFiDiscovery.Visible = wt == ComWrapper.WrapperType.LaserWebESP8266 || wt == ComWrapper.WrapperType.Telnet;
 			MnWiFiDiscovery.Enabled = !Core.IsConnected;
 
@@ -416,19 +446,19 @@ namespace LaserGRBLPlus
 			{
 				//Disconnected, Connecting, Idle, *Run, *Hold, *Door, Home, *Alarm, *Check, *Jog
 
-				case GrblCore.MacStatus.Alarm:
+				case MacStatus.Alarm:
 					TTTStatus.BackColor = Color.Red;
 					TTTStatus.ForeColor = Color.White;
 					break;
-				case GrblCore.MacStatus.Door:
-				case GrblCore.MacStatus.Hold:
-				case GrblCore.MacStatus.Cooling:
+				case MacStatus.Door:
+				case MacStatus.Hold:
+				case MacStatus.Cooling:
 					TTTStatus.BackColor = Color.DarkOrange;
 					TTTStatus.ForeColor = Color.Black;
 					break;
-				case GrblCore.MacStatus.Jog:
-				case GrblCore.MacStatus.Run:
-				case GrblCore.MacStatus.Check:
+				case MacStatus.Jog:
+				case MacStatus.Run:
+				case MacStatus.Check:
 					TTTStatus.BackColor = Color.LightGreen;
 					TTTStatus.ForeColor = Color.Black;
 					break;
@@ -475,11 +505,11 @@ namespace LaserGRBLPlus
 			Close();
 		}
 
-		private void MnFileOpen_Click(object sender, EventArgs e)
-		{
-			//Project.ClearSettings();
-			Core.AddLayer(this);
-		}
+		//private void MnFileOpen_Click(object sender, EventArgs e)
+		//{
+		//	//Project.ClearSettings();
+		//	Core.AddLayer(this);
+		//}
 
 		private void MnFileSend_Click(object sender, EventArgs e)
 		{
@@ -559,15 +589,15 @@ namespace LaserGRBLPlus
 			if (!(Core.InProgram && System.Windows.Forms.MessageBox.Show(Strings.DisconnectAnyway, Strings.WarnMessageBoxHeader, MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != System.Windows.Forms.DialogResult.Yes))
 				Core.CloseCom(true);
 		}
-		void MnSaveProgramClick(object sender, EventArgs e)
-		{
-			Core.SaveProgram(this, false, false, false, 1);
-		}
+		//void MnSaveProgramClick(object sender, EventArgs e)
+		//{
+		//	Core.SaveProgram(this, false, false, false, 1);
+		//}
 
-		private void MnAdvancedSave_Click(object sender, EventArgs e)
-		{
-			SaveOptionForm.CreateAndShowDialog(this, Core);
-		}
+		//private void MnAdvancedSave_Click(object sender, EventArgs e)
+		//{
+		//	SaveOptionForm.CreateAndShowDialog(this, Core);
+		//}
 
 		private void MnSaveProject_Click(object sender, EventArgs e)
 		{
@@ -593,11 +623,7 @@ namespace LaserGRBLPlus
 
 		private void SetLanguage(System.Globalization.CultureInfo ci)
 		{
-			if (ci != null)
-				GlobalSettings.SetObject("User Language", ci);
-			else
-				GlobalSettings.DeleteObject("User Language");
-
+            Setting.App.UserLanguage = ci;
 			if (MessageBox.Show(Strings.LanguageRequireRestartNow, Strings.LanguageRequireRestart, MessageBoxButtons.OKCancel) == DialogResult.OK)
 				Application.Restart();
 		}
@@ -609,17 +635,20 @@ namespace LaserGRBLPlus
 
 		private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			Tools.Utils.OpenLink(@"https://LaserGRBLPlus.com/faq/");
+			Tools.Utils.OpenLink(@"https://LaserGRBL.com/faq/");
 		}
 
 		private void splitContainer1_SplitterMoved(object sender, SplitterEventArgs e)
 		{
-            GlobalSettings.SetObject("MainForm Splitter Position", splitContainer1.SplitterDistance);
+			if(FormLoadComplete)
+			{
+                Setting.App.Last.WindowSplitterPosition = splitContainer1.SplitterDistance;
+			}
 		}
 
 		private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			SettingsForm.CreateAndShowDialog(this, Core);
+			FormManager.EditGlobalSettings(this, Core);
 		}
 
 		private void openSessionLogToolStripMenuItem_Click(object sender, EventArgs e)
@@ -701,7 +730,7 @@ namespace LaserGRBLPlus
 
 		private void SetSchema(ColorScheme.Scheme schema)
 		{
-			GlobalSettings.SetObject("Color Schema", schema);
+            Setting.App.ColorSchema = schema;
 			ColorScheme.CurrentScheme = schema;
 			RefreshColorSchema();
 		}
@@ -713,30 +742,30 @@ namespace LaserGRBLPlus
 
 		private void donateToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			Tools.Utils.OpenLink(@"https://LaserGRBLPlus.com/donate");
+			Tools.Utils.OpenLink(@"https://LaserGRBL.com/donate");
 		}
 
 
-		protected override void OnKeyUp(KeyEventArgs e)
-		{
-			mLastkeyData = Keys.None;
-			Core.ManageHotKeys(this, Keys.None);
-			base.OnKeyUp(e);
-		}
+		//protected override void OnKeyUp(KeyEventArgs e)
+		//{
+		//	mLastkeyData = Keys.None;
+		//	Core.ManageHotKeys(this, Keys.None);
+		//	base.OnKeyUp(e);
+		//}
 
-		Keys mLastkeyData = Keys.None;
-		protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
-		{
-			if (keyData != mLastkeyData)
-			{
-				mLastkeyData = keyData;
-				return Core.ManageHotKeys(this, keyData);
-			}
-			else
-			{
-				return base.ProcessCmdKey(ref msg, keyData);
-			}
-		}
+		//Keys mLastkeyData = Keys.None;
+		//protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+		//{
+		//	if (keyData != mLastkeyData)
+		//	{
+		//		mLastkeyData = keyData;
+		//		return Core.ManageHotKeys(this, keyData);
+		//	}
+		//	else
+		//	{
+		//		return base.ProcessCmdKey(ref msg, keyData);
+		//	}
+		//}
 
 		private void MnReOpenFile_Click(object sender, EventArgs e)
 		{
@@ -767,10 +796,10 @@ namespace LaserGRBLPlus
 			Core.RunProgramFromPosition(this);
 		}
 
-		private void MnFileAppend_Click(object sender, EventArgs e)
-		{
-			Core.AddLayer(this, null);
-		}
+		//private void MnFileAppend_Click(object sender, EventArgs e)
+		//{
+		//	Core.AddLayer(this, null);
+		//}
 
 		private void hungarianToolStripMenuItem_Click(object sender, EventArgs e)
 		{
@@ -810,7 +839,7 @@ namespace LaserGRBLPlus
 
 		private void toolsToolStripMenuItem_DropDownOpening(object sender, EventArgs e)
 		{
-			flashGrblFirmwareToolStripMenuItem.Enabled = (Core.MachineStatus == GrblCore.MacStatus.Disconnected);
+			flashGrblFirmwareToolStripMenuItem.Enabled = (Core.MachineStatus == MacStatus.Disconnected);
 		}
 
 		private void activateExtendedLogToolStripMenuItem_Click(object sender, EventArgs e)
@@ -897,7 +926,7 @@ namespace LaserGRBLPlus
 		private void MnNotifyNewVersion_Click(object sender, EventArgs e)
 		{
 			MnNotifyNewVersion.Checked = !MnNotifyNewVersion.Checked;
-			GlobalSettings.SetObject("Auto Update", MnNotifyNewVersion.Checked);
+            Setting.App.AutoUpdate = MnNotifyNewVersion.Checked;
 
 			//if (MnNotifyNewVersion.Checked)
 			//	GitHub.CheckVersion();
@@ -911,22 +940,22 @@ namespace LaserGRBLPlus
 				MnNotifyMinorVersion.Checked = false;
 				MnNotifyPreRelease.Enabled = false;
 				MnNotifyPreRelease.Checked = false;
-				GlobalSettings.SetObject("Auto Update Build", false);
-				GlobalSettings.SetObject("Auto Update Pre", false);
+                Setting.App.AutoUpdateBuild = false;
+                Setting.App.AutoUpdatePre = false;
 			}
 			else
 			{
 				MnNotifyMinorVersion.Enabled = true;
-				MnNotifyMinorVersion.Checked = GlobalSettings.GetObject("Auto Update Build", false);
+				MnNotifyMinorVersion.Checked = Setting.App.AutoUpdateBuild;
 				MnNotifyPreRelease.Enabled = true;
-				MnNotifyPreRelease.Checked = GlobalSettings.GetObject("Auto Update Pre", false);
+				MnNotifyPreRelease.Checked = Setting.App.AutoUpdatePre;
 			}
 		}
 
 		private void MnNotifyMinorVersion_Click(object sender, EventArgs e)
 		{
 			MnNotifyMinorVersion.Checked = !MnNotifyMinorVersion.Checked;
-			GlobalSettings.SetObject("Auto Update Build", MnNotifyMinorVersion.Checked);
+            Setting.App.AutoUpdateBuild = MnNotifyMinorVersion.Checked;
 
 			//if (MnNotifyNewVersion.Checked && MnNotifyMinorVersion.Checked)
 			//	GitHub.CheckVersion();
@@ -935,7 +964,7 @@ namespace LaserGRBLPlus
 		private void MnNotifyPreRelease_Click(object sender, EventArgs e)
 		{
 			MnNotifyPreRelease.Checked = !MnNotifyPreRelease.Checked;
-			GlobalSettings.SetObject("Auto Update Pre", MnNotifyPreRelease.Checked);
+            Setting.App.AutoUpdatePre = MnNotifyPreRelease.Checked;
 
 			//if (MnNotifyNewVersion.Checked && MnNotifyPreRelease.Checked)
 			//	GitHub.CheckVersion();
@@ -959,12 +988,12 @@ namespace LaserGRBLPlus
 
 		private void orturSupportGroupToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			Tools.Utils.OpenLink(@"https://LaserGRBLPlus.com/orturfacebook/");
+			Tools.Utils.OpenLink(@"https://LaserGRBL.com/orturfacebook/");
 		}
 
 		private void orturWebsiteToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			Tools.Utils.OpenLink(@"https://LaserGRBLPlus.com/orturwebsite/");
+			Tools.Utils.OpenLink(@"https://LaserGRBL.com/orturwebsite/");
 		}
 
 		private void traditionalChineseToolStripMenuItem_Click(object sender, EventArgs e)
@@ -974,17 +1003,17 @@ namespace LaserGRBLPlus
 
 		private void youtubeChannelToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			Tools.Utils.OpenLink(@"https://LaserGRBLPlus.com/orturYTchannel/");
+			Tools.Utils.OpenLink(@"https://LaserGRBL.com/orturYTchannel/");
 		}
 
 		private void firmwareToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			Tools.Utils.OpenLink(@"https://LaserGRBLPlus.com/ortur-firmware/");
+			Tools.Utils.OpenLink(@"https://LaserGRBL.com/ortur-firmware/");
 		}
 
 		private void manualsDownloadToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			Tools.Utils.OpenLink(@"https://LaserGRBLPlus.com/ortur-manuals/");
+			Tools.Utils.OpenLink(@"https://LaserGRBL.com/ortur-manuals/");
 		}
 
 		private void MultipleInstanceTimer_Tick(object sender, EventArgs e)
@@ -1007,7 +1036,7 @@ namespace LaserGRBLPlus
 
 		private void orturSupportAndFeedbackToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			Tools.Utils.OpenLink(@"https://LaserGRBLPlus.com/ortursupport/");
+			Tools.Utils.OpenLink(@"https://LaserGRBL.com/ortursupport/");
 		}
 
 		private void TTLinkToNews_Click(object sender, EventArgs e)
@@ -1059,43 +1088,27 @@ namespace LaserGRBLPlus
 
 		private void TTTStatus_DoubleClick(object sender, EventArgs e)
 		{
-			Tools.Utils.OpenLink(@"https://LaserGRBLPlus.com/usage/machine-status/");
+			Tools.Utils.OpenLink(@"https://LaserGRBL.com/usage/machine-status/");
 		}
 
-        private void ConnectionForm_Load(object sender, EventArgs e)
-        {
+		private void ProjectDetailForm_Load(object sender, EventArgs e)
+		{
 
-        }
-
-
-
-        private void ConnectionForm_Load_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void fileToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void PreviewForm_Load(object sender, EventArgs e)
-        {
-
-        }
-
-
-
-        private void projectDetailForm_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void MnLoadProect_Click(object sender, EventArgs e)
-        {
-			Core.LoadProject(this);
 		}
-    }
+
+
+
+
+
+
+
+
+
+		//      private void MnLoadProect_Click(object sender, EventArgs e)
+		//      {
+		//	Core.LoadProject(this);
+		//}
+	}
 
 
 
@@ -1106,7 +1119,7 @@ namespace LaserGRBLPlus
 
 
 
-    public class MMnRenderer : ToolStripProfessionalRenderer
+	public class MMnRenderer : ToolStripProfessionalRenderer
 	{
 		public MMnRenderer() : base(new CustomMenuColor()) { }
 

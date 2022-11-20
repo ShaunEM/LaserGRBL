@@ -2,12 +2,18 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
 using System.Xml.Linq;
 
 namespace LaserGRBLPlus.SvgConverter
 {
+
+    public class SVGLayer
+    {
+        public XElement Element { get; set; }
+        public Color Color { get; set; }
+        public string Description { get; set; }
+
+    }
 
     internal class SVGColor
     {
@@ -15,16 +21,90 @@ namespace LaserGRBLPlus.SvgConverter
         //private readonly XElement rootSVGElement = null;
         private readonly List<string> rawColors = new List<string>();
 
-        internal List<(XElement, Color)> GetColorLayers(XElement element)
+        //internal List<(XElement, Color)> GetColorLayers(XElement element)
+        //{
+        //    List<(XElement, Color)> colorLayers = new List<(XElement, Color)>();
+        //    List<Color> colors = GetColors(element);
+        //    if (colors.Count == 0)
+        //    {
+        //        colorLayers.Add((element, Color.Black));
+        //    }
+        //    else
+        //    {
+        //        foreach (Color color in colors)
+        //        {
+        //            colorLayers.Add((RemoveColors(element, colors.Where(n => n != color).ToList()), color));
+        //        }
+        //    }
+        //    return colorLayers;
+        //}
+
+        internal List<SVGLayer> GetColorLayers(XElement element)
         {
-            List<(XElement, Color)> colorLayers = new List<(XElement, Color)>();
+            List<SVGLayer> colorLayers = new List<SVGLayer>();
             List<Color> colors = GetColors(element);
-            foreach (Color color in colors)
+
+            if (colors.Count == 0)
             {
-                colorLayers.Add((RemoveColors(element, colors.Where(n => n != color).ToList()), color));
+                colorLayers.Add(new SVGLayer() {
+                    Element = element,
+                    Color = Color.Black
+                });
+            }
+            else
+            {
+                foreach (Color color in colors)
+                {
+                    (XElement xe, int cnt) = FilterToColor(element, color);
+                    if (cnt > 0)
+                    {
+                        colorLayers.Add(new SVGLayer() {
+                            Element = xe,
+                            Color = color,
+                        }); 
+                    }
+                }
             }
             return colorLayers;
         }
+
+        internal (XElement, int) FilterToColor(XElement element, Color color)
+        {
+            return FilterToColor(new XElement(element), color.R.ToString("X2").ToLower() + color.G.ToString("X2").ToLower() + color.B.ToString("X2").ToLower());
+        }
+
+        internal (XElement, int) FilterToColor(XElement element, string hexColor, int cnt = 0)
+        {
+            //string[] graphicElementTypes = { "path", "rect", "circle", "ellipse", "line", "polyline", "polygon", "text", "image" };
+            string[] graphicElementTypes = { "path", "rect", "circle", "ellipse", "line", "polyline", "polygon", "text" };
+
+            List<XElement> childElements = element.Elements().ToList();
+            for (int i = 0; i < childElements.Count(); i++)
+            {
+                string elementType = childElements[i].Name.LocalName.ToLower();
+                if (graphicElementTypes.Contains(elementType))
+                {
+                    // is graphic
+                    string elementColor = GetColor(childElements[i]);
+                    if (string.Compare(hexColor, elementColor, true) != 0)
+                    {
+                        // Remove element
+                        childElements[i].Remove();
+                        continue;
+                    }
+                    else
+                    {
+                        cnt++;
+                    }
+                }
+                // Do child elements
+                (childElements[i], cnt) = FilterToColor(childElements[i], hexColor, cnt);
+            }
+            return (element, cnt);
+        }
+
+
+
 
         //public SVGColor(string fileName)
         //{
@@ -50,21 +130,17 @@ namespace LaserGRBLPlus.SvgConverter
             return colors;
         }
 
-        private XElement RemoveColors(XElement element, List<Color> colors)
-        {
-            List<string> rawColorsToRemove = ConvertColorToRaw(colors);
-            XElement colorsRemovedSVGElement = new XElement(element);
-            do
-            {
-                rawColors.Clear();
-                CheckElement(colorsRemovedSVGElement, rawColorsToRemove.ToArray());
-            } while (rawColors.Any(x => rawColorsToRemove.Any(y => y == x)));
-            return colorsRemovedSVGElement;
-        }
-
-
-
-
+        //private XElement RemoveColors(XElement element, List<Color> colors)
+        //{
+        //    List<string> rawColorsToRemove = ConvertColorToRaw(colors);
+        //    XElement colorsRemovedSVGElement = new XElement(element);
+        //    do
+        //    {
+        //        rawColors.Clear();
+        //        CheckElement(colorsRemovedSVGElement, rawColorsToRemove.ToArray());
+        //    } while (rawColors.Any(x => rawColorsToRemove.Any(y => y == x)));
+        //    return colorsRemovedSVGElement;
+        //}
 
         private List<string> ConvertColorToRaw(List<Color> colors)
         {
@@ -98,23 +174,34 @@ namespace LaserGRBLPlus.SvgConverter
 
         private string GetColor(XElement pathElement)
         {
-            string style = "";
-            string stroke_color = "";
+            string color = "";
             if (pathElement.Attribute("style") != null)
             {
                 int start, end;
-                style = pathElement.Attribute("style").Value;
+                string style = pathElement.Attribute("style").Value;
                 start = style.IndexOf("stroke:#");
                 if (start >= 0)
                 {
                     end = style.IndexOf(';', start);
                     if (end > start)
                     {
-                        stroke_color = style.Substring(start + 8, end - start - 8);
+                        color = style.Substring(start + 8, end - start - 8);
+                    }
+                }
+                else
+                {
+                    start = style.IndexOf("fill:#");
+                    if (start >= 0)
+                    {
+                        end = style.IndexOf(';', start);
+                        if (end > start)
+                        {
+                            color = style.Substring(start + 8, end - start - 8);
+                        }
                     }
                 }
             }
-            return stroke_color.Trim().ToLower();
+            return color.Trim().ToLower();
         }
     }
 }

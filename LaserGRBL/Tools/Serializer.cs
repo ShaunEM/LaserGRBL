@@ -12,6 +12,8 @@ using System.Data;
 using System.Diagnostics;
 
 using System.IO;
+using System.Reflection;
+using System.Runtime.Serialization;
 using System.Security.AccessControl;
 
 namespace Tools
@@ -83,8 +85,14 @@ namespace Tools
 
 					WriteSerializerTag(FinalStream, SerializerVersion, SerializeMode, CypherKey, IV, Compression);
 
-					if ((Password != null)) FinalStream = new System.Security.Cryptography.CryptoStream(FinalStream, EE.CreateEncryptor(CypherKey, EE.IV), System.Security.Cryptography.CryptoStreamMode.Write);
-					if (Compression) FinalStream = new System.IO.Compression.DeflateStream(FinalStream, System.IO.Compression.CompressionMode.Compress);
+					if ((Password != null))
+					{
+						FinalStream = new System.Security.Cryptography.CryptoStream(FinalStream, EE.CreateEncryptor(CypherKey, EE.IV), System.Security.Cryptography.CryptoStreamMode.Write);
+					}
+					if (Compression)
+					{
+						FinalStream = new System.IO.Compression.DeflateStream(FinalStream, System.IO.Compression.CompressionMode.Compress);
+					}
 
 
 					SR.Serialize(FinalStream, ObjectToSave); //WRITE DATA
@@ -128,10 +136,14 @@ namespace Tools
 		}
 
 		public static object ObjFromFile(string FileWhereRead)
-		{ return ObjFromFile(FileWhereRead, null, false); }
+		{ 
+			return ObjFromFile(FileWhereRead, null, false); 
+		}
 
 		public static object ObjFromFile(string FileWhereRead, string Password)
-		{ return ObjFromFile(FileWhereRead, Password, false); }
+		{ 
+			return ObjFromFile(FileWhereRead, Password, false); 
+		}
 
 		public static object ObjFromFile(string filename, string Password, bool AskForMissingPassword)
 		{
@@ -143,7 +155,9 @@ namespace Tools
 				filename = System.IO.Path.Combine(LaserGRBLPlus.GrblCore.DataPath, filename);
 
 				if ((File.Exists(filename + ".bak") & !File.Exists(filename)))
+				{
 					ManageOrphanTmp(filename);
+				}
 
 				if (File.Exists(filename))
 				{
@@ -172,7 +186,10 @@ namespace Tools
 						if (RVersion == SerializerVersion)
 						{
 							SR = CreateFormatterForMode(Rmode);
-							if (RCompressed) FinalStream = new System.IO.Compression.DeflateStream(FinalStream, System.IO.Compression.CompressionMode.Decompress);
+							if (RCompressed)
+							{
+								FinalStream = new System.IO.Compression.DeflateStream(FinalStream, System.IO.Compression.CompressionMode.Decompress);
+							}
 
 							if (REncrypted && Password == null)
 							{
@@ -220,7 +237,9 @@ namespace Tools
 							}
 
 							if (REncrypted)
+							{
 								FinalStream = new System.Security.Cryptography.CryptoStream(FinalStream, EE.CreateDecryptor(CypherKey, EE.IV), System.Security.Cryptography.CryptoStreamMode.Read);
+							}
 
 
 							rv = SR.Deserialize(FinalStream); 							//READ DATA
@@ -229,7 +248,9 @@ namespace Tools
 						else
 						{
 							if ((FinalStream != null))
+							{
 								FinalStream.Close();
+							}
 							rv = ManageOldVersion(RVersion, filename, Password);
 						}
 
@@ -237,22 +258,24 @@ namespace Tools
 					catch (Exception ex)
 					{
 						err = ex;
-						System.Diagnostics.Debug.WriteLine(string.Format("Serialization exception in {0} Position {1}", filename, FinalStream.Position));
-
 						try
 						{
 							if ((FinalStream != null))
+							{
 								FinalStream.Close();
+							}
 						}
-						catch
+						catch(Exception)
 						{
+
 						}
 						try
 						{
 							ManageReadError(filename, ex);
 						}
-						catch
+						catch(Exception)
 						{
+
 						}
 					}
 				}
@@ -752,8 +775,7 @@ namespace Tools
 
 
 
-	}
-
+    }
 
 
 

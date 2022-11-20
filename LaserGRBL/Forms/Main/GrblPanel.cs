@@ -4,15 +4,13 @@
 // This program is distributed in the hope that it will be useful, but  WITHOUT ANY WARRANTY; without even the implied warranty of  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GPLv3  General Public License for more details.
 // You should have received a copy of the GPLv3 General Public License  along with this program; if not, write to the Free Software  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307,  USA. using System;
 
+using GRBLLibrary;
+using LaserGRBLPlus.Settings;
 using System;
-using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
-using LaserGRBLPlus;
-using LaserGRBLPlus.Libraries.GRBLLibrary;
-using LaserGRBLPlus.Libraries.SVGLibrary;
-using static LaserGRBLPlus.Libraries.GRBLLibrary.ProgramRange;
+using static GRBLLibrary.ProgramRange;
 
 namespace LaserGRBLPlus.UserControls
 {
@@ -57,7 +55,7 @@ namespace LaserGRBLPlus.UserControls
 			mLastWPos = GPoint.Zero;
 			mLastMPos = GPoint.Zero;
 
-			forcez = GlobalSettings.GetObject("Enale Z Jog Control", false);
+			forcez = Setting.App.EnableZJogControl;
 			SettingsForm.SettingsChanged += SettingsForm_SettingsChanged;
 
 			this.MouseWheel += PanelZoom;
@@ -129,9 +127,6 @@ namespace LaserGRBLPlus.UserControls
 		
 		protected override void OnPaint(PaintEventArgs e)
 		{
-			Debug.WriteLine("START", "GrblPanel.OnPaint");
-
-
 			try
 			{
 				if (mBitmap != null)
@@ -212,8 +207,6 @@ namespace LaserGRBLPlus.UserControls
 			{
 				Logger.LogException("GrblPanel Paint", ex);
 			}
-
-			Debug.WriteLine("END", "GrblPanel.OnPaint");
 		}
 
 
@@ -258,7 +251,7 @@ namespace LaserGRBLPlus.UserControls
 
 		private void SettingsForm_SettingsChanged(object sender, EventArgs e)
 		{
-			bool newforce = GlobalSettings.GetObject("Enale Z Jog Control", false);
+			bool newforce = Setting.App.EnableZJogControl;
 			if (newforce != forcez)
 			{
 				forcez = newforce;
@@ -282,10 +275,13 @@ namespace LaserGRBLPlus.UserControls
 
 		private void DoTheWork()
 		{
-			//Console.WriteLine("DoTheWork");
-			try
+            //Console.WriteLine("DoTheWork");
+           
+            try
 			{
-				Size wSize = Size;
+				
+
+                Size wSize = Size;
 
 				if (wSize.Width < 1 || wSize.Height < 1)
 				{
@@ -301,98 +297,44 @@ namespace LaserGRBLPlus.UserControls
 					g.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAliasGridFit;
 					if (Core != null)
 					{
-						// TODO: Add Scale
+					
 						
-						//ProgramRange.XYRange scaleRange = Core.ProjectCore.grblFileGlobal.globalRange.MovingRange;
-                        //Get scale factors for both directions. To preserve the aspect ratio, use the smaller scale factor.
-                        //float zoom = scaleRange.Width > 0 && scaleRange.Height > 0 ? Math.Min((float)size.Width / (float)scaleRange.Width, (float)size.Height / (float)scaleRange.Height) * 0.95f : 1;
-                        //foreach (Layer layer in Core.ProjectCore.layers)
-                        //{
-                        //    if (layer.GRBLFile.Range.DrawingRange.X.Min < Core.ProjectCore.grblFileGlobal.programRange.DrawingRange.X.Min)
-                        //    {
-                        //        Core.ProjectCore.grblFileGlobal.programRange.DrawingRange.X.Min = layer.GRBLFile.Range.DrawingRange.X.Min;
-                        //    }
-                        //    if (layer.GRBLFile.Range.DrawingRange.Y.Min < Core.ProjectCore.grblFileGlobal.programRange.DrawingRange.Y.Min)
-                        //    {
-                        //        Core.ProjectCore.grblFileGlobal.programRange.DrawingRange.Y.Min = layer.GRBLFile.Range.DrawingRange.Y.Min;
-                        //    }
-                        //    if (layer.GRBLFile.Range.DrawingRange.X.Max > Core.ProjectCore.grblFileGlobal.programRange.DrawingRange.X.Max)
-                        //    {
-                        //        Core.ProjectCore.grblFileGlobal.programRange.DrawingRange.X.Max = layer.GRBLFile.Range.DrawingRange.X.Max;
-                        //    }
-                        //    if (layer.GRBLFile.Range.DrawingRange.Y.Max > Core.ProjectCore.grblFileGlobal.programRange.DrawingRange.Y.Max)
-                        //    {
-                        //        Core.ProjectCore.grblFileGlobal.programRange.DrawingRange.Y.Max = layer.GRBLFile.Range.DrawingRange.Y.Max;
-                        //    }
-                        //}
-      //                  float zoom = 1;
-      //                  if (Core.ProjectCore.layers.Count > 0)
-      //                  {
-      //                      if (scaleRange.Width > 0 && scaleRange.Height > 0)
-      //                      {
-      //                          zoom = Math.Min((float)wSize.Width / (float)scaleRange.Width, (float)wSize.Height / (float)scaleRange.Height) * 0.95f;
-      //                      }
-      //                      if (Core.ProjectCore.grblFileGlobal.zoom == 1 || zoom < Core.ProjectCore.grblFileGlobal.zoom)
-      //                      {
-      //                          Core.ProjectCore.grblFileGlobal.zoom = zoom;
-      //                      }
-      //                      else
-						//	{ 
-      //                          zoom = Core.ProjectCore.grblFileGlobal.zoom;
-						//	}
-						//}
-
-
-                        //Debug.WriteLine($"Zoom value: '{zoom}'", "Panel");
-
-
-                        //Core.mProjectCore.layers[Core.mProjectCore.layers.Count - 1].LoadedFile.ReScale(g, Size, zoom);
+						// Draw each layer
 						if(Core.ProjectCore.layers.Count > 0)
                         {
-							Core.ProjectCore.grblFileGlobal.graphics = g;
+                            // Adjust the scale to fit all layers
+                            Core.ProjectCore.grblFileGlobal.Reset();
+                            Core.ProjectCore.grblFileGlobal.graphics = g;
 							Core.ProjectCore.grblFileGlobal.graphicSize = wSize;
-							Core.ProjectCore.grblFileGlobal.Reset(); 
-							foreach (Layer layer in Core.ProjectCore.layers)
+                            foreach (Layer layer in Core.ProjectCore.layers)
                             {
 								Core.ProjectCore.grblFileGlobal.ReScale(layer.GCode.Range);
 							}
 							Core.ProjectCore.grblFileGlobal.ScaleAndPosition();
 
-
-
-                            //Core.ProjectCore.layers[Core.ProjectCore.layers.Count - 1].GRBLFile.ReScale(g, Size, Core.ProjectCore.grblFileGlobal.zoom);
-                            //Core.ProjectCore.grblFileGlobal.ReScale(g, wSize, zoom);
-
                             // Add each layer to the graphic
                             GrblCommand.StatePositionBuilder sbp = new GrblCommand.StatePositionBuilder();
+
 							bool firstLayer = true;
 							foreach (Layer layer in Core.ProjectCore.layers)
                             {
-								//if (layer.ShowLayer)
-								//{
-									//Core.ProjectCore.grblFileGlobal.ReScale(layer.LayerGRBLFile.layerRange);
-									//Debug.WriteLine($"Adding layer '{layer.LayerDescription}'", "Panel");
-									//layer.GRBLFile.DrawJobPreview(g, sbp, Core.ProjectCore.grblFileGlobal.zoom, firstLayer ? ColorScheme.PreviewFirstMovement : ColorScheme.PreviewOtherMovement, layer.PreviewColor);
-									if (layer.Selected)
-									{
-										Core.ProjectCore.grblFileGlobal.DrawRange(layer.GCode.Range.DrawingRange);
-										
-										Console.WriteLine($"Range: X:{layer.GCode.Range.DrawingRange.X.Min}-{layer.GCode.Range.DrawingRange.X.Max} Y:{layer.GCode.Range.DrawingRange.Y.Min}-{layer.GCode.Range.DrawingRange.Y.Max}");
-									}
-									Core.ProjectCore.grblFileGlobal.DrawJobPreview(sbp, 
-										firstLayer ? ColorScheme.PreviewFirstMovement : ColorScheme.PreviewOtherMovement, 
-										layer.Config.PreviewColor, 
-										layer.GCode.GrblCommands);
-									firstLayer = false;
-								//}
+								// if the layer is selected, draw a box around is
+								if (layer.Selected)
+								{
+									Core.ProjectCore.grblFileGlobal.DrawRange(layer.GCode.Range.DrawingRange);
+								}
+
+                                // Draw the actual layer
+                                Core.ProjectCore.grblFileGlobal.DrawJobPreview(
+									sbp, 
+									firstLayer ? ColorScheme.PreviewFirstMovement : ColorScheme.PreviewOtherMovement, 
+									layer.Config.PreviewColor, 
+									layer.GCode.GrblCommands);
+								firstLayer = false;
 							}
-							//Core.ProjectCore.grblFileGlobal.ScaleAndPosition();
-							//Core.ProjectCore.grblFileGlobal.ZoomToImage(wSize);
-							//Core.ProjectCore.grblFileGlobal.ScaleAndPosition(wSize);
+
 							Core.ProjectCore.grblFileGlobal.DrawJobRange();
-							//Core.ProjectCore.grblFileGlobal.ZoomToImage(wSize);
-							//Core.ProjectCore.layers[Core.ProjectCore.layers.Count - 1].GRBLFile.DrawJobRange(g, Size, Core.ProjectCore.grblFileGlobal.zoom);
-							//Core.ProjectCore.grblFileGlobal.ZoomToImage(wSize);
+
 						}
 					}
 					mLastMatrix = g.Transform;
@@ -407,7 +349,7 @@ namespace LaserGRBLPlus.UserControls
 			{
 				Logger.LogException("Drawing Preview", ex);
 			}
-		}
+        }
 
 
 
@@ -442,7 +384,7 @@ namespace LaserGRBLPlus.UserControls
 
 		private void GrblPanel_MouseDoubleClick(object sender, MouseEventArgs e)
 		{
-			if (GlobalSettings.GetObject("Click N Jog", true))
+			if (Setting.App.ClickNJog)
 			{
 				PointF coord = DrawToMachine(new PointF(e.X, e.Y));
 				Core.BeginJog(coord, e.Button == MouseButtons.Right);
@@ -579,7 +521,7 @@ namespace LaserGRBLPlus.UserControls
         {
 			if(draggingBox)
             {
-				Pen pen = new Pen(Color.Red);
+				Pen pen = new Pen(Color.Red, 4);
 				// x
 				g.DrawLine(pen, selectBox.coordFrom.X, selectBox.coordFrom.Y, selectBox.coordTo.X, selectBox.coordFrom.Y);
 				g.DrawLine(pen, selectBox.coordFrom.X, selectBox.coordTo.Y, selectBox.coordTo.X, selectBox.coordTo.Y);
@@ -606,10 +548,10 @@ namespace LaserGRBLPlus.UserControls
                     PointF c = new PointF(f.X - Core.ProjectCore.layers[layerIndexBeingDragged].GCode.Range.DrawingRange.X.Min,
                         f.Y - Core.ProjectCore.layers[layerIndexBeingDragged].GCode.Range.DrawingRange.Y.Min);
 
-					c.X += Core.ProjectCore.layers[layerIndexBeingDragged].Config.GCodeConfig.TargetOffset.X;
-                    c.Y += Core.ProjectCore.layers[layerIndexBeingDragged].Config.GCodeConfig.TargetOffset.Y;
+					c.X += Core.ProjectCore.layers[layerIndexBeingDragged].GCodeConfig.TargetOffset.X;
+                    c.Y += Core.ProjectCore.layers[layerIndexBeingDragged].GCodeConfig.TargetOffset.Y;
 
-                    Core.ProjectCore.layers[layerIndexBeingDragged].Config.GCodeConfig.TargetOffset = c;
+                    Core.ProjectCore.layers[layerIndexBeingDragged].GCodeConfig.TargetOffset = c;
                     // SVGLibrary.PanBy(Core.ProjectCore.layers[layerIndexBeingDragged].OutputXElement, );
 
                    
@@ -620,13 +562,13 @@ namespace LaserGRBLPlus.UserControls
 				else if (Core.ProjectCore.layers[layerIndexBeingDragged].LayerType == LayerType.Raster)
 				{
 					
-					Console.WriteLine($"X:{Core.ProjectCore.layers[layerIndexBeingDragged].Config.GCodeConfig.TargetOffset.X} Y:{Core.ProjectCore.layers[layerIndexBeingDragged].Config.GCodeConfig.TargetOffset.Y}");
+					Console.WriteLine($"X:{Core.ProjectCore.layers[layerIndexBeingDragged].GCodeConfig.TargetOffset.X} Y:{Core.ProjectCore.layers[layerIndexBeingDragged].GCodeConfig.TargetOffset.Y}");
 
                     PointF c = new PointF(f.X - Core.ProjectCore.layers[layerIndexBeingDragged].GCode.Range.DrawingRange.X.Min,
                         f.Y - Core.ProjectCore.layers[layerIndexBeingDragged].GCode.Range.DrawingRange.Y.Min);
 
-                    c.X += Core.ProjectCore.layers[layerIndexBeingDragged].Config.GCodeConfig.TargetOffset.X;
-                    c.Y += Core.ProjectCore.layers[layerIndexBeingDragged].Config.GCodeConfig.TargetOffset.Y;
+                    c.X += Core.ProjectCore.layers[layerIndexBeingDragged].GCodeConfig.TargetOffset.X;
+                    c.Y += Core.ProjectCore.layers[layerIndexBeingDragged].GCodeConfig.TargetOffset.Y;
 
                     // update to new offset
                     //f.X -= Core.ProjectCore.layers[layerIndexBeingDragged].GCode.Range.DrawingRange.X.Min;
@@ -634,7 +576,7 @@ namespace LaserGRBLPlus.UserControls
                     // f.X += Core.ProjectCore.layers[layerIndexBeingDragged].Config.GCodeConfig.TargetOffset.X;
                     //f.Y += Core.ProjectCore.layers[layerIndexBeingDragged].Config.GCodeConfig.TargetOffset.Y;
 
-                    Core.ProjectCore.layers[layerIndexBeingDragged].Config.GCodeConfig.TargetOffset = c;
+                    Core.ProjectCore.layers[layerIndexBeingDragged].GCodeConfig.TargetOffset = c;
 
                     Core.UpdateLayerGCodeRaster(layerIndexBeingDragged);
                 }

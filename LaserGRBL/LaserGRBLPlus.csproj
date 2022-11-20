@@ -38,8 +38,8 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>2</ApplicationRevision>
-    <ApplicationVersion>0.1.0.%2a</ApplicationVersion>
+    <ApplicationRevision>3</ApplicationRevision>
+    <ApplicationVersion>0.4.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
@@ -104,7 +104,10 @@
     <TargetZone>LocalIntranet</TargetZone>
   </PropertyGroup>
   <PropertyGroup>
-    <SignManifests>true</SignManifests>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
@@ -125,8 +128,8 @@
     <Reference Include="System.Design" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Management" />
-    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
+    <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
     </Reference>
     <Reference Include="System.Numerics" />
     <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
@@ -181,26 +184,37 @@
     <Compile Include="ComWrapper\MySerial\StopBits.cs" />
     <Compile Include="ComWrapper\MySerial\WinSerialStream.cs" />
     <Compile Include="ComWrapper\UsbSerial2.cs" />
+    <Compile Include="Settings\AppSettings.cs" />
+    <Compile Include="Settings\MachineSettings.cs" />
+    <Compile Include="Core\Enum\DetectedIssue.cs" />
+    <Compile Include="Libraries\GCodeLibrary\Enum\Firmware.cs" />
+    <Compile Include="Core\Enum\JogDirection.cs" />
+    <Compile Include="Core\Enum\MacStatus.cs" />
+    <Compile Include="Core\Enum\StreamingMode.cs" />
+    <Compile Include="Core\GPoint.cs" />
+    <Compile Include="Core\GrblCore.ThreadingMode.cs" />
+    <Compile Include="Core\GrblCore.WriteConfigException.cs" />
+    <Compile Include="Libraries\GCodeLibrary\GRBL\GrblVersionInfo.cs" />
     <Compile Include="Extentions\XNodeExtensions.cs" />
-    <Compile Include="Libraries\GRBLLibrary\GrblConf.cs" />
+    <Compile Include="Libraries\GCodeLibrary\L2LConf.cs" />
+    <Compile Include="Libraries\JSONFileManager.cs" />
+    <Compile Include="Libraries\GCodeLibrary\GRBL\GrblSettings.cs" />
     <Compile Include="Core\TimeProjection.cs" />
     <Compile Include="Extentions\ColorExtentions.cs" />
     <Compile Include="Extentions\ListExtentions.cs" />
     <Compile Include="Forms\FormManager.cs" />
-    <Compile Include="Libraries\GRBLLibrary\CSVD.cs" />
-    <Compile Include="Libraries\GRBLLibrary\GrblElement.cs" />
-    <Compile Include="Libraries\GRBLLibrary\GrblFileGlobal.cs" />
-    <Compile Include="Libraries\GRBLLibrary\GrblMessage.cs" />
-    <Compile Include="Libraries\GRBLLibrary\IGrblRow.cs" />
-    <Compile Include="Libraries\GRBLLibrary\GCode.cs" />
-    <Compile Include="Libraries\GRBLLibrary\GCodeBuilder.cs" />
-    <Compile Include="Libraries\GRBLLibrary\GCodeConfig.cs" />
-    <Compile Include="Libraries\GRBLLibrary\ProgramRange.cs" />
-    <Compile Include="Libraries\SVGLibrary\SVGEditor.cs" />
+    <Compile Include="Libraries\GCodeLibrary\GRBL\CSVD.cs" />
+    <Compile Include="Libraries\GCodeLibrary\GRBL\GrblElement.cs" />
+    <Compile Include="Libraries\GCodeLibrary\GRBL\GrblFileGlobal.cs" />
+    <Compile Include="Libraries\GCodeLibrary\GRBL\GrblMessage.cs" />
+    <Compile Include="Libraries\GCodeLibrary\GRBL\IGrblRow.cs" />
+    <Compile Include="Libraries\GCodeLibrary\GCode.cs" />
+    <Compile Include="Libraries\GCodeLibrary\GCodeBuilder.cs" />
+    <Compile Include="Libraries\GCodeLibrary\GCodeConfig.cs" />
+    <Compile Include="Libraries\GCodeLibrary\GRBL\ProgramRange.cs" />
     <Compile Include="Libraries\SVGLibrary\SVGLibrary.cs" />
     <Compile Include="Project\File.cs" />
     <Compile Include="Project\Layer.cs" />
-    <Compile Include="Project\GlobalConfig.cs" />
     <Compile Include="Project\LayerConfig.cs" />
     <Compile Include="Project\LayerSettings.cs" />
     <Compile Include="Project\ProjectCore.cs" />
@@ -215,7 +229,7 @@
     <Compile Include="Core\VigoCore.cs" />
     <Compile Include="CsPotrace\PotraceClipper.cs" />
     <Compile Include="Libraries\LoggerLibrary\AsyncLogFile.cs" />
-    <Compile Include="Libraries\GRBLLibrary\SvgConverter\BezierTools.cs" />
+    <Compile Include="Libraries\GCodeLibrary\GRBL\SvgConverter\BezierTools.cs" />
     <Compile Include="Telegram.cs" />
     <Compile Include="Tools\DataProtector.cs" />
     <Compile Include="Tools\Json.cs" />
@@ -268,17 +282,17 @@
     <Compile Include="SincroStart.cs" />
     <Compile Include="Core\SmoothieCore.cs" />
     <Compile Include="Sound\SoundEvent.cs" />
-    <Compile Include="Libraries\GRBLLibrary\SvgConverter\SvgToGCodeForm.cs">
+    <Compile Include="Forms\SVG\SVGLayerConfigForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Libraries\GRBLLibrary\SvgConverter\SvgToGCodeForm.Designer.cs">
-      <DependentUpon>SvgToGCodeForm.cs</DependentUpon>
+    <Compile Include="Forms\SVG\SVGLayerConfigForm.Designer.cs">
+      <DependentUpon>SVGLayerConfigForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Libraries\GRBLLibrary\SvgConverter\GCodeFromSVG.cs" />
-    <Compile Include="Libraries\GRBLLibrary\SvgConverter\SvgModeForm.cs">
+    <Compile Include="Libraries\GCodeLibrary\GRBL\SvgConverter\GCodeFromSVG.cs" />
+    <Compile Include="Libraries\GCodeLibrary\GRBL\Forms\SvgModeForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Libraries\GRBLLibrary\SvgConverter\SvgModeForm.Designer.cs">
+    <Compile Include="Libraries\GCodeLibrary\GRBL\Forms\SvgModeForm.Designer.cs">
       <DependentUpon>SvgModeForm.cs</DependentUpon>
     </Compile>
     <Compile Include="SvgLibrary\Basic Shapes\SvgCircle.cs" />
@@ -514,8 +528,8 @@
     <Compile Include="SvgLibrary\Transforms\SvgTranslate.cs" />
     <Compile Include="SvgLibrary\Web\SvgHandler.cs" />
     <Compile Include="Tools\OSHelper.cs" />
-    <Compile Include="Configuration\UrlManager.cs" />
-    <Compile Include="ColorScheme.cs" />
+    <Compile Include="Settings\UrlManager.cs" />
+    <Compile Include="Project\ColorScheme.cs" />
     <Compile Include="ComWrapper\Emulator.cs" />
     <Compile Include="Forms\RunFromPositionForm.cs">
       <SubType>Form</SubType>
@@ -529,14 +543,14 @@
     <Compile Include="Forms\GrblConfig.Designer.cs">
       <DependentUpon>GrblConfig.cs</DependentUpon>
     </Compile>
-    <Compile Include="GrblEmulator\EmulatorUI.cs">
+    <Compile Include="Libraries\GCodeLibrary\GrblEmulator\EmulatorUI.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GrblEmulator\EmulatorUI.Designer.cs">
+    <Compile Include="Libraries\GCodeLibrary\GrblEmulator\EmulatorUI.Designer.cs">
       <DependentUpon>EmulatorUI.cs</DependentUpon>
     </Compile>
-    <Compile Include="GrblEmulator\Grblv11Emulator.cs" />
-    <Compile Include="GrblEmulator\WebsocketEmulator.cs" />
+    <Compile Include="Libraries\GCodeLibrary\GrblEmulator\Grblv11Emulator.cs" />
+    <Compile Include="Libraries\GCodeLibrary\GrblEmulator\WebsocketEmulator.cs" />
     <Compile Include="ComWrapper\IComWrapper.cs" />
     <Compile Include="ComWrapper\LaserWebESP8266.cs" />
     <Compile Include="ComWrapper\UsbSerial.cs" />
@@ -658,8 +672,8 @@
     <Compile Include="Core\GrblCore.cs" />
     <Compile Include="CSV\CsvDictionary.cs" />
     <Compile Include="CSV\FormattedMessage.cs" />
-    <Compile Include="Libraries\GRBLLibrary\GrblCommand.cs" />
-    <Compile Include="Libraries\GRBLLibrary\GrblFile.cs" />
+    <Compile Include="Libraries\GCodeLibrary\GRBL\GrblCommand.cs" />
+    <Compile Include="Libraries\GCodeLibrary\GRBL\GrblFile.cs" />
     <Compile Include="Forms\HotkeyManagerForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -709,16 +723,16 @@
     <Compile Include="Forms\ResumeJobForm.Designer.cs">
       <DependentUpon>ResumeJobForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Libraries\GRBLLibrary\StateBuilder.cs" />
+    <Compile Include="Libraries\GCodeLibrary\GRBL\StateBuilder.cs" />
     <Compile Include="Strings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Strings.resx</DependentUpon>
     </Compile>
-    <Compile Include="Forms\RasterConfig\ConvertSizeAndOptionForm.cs">
+    <Compile Include="Libraries\RasterLibrary\Forms\ConvertSizeAndOptionForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\RasterConfig\ConvertSizeAndOptionForm.Designer.cs">
+    <Compile Include="Libraries\RasterLibrary\Forms\ConvertSizeAndOptionForm.Designer.cs">
       <DependentUpon>ConvertSizeAndOptionForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Libraries\RasterLibrary\Dithering\ArgbColor.cs" />
@@ -736,23 +750,23 @@
     <Compile Include="Libraries\RasterLibrary\Dithering\StuckiDithering.cs" />
     <Compile Include="Libraries\RasterLibrary\ImageProcessor.cs" />
     <Compile Include="Libraries\RasterLibrary\ImageTransform.cs" />
-    <Compile Include="Forms\RasterConfig\RasterToLaserForm.cs">
+    <Compile Include="Forms\Raster\RasterToLaserForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\RasterConfig\RasterToLaserForm.Designer.cs">
+    <Compile Include="Forms\Raster\RasterToLaserForm.Designer.cs">
       <DependentUpon>RasterToLaserForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\RasterConfig\ResolutionHelperForm.cs">
+    <Compile Include="Forms\Raster\ResolutionHelperForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\RasterConfig\ResolutionHelperForm.Designer.cs">
+    <Compile Include="Forms\Raster\ResolutionHelperForm.Designer.cs">
       <DependentUpon>ResolutionHelperForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Configuration\GlobalSettings.cs" />
-    <Compile Include="Forms\SettingsForm.cs">
+    <Compile Include="Settings\Settings.cs" />
+    <Compile Include="Forms\AppSettings\SettingsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\SettingsForm.Designer.cs">
+    <Compile Include="Forms\AppSettings\SettingsForm.Designer.cs">
       <DependentUpon>SettingsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Tools\Cronometro.cs" />
@@ -767,7 +781,7 @@
     <Compile Include="Tools\ThreadClass.cs" />
     <Compile Include="Tools\WinAPI.cs" />
     <Compile Include="Tools\WordWrap.cs" />
-    <Compile Include="UsageStats.cs" />
+    <Compile Include="Project\UsageStats.cs" />
     <Compile Include="UserControls\ColorProgressBar.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -993,24 +1007,24 @@
     <EmbeddedResource Include="PSHelper\PSHelperForm.ro-RO.resx">
       <DependentUpon>PSHelperForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\RasterConfig\ConvertSizeAndOptionForm.nl-NL.resx">
+    <EmbeddedResource Include="Libraries\RasterLibrary\Forms\ConvertSizeAndOptionForm.nl-NL.resx">
       <DependentUpon>ConvertSizeAndOptionForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\RasterConfig\ConvertSizeAndOptionForm.ro-RO.resx">
+    <EmbeddedResource Include="Libraries\RasterLibrary\Forms\ConvertSizeAndOptionForm.ro-RO.resx">
       <DependentUpon>ConvertSizeAndOptionForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\RasterConfig\RasterToLaserForm.nl-NL.resx">
+    <EmbeddedResource Include="Forms\Raster\RasterToLaserForm.nl-NL.resx">
       <DependentUpon>RasterToLaserForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\RasterConfig\RasterToLaserForm.ro-RO.resx">
+    <EmbeddedResource Include="Forms\Raster\RasterToLaserForm.ro-RO.resx">
       <DependentUpon>RasterToLaserForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\RasterConfig\ResolutionHelperForm.nl-NL.resx">
+    <EmbeddedResource Include="Forms\Raster\ResolutionHelperForm.nl-NL.resx">
       <DependentUpon>ResolutionHelperForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\RasterConfig\ResolutionHelperForm.ro-RO.resx">
+    <EmbeddedResource Include="Forms\Raster\ResolutionHelperForm.ro-RO.resx">
       <DependentUpon>ResolutionHelperForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ResumeJobForm.nl-NL.resx">
@@ -1031,17 +1045,17 @@
     <EmbeddedResource Include="Forms\SaveOptionForm.ro-RO.resx">
       <DependentUpon>SaveOptionForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\SettingsForm.nl-NL.resx">
+    <EmbeddedResource Include="Forms\AppSettings\SettingsForm.nl-NL.resx">
       <DependentUpon>SettingsForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\SettingsForm.ro-RO.resx">
+    <EmbeddedResource Include="Forms\AppSettings\SettingsForm.ro-RO.resx">
       <DependentUpon>SettingsForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Libraries\GRBLLibrary\SvgConverter\SvgToGCodeForm.nl-NL.resx">
-      <DependentUpon>SvgToGCodeForm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\SVG\SVGLayerConfigForm.nl-NL.resx">
+      <DependentUpon>SVGLayerConfigForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Libraries\GRBLLibrary\SvgConverter\SvgToGCodeForm.ro-RO.resx">
-      <DependentUpon>SvgToGCodeForm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\SVG\SVGLayerConfigForm.ro-RO.resx">
+      <DependentUpon>SVGLayerConfigForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WiFiDiscovery\DiscoveryForm.nl-NL.resx">
       <DependentUpon>DiscoveryForm.cs</DependentUpon>
@@ -1054,9 +1068,9 @@
       <DependentUpon>DiscoveryForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CSV\setting_codes.ortur.v1.7.x.csv" />
-    <None Include="LaserGRBLPlus_TemporaryKey.pfx" />
     <None Include="packages.config" />
     <None Include="Resources\flag_greece.png" />
+    <Content Include="Libraries\GCodeLibrary\GRBL\GrblCommands.txt" />
     <Content Include="Sound\connect.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -1178,9 +1192,11 @@
       <DependentUpon>CustomButtonForm.cs</DependentUpon>
       <Generator>ResXFileCodeGeneratorEx</Generator>
       <LastGenOutput>CustomButtonForm.el-GR.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\CustomButtonForm.es.resx">
       <DependentUpon>CustomButtonForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\CustomButtonForm.fr.resx">
       <DependentUpon>CustomButtonForm.cs</DependentUpon>
@@ -1328,6 +1344,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\IssueDetectorForm.fr.resx">
       <DependentUpon>IssueDetectorForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\IssueDetectorForm.hu-HU.resx">
       <DependentUpon>IssueDetectorForm.cs</DependentUpon>
@@ -1346,12 +1363,14 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\IssueDetectorForm.tr-TR.resx">
       <DependentUpon>IssueDetectorForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\IssueDetectorForm.zh-TW.resx">
       <DependentUpon>IssueDetectorForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\LicenseForm.resx">
       <DependentUpon>LicenseForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Main\MainForm.cs-CZ.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -1448,62 +1467,62 @@
     <EmbeddedResource Include="PSHelper\PSHelperForm.zh-TW.resx">
       <DependentUpon>PSHelperForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\RasterConfig\ConvertSizeAndOptionForm.cs-CZ.resx">
+    <EmbeddedResource Include="Libraries\RasterLibrary\Forms\ConvertSizeAndOptionForm.cs-CZ.resx">
       <DependentUpon>ConvertSizeAndOptionForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\RasterConfig\ConvertSizeAndOptionForm.hu-HU.resx">
+    <EmbeddedResource Include="Libraries\RasterLibrary\Forms\ConvertSizeAndOptionForm.hu-HU.resx">
       <DependentUpon>ConvertSizeAndOptionForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\RasterConfig\ConvertSizeAndOptionForm.pl-PL.resx">
+    <EmbeddedResource Include="Libraries\RasterLibrary\Forms\ConvertSizeAndOptionForm.pl-PL.resx">
       <DependentUpon>ConvertSizeAndOptionForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\RasterConfig\ConvertSizeAndOptionForm.sk-SK.resx">
+    <EmbeddedResource Include="Libraries\RasterLibrary\Forms\ConvertSizeAndOptionForm.sk-SK.resx">
       <DependentUpon>ConvertSizeAndOptionForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\RasterConfig\ConvertSizeAndOptionForm.tr-TR.resx">
+    <EmbeddedResource Include="Libraries\RasterLibrary\Forms\ConvertSizeAndOptionForm.tr-TR.resx">
       <DependentUpon>ConvertSizeAndOptionForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\RasterConfig\ConvertSizeAndOptionForm.zh-TW.resx">
+    <EmbeddedResource Include="Libraries\RasterLibrary\Forms\ConvertSizeAndOptionForm.zh-TW.resx">
       <DependentUpon>ConvertSizeAndOptionForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\RasterConfig\RasterToLaserForm.cs-CZ.resx">
+    <EmbeddedResource Include="Forms\Raster\RasterToLaserForm.cs-CZ.resx">
       <DependentUpon>RasterToLaserForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\RasterConfig\RasterToLaserForm.hu-HU.resx">
+    <EmbeddedResource Include="Forms\Raster\RasterToLaserForm.hu-HU.resx">
       <DependentUpon>RasterToLaserForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\RasterConfig\RasterToLaserForm.pl-PL.resx">
+    <EmbeddedResource Include="Forms\Raster\RasterToLaserForm.pl-PL.resx">
       <DependentUpon>RasterToLaserForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\RasterConfig\RasterToLaserForm.sk-SK.resx">
+    <EmbeddedResource Include="Forms\Raster\RasterToLaserForm.sk-SK.resx">
       <DependentUpon>RasterToLaserForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\RasterConfig\RasterToLaserForm.tr-TR.resx">
+    <EmbeddedResource Include="Forms\Raster\RasterToLaserForm.tr-TR.resx">
       <DependentUpon>RasterToLaserForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\RasterConfig\RasterToLaserForm.zh-TW.resx">
+    <EmbeddedResource Include="Forms\Raster\RasterToLaserForm.zh-TW.resx">
       <DependentUpon>RasterToLaserForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\RasterConfig\ResolutionHelperForm.cs-CZ.resx">
+    <EmbeddedResource Include="Forms\Raster\ResolutionHelperForm.cs-CZ.resx">
       <DependentUpon>ResolutionHelperForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\RasterConfig\ResolutionHelperForm.es.resx">
+    <EmbeddedResource Include="Forms\Raster\ResolutionHelperForm.es.resx">
       <DependentUpon>ResolutionHelperForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\RasterConfig\ResolutionHelperForm.hu-HU.resx">
+    <EmbeddedResource Include="Forms\Raster\ResolutionHelperForm.hu-HU.resx">
       <DependentUpon>ResolutionHelperForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\RasterConfig\ResolutionHelperForm.pl-PL.resx">
+    <EmbeddedResource Include="Forms\Raster\ResolutionHelperForm.pl-PL.resx">
       <DependentUpon>ResolutionHelperForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\RasterConfig\ResolutionHelperForm.sk-SK.resx">
+    <EmbeddedResource Include="Forms\Raster\ResolutionHelperForm.sk-SK.resx">
       <DependentUpon>ResolutionHelperForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\RasterConfig\ResolutionHelperForm.tr-TR.resx">
+    <EmbeddedResource Include="Forms\Raster\ResolutionHelperForm.tr-TR.resx">
       <DependentUpon>ResolutionHelperForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\RasterConfig\ResolutionHelperForm.zh-TW.resx">
+    <EmbeddedResource Include="Forms\Raster\ResolutionHelperForm.zh-TW.resx">
       <DependentUpon>ResolutionHelperForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ResumeJobForm.cs-CZ.resx">
@@ -1582,6 +1601,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\CustomButtonForm.de.resx">
       <DependentUpon>CustomButtonForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\CustomButtonForm.it.resx">
       <DependentUpon>CustomButtonForm.cs</DependentUpon>
@@ -1589,7 +1609,7 @@
     <EmbeddedResource Include="Forms\CustomButtonForm.resx">
       <DependentUpon>CustomButtonForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GrblEmulator\EmulatorUI.resx">
+    <EmbeddedResource Include="Libraries\GCodeLibrary\GrblEmulator\EmulatorUI.resx">
       <DependentUpon>EmulatorUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\HotkeyManagerForm.resx">
@@ -1703,37 +1723,37 @@
     <EmbeddedResource Include="Forms\SaveOptionForm.zh-TW.resx">
       <DependentUpon>SaveOptionForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\SettingsForm.cs-CZ.resx">
+    <EmbeddedResource Include="Forms\AppSettings\SettingsForm.cs-CZ.resx">
       <DependentUpon>SettingsForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\SettingsForm.el-GR.resx">
+    <EmbeddedResource Include="Forms\AppSettings\SettingsForm.el-GR.resx">
       <DependentUpon>SettingsForm.cs</DependentUpon>
       <Generator>ResXFileCodeGeneratorEx</Generator>
       <LastGenOutput>SettingsForm.el-GR.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\SettingsForm.es.resx">
+    <EmbeddedResource Include="Forms\AppSettings\SettingsForm.es.resx">
       <DependentUpon>SettingsForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\SettingsForm.hu-HU.resx">
+    <EmbeddedResource Include="Forms\AppSettings\SettingsForm.hu-HU.resx">
       <DependentUpon>SettingsForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\SettingsForm.pl-PL.resx">
+    <EmbeddedResource Include="Forms\AppSettings\SettingsForm.pl-PL.resx">
       <DependentUpon>SettingsForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\SettingsForm.sk-SK.resx">
+    <EmbeddedResource Include="Forms\AppSettings\SettingsForm.sk-SK.resx">
       <DependentUpon>SettingsForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\SettingsForm.tr-TR.resx">
+    <EmbeddedResource Include="Forms\AppSettings\SettingsForm.tr-TR.resx">
       <DependentUpon>SettingsForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\SettingsForm.zh-TW.resx">
+    <EmbeddedResource Include="Forms\AppSettings\SettingsForm.zh-TW.resx">
       <DependentUpon>SettingsForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
@@ -1793,175 +1813,175 @@
     <EmbeddedResource Include="Strings.nl-NL.resx">
       <DependentUpon>Strings.resx</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\RasterConfig\ConvertSizeAndOptionForm.da.resx">
+    <EmbeddedResource Include="Libraries\RasterLibrary\Forms\ConvertSizeAndOptionForm.da.resx">
       <DependentUpon>ConvertSizeAndOptionForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\RasterConfig\ConvertSizeAndOptionForm.de.resx">
-      <DependentUpon>ConvertSizeAndOptionForm.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\RasterConfig\ConvertSizeAndOptionForm.es.resx">
+    <EmbeddedResource Include="Libraries\RasterLibrary\Forms\ConvertSizeAndOptionForm.de.resx">
       <DependentUpon>ConvertSizeAndOptionForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\RasterConfig\ConvertSizeAndOptionForm.fr.resx">
+    <EmbeddedResource Include="Libraries\RasterLibrary\Forms\ConvertSizeAndOptionForm.es.resx">
       <DependentUpon>ConvertSizeAndOptionForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\RasterConfig\ConvertSizeAndOptionForm.it.resx">
+    <EmbeddedResource Include="Libraries\RasterLibrary\Forms\ConvertSizeAndOptionForm.fr.resx">
       <DependentUpon>ConvertSizeAndOptionForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\RasterConfig\ConvertSizeAndOptionForm.pt-BR.resx">
-      <DependentUpon>ConvertSizeAndOptionForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\RasterConfig\ConvertSizeAndOptionForm.resx">
+    <EmbeddedResource Include="Libraries\RasterLibrary\Forms\ConvertSizeAndOptionForm.it.resx">
       <DependentUpon>ConvertSizeAndOptionForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\RasterConfig\ConvertSizeAndOptionForm.ru.resx">
+    <EmbeddedResource Include="Libraries\RasterLibrary\Forms\ConvertSizeAndOptionForm.pt-BR.resx">
       <DependentUpon>ConvertSizeAndOptionForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\RasterConfig\ConvertSizeAndOptionForm.zh-CN.resx">
+    <EmbeddedResource Include="Libraries\RasterLibrary\Forms\ConvertSizeAndOptionForm.resx">
       <DependentUpon>ConvertSizeAndOptionForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\RasterConfig\RasterToLaserForm.da.resx">
+    <EmbeddedResource Include="Libraries\RasterLibrary\Forms\ConvertSizeAndOptionForm.ru.resx">
+      <DependentUpon>ConvertSizeAndOptionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Libraries\RasterLibrary\Forms\ConvertSizeAndOptionForm.zh-CN.resx">
+      <DependentUpon>ConvertSizeAndOptionForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Raster\RasterToLaserForm.da.resx">
       <DependentUpon>RasterToLaserForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\RasterConfig\RasterToLaserForm.de.resx">
+    <EmbeddedResource Include="Forms\Raster\RasterToLaserForm.de.resx">
       <DependentUpon>RasterToLaserForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\RasterConfig\RasterToLaserForm.es.resx">
+    <EmbeddedResource Include="Forms\Raster\RasterToLaserForm.es.resx">
       <DependentUpon>RasterToLaserForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\RasterConfig\RasterToLaserForm.fr.resx">
+    <EmbeddedResource Include="Forms\Raster\RasterToLaserForm.fr.resx">
       <DependentUpon>RasterToLaserForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\RasterConfig\RasterToLaserForm.it.resx">
+    <EmbeddedResource Include="Forms\Raster\RasterToLaserForm.it.resx">
       <DependentUpon>RasterToLaserForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\RasterConfig\RasterToLaserForm.pt-BR.resx">
+    <EmbeddedResource Include="Forms\Raster\RasterToLaserForm.pt-BR.resx">
       <DependentUpon>RasterToLaserForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\RasterConfig\RasterToLaserForm.resx">
-      <DependentUpon>RasterToLaserForm.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\RasterConfig\RasterToLaserForm.ru.resx">
-      <DependentUpon>RasterToLaserForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\RasterConfig\RasterToLaserForm.zh-CN.resx">
+    <EmbeddedResource Include="Forms\Raster\RasterToLaserForm.resx">
       <DependentUpon>RasterToLaserForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\RasterConfig\ResolutionHelperForm.da.resx">
+    <EmbeddedResource Include="Forms\Raster\RasterToLaserForm.ru.resx">
+      <DependentUpon>RasterToLaserForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Raster\RasterToLaserForm.zh-CN.resx">
+      <DependentUpon>RasterToLaserForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Raster\ResolutionHelperForm.da.resx">
       <DependentUpon>ResolutionHelperForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\RasterConfig\ResolutionHelperForm.de.resx">
+    <EmbeddedResource Include="Forms\Raster\ResolutionHelperForm.de.resx">
       <DependentUpon>ResolutionHelperForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\RasterConfig\ResolutionHelperForm.fr.resx">
+    <EmbeddedResource Include="Forms\Raster\ResolutionHelperForm.fr.resx">
       <DependentUpon>ResolutionHelperForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\RasterConfig\ResolutionHelperForm.it.resx">
+    <EmbeddedResource Include="Forms\Raster\ResolutionHelperForm.it.resx">
       <DependentUpon>ResolutionHelperForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\RasterConfig\ResolutionHelperForm.pt-BR.resx">
+    <EmbeddedResource Include="Forms\Raster\ResolutionHelperForm.pt-BR.resx">
       <DependentUpon>ResolutionHelperForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\RasterConfig\ResolutionHelperForm.resx">
+    <EmbeddedResource Include="Forms\Raster\ResolutionHelperForm.resx">
       <DependentUpon>ResolutionHelperForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\RasterConfig\ResolutionHelperForm.ru.resx">
+    <EmbeddedResource Include="Forms\Raster\ResolutionHelperForm.ru.resx">
       <DependentUpon>ResolutionHelperForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\RasterConfig\ResolutionHelperForm.zh-CN.resx">
+    <EmbeddedResource Include="Forms\Raster\ResolutionHelperForm.zh-CN.resx">
       <DependentUpon>ResolutionHelperForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\SettingsForm.da.resx">
+    <EmbeddedResource Include="Forms\AppSettings\SettingsForm.da.resx">
       <DependentUpon>SettingsForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\SettingsForm.de.resx">
-      <DependentUpon>SettingsForm.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\SettingsForm.fr.resx">
+    <EmbeddedResource Include="Forms\AppSettings\SettingsForm.de.resx">
       <DependentUpon>SettingsForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\SettingsForm.it.resx">
+    <EmbeddedResource Include="Forms\AppSettings\SettingsForm.fr.resx">
       <DependentUpon>SettingsForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\SettingsForm.pt-BR.resx">
-      <DependentUpon>SettingsForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\SettingsForm.resx">
+    <EmbeddedResource Include="Forms\AppSettings\SettingsForm.it.resx">
       <DependentUpon>SettingsForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\SettingsForm.ru.resx">
+    <EmbeddedResource Include="Forms\AppSettings\SettingsForm.pt-BR.resx">
+      <DependentUpon>SettingsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AppSettings\SettingsForm.resx">
       <DependentUpon>SettingsForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\SettingsForm.zh-CN.resx">
+    <EmbeddedResource Include="Forms\AppSettings\SettingsForm.ru.resx">
       <DependentUpon>SettingsForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Libraries\GRBLLibrary\SvgConverter\SvgToGCodeForm.cs-CZ.resx">
-      <DependentUpon>SvgToGCodeForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Libraries\GRBLLibrary\SvgConverter\SvgToGCodeForm.da.resx">
-      <DependentUpon>SvgToGCodeForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Libraries\GRBLLibrary\SvgConverter\SvgToGCodeForm.de.resx">
-      <DependentUpon>SvgToGCodeForm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\AppSettings\SettingsForm.zh-CN.resx">
+      <DependentUpon>SettingsForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Libraries\GRBLLibrary\SvgConverter\SvgToGCodeForm.es.resx">
-      <DependentUpon>SvgToGCodeForm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\SVG\SVGLayerConfigForm.cs-CZ.resx">
+      <DependentUpon>SVGLayerConfigForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SVG\SVGLayerConfigForm.da.resx">
+      <DependentUpon>SVGLayerConfigForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SVG\SVGLayerConfigForm.de.resx">
+      <DependentUpon>SVGLayerConfigForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Libraries\GRBLLibrary\SvgConverter\SvgToGCodeForm.fr.resx">
-      <DependentUpon>SvgToGCodeForm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\SVG\SVGLayerConfigForm.es.resx">
+      <DependentUpon>SVGLayerConfigForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Libraries\GRBLLibrary\SvgConverter\SvgToGCodeForm.hu-HU.resx">
-      <DependentUpon>SvgToGCodeForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Libraries\GRBLLibrary\SvgConverter\SvgToGCodeForm.it.resx">
-      <DependentUpon>SvgToGCodeForm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\SVG\SVGLayerConfigForm.fr.resx">
+      <DependentUpon>SVGLayerConfigForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Libraries\GRBLLibrary\SvgConverter\SvgToGCodeForm.pl-PL.resx">
-      <DependentUpon>SvgToGCodeForm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\SVG\SVGLayerConfigForm.hu-HU.resx">
+      <DependentUpon>SVGLayerConfigForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Libraries\GRBLLibrary\SvgConverter\SvgToGCodeForm.pt-BR.resx">
-      <DependentUpon>SvgToGCodeForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Libraries\GRBLLibrary\SvgConverter\SvgToGCodeForm.resx">
-      <DependentUpon>SvgToGCodeForm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\SVG\SVGLayerConfigForm.it.resx">
+      <DependentUpon>SVGLayerConfigForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Libraries\GRBLLibrary\SvgConverter\SvgToGCodeForm.ru.resx">
-      <DependentUpon>SvgToGCodeForm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\SVG\SVGLayerConfigForm.pl-PL.resx">
+      <DependentUpon>SVGLayerConfigForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Libraries\GRBLLibrary\SvgConverter\SvgToGCodeForm.sk-SK.resx">
-      <DependentUpon>SvgToGCodeForm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\SVG\SVGLayerConfigForm.pt-BR.resx">
+      <DependentUpon>SVGLayerConfigForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Libraries\GRBLLibrary\SvgConverter\SvgToGCodeForm.tr-TR.resx">
-      <DependentUpon>SvgToGCodeForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Libraries\GRBLLibrary\SvgConverter\SvgToGCodeForm.zh-CN.resx">
-      <DependentUpon>SvgToGCodeForm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\SVG\SVGLayerConfigForm.resx">
+      <DependentUpon>SVGLayerConfigForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Libraries\GRBLLibrary\SvgConverter\SvgToGCodeForm.zh-TW.resx">
-      <DependentUpon>SvgToGCodeForm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\SVG\SVGLayerConfigForm.ru.resx">
+      <DependentUpon>SVGLayerConfigForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Libraries\GRBLLibrary\SvgConverter\SvgModeForm.resx">
+    <EmbeddedResource Include="Forms\SVG\SVGLayerConfigForm.sk-SK.resx">
+      <DependentUpon>SVGLayerConfigForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SVG\SVGLayerConfigForm.tr-TR.resx">
+      <DependentUpon>SVGLayerConfigForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SVG\SVGLayerConfigForm.zh-CN.resx">
+      <DependentUpon>SVGLayerConfigForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SVG\SVGLayerConfigForm.zh-TW.resx">
+      <DependentUpon>SVGLayerConfigForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Libraries\GCodeLibrary\GRBL\Forms\SvgModeForm.resx">
       <DependentUpon>SvgModeForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\ColorSlider.resx">

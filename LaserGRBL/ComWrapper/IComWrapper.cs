@@ -12,7 +12,13 @@ using System.Text;
 namespace LaserGRBLPlus.ComWrapper
 {
 	public enum WrapperType
-	{ UsbSerial, UsbSerial2, Telnet, LaserWebESP8266, Emulator }
+	{ 
+		UsbSerial, 
+		UsbSerial2, 
+		Telnet, 
+		LaserWebESP8266, 
+		Emulator 
+	}
 
 	public interface IComWrapper
 	{

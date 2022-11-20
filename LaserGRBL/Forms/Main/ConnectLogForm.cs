@@ -4,7 +4,9 @@
 // This program is distributed in the hope that it will be useful, but  WITHOUT ANY WARRANTY; without even the implied warranty of  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GPLv3  General Public License for more details.
 // You should have received a copy of the GPLv3 General Public License  along with this program; if not, write to the Free Software  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307,  USA. using System;
 
-using LaserGRBLPlus.Libraries.GRBLLibrary;
+using GRBLLibrary;
+using LaserGRBLPlus.Core.Enum;
+using LaserGRBLPlus.Settings;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
@@ -24,7 +26,7 @@ namespace LaserGRBLPlus
 
 		public ConnectLogForm()
 		{
-			currentWrapper = GlobalSettings.GetObject("ComWrapper Protocol", ComWrapper.WrapperType.UsbSerial);
+			currentWrapper = Setting.App.ComWrapperProtocol;
 			InitializeComponent();
 		}
 
@@ -62,12 +64,12 @@ namespace LaserGRBLPlus
 
 		private void RestoreConf()
 		{
-			CBSpeed.SelectedItem = GlobalSettings.GetObject("Serial Speed", 115200);
+			CBSpeed.SelectedItem = Setting.App.SerialSpeed;
 
 			if (currentWrapper == ComWrapper.WrapperType.Telnet)
-				TxtAddress.Text = GlobalSettings.GetObject("Telnet Address", "127.0.0.1:23");	
+				TxtAddress.Text = Setting.App.TelnetAddress;	
 			else if (currentWrapper == ComWrapper.WrapperType.LaserWebESP8266)
-				TxtAddress.Text = GlobalSettings.GetObject("Websocket URL", "ws://127.0.0.1:81/"); 
+				TxtAddress.Text = Setting.App.WebsocketURL; 
 		}
 
 		void OnFileLoaded(long elapsed)
@@ -174,7 +176,7 @@ namespace LaserGRBLPlus
 
 		void BtnConnectDisconnectClick(object sender, EventArgs e)
 		{
-			if (Core.MachineStatus == GrblCore.MacStatus.Disconnected)
+			if (Core.MachineStatus == MacStatus.Disconnected)
 				Core.OpenCom();
 			else if (!(Core.InProgram && System.Windows.Forms.MessageBox.Show(Strings.DisconnectAnyway, Strings.WarnMessageBoxHeader, MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != System.Windows.Forms.DialogResult.Yes))
 				Core.CloseCom(true);
@@ -193,10 +195,10 @@ namespace LaserGRBLPlus
 				Core.Configure(currentWrapper);
 		}
 
-		void BtnOpenClick(object sender, EventArgs e)
-		{
-			Core.AddLayer(ParentForm);
-		}
+		//void BtnOpenClick(object sender, EventArgs e)
+		//{
+		//	Core.AddLayer(ParentForm);
+		//}
 
 		void BtnRunProgramClick(object sender, EventArgs e)
 		{
@@ -263,7 +265,7 @@ namespace LaserGRBLPlus
 
 			if (!Core.IsConnected)
 			{
-				ComWrapper.WrapperType actualWrapper = GlobalSettings.GetObject("ComWrapper Protocol", ComWrapper.WrapperType.UsbSerial);
+				ComWrapper.WrapperType actualWrapper = Setting.App.ComWrapperProtocol;
 				if (actualWrapper != currentWrapper)
 				{
 					currentWrapper = actualWrapper;
@@ -300,14 +302,20 @@ namespace LaserGRBLPlus
 			tableLayoutPanel4.ResumeLayout();
 
 			if (CBSpeed.SelectedItem != null)
-				GlobalSettings.SetObject("Serial Speed", CBSpeed.SelectedItem);
+			{
+                Setting.App.SerialSpeed = (int)CBSpeed.SelectedItem;
+			}
 
 			if (TxtAddress.Text != "")
 			{
 				if (currentWrapper == ComWrapper.WrapperType.Telnet)
-					GlobalSettings.SetObject("Telnet Address", TxtAddress.Text);
+				{
+                    Setting.App.TelnetAddress = TxtAddress.Text;
+				}
 				else if (currentWrapper == ComWrapper.WrapperType.LaserWebESP8266)
-					GlobalSettings.SetObject("Websocket URL", TxtAddress.Text);
+				{
+                    Setting.App.WebsocketURL = TxtAddress.Text;
+				}
 			}
 
 			ApplyConfig();
@@ -374,7 +382,7 @@ namespace LaserGRBLPlus
 				TxtAddress.Text = config;
 				Application.DoEvents();
 
-				if (BtnConnectDisconnect.Enabled && Core.MachineStatus == GrblCore.MacStatus.Disconnected)
+				if (BtnConnectDisconnect.Enabled && Core.MachineStatus == MacStatus.Disconnected)
 					BtnConnectDisconnectClick(null, null);
 			}
 		}

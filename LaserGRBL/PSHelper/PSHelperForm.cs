@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LaserGRBLPlus.Settings;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -20,18 +21,13 @@ namespace LaserGRBLPlus.PSHelper
 			InitializeComponent();
 			InitModels();
 
-			SetDefault("DB Last Used Laser Model", CbModel);
-			SetDefault("DB Last Used Material", CbMaterial);
-			SetDefault("DB Last Used Action", CbAction);
-			SetDefault("DB Last Used Thickness", CbThickness);
+
+			CbModel.SelectedItem = Setting.App.DBLastUsedLaserModel;
+            CbMaterial.SelectedItem = Setting.App.DBLastUsedMaterial;
+            CbAction.SelectedItem = Setting.App.DBLastUsedAction;
+            CbThickness.SelectedItem = Setting.App.DBLastUsedThickness;
 		}
 
-		private void SetDefault(string key, ComboBox target)
-		{
-			string value = GlobalSettings.GetObject(key, (string)null);
-			if (value != null && target.Items.Contains(value))
-				target.SelectedItem = value;
-		}
 
 		public static MaterialDB.MaterialsRow CreateAndShowDialog(Form parent)
 		{
@@ -122,10 +118,10 @@ namespace LaserGRBLPlus.PSHelper
 
 		private void BtnApply_Click(object sender, EventArgs e)
 		{
-            if (CbModel.SelectedItem != null) GlobalSettings.SetObject("DB Last Used Laser Model", CbModel.SelectedItem);
-			if (CbMaterial.SelectedItem != null) GlobalSettings.SetObject("DB Last Used Material", CbMaterial.SelectedItem);
-			if (CbAction.SelectedItem != null) GlobalSettings.SetObject("DB Last Used Action", CbAction.SelectedItem);
-			if (CbThickness.SelectedItem != null) GlobalSettings.SetObject("DB Last Used Thickness", CbThickness.SelectedItem);
+            if (CbModel.SelectedItem != null) Setting.App.DBLastUsedLaserModel = CbModel.SelectedItem;
+			if (CbMaterial.SelectedItem != null) Setting.App.DBLastUsedMaterial = CbMaterial.SelectedItem;
+			if (CbAction.SelectedItem != null) Setting.App.DBLastUsedAction = CbAction.SelectedItem;
+			if (CbThickness.SelectedItem != null) Setting.App.DBLastUsedThickness = CbThickness.SelectedItem;
 
 			result = current;
 			Close();

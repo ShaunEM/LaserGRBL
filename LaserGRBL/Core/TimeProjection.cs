@@ -1,7 +1,9 @@
-﻿using LaserGRBLPlus.Libraries.GRBLLibrary;
-using Sound;
+﻿using GRBLLibrary;
+using LaserGRBLPlus.Core.Enum;
+using LaserGRBLPlus.Sounds;
 using System;
 using System.Collections.Generic;
+using static LaserGRBLPlus.Sounds.SoundEvent;
 
 namespace LaserGRBLPlus.Core
 {
@@ -28,7 +30,7 @@ namespace LaserGRBLPlus.Core
 		private int mErrorCount;
 		private int mContinueCorrection;
 
-		GrblCore.DetectedIssue mLastIssue;
+		DetectedIssue mLastIssue;
 		private GPoint mLastKnownWCO;
 
 		public GPoint LastKnownWCO
@@ -61,7 +63,7 @@ namespace LaserGRBLPlus.Core
 			mErrorCount = 0;
 			mTargetCount = 0;
 			mContinueCorrection = 0;
-			mLastIssue = GrblCore.DetectedIssue.Unknown;
+			mLastIssue = DetectedIssue.Unknown;
 			mLastKnownWCO = GPoint.Zero;
 		}
 
@@ -160,7 +162,7 @@ namespace LaserGRBLPlus.Core
 				mSentCount = 0;
 				mErrorCount = 0;
 				mContinueCorrection = 0;
-				mLastIssue = GrblCore.DetectedIssue.Unknown;
+				mLastIssue = DetectedIssue.Unknown;
 				mLastKnownWCO = GPoint.Zero;
 			}
 		}
@@ -205,7 +207,7 @@ namespace LaserGRBLPlus.Core
 		{
 			if (mStarted && !mCompleted)
 			{
-				SoundEvent.PlaySound(SoundEvent.EventId.Warning);
+				SoundEvent.PlaySound(SoundType.Warning);
 				mErrorCount++;
 			}
 		}
@@ -255,7 +257,7 @@ namespace LaserGRBLPlus.Core
 			return false;
 		}
 
-		public void JobIssue(GrblCore.DetectedIssue issue)
+		public void JobIssue(DetectedIssue issue)
 		{ mLastIssue = issue; }
 
 		private long now
@@ -264,7 +266,7 @@ namespace LaserGRBLPlus.Core
 		public int ErrorCount
 		{ get { return mErrorCount; } }
 
-		public GrblCore.DetectedIssue LastIssue
+		public DetectedIssue LastIssue
 		{ get { return mLastIssue; } }
 
 

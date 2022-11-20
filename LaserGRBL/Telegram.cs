@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LaserGRBLPlus.Settings;
+using System;
 using System.Collections.Specialized;
 using System.Net;
 
@@ -9,9 +10,9 @@ namespace LaserGRBLPlus
 
 		public static void NotifyEvent(string message)
 		{
-			if (GlobalSettings.GetObject("TelegramNotification.Enabled", false))
+			if (Setting.App.TelegramNotificationEnabled)
 			{
-				NotifyEvent(Tools.Protector.Decrypt(GlobalSettings.GetObject("TelegramNotification.Code", "")), message);
+				NotifyEvent(Tools.Protector.Decrypt(Setting.App.TelegramNotificationCode), message);
 			}
 		}
 		public static void NotifyEvent(string usercode, string message)

@@ -59,8 +59,8 @@ namespace LaserGRBLPlus
                 dic = new System.Collections.Generic.Dictionary<string, object>();
             }
 
-            PrevVersion = GetObject("Current LaserGRBL Version", new Version(0, 0, 0));
-            SetObject("Current LaserGRBL Version", Program.CurrentVersion);
+            PrevVersion = GetObject("Current LaserGRBLPlus Version", new Version(0, 0, 0));
+            SetObject("Current LaserGRBLPlus Version", Program.CurrentVersion);
         }
         public Dictionary<string, object> GetSettings()
         {

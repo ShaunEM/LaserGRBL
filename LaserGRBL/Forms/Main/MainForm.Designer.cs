@@ -134,11 +134,11 @@
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.projectTab = new System.Windows.Forms.TabPage();
-            this.ProjectDetailForm = new LaserGRBLPlus.ProjectDetailForm();
             this.machineTab = new System.Windows.Forms.TabPage();
-            this.ConnectionForm = new LaserGRBLPlus.ConnectLogForm();
             this.gcodeTab = new System.Windows.Forms.TabPage();
             this.TTTGCodeDebugLines = new System.Windows.Forms.RichTextBox();
+            this.ProjectDetailForm = new LaserGRBLPlus.ProjectDetailForm();
+            this.ConnectionForm = new LaserGRBLPlus.ConnectLogForm();
             this.JogForm = new LaserGRBLPlus.JogForm();
             this.PreviewForm = new LaserGRBLPlus.PreviewForm();
             this.StatusBar.SuspendLayout();
@@ -411,7 +411,6 @@
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             resources.ApplyResources(this.fileToolStripMenuItem, "fileToolStripMenuItem");
             this.fileToolStripMenuItem.DropDownOpening += new System.EventHandler(this.fileToolStripMenuItem_DropDownOpening);
-            this.fileToolStripMenuItem.Click += new System.EventHandler(this.fileToolStripMenuItem_Click);
             // 
             // toolStripMenuItem8
             // 
@@ -890,26 +889,12 @@
             this.projectTab.Name = "projectTab";
             this.projectTab.UseVisualStyleBackColor = true;
             // 
-            // ProjectDetailForm
-            // 
-            resources.ApplyResources(this.ProjectDetailForm, "ProjectDetailForm");
-            this.ProjectDetailForm.BackColor = System.Drawing.SystemColors.Control;
-            this.ProjectDetailForm.Name = "ProjectDetailForm";
-            this.ProjectDetailForm.Load += new System.EventHandler(this.projectDetailForm_Load);
-            // 
             // machineTab
             // 
             this.machineTab.Controls.Add(this.ConnectionForm);
             resources.ApplyResources(this.machineTab, "machineTab");
             this.machineTab.Name = "machineTab";
             this.machineTab.UseVisualStyleBackColor = true;
-            // 
-            // ConnectionForm
-            // 
-            resources.ApplyResources(this.ConnectionForm, "ConnectionForm");
-            this.ConnectionForm.BackColor = System.Drawing.SystemColors.Control;
-            this.ConnectionForm.Name = "ConnectionForm";
-            this.ConnectionForm.Load += new System.EventHandler(this.ConnectionForm_Load_1);
             // 
             // gcodeTab
             // 
@@ -923,6 +908,19 @@
             resources.ApplyResources(this.TTTGCodeDebugLines, "TTTGCodeDebugLines");
             this.TTTGCodeDebugLines.Name = "TTTGCodeDebugLines";
             // 
+            // ProjectDetailForm
+            // 
+            resources.ApplyResources(this.ProjectDetailForm, "ProjectDetailForm");
+            this.ProjectDetailForm.BackColor = System.Drawing.SystemColors.Control;
+            this.ProjectDetailForm.Name = "ProjectDetailForm";
+            this.ProjectDetailForm.Load += new System.EventHandler(this.ProjectDetailForm_Load);
+            // 
+            // ConnectionForm
+            // 
+            resources.ApplyResources(this.ConnectionForm, "ConnectionForm");
+            this.ConnectionForm.BackColor = System.Drawing.SystemColors.Control;
+            this.ConnectionForm.Name = "ConnectionForm";
+            // 
             // JogForm
             // 
             this.JogForm.BackColor = System.Drawing.SystemColors.Control;
@@ -934,7 +932,6 @@
             this.PreviewForm.BackColor = System.Drawing.SystemColors.Control;
             resources.ApplyResources(this.PreviewForm, "PreviewForm");
             this.PreviewForm.Name = "PreviewForm";
-            this.PreviewForm.Load += new System.EventHandler(this.PreviewForm_Load);
             // 
             // MainForm
             // 

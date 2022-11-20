@@ -4,9 +4,9 @@
 // This program is distributed in the hope that it will be useful, but  WITHOUT ANY WARRANTY; without even the implied warranty of  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GPLv3  General Public License for more details.
 // You should have received a copy of the GPLv3 General Public License  along with this program; if not, write to the Free Software  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307,  USA. using System;
 
+using LaserGRBLPlus.Core.Enum;
 using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace LaserGRBLPlus
 {
@@ -16,22 +16,24 @@ namespace LaserGRBLPlus
 		private static List<CustomButton> buttons;
 
 		private static string UserFile { get => System.IO.Path.Combine(GrblCore.DataPath, "CustomButtons.bin"); }
-		private static string StandardFile { get => System.IO.Path.Combine(LaserGRBLPlus.GrblCore.ExePath, "StandardButtons.zbn"); }
+		private static string StandardFile { get => System.IO.Path.Combine(GrblCore.ExePath, "StandardButtons.zbn"); }
 
 		public static void LoadFile() //in ingresso
 		{
 			if (!System.IO.File.Exists(UserFile) && System.IO.File.Exists(StandardFile))
 			{
-				try { System.IO.File.Copy(StandardFile, UserFile, false); }
+				try 
+				{ 
+					System.IO.File.Copy(StandardFile, UserFile, false); 
+				}
 				catch { }
 			}
 
-			buttons = (List<CustomButton>)Tools.Serializer.ObjFromFile(UserFile);
+            buttons = (List<CustomButton>)Tools.Serializer.ObjFromFile(UserFile);
 			if (buttons == null)
 			{
-				if (buttons == null) buttons = (List<CustomButton>)GlobalSettings.GetAndDeleteObject("Custom Buttons", null);
-				if (buttons == null) buttons = new List<CustomButton>();
-				SaveFile();
+                buttons = new List<CustomButton>();
+                SaveFile();
 			}
 		}
 
@@ -57,7 +59,9 @@ namespace LaserGRBLPlus
 		}
 
 		internal static void Add(CustomButton cb)
-		{buttons.Add(cb);}
+		{
+			buttons.Add(cb);
+		}
 
 		public static IEnumerable<CustomButton> Buttons
 		{ get { return buttons; } }
@@ -204,11 +208,11 @@ namespace LaserGRBLPlus
 			else if (EnableStyle == EnableStyles.Connected)
 				return core.IsConnected;
 			else if (EnableStyle == EnableStyles.Idle)
-				return core.MachineStatus == GrblCore.MacStatus.Idle;
+				return core.MachineStatus == MacStatus.Idle;
 			else if (EnableStyle == EnableStyles.Run)
-				return core.MachineStatus == GrblCore.MacStatus.Run;
+				return core.MachineStatus == MacStatus.Run;
 			else if (EnableStyle == EnableStyles.IdleProgram)
-				return core.MachineStatus == GrblCore.MacStatus.Idle && core.HasProgram;
+				return core.MachineStatus == MacStatus.Idle && core.HasProgram;
 
 			return false;
 		}

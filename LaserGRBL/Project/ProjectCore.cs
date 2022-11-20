@@ -1,29 +1,29 @@
-﻿using LaserGRBLPlus.Libraries.GRBLLibrary;
+﻿using GRBLLibrary;
+using LaserGRBLPlus.Libraries;
 using LaserGRBLPlus.Project;
+using LaserGRBLPlus.Settings;
 using System.Collections.Generic;
 
 namespace LaserGRBLPlus
 {
     public class ProjectCore
     {
+
+        /// <summary>
+        /// App related configuration
+        /// </summary>
+        public AppSettings Config { get; set; }
+
+
         public List<FileObject> ProjectFiles;
         public List<Layer> layers;
-        public GlobalConfig Config;
-
-        //[Obsolete("use grblFileGlobal")]
-        //public ProgramRange programRange; 
-        
         public GrblFileGlobal grblFileGlobal;
        
         public ProjectCore(float tableWidth, float tableHeight)
         {
-            
             this.ProjectFiles = new List<FileObject>();
-            this.Config = new GlobalConfig();
+            this.Config = new AppSettings();
             this.layers = new List<Layer>();
-            //this.programRange = new ProgramRange();
-            //this.programRange.UpdateXYRange(new GrblElement('X', 0), new GrblElement('Y', 0), false);
-
 
             // Move grblFile globals into here (currenlty has a copy on each layer)
             this.grblFileGlobal = new GrblFileGlobal();
@@ -33,21 +33,10 @@ namespace LaserGRBLPlus
             ProjectFiles.Add(new FileObject(fileName, data));
             return ProjectFiles.Count - 1;
         }
-        //public void RemoveFileFromProject(int fileIndex)
-        //{
-        //    ProjectFiles.RemoveAt(fileIndex);
-        //}
-        //public FileObject GetFileObject(int fileIndex)
-        //{
-        //    return ProjectFiles[fileIndex];
-        //}
-        ////public FileObject GetLayerFileObject(int layerIndex)
-        //{
-        //    return ProjectFiles[layers[layerIndex].FileObject .FileObjectIndex];
-        //}
-
-
-
+        public void RemoveFileFromProject(int index)
+        {
+            ProjectFiles[index] = null;
+        }
 
         public int AddLayer(Layer layer)
         {
@@ -62,14 +51,7 @@ namespace LaserGRBLPlus
         {
             return this.layers[layerIndex];
         }
-        //public void SetLayerSetting(Dictionary<string, object> setting, int layerIndex)
-        //{
-        //    this.layers[layerIndex].  Settings = setting;
-        //}
-        //public Dictionary<string, object> GetLayerSettings(int layerIndex)
-        //{
-        //    return (Dictionary<string, object>)this.layers[layerIndex].Settings;
-        //}
+
 
 
 
@@ -99,7 +81,7 @@ namespace LaserGRBLPlus
                     LayerType = layer.LayerType,
                 });
             }
-            ProjectFile.WriteToJsonFile(fileName, projectFileFormat);
+            JSONFileManager.Save(fileName, projectFileFormat);
         }
 
         internal void UnSelectAllLayers()
@@ -110,43 +92,5 @@ namespace LaserGRBLPlus
             }
         }
 
-
-        //public void LoadProject(string fileName)
-        //{
-        //    // reset all
-        //    this.layers.Clear();
-
-        //    // Load project files
-        //    ProjectFileFormat projectFileFormat = ProjectFile.ReadFromJsonFile<ProjectFileFormat>(fileName);
-        //    this.Config = projectFileFormat.Config;
-        //    this.ProjectFiles = projectFileFormat.ProjectFiles;
-
-        //    // load layers
-        //    foreach (ProjectFileLayer layer in projectFileFormat.Layers)
-        //    {
-        //        this.layers.Add(new Layer()
-        //        {
-        //            Config = layer.Config,
-        //            FileObjectIndex = layer.FileObjectIndex,
-        //            LayerDescription = layer.LayerDescription,
-        //            PreviewColor = layer.PreviewColor,
-        //            GRBLFile = new GrblFile(this.programRange),  // TODO: add range
-        //            XElement = layer.xElement
-        //        });
-        //    }
-        //}
     }
-
-    //FileName = filename,
-    //LayerDescription = $"{Path.GetFileName(filename)}",
-    //PreviewColor = colorLayer.Item2,
-    //GRBLFile = new GrblFile(ProjectCore.programRange),
-    //XElement = colorLayer.Item1
-
-
-
-
-
-
-
 }
