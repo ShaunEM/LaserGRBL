@@ -48,8 +48,6 @@ namespace LaserGRBLPlus.SvgConverter
 			mCore = core;
             InitializeComponent();
 
-
-
             // set color thee
             BackColor = ColorScheme.FormBackColor;
             //GbLaser.ForeColor = GbSpeed.ForeColor = ForeColor = ColorScheme.FormForeColor;
@@ -62,34 +60,9 @@ namespace LaserGRBLPlus.SvgConverter
             // Laser options
             CBLaserON.Items.AddRange(LaserOptions);
 
-
             // Load layer names
             CBLayerNames.Items.Clear();
-            //if (layersIndex.Length > 0)
-            //{
-            //    if (layersIndex.Length > 1)
-            //    {
-            //        CBLayerNames.Items.Add(new ComboBoxItem("<- SELECT ALL ->", -1));
-            //    }
-            //    foreach (int layerIdx in layersIndex)
-            //    {
-            //        CBLayerNames.Items.Add(new ComboBoxItem(mCore.ProjectCore.layers[layerIdx].LayerDescription,
-            //            layerIdx,
-            //             mCore.ProjectCore.layers[layerIdx].Config.PreviewColor
-            //        ));
-            //    }
-            //    CBLayerNames.SelectedIndex = 0;
-            //}
-
-
-
-
-            ComboBoxItem comboboxItem = (ComboBoxItem)CBLayerNames.SelectedItem;
-            lastLayerValue = (int)(comboboxItem?.Value ?? -1);
-            SetLayerConfig(lastLayerValue);
-
-
-            
+           
 		}
 
 
@@ -101,18 +74,20 @@ namespace LaserGRBLPlus.SvgConverter
                 {
                     CBLayerNames.Items.Add(new ComboBoxItem("<- SELECT ALL ->", -1));
                 }
+
                 foreach (int layerIdx in layersIndex)
                 {
                     CBLayerNames.Items.Add(new ComboBoxItem(mCore.ProjectCore.layers[layerIdx].LayerDescription,
                         layerIdx,
                          mCore.ProjectCore.layers[layerIdx].Config.PreviewColor
                     ));
+                    lastLayerValue = layerIdx;
                 }
                 CBLayerNames.SelectedIndex = 0;
+
             }
-
-
-            RefreshPerc();
+			SetLayerConfig();
+            
 			ShowDialog(parent);
 		}
 
@@ -122,16 +97,17 @@ namespace LaserGRBLPlus.SvgConverter
 
 
 
-		private void SetLayerConfig(int layerIdx = -1)
+		private void SetLayerConfig()
 		{
-            Layer layer = (layerIdx < 0) ? new Layer("SetLayerConfig") : mCore.ProjectCore.layers[layerIdx];
+            Layer layer = (lastLayerValue < 0) ? new Layer("DefaultSVGConfig") : mCore.ProjectCore.layers[lastLayerValue];
 
 			CBLaserON.SelectedIndex = CBLaserON.FindStringExact(LaserOptions.Where(x => (string)x.Value == layer.GCodeConfig.LaserOn).FirstOrDefault().Text);
 			IIMinPower.CurrentValue = layer.GCodeConfig.PowerMin;
 			IIMaxPower.CurrentValue = layer.GCodeConfig.PowerMax;
 			IIBorderTracing.CurrentValue = layer.GCodeConfig.BorderSpeed;
 			IILoopCounter.Value = layer.GCodeConfig.Passes;
-		}
+            RefreshPerc();
+        }
 
 		private void SaveLayerConfig(int layerIdx = -1)
 		{
@@ -151,10 +127,7 @@ namespace LaserGRBLPlus.SvgConverter
                 mCore.ProjectCore.layers[layerIdx].GCodeConfig.Passes = (int)IILoopCounter.Value;
 
                 // Save in last changes made
-                Setting.SaveLastGCodeConfig(mCore.ProjectCore.layers[layerIdx].GCodeConfig);
-
-                
-                //mCore.ProjectCore.layers[layerIdx].GCodeConfig.UpdateCompleted();
+                Setting.SaveLastGCodeConfig($"LayerGCodeConfig_{mCore.ProjectCore.layers[layerIdx].LayerColor}", mCore.ProjectCore.layers[layerIdx].GCodeConfig);
             }
 		}
 
@@ -174,65 +147,6 @@ namespace LaserGRBLPlus.SvgConverter
 				LblMinPerc.Text = "";
 			}
 		}
-
-
-
-
-
-
-
-
-
-
-
-
-
-		//internal static void CreateAndShowDialog(GrblCore core, Form parent)
-  //      {
-  //          using (SvgToGCodeForm f = new SvgToGCodeForm(core))
-  //          {
-  //              f.ShowDialogForm(parent);
-  //              if (f.DialogResult == DialogResult.OK)
-  //              {
-		//			// Save selection
-		//			core.ProjectCore.layers[layerIndex].LayerSettings.SetObject("GrayScaleConversion.VectorizeOptions.BorderSpeed", f.IIBorderTracing.CurrentValue);
-		//			core.ProjectCore.layers[layerIndex].LayerSettings.SetObject("GrayScaleConversion.Gcode.LaserOptions.PowerMax", f.IIMaxPower.CurrentValue);
-		//			core.ProjectCore.layers[layerIndex].LayerSettings.SetObject("GrayScaleConversion.Gcode.LaserOptions.PowerMin", f.IIMinPower.CurrentValue);
-		//			core.ProjectCore.layers[layerIndex].LayerSettings.SetObject("GrayScaleConversion.Gcode.LaserOptions.LaserOn", (f.CBLaserON.SelectedItem as ComboboxItem).Value);
-		//			core.ProjectCore.layers[layerIndex].LoadedFile.LoadImportedSVG(layerIndex, core);
-		//		}
-  //          }
-  //      }
-
-		
-		// to edit
-		//internal static void CreateAndShowDialog(GrblCore core, Form parent, int layerIndex)
-		//{
-		//	using (SvgToGCodeForm f = new SvgToGCodeForm(core))
-		//	{
-		//		f.ShowDialogForm(parent, new int[] { layerIndex });
-		//		if (f.DialogResult == DialogResult.OK)
-		//		{
-		//			// Save selection
-		//			core.ProjectCore.layers[layerIndex].LayerSettings.SetObject("GrayScaleConversion.VectorizeOptions.BorderSpeed", f.IIBorderTracing.CurrentValue);
-		//			core.ProjectCore.layers[layerIndex].LayerSettings.SetObject("GrayScaleConversion.Gcode.LaserOptions.PowerMax", f.IIMaxPower.CurrentValue);
-		//			core.ProjectCore.layers[layerIndex].LayerSettings.SetObject("GrayScaleConversion.Gcode.LaserOptions.PowerMin", f.IIMinPower.CurrentValue);
-		//			core.ProjectCore.layers[layerIndex].LayerSettings.SetObject("GrayScaleConversion.Gcode.LaserOptions.LaserOn", (f.CBLaserON.SelectedItem as ComboboxItem).Value);
-		//			// Already loaded, only changes settings, nothing else required 
-		//			// TODO: maybe update the speed?
-		//			core.ProjectCore.layers[layerIndex].GRBLFile.LoadImportedSVG(core, layerIndex);
-		//		}
-		//	}
-		//}
-		//internal static Dictionary<string, object> CreateAndShowDialog(Form parent, GrblCore core, int[] layerIdx)
-
-
-		
-
-
-
-
-
 
 		void IIBorderTracingCurrentValueChanged(object sender, int OldValue, int NewValue, bool ByUser)
 		{
@@ -309,37 +223,22 @@ namespace LaserGRBLPlus.SvgConverter
 			SaveLayerConfig((int)((ComboBoxItem)CBLayerNames.SelectedItem).Value);
 		}
 
-        //private void IISizeW_OnTheFlyValueChanged(object sender, int OldValue, int NewValue, bool ByUser)
-        //{
-        //	if (ByUser)
-        //		IISizeH.CurrentValue = IP.WidthToHeight(NewValue);
-        //}
-
-        //private void IISizeH_OnTheFlyValueChanged(object sender, int OldValue, int NewValue, bool ByUser)
-        //{
-        //	if (ByUser) IISizeW.CurrentValue = IP.HeightToWidht(NewValue);
-        //}
-
         #endregion
 
 
 
         private void CBLayerNames_SelectionChangeCommitted(object sender, EventArgs e)
         {
-			// if not all, save last layer
-			if (lastLayerValue >= 0)
+            // if not all, save last layer
+            if (lastLayerValue >= 0)
 			{
 				SaveLayerConfig(lastLayerValue);
 			}
 
-			if (CBLayerNames.SelectedIndex >= 0)
-			{
-				ComboBoxItem comboboxItem = (ComboBoxItem)CBLayerNames.SelectedItem;
-				lastLayerValue = (int)comboboxItem.Value;
+            ComboBoxItem comboboxItem = (ComboBoxItem)CBLayerNames.SelectedItem;
+            lastLayerValue = (int)(comboboxItem?.Value ?? -1);
 
-				SetLayerConfig(lastLayerValue);
-				RefreshPerc();
-			}
-		}
+            SetLayerConfig();
+        }
     }
 }

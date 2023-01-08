@@ -587,7 +587,7 @@ namespace LaserGRBLPlus.RasterConverter
 			_Core.ProjectCore.layers[_LayerIndex].Config.Invert = invert;
 			_Core.ProjectCore.layers[_LayerIndex].Config.Cropping = cropping;
 
-			Setting.SaveLastGCodeConfig(_Core.ProjectCore.layers[_LayerIndex].GCodeConfig);
+			Setting.SaveLastGCodeConfig("LayerGCodeConfig_Raster", _Core.ProjectCore.layers[_LayerIndex].GCodeConfig);
             
 
             Bitmap editedBitmap;

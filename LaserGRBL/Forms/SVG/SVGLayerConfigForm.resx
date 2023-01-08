@@ -163,13 +163,10 @@
 </value>
   </data>
   <data name="BtnPSHelper.Location" type="System.Drawing.Point, System.Drawing">
-    <value>477, 94</value>
-  </data>
-  <data name="BtnPSHelper.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>358, 75</value>
   </data>
   <data name="BtnPSHelper.Size" type="System.Drawing.Size, System.Drawing">
-    <value>22, 22</value>
+    <value>16, 18</value>
   </data>
   <data name="BtnPSHelper.TabIndex" type="System.Int32, mscorlib">
     <value>25</value>
@@ -184,7 +181,7 @@
     <value>BtnPSHelper</value>
   </data>
   <data name="&gt;&gt;BtnPSHelper.Type" xml:space="preserve">
-    <value>LaserGRBLPlus.UserControls.ImageButton, LaserGRBLPlus, Version=0.6.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>LaserGRBLPlus.UserControls.ImageButton, LaserGRBLPlus, Version=0.9.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;BtnPSHelper.Parent" xml:space="preserve">
     <value>tableLayoutPanel7</value>
@@ -202,13 +199,10 @@
     <value>NoControl</value>
   </data>
   <data name="LblBorderTracingmm.Location" type="System.Drawing.Point, System.Drawing">
-    <value>159, 97</value>
-  </data>
-  <data name="LblBorderTracingmm.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 0, 4, 0</value>
+    <value>126, 77</value>
   </data>
   <data name="LblBorderTracingmm.Size" type="System.Drawing.Size, System.Drawing">
-    <value>54, 16</value>
+    <value>44, 13</value>
   </data>
   <data name="LblBorderTracingmm.TabIndex" type="System.Int32, mscorlib">
     <value>22</value>
@@ -238,13 +232,10 @@
     <value>NoControl</value>
   </data>
   <data name="LblBorderTracing.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 97</value>
-  </data>
-  <data name="LblBorderTracing.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 0, 4, 0</value>
+    <value>3, 77</value>
   </data>
   <data name="LblBorderTracing.Size" type="System.Drawing.Size, System.Drawing">
-    <value>48, 16</value>
+    <value>38, 13</value>
   </data>
   <data name="LblBorderTracing.TabIndex" type="System.Int32, mscorlib">
     <value>23</value>
@@ -268,13 +259,13 @@
     <value>Left</value>
   </data>
   <data name="IIBorderTracing.Location" type="System.Drawing.Point, System.Drawing">
-    <value>97, 96</value>
+    <value>79, 76</value>
   </data>
   <data name="IIBorderTracing.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 4, 0, 4</value>
+    <value>0, 3, 0, 3</value>
   </data>
   <data name="IIBorderTracing.Size" type="System.Drawing.Size, System.Drawing">
-    <value>58, 17</value>
+    <value>44, 15</value>
   </data>
   <data name="IIBorderTracing.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -283,7 +274,7 @@
     <value>IIBorderTracing</value>
   </data>
   <data name="&gt;&gt;IIBorderTracing.Type" xml:space="preserve">
-    <value>LaserGRBLPlus.UserControls.NumericInput.IntegerInputRanged, LaserGRBLPlus, Version=0.6.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>LaserGRBLPlus.UserControls.NumericInput.IntegerInputRanged, LaserGRBLPlus, Version=0.9.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;IIBorderTracing.Parent" xml:space="preserve">
     <value>tableLayoutPanel7</value>
@@ -301,13 +292,10 @@
     <value>NoControl</value>
   </data>
   <data name="LblSmin.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 37</value>
-  </data>
-  <data name="LblSmin.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 0, 4, 0</value>
+    <value>3, 29</value>
   </data>
   <data name="LblSmin.Size" type="System.Drawing.Size, System.Drawing">
-    <value>85, 16</value>
+    <value>70, 13</value>
   </data>
   <data name="LblSmin.TabIndex" type="System.Int32, mscorlib">
     <value>13</value>
@@ -331,13 +319,13 @@
     <value>Left</value>
   </data>
   <data name="IIMinPower.Location" type="System.Drawing.Point, System.Drawing">
-    <value>97, 36</value>
+    <value>79, 28</value>
   </data>
   <data name="IIMinPower.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 4, 0, 4</value>
+    <value>0, 3, 0, 3</value>
   </data>
   <data name="IIMinPower.Size" type="System.Drawing.Size, System.Drawing">
-    <value>57, 17</value>
+    <value>43, 15</value>
   </data>
   <data name="IIMinPower.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -346,7 +334,7 @@
     <value>IIMinPower</value>
   </data>
   <data name="&gt;&gt;IIMinPower.Type" xml:space="preserve">
-    <value>LaserGRBLPlus.UserControls.NumericInput.IntegerInputRanged, LaserGRBLPlus, Version=0.6.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>LaserGRBLPlus.UserControls.NumericInput.IntegerInputRanged, LaserGRBLPlus, Version=0.9.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;IIMinPower.Parent" xml:space="preserve">
     <value>tableLayoutPanel7</value>
@@ -364,13 +352,10 @@
     <value>NoControl</value>
   </data>
   <data name="label18.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 7</value>
-  </data>
-  <data name="label18.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 0, 4, 0</value>
+    <value>3, 5</value>
   </data>
   <data name="label18.Size" type="System.Drawing.Size, System.Drawing">
-    <value>79, 16</value>
+    <value>63, 13</value>
   </data>
   <data name="label18.TabIndex" type="System.Int32, mscorlib">
     <value>19</value>
@@ -409,13 +394,10 @@
 </value>
   </data>
   <data name="BtnOnOffInfo.Location" type="System.Drawing.Point, System.Drawing">
-    <value>477, 4</value>
-  </data>
-  <data name="BtnOnOffInfo.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>358, 3</value>
   </data>
   <data name="BtnOnOffInfo.Size" type="System.Drawing.Size, System.Drawing">
-    <value>22, 22</value>
+    <value>16, 18</value>
   </data>
   <data name="BtnOnOffInfo.TabIndex" type="System.Int32, mscorlib">
     <value>22</value>
@@ -431,7 +413,7 @@ Click for more information...</value>
     <value>BtnOnOffInfo</value>
   </data>
   <data name="&gt;&gt;BtnOnOffInfo.Type" xml:space="preserve">
-    <value>LaserGRBLPlus.UserControls.ImageButton, LaserGRBLPlus, Version=0.6.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>LaserGRBLPlus.UserControls.ImageButton, LaserGRBLPlus, Version=0.9.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;BtnOnOffInfo.Parent" xml:space="preserve">
     <value>tableLayoutPanel7</value>
@@ -443,13 +425,10 @@ Click for more information...</value>
     <value>Fill</value>
   </data>
   <data name="CBLaserON.Location" type="System.Drawing.Point, System.Drawing">
-    <value>101, 4</value>
-  </data>
-  <data name="CBLaserON.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>82, 3</value>
   </data>
   <data name="CBLaserON.Size" type="System.Drawing.Size, System.Drawing">
-    <value>368, 24</value>
+    <value>270, 21</value>
   </data>
   <data name="CBLaserON.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -476,13 +455,10 @@ Click for more information...</value>
     <value>NoControl</value>
   </data>
   <data name="LblSmax.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 67</value>
-  </data>
-  <data name="LblSmax.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 0, 4, 0</value>
+    <value>3, 53</value>
   </data>
   <data name="LblSmax.Size" type="System.Drawing.Size, System.Drawing">
-    <value>89, 16</value>
+    <value>73, 13</value>
   </data>
   <data name="LblSmax.TabIndex" type="System.Int32, mscorlib">
     <value>17</value>
@@ -506,13 +482,13 @@ Click for more information...</value>
     <value>Left</value>
   </data>
   <data name="IIMaxPower.Location" type="System.Drawing.Point, System.Drawing">
-    <value>97, 66</value>
+    <value>79, 52</value>
   </data>
   <data name="IIMaxPower.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 4, 0, 4</value>
+    <value>0, 3, 0, 3</value>
   </data>
   <data name="IIMaxPower.Size" type="System.Drawing.Size, System.Drawing">
-    <value>57, 17</value>
+    <value>43, 15</value>
   </data>
   <data name="IIMaxPower.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -521,7 +497,7 @@ Click for more information...</value>
     <value>IIMaxPower</value>
   </data>
   <data name="&gt;&gt;IIMaxPower.Type" xml:space="preserve">
-    <value>LaserGRBLPlus.UserControls.NumericInput.IntegerInputRanged, LaserGRBLPlus, Version=0.6.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>LaserGRBLPlus.UserControls.NumericInput.IntegerInputRanged, LaserGRBLPlus, Version=0.9.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;IIMaxPower.Parent" xml:space="preserve">
     <value>tableLayoutPanel7</value>
@@ -539,13 +515,10 @@ Click for more information...</value>
     <value>NoControl</value>
   </data>
   <data name="LblMinPerc.Location" type="System.Drawing.Point, System.Drawing">
-    <value>159, 37</value>
-  </data>
-  <data name="LblMinPerc.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 0, 4, 0</value>
+    <value>126, 29</value>
   </data>
   <data name="LblMinPerc.Size" type="System.Drawing.Size, System.Drawing">
-    <value>26, 16</value>
+    <value>21, 13</value>
   </data>
   <data name="LblMinPerc.TabIndex" type="System.Int32, mscorlib">
     <value>26</value>
@@ -575,13 +548,10 @@ Click for more information...</value>
     <value>NoControl</value>
   </data>
   <data name="LblMaxPerc.Location" type="System.Drawing.Point, System.Drawing">
-    <value>159, 67</value>
-  </data>
-  <data name="LblMaxPerc.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 0, 4, 0</value>
+    <value>126, 53</value>
   </data>
   <data name="LblMaxPerc.Size" type="System.Drawing.Size, System.Drawing">
-    <value>40, 16</value>
+    <value>33, 13</value>
   </data>
   <data name="LblMaxPerc.TabIndex" type="System.Int32, mscorlib">
     <value>27</value>
@@ -620,13 +590,10 @@ Click for more information...</value>
 </value>
   </data>
   <data name="BtnModulationInfo.Location" type="System.Drawing.Point, System.Drawing">
-    <value>477, 34</value>
-  </data>
-  <data name="BtnModulationInfo.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>358, 27</value>
   </data>
   <data name="BtnModulationInfo.Size" type="System.Drawing.Size, System.Drawing">
-    <value>22, 22</value>
+    <value>16, 18</value>
   </data>
   <data name="BtnModulationInfo.TabIndex" type="System.Int32, mscorlib">
     <value>23</value>
@@ -641,7 +608,7 @@ Click for more information...</value>
     <value>BtnModulationInfo</value>
   </data>
   <data name="&gt;&gt;BtnModulationInfo.Type" xml:space="preserve">
-    <value>LaserGRBLPlus.UserControls.ImageButton, LaserGRBLPlus, Version=0.6.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>LaserGRBLPlus.UserControls.ImageButton, LaserGRBLPlus, Version=0.9.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;BtnModulationInfo.Parent" xml:space="preserve">
     <value>tableLayoutPanel7</value>
@@ -659,13 +626,10 @@ Click for more information...</value>
     <value>NoControl</value>
   </data>
   <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 127</value>
-  </data>
-  <data name="label3.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 0, 4, 0</value>
+    <value>3, 101</value>
   </data>
   <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>53, 16</value>
+    <value>41, 13</value>
   </data>
   <data name="label3.TabIndex" type="System.Int32, mscorlib">
     <value>28</value>
@@ -686,13 +650,13 @@ Click for more information...</value>
     <value>14</value>
   </data>
   <data name="IILoopCounter.Location" type="System.Drawing.Point, System.Drawing">
-    <value>97, 124</value>
+    <value>79, 99</value>
   </data>
   <data name="IILoopCounter.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 4, 0, 4</value>
+    <value>0, 3, 0, 3</value>
   </data>
   <data name="IILoopCounter.Size" type="System.Drawing.Size, System.Drawing">
-    <value>58, 22</value>
+    <value>44, 20</value>
   </data>
   <data name="IILoopCounter.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
@@ -716,16 +680,13 @@ Click for more information...</value>
     <value>Fill</value>
   </data>
   <data name="tableLayoutPanel7.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 19</value>
-  </data>
-  <data name="tableLayoutPanel7.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>3, 16</value>
   </data>
   <data name="tableLayoutPanel7.RowCount" type="System.Int32, mscorlib">
     <value>5</value>
   </data>
   <data name="tableLayoutPanel7.Size" type="System.Drawing.Size, System.Drawing">
-    <value>503, 150</value>
+    <value>377, 120</value>
   </data>
   <data name="tableLayoutPanel7.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -743,22 +704,16 @@ Click for more information...</value>
     <value>0</value>
   </data>
   <data name="tableLayoutPanel7.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="BtnPSHelper" Row="3" RowSpan="1" Column="3" ColumnSpan="1" /&gt;&lt;Control Name="LblBorderTracingmm" Row="3" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="LblBorderTracing" Row="3" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="IIBorderTracing" Row="3" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="LblSmin" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="IIMinPower" Row="1" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="label18" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="BtnOnOffInfo" Row="0" RowSpan="1" Column="3" ColumnSpan="1" /&gt;&lt;Control Name="CBLaserON" Row="0" RowSpan="1" Column="1" ColumnSpan="2" /&gt;&lt;Control Name="LblSmax" Row="2" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="IIMaxPower" Row="2" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="LblMinPerc" Row="1" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="LblMaxPerc" Row="2" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="BtnModulationInfo" Row="1" RowSpan="1" Column="3" ColumnSpan="1" /&gt;&lt;Control Name="label3" Row="4" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="IILoopCounter" Row="4" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="AutoSize,0,AutoSize,0,Percent,100,Absolute,30" /&gt;&lt;Rows Styles="Absolute,30,Absolute,30,Absolute,30,Absolute,30,Absolute,30" /&gt;&lt;/TableLayoutSettings&gt;</value>
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="BtnPSHelper" Row="3" RowSpan="1" Column="3" ColumnSpan="1" /&gt;&lt;Control Name="LblBorderTracingmm" Row="3" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="LblBorderTracing" Row="3" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="IIBorderTracing" Row="3" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="LblSmin" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="IIMinPower" Row="1" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="label18" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="BtnOnOffInfo" Row="0" RowSpan="1" Column="3" ColumnSpan="1" /&gt;&lt;Control Name="CBLaserON" Row="0" RowSpan="1" Column="1" ColumnSpan="2" /&gt;&lt;Control Name="LblSmax" Row="2" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="IIMaxPower" Row="2" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="LblMinPerc" Row="1" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="LblMaxPerc" Row="2" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="BtnModulationInfo" Row="1" RowSpan="1" Column="3" ColumnSpan="1" /&gt;&lt;Control Name="label3" Row="4" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="IILoopCounter" Row="4" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="AutoSize,0,AutoSize,0,Percent,100,Absolute,22" /&gt;&lt;Rows Styles="Absolute,24,Absolute,24,Absolute,24,Absolute,24,Absolute,24" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
   <data name="GbLaser.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
   <data name="GbLaser.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 64</value>
-  </data>
-  <data name="GbLaser.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
-  </data>
-  <data name="GbLaser.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>3, 52</value>
   </data>
   <data name="GbLaser.Size" type="System.Drawing.Size, System.Drawing">
-    <value>511, 173</value>
+    <value>383, 139</value>
   </data>
   <data name="GbLaser.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -791,13 +746,10 @@ Click for more information...</value>
     <value>NoControl</value>
   </data>
   <data name="BtnCancel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>301, 4</value>
-  </data>
-  <data name="BtnCancel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>226, 3</value>
   </data>
   <data name="BtnCancel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>99, 33</value>
+    <value>74, 27</value>
   </data>
   <data name="BtnCancel.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
@@ -821,13 +773,10 @@ Click for more information...</value>
     <value>NoControl</value>
   </data>
   <data name="BtnCreate.Location" type="System.Drawing.Point, System.Drawing">
-    <value>408, 4</value>
-  </data>
-  <data name="BtnCreate.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>306, 3</value>
   </data>
   <data name="BtnCreate.Size" type="System.Drawing.Size, System.Drawing">
-    <value>99, 33</value>
+    <value>74, 27</value>
   </data>
   <data name="BtnCreate.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
@@ -851,16 +800,13 @@ Click for more information...</value>
     <value>Fill</value>
   </data>
   <data name="tableLayoutPanel1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 245</value>
-  </data>
-  <data name="tableLayoutPanel1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>3, 197</value>
   </data>
   <data name="tableLayoutPanel1.RowCount" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
   <data name="tableLayoutPanel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>511, 45</value>
+    <value>383, 39</value>
   </data>
   <data name="tableLayoutPanel1.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -887,13 +833,10 @@ Click for more information...</value>
     <value>Fill</value>
   </data>
   <data name="CBLayerNames.Location" type="System.Drawing.Point, System.Drawing">
-    <value>104, 4</value>
-  </data>
-  <data name="CBLayerNames.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>78, 3</value>
   </data>
   <data name="CBLayerNames.Size" type="System.Drawing.Size, System.Drawing">
-    <value>369, 23</value>
+    <value>278, 21</value>
   </data>
   <data name="CBLayerNames.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -902,7 +845,7 @@ Click for more information...</value>
     <value>CBLayerNames</value>
   </data>
   <data name="&gt;&gt;CBLayerNames.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBoxRowColor, LaserGRBLPlus, Version=0.6.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>System.Windows.Forms.ComboBoxRowColor, LaserGRBLPlus, Version=0.9.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;CBLayerNames.Parent" xml:space="preserve">
     <value>tableLayoutPanel2</value>
@@ -917,13 +860,10 @@ Click for more information...</value>
     <value>NoControl</value>
   </data>
   <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 0</value>
-  </data>
-  <data name="label1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 0, 4, 0</value>
+    <value>3, 0</value>
   </data>
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>92, 33</value>
+    <value>69, 28</value>
   </data>
   <data name="label1.TabIndex" type="System.Int32, mscorlib">
     <value>25</value>
@@ -950,13 +890,16 @@ Click for more information...</value>
     <value>Fill</value>
   </data>
   <data name="tableLayoutPanel2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 18</value>
+    <value>2, 15</value>
+  </data>
+  <data name="tableLayoutPanel2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
   </data>
   <data name="tableLayoutPanel2.RowCount" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
   <data name="tableLayoutPanel2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>507, 33</value>
+    <value>381, 28</value>
   </data>
   <data name="tableLayoutPanel2.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -974,16 +917,22 @@ Click for more information...</value>
     <value>0</value>
   </data>
   <data name="tableLayoutPanel2.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="CBLayerNames" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="label1" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Absolute,100,Percent,100,AutoSize,0,Absolute,30" /&gt;&lt;Rows Styles="Absolute,33" /&gt;&lt;/TableLayoutSettings&gt;</value>
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="CBLayerNames" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="label1" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Absolute,75,Percent,100,AutoSize,0,Absolute,22" /&gt;&lt;Rows Styles="Absolute,27" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
   <data name="groupBox1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
   <data name="groupBox1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 3</value>
+    <value>2, 2</value>
+  </data>
+  <data name="groupBox1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="groupBox1.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
   </data>
   <data name="groupBox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>513, 54</value>
+    <value>385, 45</value>
   </data>
   <data name="groupBox1.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -1009,14 +958,11 @@ Click for more information...</value>
   <data name="tableLayoutPanelMain.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
-  <data name="tableLayoutPanelMain.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
-  </data>
   <data name="tableLayoutPanelMain.RowCount" type="System.Int32, mscorlib">
     <value>6</value>
   </data>
   <data name="tableLayoutPanelMain.Size" type="System.Drawing.Size, System.Drawing">
-    <value>519, 294</value>
+    <value>389, 239</value>
   </data>
   <data name="tableLayoutPanelMain.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -1034,22 +980,22 @@ Click for more information...</value>
     <value>0</value>
   </data>
   <data name="tableLayoutPanelMain.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="GbLaser" Row="4" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="tableLayoutPanel1" Row="5" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="groupBox1" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,100" /&gt;&lt;Rows Styles="Absolute,60,AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,Percent,100" /&gt;&lt;/TableLayoutSettings&gt;</value>
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="GbLaser" Row="4" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="tableLayoutPanel1" Row="5" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="groupBox1" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,100" /&gt;&lt;Rows Styles="Absolute,49,AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,Percent,100" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>8, 16</value>
+    <value>6, 13</value>
   </data>
   <data name="$this.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
     <value>GrowAndShrink</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>519, 294</value>
+    <value>389, 239</value>
   </data>
   <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 5, 5, 5</value>
+    <value>4, 4, 4, 4</value>
   </data>
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
     <value>CenterParent</value>

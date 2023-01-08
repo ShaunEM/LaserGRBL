@@ -28,14 +28,14 @@ namespace LaserGRBLPlus
         public GCodeConfig GCodeConfig { get; set; }
         public LayerType LayerType { get; set; } = LayerType.Notset;
 
-
+        public string LayerColor { get; set; } = "";
 
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="layerType">Can by anything to identify the layer, will load last config if found, otherwise default</param>
-        public Layer(string layerType)
+        public Layer(string layerColor)
         {
             // replace this with LayerConfig
             //LayerSettings = new LayerSettings(); 
@@ -43,10 +43,9 @@ namespace LaserGRBLPlus
 
             //GCodeConfig = (GCodeConfig)Setting.LastGCodeConfig.Clone();
             // TODO: Load as per layer type
-            GCodeConfig = Setting.GetLastGCodeConfig();                     // Machine settings, power, speed
-
-
-
+            this.LayerColor= layerColor;
+            
+            GCodeConfig = Setting.GetLastGCodeConfig($"LayerGCodeConfig_{LayerColor}");                     // Machine settings, power, speed
 
             Config = new LayerConfig();                 // Color, with,height...
             GCode = new GCode();

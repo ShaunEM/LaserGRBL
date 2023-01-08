@@ -152,16 +152,16 @@ namespace LaserGRBLPlus.Settings
         //}
 
 
-        public static GCodeConfig GetLastGCodeConfig(string type = "LastGCodeConfig")
+        public static GCodeConfig GetLastGCodeConfig(string layerId)
         {
             // TODO: Update file name to layer type
-            return JSONFileManager.Load<GCodeConfig>(GetFileName(type));
+            return JSONFileManager.Load<GCodeConfig>(GetFileName(layerId));
         }
 
-        public static void SaveLastGCodeConfig(GCodeConfig gCodeConfig)
+        public static void SaveLastGCodeConfig(string layerId, GCodeConfig gCodeConfig)
         {
             // TODO: Update file name to layer type
-            JSONFileManager.Save(GetFileName("LastGCodeConfig"), gCodeConfig);
+            JSONFileManager.Save(GetFileName(layerId), gCodeConfig);
         }
 
 

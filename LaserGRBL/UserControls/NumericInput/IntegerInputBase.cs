@@ -283,7 +283,7 @@ namespace LaserGRBLPlus.UserControls.NumericInput
 
 		protected virtual int ParseEditValue()
 		{
-			return int.Parse(TB.Text);
+			return int.TryParse(TB.Text, out int val) ? val : 0;
 		}
 
 
